@@ -1,0 +1,14 @@
+ul {
+  padding-left:0;
+  list-style:none;
+}
+ul-item{
+  display:inline-block
+}
+ul-item:not(:last-child){
+  margin-right:5px
+}
+table > td{
+  padding: 0px;
+  cursor: default;
+}
