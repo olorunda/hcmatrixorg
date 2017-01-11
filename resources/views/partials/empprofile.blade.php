@@ -21,6 +21,8 @@
 									<h4>{{strtoupper($employee->name)}}</h4>
 									<?php $job = app('App\Http\Controllers\EmployeeController')->getjobdetail($employee->job_id); ?>
 									<h5><b>Job Role:</b> {{($job['title'])}}</h5>
+									<h5><b>Level:</b> {{rand(0,9)}}</h5>
+									<h5><b>Band:</b> {{rand(0,9)}}</h5>
 									<h5><b style="font-weight:bold;"> ID: {{strtoupper($employee->emp_num)}}</b></h5>
 									<h5><b>Department: </b>{{app('App\Http\Controllers\AvailJobController')->getDept($employee->workdept_id)}}</h5>
 									<h5><b>Last Promoted on:</b> {{niceDate($employee->last_promoted)}}</h5>
