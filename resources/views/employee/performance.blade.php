@@ -19,14 +19,10 @@
  $(function(){
 
    setInterval(function(){
-    $.get('/employee/time',function(data,status,xhr){
-
-     $('#time').html(data);
-
-   });	
-
+      $('#time').html(new Date(new Date().getTime()).toLocaleTimeString());
 
   },1000);
+  
    $('.col-md-6').fadeIn(1000);
 		
 		   $('.show').hide(1000);

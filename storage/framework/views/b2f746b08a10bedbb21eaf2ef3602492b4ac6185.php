@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="../../global/vendor/intro-js/introjs.css">
   <link rel="stylesheet" href="../../global/vendor/slidepanel/slidePanel.css">
   <link rel="stylesheet" href="../../global/vendor/flag-icon-css/flag-icon.css">
+  <link rel="stylesheet" href="<?php echo e(asset('assets/css/nprogress.css')); ?>">
   <link rel="stylesheet" href="../../../global/vendor/dropify/dropify.css">
   <link rel="stylesheet" href="../../global/vendor/chartist/chartist.css">
   <link rel="stylesheet" href="../../global/vendor/jvectormap/jquery-jvectormap.css">
@@ -379,6 +380,7 @@
   <?php elseif(active('lm/rate')): ?>
   <script src="../../../global/vendor/select2/select2.full.min.js"></script>
   <script src="../../../global/js/Plugin/select2.js"></script>
+   <script src="<?php echo e(asset('assets/js/nprogress.js')); ?>"></script>
   <script src="<?php echo e(asset('assets/js/sweetalert.min.js')); ?>"></script>
   <script src="../../../global/vendor/raphael/raphael-min.js"></script>
   <script src="../../../global/vendor/morris/morris.min.js"></script>
@@ -387,6 +389,23 @@
   <!--<script src="../../../global/js/Plugin/raty.js"></script>-->
   <script src="<?php echo e(asset('assets/js/myrate.js')); ?>"></script>
   <?php endif; ?>
-  
+  	<script>
+	$(function(){
+			
+	 $(document).ajaxStart(function(){
+		 
+		NProgress.start();
+	     
+	}).ajaxStop(function(){
+		
+		
+		NProgress.done();
+		 
+	});
+	 
+	 
+	});
+ 
+ </script>
 </body>
 </html>

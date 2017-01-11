@@ -18,17 +18,16 @@
    
  $(function(){
 
-   setInterval(function(){
-    $.get('/employee/time',function(data,status,xhr){
+ 
+    setInterval(function(){
+   
+     $('#time').html(new Date(new Date().getTime()).toLocaleTimeString());
 
-     $('#time').html(data);
+	 
+ },1000);	
 
-   });	
 
-
-  },1000);
   
-$(function(){
 	 $('.col-md-6').fadeIn(1000);
 		
 		   $('.show').hide(1000);
@@ -37,7 +36,7 @@ $(function(){
   
  
 
- });
+ 
 </script>
   <div class="hide" >
 <div class="page-header">

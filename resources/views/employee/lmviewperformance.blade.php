@@ -25,15 +25,12 @@
 });
 
 
-   setInterval(function(){
-    $.get('/employee/time',function(data,status,xhr){
+  setInterval(function(){
+   
+     $('#time').html(new Date(new Date().getTime()).toLocaleTimeString());
 
-     $('#time').html(data);
-
-   });	
-
-
-  },1000);
+	 
+ },1000);
    $.get('/leave/statistics',function(data,status,xhr){
  linkinfo= Morris.Bar({
   element: 'absencechart',

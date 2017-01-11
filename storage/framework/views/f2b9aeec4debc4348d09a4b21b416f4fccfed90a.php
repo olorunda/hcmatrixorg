@@ -146,6 +146,18 @@
   <?php endif; ?>
 
   <style>
+  <?php if(active('view/attendancecalender')): ?>
+  .fc-content{
+	  
+	  background-color:#53a26c;
+	  background-color:rgba(7, 122, 59, 0.72);
+  }
+  .fc-title{
+	  
+	 color:white; 
+  }
+  <?php endif; ?>
+  
   <?php if(active('view/docadmin')|| active('view/mydocument')): ?>
   div.raspberry {
     float: left;
@@ -796,7 +808,11 @@ div p {
 	 <script src="<?php echo e(asset('global/js/Plugin/datepair.js')); ?>"></script>	 
 
   <script src="<?php echo e(asset('assets/js/nprogress.js')); ?>"></script>
-  <script src="https://cdn.jsdelivr.net/jquery.loadingoverlay/latest/loadingoverlay.min.js"></script>	 
+  <?php if(active('lm/goals')): ?>
+	  
+  <?php else: ?>
+  <script src="https://cdn.jsdelivr.net/jquery.loadingoverlay/latest/loadingoverlay.min.js"></script>	
+<?php endif; ?> 
   <script src="<?php echo e(asset('global/vendor/moment/moment.min.js')); ?>"></script>
    <script src="<?php echo e(asset('global/vendor/fullcalendar/fullcalendar.js')); ?>"></script>
 	

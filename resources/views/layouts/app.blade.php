@@ -146,6 +146,18 @@
   @endif
 
   <style>
+  @if(active('view/attendancecalender'))
+  .fc-content{
+	  
+	  background-color:#53a26c;
+	  background-color:rgba(7, 122, 59, 0.72);
+  }
+  .fc-title{
+	  
+	 color:white; 
+  }
+  @endif
+  
   @if(active('view/docadmin')|| active('view/mydocument'))
   div.raspberry {
     float: left;
@@ -796,7 +808,11 @@ div p {
 	 <script src="{{asset('global/js/Plugin/datepair.js')}}"></script>	 
 
   <script src="{{asset('assets/js/nprogress.js')}}"></script>
-  <script src="https://cdn.jsdelivr.net/jquery.loadingoverlay/latest/loadingoverlay.min.js"></script>	 
+  @if(active('lm/goals'))
+	  
+  @else
+  <script src="https://cdn.jsdelivr.net/jquery.loadingoverlay/latest/loadingoverlay.min.js"></script>	
+@endif 
   <script src="{{asset('global/vendor/moment/moment.min.js')}}"></script>
    <script src="{{asset('global/vendor/fullcalendar/fullcalendar.js')}}"></script>
 	

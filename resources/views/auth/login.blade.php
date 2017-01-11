@@ -66,7 +66,7 @@
         				<h3 class="brand-text font-size-40"></h3>
         			</div>
         			<h3 class="font-size-24" style="color: white;">Sign In</h3>
-        			<p>Sign In With Your O365 Account.</p>
+        			@if(session()->has('message'))<p style="color:red"><b>{{session('message')}}</b></p>@endif
         			<form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
         				{{ csrf_field() }}
         				<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
@@ -104,7 +104,7 @@
 					  <p class="text-center" style="text-align:center">- OR -</p>
     <a href="{{ url('/auth/microsoft') }}" class="btn btn-primary btn-block"><i class="fa fa-windows"></i> Signin With Office365</a>
  
-        			<p>No account? <a href="register">Sign Up</a></p>
+        			<!--<p>No account? <a href="register">Sign Up</a></p>
         			<p><a href="{{url('available_jobs/joblist')}}">Job Portal</a></p>
         			<footer class="page-copyright" style="color: white;">
         				<p style="display: none;">WEBSITE BY Snapnet</p>
@@ -122,7 +122,7 @@
         					<a href="javascript:void(0)" class="btn btn-icon btn-round">
         						<img class="img-circle" src="{{asset('assets/images/office.png')}}" style="width: 36px;height: 36px;margin-left: -20px;">
         					</a>
-        				</div>
+        				</div>-->
         			</footer>
         		</div>
         	</div>
@@ -176,4 +176,5 @@
         	})(document, window, jQuery);
         </script>
     </body>
+    </html>
     </html>

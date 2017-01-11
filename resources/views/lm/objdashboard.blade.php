@@ -13,11 +13,9 @@
  $(function(){
 
    setInterval(function(){
-    $.get('/employee/time',function(data,status,xhr){
+      $('#time').html(new Date(new Date().getTime()).toLocaleTimeString());
 
-     $('#time').html(data);
-
-   });	
+	 	
 
 
   },1000);
