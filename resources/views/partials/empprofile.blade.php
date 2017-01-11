@@ -17,7 +17,7 @@
 									<h4>{{strtoupper($employee->name)}}</h4>
 									<?php $job = app('App\Http\Controllers\EmployeeController')->getjobdetail($employee->job_id); ?>
 									<h5>Job Role: {{strtoupper($job['title'])}}</h5>
-									<h5>Emp. ID.: {{strtoupper($employee->emp_num)}}</h5>
+									<h5> ID: {{strtoupper($employee->emp_num)}}</h5>
 									<h5>Department: {{app('App\Http\Controllers\AvailJobController')->getDept($employee->workdept_id)}}</h5>
 									<h5>Last Promoted on: {{niceDate($employee->last_promoted)}}</h5>
 								</div>

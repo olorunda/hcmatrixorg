@@ -94,9 +94,9 @@
 <div >
 
   <?php if(Auth::user()->role!=0 ): ?>
-<div class="row row-lg">
+<div class="col-md-12 col-xs-12 col-md-12">
   <div class="col-xl-3 col-md-6 col-xs-12 info-panel">
-    <div class="card card-shadow">
+    <div class="card card-shadow card-shadow1">
       <div class="card-block bg-white p-30">
         <button onclick="url('<?php echo e(url('/employee/profile')); ?>')" type="button" class="btn btn-floating btn-sm btn-warning">
           <i class="fa fa-user"></i>
@@ -109,9 +109,10 @@
     </div>
 	
   </div>
+  
     <?php if(Auth::user()->role>=2): ?>
   <div class="col-xl-3 col-md-6 col-xs-12 info-panel marg" >
-    <div class="card card-shadow">
+    <div class="card card-shadow card-shadow1" >
       <div class="card-block bg-white p-30">
         <button onclick="url('<?php echo e(url('manage/absence')); ?>')" type="button" class="btn btn-floating btn-sm btn-success">
           <i class="fa fa-plane"></i>
@@ -125,7 +126,7 @@
   </div>
   <?php endif; ?>
   <div class="col-xl-3 col-md-6 col-xs-12 info-panel marg">
-    <div class="card card-shadow">
+    <div class="card card-shadow card-shadow1">
       <div class="card-block bg-white p-30">
         <button <?php if(Auth::user()->role>=2): ?>  onclick="url('<?php echo e(url('employee/objective')); ?>')" 
 		<?php else: ?>  onclick="url('<?php echo e(url('employee/performance')); ?>')"      <?php endif; ?> type="button" class="btn btn-floating btn-sm btn-primary">
@@ -140,7 +141,7 @@
   </div>
 
   <div class="col-xl-3 col-md-6 col-xs-12 info-panel marg" >
-    <div class="card card-shadow">
+    <div class="card card-shadow card-shadow1">
       <div class="card-block bg-white p-30">
         <button type="button" class="btn btn-floating btn-sm btn-info">
           <i class="fa fa-book"></i>
@@ -153,7 +154,7 @@
     </div>
   </div>
   <div class="col-xl-3 col-md-6 col-xs-12 info-panel <?php if(Auth::user()->role>=2): ?> <?php else: ?> marg <?php endif; ?>" >
-    <div class="card card-shadow">
+    <div class="card card-shadow card-shadow1">
       <div class="card-block bg-white p-30">
         <button type="button" class="btn btn-floating btn-sm btn-warning">
           <i class="fa fa-money"></i>
@@ -166,7 +167,7 @@
     </div>
   </div>
     <div class="col-xl-3 col-md-6 col-xs-12 info-panel <?php if(Auth::user()->role>=2): ?> marg  <?php else: ?>  <?php endif; ?>">
-    <div class="card card-shadow">
+    <div class="card card-shadow card-shadow1">
       <div class="card-block bg-white p-30">
         <button type="button" class="btn btn-floating btn-sm btn-danger">
           <i class="fa fa-heartbeat"></i>
@@ -180,12 +181,12 @@
   </div>
   <?php if(Auth::user()->role>=2): ?>
    <div class="col-xl-3 col-md-6 col-xs-12 info-panel marg">                    
-    <div class="card card-shadow">
+    <div class="card card-shadow card-shadow1">
       <div class="card-block bg-white p-30">
         <button onclick="url('<?php echo e(url('hr/attendance')); ?>')" type="button" class="btn btn-floating btn-sm btn-info">
           <i class="fa fa-calendar"></i>
         </button>
-        <span class="m-l-15 font-weight-400">Attendance Log</span>
+        <span class="m-l-15 font-weight-400">Attendance</span>
         <div class="content-text text-xs-center m-b-0">
 
         </div>
@@ -196,7 +197,7 @@
 </div>
 </div>
 <?php endif; ?>
-<div class="row">
+<div class="col-md-12 col-xs-12 col-md-12">
 <style>
 #personalCompletedWidget .overlay-background{
 	background: #077a3b;
@@ -212,6 +213,7 @@
 	padding: 0px;
 	color: #fff;
 }
+ 
 </style>
 
 <!-- Personal -->
@@ -332,7 +334,7 @@
 	<div id="clockin" >
 	
 	
-	</div><br><br><br>
+	</div><br><br> 
 	  <button type="button" class="btn btn-danger btn-outline p-x-40" id="clocking"><i class="fa fa-clock"></i>Clock In</button>
 	   <button type="button" class="btn btn-success btn-outline p-x-40" id="clockout"><i class="fa fa-clock"></i>Clock Out</button>
 	 </div>
