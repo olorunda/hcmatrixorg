@@ -548,7 +548,7 @@ div p {
       </div>
     </div>
   </div>
-  <div id="element">
+  
   <!-- Page -->
 @if(active('manage/absence') || active('leave') || active('sort/*') || active('search')|| active('applicant/*') || active('lm/query')||active('lm/querytype/*') || active('employee/list')||active('employee/linemanager'))
 	  		@yield('content')
@@ -563,7 +563,7 @@ div p {
 	 </div>
   </div>
   @endif
-  </div>
+ 
   <!-- End Page -->
   <!-- Footer -->
   <footer class="site-footer">

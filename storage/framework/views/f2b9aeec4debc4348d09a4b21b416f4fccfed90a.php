@@ -548,7 +548,7 @@ div p {
       </div>
     </div>
   </div>
-  <div id="element">
+  
   <!-- Page -->
 <?php if(active('manage/absence') || active('leave') || active('sort/*') || active('search')|| active('applicant/*') || active('lm/query')||active('lm/querytype/*') || active('employee/list')||active('employee/linemanager')): ?>
 	  		<?php echo $__env->yieldContent('content'); ?>
@@ -563,7 +563,7 @@ div p {
 	 </div>
   </div>
   <?php endif; ?>
-  </div>
+ 
   <!-- End Page -->
   <!-- Footer -->
   <footer class="site-footer">
