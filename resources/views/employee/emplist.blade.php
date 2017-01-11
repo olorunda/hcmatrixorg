@@ -588,6 +588,7 @@ $('#issuequery').click(function(){
                         <div class="modal-body">
                           <br><span>Select Role</span>
 						  <select id="assignedrole" data-plugin="select2" class="form-control">
+						  <option value="1">Employee</option>
 						  <option value="2">Line-Manager</option>
 						  <option value="3">Admin-HR</option>
 						  
