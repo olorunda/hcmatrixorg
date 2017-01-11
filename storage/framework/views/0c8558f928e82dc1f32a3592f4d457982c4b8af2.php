@@ -14,6 +14,7 @@ $(function(){
     $('#calendar').fullCalendar({
          noEventsMessage:'No Leave Request For today',
 		 allDayText:'Employee Present Today',
+		 eventLimit: true,
 		  defaultView: 'month',
           header: {
 				left: 'prev,next today',

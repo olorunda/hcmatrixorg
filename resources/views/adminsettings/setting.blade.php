@@ -679,6 +679,51 @@ $(function(){
           </div>
           <!-- End Card -->
         </div>
+		
+		<div class="col-md-6 col-xs-12">
+          <!-- Card -->
+          <div class="card card-block p-30 bg-green-800">
+            <div class="card-watermark darker font-size-60 m-15"><i class="icon wb-settings" aria-hidden="true"></i></div>
+            <div class="counter counter-md counter-inverse text-xs-left">
+              <div class="counter-number-group">
+                <span class="counter-number">Payroll</span>
+                <span class="counter-number-related text-capitalize">Settings</span>
+              </div>
+              <div class="counter-label text-capitalize"><button data-toggle="modal" data-target="" type="button" class="btn btn-icon btn-warning btn-round"><i class="icon wb-settings" aria-hidden="true"></i></button></div>
+            </div>
+          </div>
+          <!-- End Card -->
+        </div>	
+		<div class="col-md-6 col-xs-12">
+          <!-- Card -->
+          <div class="card card-block p-30 bg-green-800">
+            <div class="card-watermark darker font-size-60 m-15"><i class="icon wb-settings" aria-hidden="true"></i></div>
+            <div class="counter counter-md counter-inverse text-xs-left">
+              <div class="counter-number-group">
+                <span class="counter-number">Attendance</span>
+                <span class="counter-number-related text-capitalize">Settings</span>
+              </div>
+              <div class="counter-label text-capitalize"><button data-toggle="modal" data-target="#setbiztime" type="button" class="btn btn-icon btn-warning btn-round"><i class="icon wb-settings" aria-hidden="true"></i></button></div>
+            </div>
+          </div>
+          <!-- End Card -->
+        </div>
+		
+		<div class="col-md-6 col-xs-12">
+          <!-- Card -->
+          <div class="card card-block p-30 bg-red-800">
+            <div class="card-watermark darker font-size-60 m-15"><i class="icon wb-settings" aria-hidden="true"></i></div>
+            <div class="counter counter-md counter-inverse text-xs-left">
+              <div class="counter-number-group">
+                <span class="counter-number">Notifications & Alert</span>
+                <span class="counter-number-related text-capitalize">Settings</span>
+              </div>
+              <div class="counter-label text-capitalize"><button data-toggle="modal" data-target="" type="button" class="btn btn-icon btn-warning btn-round"><i class="icon wb-settings" aria-hidden="true"></i></button></div>
+            </div>
+          </div>
+          <!-- End Card -->
+        </div>
+		
 
 <div class="modal fade modal-3d-flip-horizontal modal-success" id="importemp" aria-labelledby="exampleModalTitle" role="dialog" tabindex="-1" aria-hidden="true" style="display: none;">
                     <div class="modal-dialog">
@@ -851,6 +896,7 @@ $(function(){
 
 @include('partials.leavesetting')
 @include('partials.pilotsetting')
+@include('partials.attendancesetting')
 
 <!-- here modal importemp -->
 	@endsection

@@ -156,6 +156,14 @@
 	  
 	 color:white; 
   }
+  .fc-unthemed .fc-divider, .fc-unthemed .fc-list-heading td, .fc-unthemed .fc-popover .fc-header {
+    background: #10663a;
+
+}
+ 
+ .fc-list-heading-alt,.fc-list-heading-main{
+	color:white; 
+ }
   @endif
   
   @if(active('view/docadmin')|| active('view/mydocument'))

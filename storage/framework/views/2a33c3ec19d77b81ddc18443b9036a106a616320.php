@@ -66,7 +66,7 @@
         				<h3 class="brand-text font-size-40"></h3>
         			</div>
         			<h3 class="font-size-24" style="color: white;">Sign In</h3>
-        			<p>Sign In With Your O365 Account.</p>
+        			<?php if(session()->has('message')): ?><p style="color:red"><b><?php echo e(session('message')); ?></b></p><?php endif; ?>
         			<form class="form-horizontal" role="form" method="POST" action="<?php echo e(url('/login')); ?>">
         				<?php echo e(csrf_field()); ?>
 
@@ -91,7 +91,7 @@
         				</div>
         				<div class="form-group clearfix">
         					<div class="checkbox-custom checkbox-inline checkbox-primary pull-xs-left">
-        						<input type="checkbox" id="remember" name="remember" required="required">
+        						<input type="checkbox" id="remember" name="remember" >
         						<label for="remember">
         							 Remember me
         						</label>
@@ -105,7 +105,7 @@
 					  <p class="text-center" style="text-align:center">- OR -</p>
     <a href="<?php echo e(url('/auth/microsoft')); ?>" class="btn btn-primary btn-block"><i class="fa fa-windows"></i> Signin With Office365</a>
  
-        			<p>No account? <a href="register">Sign Up</a></p>
+        			<!--<p>No account? <a href="register">Sign Up</a></p>
         			<p><a href="<?php echo e(url('available_jobs/joblist')); ?>">Job Portal</a></p>
         			<footer class="page-copyright" style="color: white;">
         				<p style="display: none;">WEBSITE BY Snapnet</p>
@@ -123,7 +123,7 @@
         					<a href="javascript:void(0)" class="btn btn-icon btn-round">
         						<img class="img-circle" src="<?php echo e(asset('assets/images/office.png')); ?>" style="width: 36px;height: 36px;margin-left: -20px;">
         					</a>
-        				</div>
+        				</div>-->
         			</footer>
         		</div>
         	</div>
@@ -177,4 +177,5 @@
         	})(document, window, jQuery);
         </script>
     </body>
+    </html>
     </html>

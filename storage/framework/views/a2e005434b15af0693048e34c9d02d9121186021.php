@@ -103,7 +103,7 @@
   
         			</form>
 					  <p class="text-center" style="text-align:center">- OR -</p>
-    <a href="<?php echo e(url('/auth/microsoft')); ?>" class="btn btn-primary btn-block"><i class="fa fa-windows"></i> Signin With Office365</a>
+     <a href="<?php echo e(url('/auth/microsoft')); ?>" class="btn btn-danger btn-block"><img src="<?php echo e(asset('assets/images/o365.png')); ?>"></img>&nbsp;Sign in With Office365</a>
  
         			<!--<p>No account? <a href="register">Sign Up</a></p>
         			<p><a href="<?php echo e(url('available_jobs/joblist')); ?>">Job Portal</a></p>

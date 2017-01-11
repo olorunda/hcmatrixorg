@@ -1,4 +1,10 @@
 <?php $__env->startSection('content'); ?>
+<?php
+function niceDate($date)
+{
+	return date("l, jS \of F, Y. h:i:s A", strtotime($date));
+}
+?>
 <input type="hidden" value="<?php echo e(csrf_token()); ?>" id="token" />
 <script>
 
@@ -305,6 +311,7 @@ $('#issuequery').click(function(){
   </div>
 </div>
 <?php if(Auth::user()->role==3): ?>
+	<div class="col-md-12 col-lg-12 col-xs-12">
 <div class="col-lg-6 col-xs-12">
               <!-- Card -->
               <div class="card card-block p-35 clearfix" >
@@ -336,9 +343,10 @@ $('#issuequery').click(function(){
                 </div>
               </div>
 			  </div>
-			 <br><br><br><br><br><br><br><br>
+			  </div>
+	
 	<?php endif; ?>		
-		
+		<div class="col-md-12 col-xs-12">
     <div class="container-fluid">
       <!-- Panel -->
       <div class="panel">
@@ -358,10 +366,10 @@ $('#issuequery').click(function(){
 			
           </form>
 		  <?php if(Auth::user()->role==3): ?>
-		  <div class="col-md-1"></div>
+		
 		  
 		  <div class="col-md-2">
-		  <button class="btn btn-outline btn-success" data-toggle="modal" data-target="#lmlist"><i class="wb wb-clipboard"></i>&nbsp;&nbsp;Map Selected Employee To Line-Manager</button>
+		  <button class="btn btn-outline btn-success" data-toggle="modal" data-target="#lmlist"><i class="wb wb-clipboard"></i>&nbsp;&nbsp;Map Employee To Line-Manager</button>
 		  </div>
 		  <?php endif; ?>
 		  <br>
@@ -377,6 +385,9 @@ $('#issuequery').click(function(){
 			<?php if($employee->id==Auth::user()->id): ?>
 			
 				<?php else: ?>
+					
+				<?php echo $__env->make('partials.empprofile', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+				
                <li class="list-group-item">
                     <div class="media">
                       <div class="media-left">
@@ -397,20 +408,20 @@ $('#issuequery').click(function(){
 
                           
                         </h4>
-                        <p>
+                         <span>
                           <i class="icon icon-color wb-map" aria-hidden="true"></i>                          <?php echo e($employee->address); ?>
 
-                        </p>                        
-						<p>
-						<p>
-                          <i class="icon icon-color wb-map" aria-hidden="true"></i>Role: <span id="role<?php echo e($employee->id); ?>"> <?php if($employee->role==1): ?> Employee <?php endif; ?> <?php if($employee->role==2): ?> <b>Line-Manager</b> <?php endif; ?>
+                        </span>                        
+						 
+						<br><span>
+                          <i class="icon icon-color wb-map" aria-hidden="true"></i>&nbsp;Role: <span id="role<?php echo e($employee->id); ?>"> <?php if($employee->role==1): ?> Employee <?php endif; ?> <?php if($employee->role==2): ?> <b>Line-Manager</b> <?php endif; ?>
 						  <?php if($employee->role==3): ?> <b>Admin-HR</b>
 						  
 						  <?php endif; ?>  
 							</span>
-                        </p>                        
-						<p>
-                          <i class="icon icon-color wb-user" aria-hidden="true"></i> Managed By:
+                        </span>                        
+						<br><span>
+                          <i class="icon icon-color wb-user" aria-hidden="true"></i>&nbsp;Report to:
 						  <?php if(Auth::user()->id==$employee->linemanager_id): ?>
 							 You 
 						  <?php else: ?>
@@ -418,12 +429,12 @@ $('#issuequery').click(function(){
 						  <?php echo e($name); ?>
 
 						  <?php endif; ?>
-                        </p>
+                        </span>
 						<?php if(Auth::user()->role==3): ?>
-						<p>
-                          <i class="icon icon-color fa fa-user-plus" aria-hidden="true"></i>Assign Role: <button type="button" title="Assign Role" class="btn btn-pure btn-primary fa fa-user-plus " data-toggle="modal" data-target="#assignrole"onclick="assignrole('<?php echo e($employee->id); ?>','<?php echo e($employee->name); ?>')"></i></button>
+						<br><span>
+                          <i class="icon icon-color fa fa-user-plus" aria-hidden="true"></i>&nbsp;Assign Role: <button type="button" title="Assign Role" class="btn btn-pure btn-primary fa fa-user-plus " data-toggle="modal" data-target="#assignrole"onclick="assignrole('<?php echo e($employee->id); ?>','<?php echo e($employee->name); ?>')"></i></button>
 						  					  
-                        </p>
+                        </span>
 						<?php endif; ?>
 						<div>
                           <a class="text-action" href="mailto:">
@@ -452,7 +463,9 @@ $('#issuequery').click(function(){
                   
 					<!-- Make LINE MANAGER -->
 					
-					 <button type="button" title="View Profile" class="btn btn-outline btn-primary"><i class="icon wb-eye" aria-hidden="true"></i></button>
+					 <button type="button" data-toggle="modal"  data-target="#viewemp<?php echo e($employee->id); ?>" title="View Profile" class="btn btn-outline btn-primary"><i class="icon wb-eye" aria-hidden="true"></i></button>
+					 
+					 <a role="button" target="_blank" href="<?php echo e(url('searchdoc')); ?>?foldid=gen&q=<?php echo e(str_replace(' ','+',$employee->name)); ?>" title="View Document" class="btn btn-outline btn-primary"><i class="icon wb-briefcase" aria-hidden="true"></i></a>
                     <button type="button" title="Query Employee" class="btn btn-outline btn-warning" data-target="#querymod" onclick="query('<?php echo e($employee->id); ?>','<?php echo e($employee->name); ?>')" data-toggle="modal" ><i class="icon wb-hammer" aria-hidden="true"></i></button>
 					<?php if(Auth::user()->role==3): ?>
 						
@@ -494,7 +507,7 @@ $('#issuequery').click(function(){
       <!-- End Panel -->
     </div>
   </div>
-
+</div>
   <div class="modal fade modal-3d-sign" id="querymod" aria-labelledby="exampleModalTitle" role="dialog"  aria-hidden="true" style="display: none;">
                     <div class="modal-dialog">
                       <div class="modal-content">
@@ -576,7 +589,7 @@ $('#issuequery').click(function(){
                           <h4 class="modal-title">Assign Role to <span id="empname"></span></h4>
                         </div>
                         <div class="modal-body">
-                          <p>Select Role</p>
+                          <br><span>Select Role</span>
 						  <select id="assignedrole" data-plugin="select2" class="form-control">
 						  <option value="2">Line-Manager</option>
 						  <option value="3">Admin-HR</option>
@@ -604,7 +617,7 @@ $('#issuequery').click(function(){
                         </div>
                         <div class="modal-body">
                           <div class="modal-body">
-                          <p>Select Line Manager</p>
+                          <br><span>Select Line Manager</span>
 						  <select id="linemanager">
 						  <?php if(count($lms)>0): ?>
 						  <?php $__currentLoopData = $lms; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $lm): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>

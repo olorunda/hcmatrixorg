@@ -80,14 +80,14 @@
  <li class="site-menu-item has-sub menuborder">
     <a href="javascript:void(0)">
       <i class="site-menu-icon  wb-stats-bars" aria-hidden="true"></i>
-      <span class="site-menu-title">Document Management</span>
+      <span class="site-menu-title">Record Management</span>
       <span class="site-menu-arrow"></span>
     </a>  
   <ul class="site-menu-sub">
   <?php if(Auth::user()->role==2 || Auth::user()->role==3): ?>
       <li class="site-menu-item">
         <a class="animsition-link" href="<?php echo e(url('view')); ?>/docadmin">
-          <span class="site-menu-title">Document Administration</span>
+          <span class="site-menu-title">Record Management</span>
         </a>
       </li>
 	<?php endif; ?>

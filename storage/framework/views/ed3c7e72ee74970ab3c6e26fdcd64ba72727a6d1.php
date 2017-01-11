@@ -95,15 +95,8 @@ $(function(){
               </div>
               <!-- End Card -->
             </div>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-	<div class="col-lg-12">		 
+			
+	<div class="col-lg-12 col-md-12 col-xs-12">		 
 <div class="panel panel-success panel-line">
             <div class="panel-heading">
               <h3 class="panel-title">All Folders

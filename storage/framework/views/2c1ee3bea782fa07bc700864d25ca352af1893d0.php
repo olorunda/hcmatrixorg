@@ -131,23 +131,6 @@ $('#issuequery').click(function(){
 	
 });
 	
-	$("#savebizwrk").click(function(){
-		
-		start=$('#startbiz').val();
-		end=$('#closebiz').val();
-	$.get('<?php echo e(url('setwrkhrs')); ?>?start='+start+'&end='+end,function(data,status,xhr){
-		
-		if(xhr.status==200){
-			
-			toastr.success(data);
-		}
-		else{
-			toastr.error(data);
-		}
-		
-	});	
-		
-	});
 	    setInterval(function(){
    
      $('#time').html(new Date(new Date().getTime()).toLocaleTimeString());
@@ -262,8 +245,8 @@ $('#qtype').change(function(){
               </div>
               <!-- End Card -->
             </div>
-			<br><br><br><br><br><br><br><br><br>
-<div class="col-md-12  " >
+			 
+<div class="col-md-12 col-xs-12 col-md-12" >
 <div class="panel " >
         <div class="panel-body container-fluid">
           <div class="row row-lg">
@@ -272,7 +255,6 @@ $('#qtype').change(function(){
             <div class="col-xl-12 col-xs-12">
               <!-- Example Table Selectable -->
 	<div class="col-md-8">
-	<button type="button" data-toggle="modal" data-target="#setbiztime" class="btn btn-floating btn-danger"><i class="fa fa-cog" aria-hidden="true"></i></button>
 	</div>		  
 <div class="col-md-4">
 
@@ -415,32 +397,6 @@ $('#qtype').change(function(){
       </div>
 </div>
 <!-- SET START OF BUSINESS & CLOSE OF BUSINESS -->
-<div class="modal fade modal-success modal-rotate-from-left" id="setbiztime" aria-labelledby="exampleModalTitle" role="dialog"   style="display: none;" aria-hidden="true">
-                    <div class="modal-dialog">
-                      <div class="modal-content" style="z-index:99999999">
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                          </button>
-                          <h4 class="modal-title">Set Working Hours</h4>
-                        </div>
-                        <div class="modal-body">
-                       <?php $mm=app('App\Repositories\GlobalSettingRepository')->getworkinghours(); ?>
-						 <p>Start of Business:</p>
-						<input type="time" class="form-control" value="<?php echo e($mm['sob']); ?>" id="startbiz" data-plugin="clockpicker" />
-						<br>
-						 <p>Close of Business:</p>
-						<input  type="time" class="form-control" id="closebiz" data-plugin="clockpicker" value="<?php echo e($mm['cob']); ?>" />
- 						
-						
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                          <button type="button" id="savebizwrk" class="btn btn-primary">Save changes</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
 <!-- FISCAL MODAL ENDS -->
 <!-- QUERY MODAL STARTS -->
 

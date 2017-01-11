@@ -162,6 +162,7 @@ function(){
   </div>
   
 </div>
+<div  >
 <div class="col-lg-6 col-xs-12">
               <!-- Card -->
               <div class="card card-block p-35 clearfix">
@@ -194,15 +195,9 @@ function(){
               </div>
               <!-- End Card -->
             </div>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-	<div class="col-lg-12" oncontextmenu="dd(event)" onclick="dd2(event)">		 
+            </div>
+			
+	<div class="col-lg-12 col-md-12 col-xs-12" oncontextmenu="dd(event)" onclick="dd2(event)">		 
 <div class="panel panel-success panel-line">
             <div class="panel-heading">
               <h3 class="panel-title">All Folders
@@ -258,7 +253,7 @@ function(){
   </div>
           </div>
 		  </div>
-		 
+	 </div>	 
 		  <div   class="modal fade modal-success in" id="addfolder" aria-labelledby="exampleModalSuccess" role="dialog" tabindex="-1" style="display: none;">
                     <div class="modal-dialog">
                       <div class="modal-content">
@@ -306,6 +301,7 @@ function(){
                       </div>
                     </div> 
                   </div>
+                 
 				  
 				 
 		
