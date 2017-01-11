@@ -65,11 +65,7 @@
  });
 </script>
 <style>
-.marg{
-	
-	margin-left:-25px
-	
-}
+ 
 
 
 </style>
