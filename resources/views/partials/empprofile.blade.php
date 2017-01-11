@@ -2,7 +2,7 @@
 
 
 </style>
-<div class="modal fade modal-slide-in-right" id="viewemp{{$employee->id}}" aria-labelledby="exampleModalTitle" role="dialog" tabindex="-1" aria-hidden="true" style="display: none;">
+<div class="modal fade modal-success modal-slide-in-right " id="viewemp{{$employee->id}}" aria-labelledby="exampleModalTitle" role="dialog" tabindex="-1" aria-hidden="true" style="display: none;">
                     <div class="modal-dialog modal-lg">
                       <div class="modal-content">
                         <div class="modal-header">
