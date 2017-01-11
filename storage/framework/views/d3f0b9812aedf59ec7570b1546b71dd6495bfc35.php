@@ -17,7 +17,7 @@
 									<h4><?php echo e(strtoupper($employee->name)); ?></h4>
 									<?php $job = app('App\Http\Controllers\EmployeeController')->getjobdetail($employee->job_id); ?>
 									<h5>Job Role: <?php echo e(strtoupper($job['title'])); ?></h5>
-									<h5>Emp. ID.: <?php echo e(strtoupper($employee->emp_num)); ?></h5>
+									<h5> ID: <?php echo e(strtoupper($employee->emp_num)); ?></h5>
 									<h5>Department: <?php echo e(app('App\Http\Controllers\AvailJobController')->getDept($employee->workdept_id)); ?></h5>
 									<h5>Last Promoted on: <?php echo e(niceDate($employee->last_promoted)); ?></h5>
 								</div>

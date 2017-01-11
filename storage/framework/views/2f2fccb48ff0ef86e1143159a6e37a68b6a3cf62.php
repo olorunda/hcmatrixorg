@@ -213,6 +213,11 @@
 	padding: 0px;
 	color: #fff;
 }
+canvas{
+	
+	width:63%;
+	height:100%;
+}
  
 </style>
 
@@ -328,10 +333,10 @@
   
 </div>-->
 <div class="col-md-6">
-  <div class="card card-shadow">
+  <div class="card card-shadow" style="padding:0 0 5px 0;">
     <div class="card-block text-xs-center bg-white p-40">
      
-	<div id="clockin" >
+	<div id="clockin"  >
 	
 	
 	</div><br><br> 
