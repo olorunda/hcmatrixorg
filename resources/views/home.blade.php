@@ -217,7 +217,7 @@
 }
 canvas{
 	
-	width:63%;
+	width:72%;
 	height:100%;
 }
  
@@ -333,15 +333,20 @@ canvas{
   
 </div>-->
 <div class="col-md-6">
-  <div class="card card-shadow" style="padding:0 0 5px 0;">
+  <div class="card card-shadow" style="padding:0 0 5px 0; ">
+  <div class="ribbon ribbon-clip ribbon-success" >
+                        <span id="clocking" style="z-index:999999999; cursor:pointer;" class="ribbon-inner">Clock In</span>
+                      </div>
+	<div  class="ribbon ribbon-clip ribbon-reverse ribbon-danger" >
+                        <span class="ribbon-inner" id="clockout" style="z-index:999999999; cursor:pointer;">Clock Out</span>
+                      </div>
     <div class="card-block text-xs-center bg-white p-40">
      
 	<div id="clockin"  >
 	
 	
 	</div><br><br> 
-	  <button type="button" class="btn btn-danger btn-outline p-x-40" id="clocking"><i class="fa fa-clock"></i>Clock In</button>
-	   <button type="button" class="btn btn-success btn-outline p-x-40" id="clockout"><i class="fa fa-clock"></i>Clock Out</button>
+	
 	 </div>
   </div>
 </div>
