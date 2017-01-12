@@ -594,7 +594,7 @@ class EmployeeRepository{
 	$gettype=\App\absencetype::all();
 			if(\Auth::user()->role==3){
 					$oprand=">";
-					$lmid=1;
+					$lmid=0;
 					
 				}
 					
@@ -653,7 +653,7 @@ class EmployeeRepository{
 	{
 		if(\Auth::user()->role==3){
 					$oprand=">";
-					$lmid=1;
+					$lmid=0;
 					
 				}
 					
