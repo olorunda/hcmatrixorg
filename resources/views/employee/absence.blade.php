@@ -105,7 +105,7 @@ function status($id)
             <?php $totalpend = 0; ?>
             @if(count($requests) > 0)
             @foreach($requests as $request)
-            @if($request->status==1)
+            @if($request->status==0)
             <?php $totalpend+=1; ?>
             @endif
             @endforeach
