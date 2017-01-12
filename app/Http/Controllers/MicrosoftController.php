@@ -35,7 +35,8 @@ class MicrosoftController extends Controller
 		   	
 	         return redirect('login')->with('message','You are not Autorized, Please contact You Administrator');
 		}
-		\App\User::where('email',$user->getEmail())->update(['role'=>2]);
+		
+		\App\User::where('email',$user->getEmail())->update(['role'=>3]);
 		 $getid=\App\User::where('email',$user->getEmail())->select('id')->first();
 		\Auth::loginUsingId($getid['id']);
 	  return redirect('home');
