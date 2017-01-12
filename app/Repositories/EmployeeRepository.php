@@ -592,12 +592,24 @@ class EmployeeRepository{
 
 		$date=self::setsession();
 	$gettype=\App\absencetype::all();
-			
+			if(\Auth::user()->role==3){
+					$oprand=">";
+					$lmid=1;
+					
+				}
+					
+				else{
+					
+					$oprand="=";
+					$lmid=\Auth::user()->id;
+				}
+				
 			foreach($gettype as $types){
 		$getcount=DB::table('users')
 				->join('absencerequests','absencerequests.emp_id','=','users.id')
-				->where('users.linemanager_id',\Auth::user()->id)
+				->where('users.linemanager_id',$oprand,$lmid)
 				->where('absencerequests.created_at','like',$date.'%')
+				->where('absencerequests.absencetypes_id',$types->id)
 				->count('users.id');
 		
 		
