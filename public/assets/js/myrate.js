@@ -65,15 +65,16 @@ function saverating(id, empid)
 	var comment = $('#lmcomment'+id).val();
 	var score = $('#ratingval'+id).val();
 	var formData = {'_token':token, 'rating':score, 'goalid':goalid, 'empid':empid, 'comment':comment, 'type':3};
-	$.post('/lm', formData, function(data,xhr,status){
-		if(!data.id && data !== 1)
-		{
-			swal('Warning', 'Rating Failed! Please try again.','warning');
-		}
-		else
+	$.post('/lm', formData, function(data,status,xhr){ 
+	console.log(data);
+		if(xhr.status==200)
 		{
 			swal('Done', 'Rating Successful.','success');
 			window.location.reload();
+		}
+		else
+		{
+			swal('Warning', 'Rating Failed! Please try again.','warning');
 		}
 	});
 }

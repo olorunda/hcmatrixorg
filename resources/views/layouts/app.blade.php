@@ -214,8 +214,10 @@ div p {
 }
 @endif
   .page-header{
-	  
-	  margin-top: @if(active('employee/list')) -25px @elseif(active('manage/*')||active('leave') ||active('lm/*')|| active('search'))  @else -40px; @endif
+	 
+@if(active('applicant/job'))
+@else	
+	  margin-top: @if(active('employee/list')) -25px @elseif(active('manage/*')||active('leave') ||active('lm/*')|| active('search'))  @else -40px; @endif @endif
   }
   .pdfSlider_close{
 	  

@@ -894,28 +894,61 @@ class EmployeeRepository{
 		$date=self::setsession();
 		try {
 			$rate = Rating::where('emp_id', $empid)->where('goal_id', $goalid)->where('created_at','like',$date.'%')->first();
-			if(count($rate) > 0)
+			if(Auth::user()->role == 2)
 			{
-				$rate = Rating::where('emp_id', $empid)->where('goal_id', $goalid)
-				->update([
-					'lm_rate' 		=> $score,
-					'lm_id'			=> Auth::user()->id,
-					'lm_comment'	=> $comment
-					]);
+				if(count($rate) > 0)
+				{
+					$rate = Rating::where('emp_id', $empid)->where('goal_id', $goalid)
+					->update([
+						'lm_rate' 		=> $score,
+						'lm_id'			=> Auth::user()->id,
+						'lm_comment'	=> $comment
+						]);
+					$rate = response()->json('ok',200);
+				}
+				else
+				{
+					$data = array(
+						'emp_id'		=> $empid,
+						'goal_id'		=> $goalid,
+						'lm_rate'		=> $score,
+						'lm_id'			=> Auth::user()->id,
+						'lm_comment'	=> $comment,
+						'admin_id'		=> NULL,
+						'admin_rate'	=> 0,
+						'admin_comment'	=> NULL
+						);
+					$rate = Rating::firstOrCreate($data);
+					$rate = response()->json('ok',200);
+				}
 			}
 			else
 			{
-				$data = array(
-					'emp_id'		=> $empid,
-					'goal_id'		=> $goalid,
-					'lm_rate'		=> $score,
-					'lm_id'			=> Auth::user()->id,
-					'lm_comment'	=> $comment,
-					'admin_id'		=> NULL,
-					'admin_rate'	=> 0,
-					'admin_comment'	=> NULL
-					);
-				$rate = Rating::firstOrCreate($data);
+				if(count($rate) > 0)
+				{
+					$rate = Rating::where('emp_id', $empid)->where('goal_id', $goalid)
+					->update([
+						'admin_rate' 		=> $score,
+						'admin_id'			=> Auth::user()->id,
+						'admin_comment'		=> $comment
+						]);
+						$rate = response()->json('ok',200);
+				}
+				else
+				{
+					$data = array(
+						'emp_id'		=> $empid,
+						'goal_id'		=> $goalid,
+						'admin_rate'	=> $score,
+						'admin_id'		=> Auth::user()->id,
+						'admin_comment'	=> $comment,
+						'lm_id'			=> NULL,
+						'lm_rate'		=> 0,
+						'lm_comment'	=> NULL
+						);
+					$rate = Rating::firstOrCreate($data);
+					$rate = response()->json('ok', 200);
+				}
 			}
 		} catch(\Exception $ex) {
 			return $ex;

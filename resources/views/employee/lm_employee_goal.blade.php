@@ -184,7 +184,7 @@ function month($id)
 			<div class="panel panel-bordered">
 				<div class="panel-heading">
 					<h3 class="panel-title">
-						Goals and Objectives
+						Goals and Objectives <!--- @if(session()->has('FY')) {{ session('FY') }} @endif-->
 						@if($deadline=='open')
 						<button type="button" title="Add New Goal" class="btn btn-floating btn-danger btn-sm pull-right" id="newgoal" onclick="$('#newgoalForm').fadeIn('slow')">
 							<i class="icon wb-plus" aria-hidden="true"></i>
@@ -201,7 +201,7 @@ function month($id)
 						<div class="panel">
 							<div class="panel-heading" id="pilotHeading{{$lmgoal->id}}" role="tab">
 								<a class="panel-title" data-toggle="collapse" href="#pilotcollaps{{$lmgoal->id}}" data-parent="#siteMegaAccordion" aria-expanded="false" aria-controls="pilotcollaps{{$lmgoal->id}}">
-									@if($deadline=='open' || review == 'open')
+									@if($deadline=='open' || $review == 'open')
 									<h4 class="text-success">
 										<i class="fa fa-unlock-alt"></i>
 										COMMITMENT
