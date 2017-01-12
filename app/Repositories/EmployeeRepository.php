@@ -591,6 +591,7 @@ class EmployeeRepository{
 	public function leavestat(){
 
 		$date=self::setsession();
+		
 	$gettype=\App\absencetype::all();
 			if(\Auth::user()->role==3){
 					$oprand=">";

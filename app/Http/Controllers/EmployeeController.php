@@ -19,7 +19,7 @@ class EmployeeController extends Controller
 	public function __construct(EmployeeRepository $employee){
        $this->middleware('auth');
        $this->employee=$employee;
-       session(['FY' => date('Y')]);
+    
    }
 
 	//get employee job details
@@ -186,6 +186,7 @@ public function empsearchres(Request $request){
 public function setfy($year){
   session(['FY'=>$year]);
   return response()->json('ok',200);
+  
 }
 
 	//get fiscal

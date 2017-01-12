@@ -17,7 +17,7 @@ class LMController extends Controller
     {
         $this->middleware('auth');
 		$this->employee=$employee;
-		session(['FY' => date('Y')]);
+		 
     }
     /**
      * Display a listing of the resource.
