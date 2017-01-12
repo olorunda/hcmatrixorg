@@ -17,10 +17,10 @@ function status($id)
   switch($id)
   {
     case 0:
-    $retVal = "<span class='tag tag-success font-weight-100'>Approved</span>";
+	$retVal = "<span class='tag tag-warning font-weight-100'>Pending</span>";
     break;
     case 1:
-    $retVal = "<span class='tag tag-warning font-weight-100'>Pending</span>";
+	$retVal = "<span class='tag tag-success font-weight-100'>Approved</span>";
     break;
     case 2:
     $retVal = "<span class='tag tag-danger font-weight-100'>Rejected</span>";
@@ -654,9 +654,9 @@ function modifyRequest(id, operation)
                 @endif
                 <th>{!!status($request->status)!!}</th>
                 <th>
-                  @if($request->status == 0)
+                  @if($request->status == 1)
                   <a class="text-success" href="javascript:void(0)" title="LOCKED. THIS REQUEST CANNOT BE MODIFIED"><i class="icon wb-lock"></i></a>
-                  @elseif($request->lm_approve != 1 || $request->admin_approve != 1 || $request->board_approve != 1)
+                  @elseif($request->lm_approve == 1 || $request->admin_approve == 1 || $request->board_approve == 1 || $request->lm_approve == 2 || $request->admin_approve == 2 || $request->board_approve == 2 || $request->status == 2 )
                   <a class="text-success" href="javascript:void(0)" title="LOCKED. AWAITING FURTHER RESPONSE"><i class="icon wb-lock"></i></a>
                   @else
                   <a class="text-primary" href="javascript:void(0)" data-toggle="modal" data-target="#modify{{$request->id}}" title="MODIFY"><i class="icon wb-edit"></i></a>
