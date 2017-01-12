@@ -639,6 +639,19 @@ class EmployeeRepository{
 	//line manager by deji
 	public function lmemployee($id, $chunk,$type=0)
 	{
+		if(\Auth::user()->role==3){
+					$oprand=">";
+					$lmid=1;
+					
+				}
+					
+				else{
+					
+					$oprand="=";
+					$lmid=\Auth::user()->id;
+				}
+				
+				
 		$emps;
 		try {
 			$date=self::setsession();
@@ -691,10 +704,12 @@ class EmployeeRepository{
 			}		
 			
 			elseif($chunk=='leave'){
+					
+				
 				$emps=DB::table('users')
 						->join('absencerequests','users.id','=','absencerequests.emp_id')
 						->select('users.id','users.email','users.name','users.job_id','users.sex','users.image','users.emp_num','absencerequests.absencetypes_id','absencerequests.*')
-						->where('users.linemanager_id','=',\Auth::user()->id)
+						->where('users.linemanager_id',$oprand,$lmid)
 						->where('absencerequests.created_at','like',$date.'%')
 						->distinct()
 						->paginate(10);
@@ -704,7 +719,7 @@ class EmployeeRepository{
 					$emps=DB::table('users')
 						->join('absencerequests','users.id','=','absencerequests.emp_id')
 						->select('users.id','users.email','users.name','users.job_id','users.sex','users.image','users.emp_num','absencerequests.absencetypes_id','absencerequests.*')
-						->where('users.linemanager_id','=',\Auth::user()->id)
+						->where('users.linemanager_id',$oprand,$lmid)
 						->where('users.name','like', '%'.$type.'%')
 						->where('absencerequests.created_at','like',$date.'%')
 						->distinct()
@@ -717,7 +732,7 @@ class EmployeeRepository{
 				$emps=DB::table('users')
 						->join('absencerequests','users.id','=','absencerequests.emp_id')
 						->select('users.id','users.email','users.name','users.job_id','users.sex','users.image','users.emp_num','absencerequests.absencetypes_id','absencerequests.*')
-						->where('users.linemanager_id','=',\Auth::user()->id)
+						->where('users.linemanager_id',$oprand,$lmid)
 						->where('absencerequests.absencetypes_id','=',$type)
 						->where('absencerequests.created_at','like',$date.'%')
 						->distinct()

@@ -102,7 +102,18 @@ function loadcal(type){
 					//$('#statusset').html('<span class="tag tag-success">Approved </span>');
 					$('#lmcomment'+id).html(comment+'( <span class="tag tag-success">Approved </span> )');
 					toastr.success('Leave Approved');
-				return swal('success','Leave Approved','success');
+				 swal('success','Leave Approved','success');
+				 
+				 <?php if(Auth::user()->role==3): ?>
+					 setTimeout(function(){
+						 
+						 window.location.reload();
+						 
+					 },2000);
+				 
+				 <?php endif; ?>
+				 
+				 return ;
 				}
 				else{
 					
@@ -111,7 +122,17 @@ function loadcal(type){
 					toastr.error('Leave Rejected');
 			
 			
-				return swal('Rejected','Leave Rejected','error');
+				swal('Rejected','Leave Rejected','error');
+				
+				 <?php if(Auth::user()->role==3): ?>
+					 setTimeout(function(){
+						 
+						 window.location.reload();
+						 
+					 },2000);
+				 
+				 <?php endif; ?>
+				 return ;
 				}
 			}
 			return swal('Error','Some error occurred','error');
@@ -123,6 +144,7 @@ function loadcal(type){
 		
 		
 	}
+	
 	function fixclode(id){
 		
 		$('#lmtext'+id).show();
@@ -256,7 +278,7 @@ function loadcal(type){
 				<thead>
 					<tr>
 						
-						<th>Name</th>
+						<th>Name<?php echo e(session('FY')); ?></th>
 						<th>ID</th>
 						<th>Role</th>
 						<th>Type</th>
