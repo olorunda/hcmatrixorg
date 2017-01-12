@@ -1,4 +1,8 @@
+@if(Auth::user()->role==0)
+	@extends('layouts.app_guest')
+	@else
 @extends('layouts.app')
+	@endif
 
 @section('content')
 <script>

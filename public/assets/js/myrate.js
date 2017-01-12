@@ -73,7 +73,7 @@ function saverating(id, empid)
 		else
 		{
 			swal('Done', 'Rating Successful.','success');
-			location.reload();
+			window.location.reload();
 		}
 	});
 }

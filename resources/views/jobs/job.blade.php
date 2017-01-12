@@ -1,5 +1,4 @@
 @extends('layouts.app_guest')
-
 @section('content')
 <script src="../../global/vendor/jquery/jquery.js"></script>
 <script>
@@ -7,219 +6,232 @@
 	{	
 		window.location=url;
 	}
+	function urlN(url, name)
+	{
+		window.open(url, name, 'width=500,height=600');
+	}
 </script>
+<script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
 <?php
 function niceDate($date)
 {
 	return date("l, jS \of F, Y. h:i:s A", strtotime($date));
 }
 ?>
-<div class="page-header" style="margin-top: -40px;">
-	<ol class="breadcrumb">
-		<li class="breadcrumb-item"><a href="javascript:void(0)" onclick="url('{{url('available_jobs')}}/joblist')">Available Jobs</a></li>
-		<li class="breadcrumb-item active">You are Here</li>
-	</ol>
-	<h1 class="page-title">{{$jobDetail->title}}</h1>
-	<div class="page-header-actions">
-		<button type="button" class="btn btn-icon social-facebook" data-placement="top" data-toggle="tooltip" title="Like">
-			<i class="icon bd-facebook" aria-hidden="true"></i>
-		</button>
-		<button type="button" class="btn btn-icon social-twitter" data-placement="bottom" data-toggle="tooltip" title="Tweet">
-			<i class="icon bd-twitter" aria-hidden="true"></i>
-		</button>
-		<button type="button" class="btn btn-icon social-linkedin" data-placement="left" data-toggle="tooltip" title="Share">
-			<i class="icon bd-linkedin" aria-hidden="true"></i>
-		</button>
-		<button type="button" class="btn btn-icon btn-danger" data-placement="top" data-toggle="tooltip" title="Send as mail">
-			<i class="icon wb-link-intact"></i>
-		</button>
+<style type="text/css">
+	.IN-widget {
+		padding-top: 0px;
+		padding-right: .572rem;
+		padding-bottom: 0px;
+		padding-left: 0px;
+		padding-right: .572rem;
+  }
+</style>
+<div class="col-md-12" style="margin-left: -25px;">
+	<div class="page-header" style="margin-top: -40px;">
+		<h1 class="page-title">{{$jobDetail->title}}</h1>
+		<div class="page-header-actions">
+			<a href="http://www.facebook.com/share.php?u={{url('available_jobs')}}/jobs?id={{$jobDetail->id}}&title={{$jobDetail->title}}" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="btn btn-tagged social-facebook">
+                    <span class="btn-tag"><i class="icon wb-share" aria-hidden="true"></i></span>Facebook</a>
+					
+				<a href="http://www.linkedin.com/shareArticle?mini=true&url={{url('available_jobs')}}/jobs?id={{$jobDetail->id}}&title={{$jobDetail->title}}&source={{url('/')}}" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="btn btn-tagged social-linkedin">
+                    <span class="btn-tag"><i class="icon wb-share" aria-hidden="true"></i></span>Linkedin</a>
+					
+					<a href="http://twitter.com/home?status={{$jobDetail->title}}+{{url('available_jobs')}}/jobs?id={{$jobDetail->id}}" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"  class="btn btn-tagged social-twitter">
+                    <span class="btn-tag"><i class="icon wb-share" aria-hidden="true"></i></span>Twitter</a>
+					
+					<a href="https://plus.google.com/share?url={{url('available_jobs')}}/jobs?id={{$jobDetail->id}}" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"    class="btn btn-tagged social-google-plus">
+                    <span class="btn-tag"><i class="icon wb-share" aria-hidden="true"></i></span>Google+</a>
+		</div>
 	</div>
-</div>
+</div> 
 <!--<h3>
 	<button type="button" class="btn btn-round btn-outline btn-default" onclick="url('{{url('job')}}/joblist')"><i class="icon wb-arrow-left"></i> Go Back</button>
 	<i class="fa fa-suitcase"></i> Web Developer
 </h3>-->
-<div class="panel">
-	<div class="panel-body">
-		<div class="row">
-			<div class="col-md-12 col-xs-12">
-			<!-- STARTING HERE NOW -->
-				@if($errors->any())
-				<div class="alert alert-danger">
+<div class="col-md-12">
+	<div class="panel">
+		<div class="panel-body">
+			<div class="row">
+				<div class="col-md-12 col-xs-12">
+					<!-- STARTING HERE NOW -->
+					@if($errors->any())
+					<div class="alert alert-danger">
 						<h4>Sorry! This application for this position is closed. Please try other job openings.</h4>
+					</div>
+					@endif
 				</div>
-				@endif
-			</div>
-			<div class="col-md-2 col-xs-12">
-				<h5>Summary</h5>
-			 
+				<div class="col-md-2 col-xs-12">
+					<h5>Summary</h5>
+
 				</div>
-			<div class="col-md-10 col-xs-12">
-				<ul>
-					<li class="text-default">
-				
-			{{substr($jobDetail->job_desc,1,300)}}...
-					</li>
-				</ul>
+				<div class="col-md-10 col-xs-12">
+					<ul>
+						<li class="text-default">
+
+							{{substr($jobDetail->job_desc,1,300)}}...
+						</li>
+					</ul>
+				</div>
 			</div>
-		</div>
-		<br>
-		<div class="row">
-			<div class="col-md-2 col-xs-12">
-				<h5>Experience Required</h5>
+			<br>
+			<div class="row">
+				<div class="col-md-2 col-xs-12">
+					<h5>Experience Required</h5>
+				</div>
+				<div class="col-md-10 col-xs-12">
+					<ul>
+						<li class="text-default">
+							{{$jobDetail->required_exp}}
+						</li>
+					</ul>
+				</div>
 			</div>
-			<div class="col-md-10 col-xs-12">
-				<ul>
-					<li class="text-default">
-						{{$jobDetail->required_exp}}
-					</li>
-				</ul>
+			<br>
+			<div class="row">
+				<div class="col-md-2 col-xs-12">
+					<h5>Job Description</h5>
+				</div>
+				<div class="col-md-10 col-xs-12">
+					<ul>
+						<li class="text-default">
+							{{$jobDetail->job_desc}}
+						</li>
+					</ul>
+				</div>
 			</div>
-		</div>
-		<br>
-		<div class="row">
-			<div class="col-md-2 col-xs-12">
-				<h5>Job Description</h5>
+			<br>
+			<div class="row">
+				<div class="col-md-2 col-xs-12">
+					<h5>Educational Qualification</h5>
+				</div>
+				<div class="col-md-10 col-xs-12">
+					<ul>
+						<li class="text-default">
+							{{$jobDetail->qualification}}
+						</li>
+					</ul>
+				</div>
 			</div>
-			<div class="col-md-10 col-xs-12">
-				<ul>
-					<li class="text-default">
-						{{$jobDetail->job_desc}}
-					</li>
-				</ul>
+			<br>
+			<div class="row">
+				<div class="col-md-2 col-xs-12">
+					<h5>Other Skills</h5>
+				</div>
+				<div class="col-md-10 col-xs-12">
+					<ul>
+						<li>{{$jobDetail->otherskill}}</li>
+					</ul>
+				</div>
 			</div>
-		</div>
-		<br>
-		<div class="row">
-			<div class="col-md-2 col-xs-12">
-				<h5>Educational Qualification</h5>
+			<br>
+			<div class="row">
+				<div class="col-md-2 col-xs-12">
+					<h5>Department</h5>
+				</div>
+				<div class="col-md-10 col-xs-12">
+					<ul>
+						<li class="text-default">
+							<label class="control-label">
+								[{{app('App\Http\Controllers\AvailJobController')->getDept($jobDetail->spec_id)}}]
+							</label>
+						</li>
+					</ul>
+				</div>
 			</div>
-			<div class="col-md-10 col-xs-12">
-				<ul>
-					<li class="text-default">
-						{{$jobDetail->qualification}}
-					</li>
-				</ul>
-			</div>
-		</div>
-		<br>
-		<div class="row">
-			<div class="col-md-2 col-xs-12">
-				<h5>Other Skills</h5>
-			</div>
-			<div class="col-md-10 col-xs-12">
-			<ul>
-			<li>{{$jobDetail->otherskill}}</li>
-			</ul>
-			</div>
-		</div>
-		<br>
-		<div class="row">
-			<div class="col-md-2 col-xs-12">
-				<h5>Department</h5>
-			</div>
-			<div class="col-md-10 col-xs-12">
-				<ul>
-					<li class="text-default">
-						<label class="control-label">
-							[{{app('App\Http\Controllers\AvailJobController')->getDept($jobDetail->spec_id)}}]
-						</label>
-					</li>
-				</ul>
-			</div>
-		</div>
-		<br>
-		<div class="row">
-			<div class="col-md-2 col-xs-12">
-				<h5>Job Level</h5>
-			</div>
-			<div class="col-md-10 col-xs-12">
-				<ul>
-					<li class="text-default">
-						<label class="control-label">
-						    @if($jobDetail->type_id==0)
-							[No Level Found]
-							@else
+			<br>
+			<div class="row">
+				<div class="col-md-2 col-xs-12">
+					<h5>Job Level</h5>
+				</div>
+				<div class="col-md-10 col-xs-12">
+					<ul>
+						<li class="text-default">
+							<label class="control-label">
+								@if($jobDetail->type_id==0)
+								[No Level Found]
+								@else
 								[{{strtoupper(app('App\Http\Controllers\AvailJobController')->getJobLevel($jobDetail->level_id)['level'])}}]
-							@endif
-						</label>
-					</li>
-				</ul>
+								@endif
+							</label>
+						</li>
+					</ul>
+				</div>
 			</div>
-		</div>
-		<br>
-		<div class="row">
-			<div class="col-md-2 col-xs-12">
-				<h5>Location</h5>
+			<br>
+			<div class="row">
+				<div class="col-md-2 col-xs-12">
+					<h5>Location</h5>
+				</div>
+				<div class="col-md-10 col-xs-12">
+					<ul>
+						<li class="text-default">
+							<label class="control-label">
+								[{{strtoupper(app('App\Http\Controllers\AvailJobController')->getLocation($jobDetail->location_id)['state'])}} STATE]
+							</label>
+						</li>
+					</ul>
+				</div>
 			</div>
-			<div class="col-md-10 col-xs-12">
-				<ul>
-					<li class="text-default">
-						<label class="control-label">
-						[{{strtoupper(app('App\Http\Controllers\AvailJobController')->getLocation($jobDetail->location_id)['state'])}} STATE]
-						</label>
-					</li>
-				</ul>
+			<br>
+			<div class="row">
+				<div class="col-md-2 col-xs-12">
+					<h5>Minimum Years of Experience</h5>
+				</div>
+				<div class="col-md-10 col-xs-12">
+					<ul>
+						<li class="text-default">
+							<label class="control-label">[{{$jobDetail->min_exp}} - {{$jobDetail->max_exp}} YEARS]</label>
+						</li>
+					</ul>
+				</div>
 			</div>
-		</div>
-		<br>
-		<div class="row">
-			<div class="col-md-2 col-xs-12">
-				<h5>Minimum Years of Experience</h5>
+			<br>
+			<div class="row">
+				<div class="col-md-2 col-xs-12">
+					<h5>Work Type</h5>
+				</div>
+				<div class="col-md-10 col-xs-12">
+					<ul>
+						<li class="text-default">
+							<label class="control-label">
+								@if($jobDetail->type_id==0)
+								[No Work Type Found]
+								@else
+								[{{strtoupper(app('App\Http\Controllers\AvailJobController')->getJobType($jobDetail->type_id)['work_type'])}}]
+								@endif
+							</label>
+						</li>
+					</ul>
+				</div>
 			</div>
-			<div class="col-md-10 col-xs-12">
-				<ul>
-					<li class="text-default">
-						<label class="control-label">[{{$jobDetail->min_exp}} - {{$jobDetail->max_exp}} YEARS]</label>
-					</li>
-				</ul>
+			<br>
+			<div class="row">
+				<div class="col-md-2 col-xs-12">
+					<h5>Duration</h5>
+				</div>
+				<div class="col-md-10 col-xs-12">
+					<ul>
+						<li class="text-default">
+							<label class="control-label">
+								[{{strtoupper(niceDate($jobDetail->created_at))}}]
+							</label> <b>-</b> 
+							<label class="control-label">
+								[{{strtoupper(niceDate($jobDetail->date_expire))}}]
+							</label>
+						</li>
+					</ul>
+				</div>
 			</div>
-		</div>
-		<br>
-		<div class="row">
-			<div class="col-md-2 col-xs-12">
-				<h5>Work Type</h5>
-			</div>
-			<div class="col-md-10 col-xs-12">
-				<ul>
-					<li class="text-default">
-						<label class="control-label">
-					    @if($jobDetail->type_id==0)
-							[No Work Type Found]
-							@else
-							[{{strtoupper(app('App\Http\Controllers\AvailJobController')->getJobType($jobDetail->type_id)['work_type'])}}]
-						@endif
-						</label>
-					</li>
-				</ul>
-			</div>
-		</div>
-		<br>
-		<div class="row">
-			<div class="col-md-2 col-xs-12">
-				<h5>Duration</h5>
-			</div>
-			<div class="col-md-10 col-xs-12">
-				<ul>
-					<li class="text-default">
-						<label class="control-label">
-							[{{strtoupper(niceDate($jobDetail->created_at))}}]
-						</label> <b>-</b> 
-						<label class="control-label">
-							[{{strtoupper(niceDate($jobDetail->date_expire))}}]
-						</label>
-					</li>
-				</ul>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12 col-xs-12">
-				<span class="pull-right">
-					<a class="text-danger" href="#">Read The Application Guide</a> <b>|</b> <a class="text-danger" href="#">Visit our FAQ's Page</a>&nbsp;&nbsp;
-					<button type="button" class="btn btn-icon btn-raised btn-success" data-toggle="modal" data-target="#exampleNifty3dRotateBottom">
-						<i class="icon wb-dropright"></i> Apply Here
-					</button>
-				</span>
+			<div class="row">
+				<div class="col-md-12 col-xs-12">
+					<span class="pull-right">
+						<a class="text-danger" href="#">Read The Application Guide</a> <b>|</b> <a class="text-danger" href="#">Visit our FAQ's Page</a>&nbsp;&nbsp;
+						<button type="button" class="btn btn-icon btn-raised btn-success" data-toggle="modal" data-target="#exampleNifty3dRotateBottom">
+							<i class="icon wb-dropright"></i> Apply Here
+						</button>
+					</span>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -273,16 +285,16 @@ function niceDate($date)
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-danger" data-dismiss="modal">
-				<i class="icon wb-close"></i> No! Thanks.
+					<i class="icon wb-close"></i> No! Thanks.
 				</button>
 				@if(Auth::check())
 				<button type="button" class="btn btn-success" onclick="url('{{url('job')}}/default?job_id={{$jobid}}')">
-				<i class="icon wb-check"></i> I Agree.
+					<i class="icon wb-check"></i> I Agree.
 				</button>
 				@else
 				<?php session(['preview_job'=>$jobid]); ?>
 				<button type="button" class="btn btn-success" onclick="url('{{url('job')}}/default?job_id={{$jobid}}')">
-				<i class="icon wb-check"></i> I Agree.
+					<i class="icon wb-check"></i> I Agree.
 				</button>
 				@endif
 			</div>

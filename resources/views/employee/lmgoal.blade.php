@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+
 <?php
 
-
+	
 	 $deadline = app('App\Http\Controllers\LMController')->checkDeadline(); 
 	 $review   = app('App\Http\Controllers\LMController')->review(); 
-	 
-	
+		
 	 if($deadline=='open' || $review=='open'){
 		 $disable='';
 	 }

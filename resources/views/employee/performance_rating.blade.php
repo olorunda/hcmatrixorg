@@ -12,11 +12,11 @@
 </script>
 <?php  $jobdetail=app('App\Http\Controllers\EmployeeController')->getjobdetail(Auth::user()->job_id);
 
- $fiscal=app('App\Repositories\EmployeeRepository')->fiscalYear();
+$fiscal=app('App\Repositories\EmployeeRepository')->fiscalYear();
 
 
 
- ?>
+?>
 <?php
 function countsex(array $directemps, $sex) 
 {
@@ -82,9 +82,23 @@ function month($id)
 		window.location=url;
 	}
 </script>
+<?php
 
+	
+	 $deadline = app('App\Http\Controllers\LMController')->checkDeadline(); 
+	 $review   = app('App\Http\Controllers\LMController')->review(); 
+		$disable='';
+	 if($deadline=='open' || $review=='open'){
+		 $disable='';
+	 }
+
+	else{
+		$disable='disabled';
+	}
+	
+?>
 <div class="page-header">
-	<h1 class="page-title">L.M. Objectives</h1>
+	<h1 class="page-title">Line Manager Objectives</h1>
 	<ol class="breadcrumb">
 		<li class="breadcrumb-item"><a href="{{url('home')}}">Home</a></li>
 		<li class="breadcrumb-item"><a href="{{url('lm/objectives_c')}}">Performance Review</a></li>
@@ -115,46 +129,57 @@ function month($id)
 			<div class="row row-lg">
 				<div class="col-md-9 col-xs-12">
 					<div class="table-responsive">
-						<table class="table table-hover">
-							<?php $job = app('App\Http\Controllers\EmployeeController')->getjobdetail($employee->job_id); ?>
-							<tbody>
-								<tr>
-									<th><i class="icon wb-user m-r-10"></i> NAME</th>
-									<th>{{$employee->name}}</th>
-								</tr>
-								<tr>
-									<th><i class="icon wb-link m-r-10"></i> EMP. ID:</th>
-									<th>{{$employee->emp_num}}</th>
-								</tr>
-								<tr>
-									<th><i class="icon wb-plugin m-r-10"></i> JOB ROLE</th>
-									<th>{{$job['title']}}</th>
-								</tr>
-								<tr>
-									<th><i class="icon wb-mobile m-r-10"></i>TEL</th>
-									<th>{{$employee->phone_num}}</th>
-								</tr>
-								<tr>
-									<th><i class="icon wb-map m-r-10"></i> ADDRESS</th>
-									<th>{{$employee->address}}</th>
-								</tr>
-							</tbody>
-						</table>
+						<?php $job = app('App\Http\Controllers\EmployeeController')->getjobdetail($employee->job_id); ?>
+						<div class="col-md-12">
+						<div class="col-md-3">
+							<i class="icon wb-user m-r-10 btn-pure btn-success"></i> NAME
+						</div>
+						<div class="col-md-9">
+							@if(isset($employee->name)){{$employee->name}}@else NILL @endif
+							<p></p>
+						</div>
+						<div class="col-md-3">
+							<i class="icon wb-link m-r-10 btn-pure btn-info"></i> ID
+						</div>
+						<div class="col-md-9">
+							@if($employee->emp_num == '')NILL @else{{$employee->emp_num}}@endif
+							<p></p>
+						</div>
+						<div class="col-md-3">
+							<i class="icon wb-plugin m-r-10 btn-pure btn-warning"></i> JOB ROLE
+						</div>
+						<div class="col-md-9">
+							@if($job['title'] == '')NILL @else{{$job['title']}}@endif
+							<p></p>
+						</div>
+						<div class="col-md-3">
+							<i class="icon wb-mobile m-r-10 btn-pure btn-danger"></i> TEL
+						</div>
+						<div class="col-md-9">
+							@if($employee->phone_num == '')NILL @else{{$employee->phone_num}}@endif
+							<p></p>
+						</div>
+						<div class="col-md-3">
+							<i class="icon wb-map m-r-10 btn-pure btn-dark"></i> ADDRESS
+						</div>
+						<div class="col-md-9">
+							@if($employee->address == '')NILL @else{{$employee->address}}@endif
+						</div>
+					</div>					</div>
+					</div>
+
+					<div class="col-md-3 col-xs-12 pull-right">
+						<img class="img-rounded img-bordered img-bordered-primary" width="150" height="150" src="{{asset('upload')}}/{{$employee->image}}">
 					</div>
 				</div>
+			</div>
+			<div class="pull-right">
 
-				<div class="col-md-3 col-xs-12 pull-right">
-					<img class="img-rounded img-bordered img-bordered-primary" width="150" height="150" src="{{asset('upload')}}/{{$employee->image}}">
-				</div>
 			</div>
 		</div>
-		<div class="pull-right">
-			
-		</div>
-	</div>
-	<?php $deadline = app('App\Http\Controllers\LMController')->checkDeadline(month($fiscal['start_month']), $fiscal['grace']); ?>
-	<?php $review   = app('App\Http\Controllers\LMController')->review(month($fiscal['start_month']), $fiscal['grace']); ?>
-	
+		<?php $deadline = app('App\Http\Controllers\LMController')->checkDeadline(month($fiscal['start_month']), $fiscal['grace']); ?>
+		<?php $review   = app('App\Http\Controllers\LMController')->review(month($fiscal['start_month']), $fiscal['grace']); ?>
+
 
 	<!-- <div class="panel">
 		<div class="panel-body container-fluid">
@@ -182,7 +207,7 @@ function month($id)
 			</div>
 		</div>
 	</div> -->
- 
+
 	<div class="panel">
 		<div class="panel-body container-fluid">
 			<div class="row row-lg">
@@ -231,7 +256,7 @@ function month($id)
 										<!--<div class="rating" id="rating{{$pilot->id}}" data-plugin="rating" data-target="#exampleHintTarget"
 										data-hints="1 - Bad,2 - Poor,3 - Okay,4 - Good,5 - Excellent"></div>
 										<div class="rating-hint" id="exampleHintTarget"></div>-->
-										@if($fiscal['end_month'] != date('m'))
+										@if($disable!='')
 										<h5>Rating is currently locked. You will receive a notification once rating is available.</h5>
 										@else
 										<div class="ratemp" id="{{$pilot->id}}"></div> <i id="hint{{$pilot->id}}"></i>
@@ -243,7 +268,7 @@ function month($id)
 								@else
 								<tr>
 									<th colspan="6">
-										<h3>No Pilot Goals To Rate.</h3>
+										<h3 class="no-pilot">No Pilot Goals To Rate.</h3>
 									</th>
 								</tr>
 								@endif

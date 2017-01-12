@@ -449,6 +449,8 @@
 					
 
   @endif 
+  @if(Auth::user()->role==3)
+	  @else
      <li class="site-menu-item has-sub ">
               <a href="javascript:void(0)">
                  <i class="site-menu-icon  fa fa-suitcase" aria-hidden="true"></i>
@@ -468,6 +470,7 @@
 </li>
 </ul>
   </li>
+  @endif
   @if(Auth::user()->role==1 || Auth::user()->role==2)
 
 

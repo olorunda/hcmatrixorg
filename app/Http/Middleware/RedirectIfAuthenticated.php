@@ -18,6 +18,11 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
+			if(\Auth::user()->role==0){
+				session(['in'=>1]);
+				return redirect('available_jobs/joblist');
+			}
+				
             return redirect('/home');
         }
 

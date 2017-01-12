@@ -84,7 +84,7 @@ class AvailJobController extends Controller
 			$getaplliedjobs=app('App\Repositories\JobRepository')->getappliedjobs();
 			return view('jobs.appliedfor',['appliedfor'=>$getaplliedjobs]);
 		}
-        /*elseif($id == 'filter')
+        elseif($id == 'filter')
         {
             $experience         = $request->experience;
             $jobtype            = $request->jobtype;
@@ -100,9 +100,8 @@ class AvailJobController extends Controller
             $jobdepts   = app('App\Repositories\JobRepository')->getJobDept('all');
 
             $result = app('App\Repositories\JobRepository')->jobFilter($experience, $jobtype, $emptype, $deptfil, $dateposted, $location);
-            return $result;
             return view('jobs.joblisting', ['states'=>$states, 'jobs'=>$jobs, 'joblevels'=>$joblevels, 'jobtypes'=>$jobtypes, 'jobdepts'=>$jobdepts, 'results'=>$result]);
-        }*/
+        }
     }
 
     /**

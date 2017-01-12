@@ -81,12 +81,12 @@
 	function loadGraph(id, name, title)
 	{
 
-	$('#chartcontainer'+id).orgchart({
-  'data' : '{{url('lm/org')}}?id='+id,
-  'nodeTitle': 'name',
-  'nodeContent': 'title'
+		$('#chartcontainer'+id).orgchart({
+			'data' : '{{url('lm/org')}}?id='+id,
+			'nodeTitle': 'name',
+			'nodeContent': 'title'
 
-	});
+		});
 
 	}
 </script>
@@ -98,11 +98,23 @@
 				<h4 class="panel-title"><i class="fa fa-cogs"></i> Direct Reports</h4>
 			</div>
 			<div class="panel-body" style="overflow: auto;">
+				@if(isset($direct))
+
 				<div id="chartcontainer{{$direct->id}}"></div>
 				<button type="button" class="btn btn-icon btn-dark btn-outline btn-round" onclick="loadGraph('{{$direct->id}}', '{{$direct->name}}', '{{$job['title']}}')">
 					<i class="fa fa-cogs" aria-hidden="true"></i>
 				</button>
 				<div id="orga{{$direct->id}}" style="display:none;"></div>
+
+				@else
+
+				<div id="chartcontainer{{Auth::user()->id}}"></div>
+				<button type="button" class="btn btn-icon btn-dark btn-outline btn-round" onclick="loadGraph('{{Auth::user()->id}}', '{{Auth::user()->name}}', '{{$job['title']}}')">
+					<i class="fa fa-cogs" aria-hidden="true"></i>
+				</button>
+				<div id="orga{{Auth::user()->id}}" style="display:none;"></div>
+
+				@endif
 			</div>
 		</div>
 	</div>

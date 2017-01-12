@@ -162,8 +162,9 @@ elseif($route=='myquery'){
 	return view('employee.myquery',['query'=>$queries]);
 	
 }
-        //
-return view('employee.profile');
+		$directemps          = app('App\Repositories\EmployeeRepository')->lmemployee(Auth::user()->id, 'all');
+		$pilots              = app('App\Repositories\EmployeeRepository')->getGoalTo(0, 0, 2);
+	return view('employee.profile', ['directemps'=>$directemps, 'pilots'=>$pilots]);
 }
 
 public function setreadquery(Request $request){

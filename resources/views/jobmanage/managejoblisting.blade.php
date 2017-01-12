@@ -306,16 +306,16 @@
               </div>
               <div class="col-md-12 col-xs-12 pull-right">
 			  
-			 <a href="http://www.facebook.com/share.php?u={{url('job')}}/jobs?id={{$job->id}}&title={{$job->title}}" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="btn btn-tagged social-facebook">
+			 <a href="http://www.facebook.com/share.php?u={{url('available_jobs')}}/jobs?id={{$job->id}}&title={{$job->title}}" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="btn btn-tagged social-facebook">
                     <span class="btn-tag"><i class="icon wb-share" aria-hidden="true"></i></span>Facebook</a>
 					
-				<a href="http://www.linkedin.com/shareArticle?mini=true&url={{url('job')}}/jobs?id={{$job->id}}&title={{$job->title}}&source={{url('/')}}" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="btn btn-tagged social-linkedin">
+				<a href="http://www.linkedin.com/shareArticle?mini=true&url={{url('available_jobs')}}/jobs?id={{$job->id}}&title={{$job->title}}&source={{url('/')}}" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="btn btn-tagged social-linkedin">
                     <span class="btn-tag"><i class="icon wb-share" aria-hidden="true"></i></span>Linkedin</a>
 					
-					<a href="http://twitter.com/home?status={{$job->title}}+{{url('job')}}/jobs?id={{$job->id}}" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"  class="btn btn-tagged social-twitter">
+					<a href="http://twitter.com/home?status={{$job->title}}+{{url('available_jobs')}}/jobs?id={{$job->id}}" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"  class="btn btn-tagged social-twitter">
                     <span class="btn-tag"><i class="icon wb-share" aria-hidden="true"></i></span>Twitter</a>
 					
-					<a href="https://plus.google.com/share?url={{url('job')}}/jobs?id={{$job->id}}" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"    class="btn btn-tagged social-google-plus">
+					<a href="https://plus.google.com/share?url={{url('available_jobs')}}/jobs?id={{$job->id}}" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"    class="btn btn-tagged social-google-plus">
                     <span class="btn-tag"><i class="icon wb-share" aria-hidden="true"></i></span>Google+</a>
               </div>
             </div>

@@ -474,65 +474,59 @@ class LMController extends Controller
 }
  
     public function checkDeadline()
-    {
-		
+    {		
+		$deadline = 'open';
 		$getfiscal=app('App\Http\Controllers\EmployeeController')->getfiscal();
+		
+		$startyear = date("Y", strtotime($getfiscal['created_at']));
 	
-	      $startmonth=self::month($getfiscal['start_month']);
+	    $startmonth=$getfiscal['start_month'];
 		  
-	      $endmonth=$getfiscal['end_month'];
+	    $endmonth=$getfiscal['end_month'];
 		  
-	      $grace=$getfiscal['grace'];
-		  
-        $deadline = 'open';
-        $startmonth .= " 1";
-
-        $start = strtotime($startmonth);
-
-        $end = strtotime("+" . $grace . " weeks", $start);
-
-        $endtime = date("M d", $end);
-
-        $currnt = strtotime(date("Y-m-d"));
-
-        $currntend = date("M d", $currnt);
-
-        $deadline = ($endtime > $currntend ? 'open' : 'closed');
+	    $grace=$getfiscal['grace'];
+		
+		$fiscalstart = "" . $startyear . "-" . $startmonth . "-01";
+		$fiscalstart = date("Y-m-d", strtotime($fiscalstart));
+		$ff=date("Y-m-d",strtotime( "$fiscalstart + $grace week"));
+		
+		if(date("Y-m-d") > $ff)
+		{
+			$deadline = 'closed';
+		}
 
         return $deadline;
     }
  public function review()
   {
+      $review = 'open';
       $getfiscal=app('App\Http\Controllers\EmployeeController')->getfiscal();
-
-      $startmonth=self::month($getfiscal['start_month']);
-
-      $endmonth=$getfiscal['end_month'];
-
-      $grace=$getfiscal['grace'];
-
-      $review = 'closed';
-      $startmonth .= " 1";
-
-      $start = strtotime($startmonth);
-
-      $end = strtotime("+" . $grace . " weeks", $start);
-
-      $endtime = strtotime(date("M d", $end));
+		
+		$startyear = date("Y", strtotime($getfiscal['created_at']));
+	
+	    $startmonth=$getfiscal['start_month'];
+		  
+	    $endmonth=$getfiscal['end_month'];
+		  
+	    $grace=$getfiscal['grace'];
+		
+		$fiscalstart = "" . $startyear . "-" . $startmonth . "-01";
+		$fiscalstart = date("Y-m-d", strtotime($fiscalstart));
+		$ff=date("Y-m-d",strtotime( "$fiscalstart + $grace week"));
+		
+		
       for($i=$endmonth; $i <=12; $i +=$endmonth) 
       {
 
-        $q1 = strtotime("+$i Months",  $endtime);
-
-        $currnt = strtotime(date("Y-m-d"));
-
-        $currntend = strtotime(date("M d", $currnt));
-
-        if($currntend == $q1)
-        {
-            $review = 'open';
-        }
-    }
+		$quarter = date("Y-m-d", strtotime("$fiscalstart + $i Months"));
+        $monthreview = date("Y-m-d", strtotime("$quarter + $i week"));
+		$current = date("Y-m-d");
+		
+		if($current > $monthreview)
+		{
+			$review = 'closed';
+		}
+	  }
 
     return $review;
 

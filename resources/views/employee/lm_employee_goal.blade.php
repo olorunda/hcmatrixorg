@@ -91,7 +91,9 @@ function month($id)
 	</div>
 </div>
 
-
+<style type="text/css">
+	tbody.prfTb, tr.prfTb, td.prfTb {border: none;border-top: none;border-bottom: none;}
+</style>
 <div class="page-content" >
 
 	<div class="panel">
@@ -99,31 +101,68 @@ function month($id)
 			<div class="row row-lg">
 				<div class="col-md-9 col-xs-12">
 					<div class="table-responsive">
-						<table style="font-size:15px;" class="table table-hover">
+					<?php $job = app('App\Http\Controllers\EmployeeController')->getjobdetail($employee->job_id); ?>
+					<div class="col-md-12">
+						<div class="col-md-3">
+							<i class="icon wb-user m-r-10 btn-pure btn-success"></i> NAME
+						</div>
+						<div class="col-md-9">
+							@if(isset($employee->name)){{$employee->name}}@else NILL @endif
+							<p></p>
+						</div>
+						<div class="col-md-3">
+							<i class="icon wb-link m-r-10 btn-pure btn-info"></i> ID
+						</div>
+						<div class="col-md-9">
+							@if($employee->emp_num == '')NILL @else{{$employee->emp_num}}@endif
+							<p></p>
+						</div>
+						<div class="col-md-3">
+							<i class="icon wb-plugin m-r-10 btn-pure btn-warning"></i> JOB ROLE
+						</div>
+						<div class="col-md-9">
+							@if($job['title'] == '')NILL @else{{$job['title']}}@endif
+							<p></p>
+						</div>
+						<div class="col-md-3">
+							<i class="icon wb-mobile m-r-10 btn-pure btn-danger"></i> TEL
+						</div>
+						<div class="col-md-9">
+							@if($employee->phone_num == '')NILL @else{{$employee->phone_num}}@endif
+							<p></p>
+						</div>
+						<div class="col-md-3">
+							<i class="icon wb-map m-r-10 btn-pure btn-dark"></i> ADDRESS
+						</div>
+						<div class="col-md-9">
+							@if($employee->address == '')NILL @else{{$employee->address}}@endif
+						</div>
+					</div>
+						<!--<table style="font-size:15px;" class="table table-hover">
 							<?php $job = app('App\Http\Controllers\EmployeeController')->getjobdetail($employee->job_id); ?>
-							<tbody>
-								<tr>
-									<td><i class="icon wb-user m-r-10"></i> NAME</td>
-									<td>{{$employee->name}}</td>
+							<tbody class="prfTb">
+								<tr class="prfTb">
+									<td class="prfTb"><i class="icon wb-user m-r-10"></i> NAME</td>
+									<td class="prfTb">{{$employee->name}}</td>
 								</tr>
-								<tr>
-									<td><i class="icon wb-link m-r-10"></i> EMP. ID:</td>
-									<td>{{$employee->emp_num}}</td>
+								<tr class="prfTb">
+									<td class="prfTb"><i class="icon wb-link m-r-10"></i> EMP. ID:</td>
+									<td class="prfTb">{{$employee->emp_num}}</td>
 								</tr>
-								<tr>
-									<td><i class="icon wb-plugin m-r-10"></i> JOB ROLE</td>
-									<td>{{$job['title']}}</td>
+								<tr class="prfTb">
+									<td class="prfTb"><i class="icon wb-plugin m-r-10"></i> JOB ROLE</td>
+									<td class="prfTb">{{$job['title']}}</td>
 								</tr>
-								<tr>
-									<td><i class="icon wb-mobile m-r-10"></i>TEL</td>
-									<th>{{$employee->phone_num}}</th>
+								<tr class="prfTb">
+									<td class="prfTb"><i class="icon wb-mobile m-r-10"></i>TEL</td>
+									<th class="prfTb">{{$employee->phone_num}}</th>
 								</tr>
-								<tr>
-									<td style="font-size:15px;"><i class="icon wb-map m-r-10"></i> ADDRESS</td>
-									<td>{{$employee->address}}</td>
+								<tr class="prfTb">
+									<td class="prfTb" style="font-size:15px;"><i class="icon wb-map m-r-10"></i> ADDRESS</td>
+									<td class="prfTb">{{$employee->address}}</td>
 								</tr>
 							</tbody>
-						</table>
+						</table>-->
 					</div>
 				</div>
 
@@ -261,7 +300,7 @@ function month($id)
 						@endforeach
 					</div>
 					@else
-					<h3>NO ENTRY FOUND</h3>
+					<h3 class="no-pilot">NO ENTRY FOUND</h3>
 					@endif
 				</div>
 			</div>

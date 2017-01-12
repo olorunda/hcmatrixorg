@@ -42,8 +42,8 @@ function niceDate($date)
 					@if(count($directemps) > 0)
 					@foreach($directemps as $direct)
 					<?php $job = app('App\Http\Controllers\EmployeeController')->getjobdetail($direct->job_id); ?>
-					<img class="img-circle img-bordered img-bordered-primary" id="avatar{{$direct->id}}" width="80" height="80" src="{{asset('upload')}}/{{$direct->image}}" style="cursor: pointer;" title="{{$direct->name}}" data-toggle="modal" data-target="#manageEmployeeModal{{$direct->id}}">
-			
+					<img class="img-circle img-bordered img-bordered-primary" id="avatar{{$direct->id}}" width="50" height="50" src="{{asset('upload')}}/{{$direct->image}}" style="cursor: pointer;" title="{{$direct->name}}" data-toggle="modal" data-target="#manageEmployeeModal{{$direct->id}}">
+
 					<input type="hidden" name="last" id="last" value="{{$direct->id}}">
 					@endforeach
 					<p>{{ $directemps->links() }}</p>
@@ -97,10 +97,10 @@ function niceDate($date)
 					<div class="tab-content">
 						<div class="tab-pane active" id="headingDistinct1{{$direct->id}}" role="tabpanel">
 							<div class="row">
-								<div class="col-md-3">
-									<img class="img-thumbnail img-bordered img-default" src="{{asset('upload')}}/{{$direct->image}}" align="left" style="height: 100%;">
+								<div class="col-md-2">
+									<img class="img-thumbnail img-bordered img-default" src="{{asset('upload')}}/{{$direct->image}}" align="left" style="width: 120px;height: 120px;margin-top: 10px;">
 								</div>
-								<div class="col-md-9">
+								<div class="col-md-10">
 									<h4>{{strtoupper($direct->name)}}</h4>
 									<h5>Job Role: {{strtoupper($job['title'])}}</h5>
 									<h5>Emp. ID.: {{strtoupper($direct->emp_num)}}</h5>
@@ -112,25 +112,25 @@ function niceDate($date)
 							<div class="row">
 								<div class="col-md-6">
 									<dl class="dl-horizontal">
-										<dt>E-Mail</dt>
+										<dt><h5>E-Mail</h5></dt>
 										<dd>{{$direct->email}}</dd>
 
-										<dt>Phone</dt>
+										<dt><h5>Phone</h5></dt>
 										<dd>{{$direct->phone_num}}</dd>
 									</dl>
 								</div>
 								<div class="col-md-6">
 									<dl class="dl-horizontal">
-										<dt>Sex</dt>
+										<dt><h5>Sex</h5></dt>
 										<dd>{{$direct->sex}}</dd>
 
-										<dt>Date of Birth</dt>
+										<dt><h5>Date of Birth</h5></dt>
 										<dd>{{$direct->dob}} ({{$direct->age}})</dd>
 									</dl>
 								</div>
 								<div class="col-md-12">
 									<dl class="dl-horizontal">
-										<dt>Address</dt>
+										<dt><h5>Address</h5></dt>
 										<dd>{{$direct->address}}</dd>
 									</dl>
 								</div>
@@ -138,23 +138,25 @@ function niceDate($date)
 							<hr>
 							<div class="row">
 								<div class="col-md-6">
+									<h4>Next Of Kin</h4>
 									<dl class="dl-horizontal">
-										<dt>Next of Kin</dt>
+										<dt><h5>Name</h5></dt>
 										<dd>{{$direct->next_of_kin}}</dd>
 
-										<dt>Relationship</dt>
+										<dt><h5>Relationship</h5></dt>
 										<dd>{{$direct->kin_relationship}}</dd>
 									</dl>
 								</div>
 								<div class="col-md-6">
+								<h4 style="visibility: hidden;">Next Of Kin</h4>
 									<dl class="dl-horizontal">
-										<dt>Phone</dt>
+										<dt><h5>Phone</h5></dt>
 										<dd>{{$direct->kin_phonenum}}</dd>
 									</dl>
 								</div>
 								<div class="col-md-12">
 									<dl class="dl-horizontal">
-										<dt>Address</dt>
+										<dt><h5>Address</h5></dt>
 										<dd>{{$direct->kin_address}}</dd>
 									</dl>
 								</div>
@@ -163,10 +165,10 @@ function niceDate($date)
 						<?php $i = $idn = $j = $k = $l = 1; ?>
 						<div class="tab-pane" id="headingDistinct2{{$direct->id}}" role="tabpanel">
 							<div class="row">
-								<div class="col-md-3">
-									<img class="img-thumbnail img-bordered img-default" src="{{asset('upload')}}/{{$direct->image}}" align="left" style="height: 100%;">
+								<div class="col-md-2">
+									<img class="img-thumbnail img-bordered img-default" src="{{asset('upload')}}/{{$direct->image}}" align="left" style="width: 120px;height: 120px;margin-top: 10px;">
 								</div>
-								<div class="col-md-9">
+								<div class="col-md-10">
 									<h4>{{strtoupper($direct->name)}}</h4>
 									<h5>Job Role: {{strtoupper($job['title'])}}</h5>
 									<h5>Emp. ID.: {{strtoupper($direct->emp_num)}}</h5>
@@ -179,10 +181,10 @@ function niceDate($date)
 						</div>
 						<div class="tab-pane" id="headingDistinct3{{$direct->id}}" role="tabpanel">
 							<div class="row">
-								<div class="col-md-3">
-									<img class="img-thumbnail img-bordered img-default" src="{{asset('upload')}}/{{$direct->image}}" align="left" style="height: 100%;">
+								<div class="col-md-2">
+									<img class="img-thumbnail img-bordered img-default" src="{{asset('upload')}}/{{$direct->image}}" align="left" style="width: 120px;height: 120px;margin-top: 10px;">
 								</div>
-								<div class="col-md-9">
+								<div class="col-md-10">
 									<h4>{{strtoupper($direct->name)}}</h4>
 									<h5>Job Role: {{strtoupper($job['title'])}}</h5>
 									<h5>Emp. ID.: {{strtoupper($direct->emp_num)}}</h5>
@@ -195,10 +197,10 @@ function niceDate($date)
 						</div>
 						<div class="tab-pane" id="headingDistinct4{{$direct->id}}" role="tabpanel">
 							<div class="row">
-								<div class="col-md-3">
-									<img class="img-thumbnail img-bordered img-default" src="{{asset('upload')}}/{{$direct->image}}" align="left" style="height: 100%;">
+								<div class="col-md-2">
+									<img class="img-thumbnail img-bordered img-default" src="{{asset('upload')}}/{{$direct->image}}" align="left" style="width: 120px;height: 120px;margin-top: 10px;">
 								</div>
-								<div class="col-md-9">
+								<div class="col-md-10">
 									<h4>{{strtoupper($direct->name)}}</h4>
 									<h5>Job Role: {{strtoupper($job['title'])}}</h5>
 									<h5>Emp. ID.: {{strtoupper($direct->emp_num)}}</h5>
@@ -211,10 +213,10 @@ function niceDate($date)
 						</div>
 						<div class="tab-pane" id="headingDistinct5{{$direct->id}}" role="tabpanel">
 							<div class="row">
-								<div class="col-md-3">
-									<img class="img-thumbnail img-bordered img-default" src="{{asset('upload')}}/{{$direct->image}}" align="left" style="height: 100%;">
+								<div class="col-md-2">
+									<img class="img-thumbnail img-bordered img-default" src="{{asset('upload')}}/{{$direct->image}}" align="left" style="width: 120px;height: 120px;margin-top: 10px;">
 								</div>
-								<div class="col-md-9">
+								<div class="col-md-10">
 									<h4>{{strtoupper($direct->name)}}</h4>
 									<h5>Job Role: {{strtoupper($job['title'])}}</h5>
 									<h5>Emp. ID.: {{strtoupper($direct->emp_num)}}</h5>
@@ -276,9 +278,11 @@ function niceDate($date)
 	</div>
 	@else
 	<div class="row row-lg">
-		<div class="panel">
-			<div class="panel-body">
-				<h1>No Pilot Goals Set Yet. Please check back later.</h1>
+		<div class="col-md-12">
+			<div class="panel">
+				<div class="panel-body">
+					<h3 class="no-pilot">No Pilot Goals Set Yet. Please check back later.</h3>
+				</div>
 			</div>
 		</div>
 	</div>
