@@ -53,6 +53,11 @@ return [
             'root' => storage_path('app/public'),
             'visibility' => 'public',
         ],
+		'att'=>[
+			'driver'=>'local',
+			'root'=>storage_path('exports'),
+			'visibility'=>'public',
+		],
 		
 		  'locale' => [
             'driver'        => 'local',

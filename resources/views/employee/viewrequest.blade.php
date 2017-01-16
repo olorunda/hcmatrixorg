@@ -50,7 +50,7 @@ $(function(){
 function loadcal(type){
     $('#calendar').fullCalendar({
          noEventsMessage:'No Leave Request For today',
-		 allDayText:'month',
+		 allDayText:'Leave Request',
 		  defaultView: 'listWeek',
           header: {
 				left: 'prev,next today',

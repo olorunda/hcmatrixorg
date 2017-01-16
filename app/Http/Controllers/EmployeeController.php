@@ -50,23 +50,47 @@ class EmployeeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+	
+	
     public function store(Request $request)
     {
+		$lmdetail=\App\user::where('id',\Auth::user()->linemanager_id)->select('name','email')->first();
       if(isset($request->create)){
        if($request->create=='ca'){
         $type=4;
+		$message=\Auth::user()->name." Just Added an Individual Developement Plan , Click <a href='". \URL::to('/')."/goals?type=pilot' >here</a> to view plan";
     }
     else{
 
         $type=3;
+		$message=\Auth::user()->name." Just Added a Career Aspiration , Click <a href='". \URL::to('/')."/goals?type=pilot' >here</a> to view Aspiration";
     }
 
     $individualgoal=$this->employee->creategoal(['objective'=>$request->objective,'commitment'=>$request->commitment,'goal_cat'=>$type,'emp_id'=>\Auth::user()->id]);
-
+	
+	
+    $sendnot= app('App\Repositories\GlobalSettingRepository')->notificationsender($lmdetail['name'],$lmdetail['email'],$message);
+	
     return $individualgoal;
 
 }
 
+
+  $goalcat=\App\goal::where('id',$request->goalid)->select('goal_cat')->first();
+if($goalcat['goal_cat']==1){
+	$message=\Auth::user()->name." Just Comment on his Line Managers Objective ,<br><b>Comment:</b>$request->emp_comment.<br> Click <a href='". \URL::to('/')."/goals?type=pilot' >here</a> to view plan";
+}
+elseif($goalcat['goal_cat']==2){
+	$message=\Auth::user()->name." Just Comment on his Pilot Goal ,<br><b>Comment:</b>$request->emp_comment.<br> Click <a href='". \URL::to('/')."/goals?type=pilot' >here</a> to view plan";
+}
+elseif($goalcat['goal_cat']==3){
+
+	$message=\Auth::user()->name." Just Comment on his Individual Developement Plan ,<br><b>Comment:</b>$request->emp_comment.<br> Click <a href='". \URL::to('/')."/goals?type=pilot' >here</a> to view plan";
+}
+else{
+		$message=\Auth::user()->name." Just Comment on his Career Aspiration ,<br><b>Comment:</b>$request->emp_comment.<br> Click <a href='". \URL::to('/')."/goals?type=pilot' >here</a> to view plan";
+}
 			//check if comment exist
 $checkexist=\App\comment::where('goal_id',$request->goalid)
 ->where('user_id',$request->id)
@@ -75,6 +99,9 @@ $checkexist=\App\comment::where('goal_id',$request->goalid)
 
 if($checkexist==""){
    $empcomment=$this->employee->addcomment(['emp_comment'=>$request->emp_comment,'user_id'=>$request->id,'goal_id'=>$request->goalid]);
+   //notify 
+   $sendnot= app('App\Repositories\GlobalSettingRepository')->notificationsender($lmdetail['name'],$lmdetail['email'],$message );
+	
    return $empcomment;
 }
 
@@ -83,6 +110,9 @@ if($checkexist==""){
 $empcomment=\App\comment::where('goal_id',$request->goalid)
 ->where('user_id',$request->id)
 ->update(['emp_comment'=>$request->emp_comment]);
+ 
+$sendnot= app('App\Repositories\GlobalSettingRepository')->notificationsender($lmdetail['name'],$lmdetail['email'],$message);
+
 return 'success';	
 
 }

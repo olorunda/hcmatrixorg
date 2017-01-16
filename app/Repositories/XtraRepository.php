@@ -70,6 +70,7 @@ namespace App\Repositories;
 						->where('empdocs.folder_id','=',$folderid)
 						->where('empdocs.user_id',\Auth::user()->id)
 						->select('empdocs.*','users.name as name')
+						->orderBy('empdocs.created_at','desc')
 						->paginate(20);
 			return $alldocument;
 		 
@@ -102,7 +103,7 @@ namespace App\Repositories;
 						->where('empdocs.folder_id',"$type",$folderid)
 						->where($columncond,\Auth::user()->id) 
 						->where('empdocs.documentname','like',"%$q%")
-
+						->orderBy('empdocs.created_at','desc')
 						->select('empdocs.*','users.name as name')
 						->paginate(20);
 				if(count($alldocument)==0){
@@ -113,6 +114,7 @@ namespace App\Repositories;
 						//->where('empdocs.documentname','like',"%$q%")
 						->Where('users.name','like',"%$q%")
 						//->orWhere('users.email','like',"%$q%")
+						->orderBy('empdocs.created_at','desc')
 						->select('empdocs.*','users.name as name')
 						->paginate(20);
 						
@@ -125,6 +127,7 @@ namespace App\Repositories;
 						//->where('empdocs.documentname','like',"%$q%")
 						//->orWhere('users.name','like',"%$q%")
 						->Where('users.email','like',"%$q%")
+						->orderBy('empdocs.created_at','desc')
 						->select('empdocs.*','users.name as name')
 						->paginate(20);
 						}
@@ -139,6 +142,7 @@ namespace App\Repositories;
 						->where('empdocs.folder_id',"$type",$folderid)
 						->where('users.linemanager_id',\Auth::user()->id)
 						->select('empdocs.*','users.name as name')
+						->orderBy('empdocs.created_at','desc')
 						->paginate(20);
 			}			
 		}
@@ -153,7 +157,7 @@ namespace App\Repositories;
 						 ->select('empdocs.*','users.name as name')
 						 
 						->where('empdocs.documentname','like',"%$q%")
-					 
+					 ->orderBy('empdocs.created_at','desc')
 						 ->where('empdocs.user_id',\Auth::user()->id)
 						 
 						->paginate(20);
@@ -166,7 +170,7 @@ namespace App\Repositories;
 						
 						 ->select('empdocs.*','users.name as name')
 						 
-						 
+						 ->orderBy('empdocs.created_at','desc')
 						->Where('users.name','like',"%$q%")
 						
 						 ->where('empdocs.user_id',\Auth::user()->id)
@@ -178,7 +182,7 @@ namespace App\Repositories;
 						->join('users','users.id','=','empdocs.user_id')
 						
 						->where('empdocs.folder_id',"$type",$folderid)
-						
+						->orderBy('empdocs.created_at','desc')
 						 ->select('empdocs.*','users.name as name')
 						 
 						 
@@ -198,6 +202,7 @@ namespace App\Repositories;
 						->where('empdocs.folder_id',"$type",$folderid)
 						->where('empdocs.user_id',\Auth::user()->id)
 						->select('empdocs.*','users.name as name')
+						->orderBy('empdocs.created_at','desc')
 						->paginate(20);
 			}	
 			
@@ -214,6 +219,7 @@ namespace App\Repositories;
 						->orWhere('users.name','like',"%$q%")
 						->orWhere('users.email','like',"%$q%")
 						->select('empdocs.*','users.name as name')
+						->orderBy('empdocs.created_at','desc')
 						->paginate(20); 
 			}
           else{			
@@ -222,6 +228,7 @@ namespace App\Repositories;
 						->join('users','users.id','=','empdocs.user_id')
 						->where('empdocs.folder_id',"$type",$folderid)
 						->select('empdocs.*','users.name as name')
+						->orderBy('empdocs.created_at','desc')
 						->paginate(20);
 		  }
 		}

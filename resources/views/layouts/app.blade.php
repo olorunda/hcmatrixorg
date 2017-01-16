@@ -594,6 +594,7 @@ div p {
 	    <script src="{{asset('global/vendor/bootstrap/bootstrap.js')}}"></script>
  
 	@endif
+
   <script src="{{asset('global/vendor/animsition/animsition.js')}}"></script>
   <script src="{{asset('global/vendor/mousewheel/jquery.mousewheel.js')}}"></script>
   <script src="{{asset('global/vendor/asscrollbar/jquery-asScrollbar.js')}}"></script>
@@ -811,7 +812,9 @@ div p {
              <script src="{{asset('assets/js/jquery.contextMenu.min.js')}}" type="text/javascript"></script>
 
     <script src="{{asset('assets/js/jquery.ui.position.min.js')}}" type="text/javascript"></script>
-
+	@if(active('manage/leavestat'))
+		  <script src="{{asset('assets/examples/js/charts/morris.js')}}"></script>
+	@endif
 			      <script src="{{asset('global/vendor/datepair/datepair.min.js')}}"></script>
   <script src="{{asset('global/vendor/datepair/jquery.datepair.min.js')}}"></script>
     <script src="{{asset('global/vendor/jt-timepicker/jquery.timepicker.min.js')}}"></script>

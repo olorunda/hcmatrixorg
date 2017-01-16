@@ -166,7 +166,14 @@ formData.append("folderid", '{{$_GET['foldid']}}');
 			 
 			 setTimeout(function(){
 				 
+				 @if(Auth::user()->role==2)
+					 window.location="{{url('view')}}/document?foldid={{$_GET['foldid']}}&foldername={{$_GET['foldername']}}&type=me";
+				 
+				 @else
+					 
 				window.location.reload(); 
+				
+				@endif
 				 
 			 },2000);
 			 

@@ -48,7 +48,7 @@ $(function(){
 function loadcal(type){
     $('#calendar').fullCalendar({
          noEventsMessage:'No Leave Request For today',
-		 allDayText:'month',
+		 allDayText:'Leave Request',
 		  defaultView: 'listWeek',
           header: {
 				left: 'prev,next today',
@@ -278,7 +278,7 @@ function loadcal(type){
 				<thead>
 					<tr>
 						
-						<th>Name<?php echo e(session('FY')); ?></th>
+						<th>Name</th>
 						<th>ID</th>
 						<th>Role</th>
 						<th>Type</th>

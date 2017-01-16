@@ -1150,6 +1150,9 @@ class EmployeeRepository{
 		{
 			$date = session('FY');
 		}
+		else{
+			$date=date('Y');
+		}
 		try {
 			$leaves = absencerequest::where('emp_id', $empid)->where('created_at','like','%'.$date.'%')->get();
 		} catch(\Exception $ex) {

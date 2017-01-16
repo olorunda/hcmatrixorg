@@ -5,7 +5,7 @@
 <?php $leaves     = app('App\Http\Controllers\EmployeeController')->getLeaveDue(Auth::user()->role); 
 
 ?>
-<?php $requests   = app('App\Http\Controllers\EmployeeController')->getLeaveRequest(Auth::user()->id); ?>
+<?php $requests   = app('App\Http\Controllers\EmployeeController')->getLeaveRequest(Auth::user()->id);  ?>
 <?php $yearlyDue  = app('App\Http\Controllers\EmployeeController')->totalLeaveFiscal(Auth::user()->role);
 
 

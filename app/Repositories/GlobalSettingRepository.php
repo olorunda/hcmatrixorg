@@ -5,6 +5,8 @@ namespace App\Repositories;
 
 use Excel;
 
+use App\Mail\SendNotification;
+
 use DB;
 
 class GlobalSettingRepository{
@@ -23,6 +25,22 @@ class GlobalSettingRepository{
 	return $getjobs;	
 		
 		
+	}
+	
+		 
+	public function notificationsender($name="",$email="",$message="",$from=""){
+		
+		try {
+			session(['notifymessage22'=>$message]);
+		\Mail::to($email)->send(new SendNotification($name,$email,$message,$from));
+		
+		return 1;
+		}
+		catch(\Exception $ex){
+
+			return $ex;
+		}
+	
 	}
 	
 	//get apptitude settings
@@ -280,8 +298,21 @@ class GlobalSettingRepository{
 	
 	
 	//get attendance
-	public function attendance($type=0,$startdate=0,$enddate=0,$empname=0,$restype=0){
+	public function attendance($type=0,$startdate=0,$enddate=0,$empname=0,$restype=0,$cron=0){
 		
+		if($cron==1){
+			
+		       $getattendance=\DB::table('users')
+							->join('attendances','users.emp_num','=','attendances.user_id')
+							->select('attendances.created_at','attendances.id as ids ','attendances.clockout_time','attendances.status','users.name','users.id','users.emp_num')
+							->where('users.linemanager_id','!=',0)
+							
+							->whereBetween('attendances.created_at',[$startdate,$enddate])
+							
+							->get();
+						
+		}
+		 else{
 		//ADMIN-HR CONDITION
 		if(\Auth::user()->role==3){
 			if($type==='datesearch'){
@@ -350,11 +381,16 @@ class GlobalSettingRepository{
 							->paginate(30);
 			}	
 		}
+	}
+		//bad practice
+
+		
 		if($restype==0){
 		return $getattendance;
 		}
 		else{
-			
+		
+				
 		//repository
 		foreach($getattendance as $data){
 
@@ -374,11 +410,37 @@ class GlobalSettingRepository{
 
 		}
 
+	if($cron==1){
+			
+		
 	Excel::create('attendance', function($excel) use($data) {
 
 
 
     $excel->sheet('attendancedata', function($sheet) use($data) {
+
+
+
+    $sheet->fromArray($data);
+
+
+
+    });
+
+
+
+		})->store('xls');
+		
+		
+		}
+		
+		else{
+			
+		Excel::create('attendance', function($excel) use($data) {
+
+
+
+			$excel->sheet('attendancedata', function($sheet) use($data) {
 
 
 
@@ -391,11 +453,10 @@ class GlobalSettingRepository{
 
 
 		})->export('xls');
-
+		
+		}
+	
     
-	  
-	  
-	  
 		}
 		
 	}

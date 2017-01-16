@@ -310,6 +310,22 @@ class GlobalSettingController extends Controller
 		
 		
 	}
+	
+	//notificationsetting
+	public function notificationsetting(Request $request){
+		
+		try{
+		if(isset($request->attendance)){
+		$savesettings=\App\notifcation_sett::where('id',1)->update(['repfreq'=>$request->attendance]);
+		}
+		
+		return response()->json('success',200);
+		
+		}
+		catch(\Exception $ex){
+			return response()->json("Error:$ex",404);
+		}
+	}
     
 	//save setting
 	public function savesetting(Request $request){

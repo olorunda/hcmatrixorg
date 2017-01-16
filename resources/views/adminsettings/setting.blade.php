@@ -718,7 +718,7 @@ $(function(){
                 <span class="counter-number">Notifications & Alert</span>
                 <span class="counter-number-related text-capitalize">Settings</span>
               </div>
-              <div class="counter-label text-capitalize"><button data-toggle="modal" data-target="" type="button" class="btn btn-icon btn-warning btn-round"><i class="icon wb-settings" aria-hidden="true"></i></button></div>
+              <div class="counter-label text-capitalize"><button data-toggle="modal" data-target="#notification" type="button" class="btn btn-icon btn-warning btn-round"><i class="icon wb-settings" aria-hidden="true"></i></button></div>
             </div>
           </div>
           <!-- End Card -->
@@ -895,6 +895,7 @@ $(function(){
 <!-- MODALS ENDS -->
 
 @include('partials.leavesetting')
+@include('partials.notificationsetting')
 @include('partials.pilotsetting')
 @include('partials.attendancesetting')
 

@@ -716,7 +716,7 @@ $(function(){
                 <span class="counter-number">Notifications & Alert</span>
                 <span class="counter-number-related text-capitalize">Settings</span>
               </div>
-              <div class="counter-label text-capitalize"><button data-toggle="modal" data-target="" type="button" class="btn btn-icon btn-warning btn-round"><i class="icon wb-settings" aria-hidden="true"></i></button></div>
+              <div class="counter-label text-capitalize"><button data-toggle="modal" data-target="#notification" type="button" class="btn btn-icon btn-warning btn-round"><i class="icon wb-settings" aria-hidden="true"></i></button></div>
             </div>
           </div>
           <!-- End Card -->
@@ -893,6 +893,7 @@ $(function(){
 <!-- MODALS ENDS -->
 
 <?php echo $__env->make('partials.leavesetting', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('partials.notificationsetting', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php echo $__env->make('partials.pilotsetting', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php echo $__env->make('partials.attendancesetting', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 

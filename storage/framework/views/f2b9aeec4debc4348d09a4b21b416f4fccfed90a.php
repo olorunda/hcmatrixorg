@@ -214,8 +214,10 @@ div p {
 }
 <?php endif; ?>
   .page-header{
-	  
-	  margin-top: <?php if(active('employee/list')): ?> -25px <?php elseif(active('manage/*')||active('leave') ||active('lm/*')|| active('search')): ?>  <?php else: ?> -40px; <?php endif; ?>
+	 
+<?php if(active('applicant/job')): ?>
+<?php else: ?>	
+	  margin-top: <?php if(active('employee/list')): ?> -25px <?php elseif(active('manage/*')||active('leave') ||active('lm/*')|| active('search')): ?>  <?php else: ?> -40px; <?php endif; ?> <?php endif; ?>
   }
   .pdfSlider_close{
 	  
@@ -376,7 +378,9 @@ div p {
 <script>
  $(function(){
  
-	 
+	 <?php if(active('lm/rate')): ?>
+		 <?php else: ?>
+	
 	 $(document).ajaxStart(function(){
 		 $.LoadingOverlay("show",{
 			 image       : "",
@@ -391,7 +395,8 @@ div p {
 		NProgress.done();
 		 
 	});
-	 
+	
+	 <?php endif; ?>
 	
     $.ajaxPrefilter(function(options, originalOptions, xhr) { // this will run before each request
         var token = $('meta[name="csrf-token"]').attr('content'); // or _token, whichever you are using
@@ -589,6 +594,7 @@ div p {
 	    <script src="<?php echo e(asset('global/vendor/bootstrap/bootstrap.js')); ?>"></script>
  
 	<?php endif; ?>
+
   <script src="<?php echo e(asset('global/vendor/animsition/animsition.js')); ?>"></script>
   <script src="<?php echo e(asset('global/vendor/mousewheel/jquery.mousewheel.js')); ?>"></script>
   <script src="<?php echo e(asset('global/vendor/asscrollbar/jquery-asScrollbar.js')); ?>"></script>
@@ -806,7 +812,9 @@ div p {
              <script src="<?php echo e(asset('assets/js/jquery.contextMenu.min.js')); ?>" type="text/javascript"></script>
 
     <script src="<?php echo e(asset('assets/js/jquery.ui.position.min.js')); ?>" type="text/javascript"></script>
-
+	<?php if(active('manage/leavestat')): ?>
+		  <script src="<?php echo e(asset('assets/examples/js/charts/morris.js')); ?>"></script>
+	<?php endif; ?>
 			      <script src="<?php echo e(asset('global/vendor/datepair/datepair.min.js')); ?>"></script>
   <script src="<?php echo e(asset('global/vendor/datepair/jquery.datepair.min.js')); ?>"></script>
     <script src="<?php echo e(asset('global/vendor/jt-timepicker/jquery.timepicker.min.js')); ?>"></script>

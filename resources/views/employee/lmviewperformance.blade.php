@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<script src="../../global/vendor/jquery/jquery.js"></script>
+ 
 
 <?php  $jobdetail=app('App\Http\Controllers\EmployeeController')->getjobdetail(Auth::user()->job_id) ?>
 
@@ -17,37 +17,6 @@
     document.getElementById('loaddoc').src = url;
    }
    
- $(function(){
-
- 
-  $('.btcal').click(function() {
-    window.setTimeout(clickToday, 200);
-});
-
-
-  setInterval(function(){
-   
-     $('#time').html(new Date(new Date().getTime()).toLocaleTimeString());
-
-	 
- },1000);
-   $.get('/leave/statistics',function(data,status,xhr){
- linkinfo= Morris.Bar({
-  element: 'absencechart',
-  data: data,
-  xkey: 'x',
-  ykeys: ['y'],
-  barGap:1,
-  barSizeRatio:0.2,
-  barColors: ['#4caf50'],
-
-  labels: ['Number of Applicant']
-});
- 
-       });
-  
- });
-
 
 
 function clickToday() {
@@ -77,6 +46,41 @@ function clickToday() {
     });
 
 }
+
+ $(function(){
+
+ 
+   setInterval(function(){
+   
+     $('#time').html(new Date(new Date().getTime()).toLocaleTimeString());
+
+	 
+ },1000);
+ 
+   $.get('{{url('leave')}}/statistics',function(data,status,xhr){
+ linkinfo= Morris.Bar({
+  element: 'absencechart',
+  data: data,
+  xkey: 'x',
+  ykeys: ['y'],
+  barGap:1,
+  barSizeRatio:0.2,
+  barColors: ['#4caf50'],
+  labels: ['Number of Applicant']
+});
+ 
+       });
+	   
+  $('.btcal').click(function() {
+    window.setTimeout(clickToday, 200);
+});
+
+
+
+  
+ });
+
+
  
 </script>
 

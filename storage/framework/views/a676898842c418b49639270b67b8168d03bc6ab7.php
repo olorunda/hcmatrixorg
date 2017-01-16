@@ -3,7 +3,7 @@
 <?php $leaves     = app('App\Http\Controllers\EmployeeController')->getLeaveDue(Auth::user()->role); 
 
 ?>
-<?php $requests   = app('App\Http\Controllers\EmployeeController')->getLeaveRequest(Auth::user()->id); ?>
+<?php $requests   = app('App\Http\Controllers\EmployeeController')->getLeaveRequest(Auth::user()->id);  ?>
 <?php $yearlyDue  = app('App\Http\Controllers\EmployeeController')->totalLeaveFiscal(Auth::user()->role);
 
 
@@ -103,7 +103,7 @@ function status($id)
             <?php $totalpend = 0; ?>
             <?php if(count($requests) > 0): ?>
             <?php $__currentLoopData = $requests; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $request): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
-            <?php if($request->status==1): ?>
+            <?php if($request->status==0): ?>
             <?php $totalpend+=1; ?>
             <?php endif; ?>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>

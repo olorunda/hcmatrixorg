@@ -164,7 +164,14 @@ formData.append("folderid", '<?php echo e($_GET['foldid']); ?>');
 			 
 			 setTimeout(function(){
 				 
+				 <?php if(Auth::user()->role==2): ?>
+					 window.location="<?php echo e(url('view')); ?>/document?foldid=<?php echo e($_GET['foldid']); ?>&foldername=<?php echo e($_GET['foldername']); ?>&type=me";
+				 
+				 <?php else: ?>
+					 
 				window.location.reload(); 
+				
+				<?php endif; ?>
 				 
 			 },2000);
 			 
@@ -264,12 +271,7 @@ formData.append("folderid", '<?php echo e($_GET['foldid']); ?>');
     </div>
   </div>
   
-</div>  <div class="site-action" data-plugin="actionBtn">
-    <button type="button" data-toggle="modal" data-target="#adddocument" class="site-action-toggle btn-raised btn btn-success btn-floating">
-      <i class="front-icon wb-plus animation-scale-up" aria-hidden="true"></i>
-      <i class="back-icon wb-close animation-scale-up" aria-hidden="true"></i>
-    </button>
-  </div>
+</div>
 <div class="col-md-12 col-xs-12">
           <div class="panel panel-success panel-line">
             <div class="panel-heading">
@@ -402,7 +404,12 @@ formData.append("folderid", '<?php echo e($_GET['foldid']); ?>');
        <?php endif; ?>
 	   </div> </div>
 	   
-	 
+	   <div class="site-action" data-plugin="actionBtn">
+    <button type="button" data-toggle="modal" data-target="#adddocument" class="site-action-toggle btn-raised btn btn-success btn-floating">
+      <i class="front-icon wb-plus animation-scale-up" aria-hidden="true"></i>
+      <i class="back-icon wb-close animation-scale-up" aria-hidden="true"></i>
+    </button>
+  </div>
   
         </div>
 <?php $__env->stopSection(); ?>

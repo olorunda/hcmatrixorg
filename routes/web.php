@@ -47,6 +47,7 @@ Route::get('saveleave','GlobalSettingController@saveleave');
 Route::get('/deletequestion/{id}' ,'GlobalSettingController@deletequestion');
 Route::get('save/holiday' ,'GlobalSettingController@saveholiday');
 Route::get('test/setting','GlobalSettingController@savesetting');
+Route::get('notification','GlobalSettingController@notificationsetting');
 //Global Setting
 
 Route::get('employee/list','EmployeeController@empsearchres');

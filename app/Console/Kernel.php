@@ -4,7 +4,7 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-
+ 
 class Kernel extends ConsoleKernel
 {
     /**
@@ -15,8 +15,11 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         //
 		Commands\Birtdaynot::class,
+		Commands\attendancenot::class,
+		Commands\lmattendancenot::class,
     ];
-
+ 
+	 
     /**
      * Define the application's command schedule.
      *
@@ -28,6 +31,26 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')
         //          ->hourly();
 		   $schedule->command('Birthdaynot')->daily();
+		   
+		//send attenndance report
+		   $getnot=\App\notifcation_sett::where('modulename','attendance')
+					->select('repfreq')
+					->first();		
+						
+			if($getnot['repfreq']==1){
+				
+		   $schedule->command('Sendreport')->daily();
+		   $schedule->command('lrattendance')->daily();
+			}	
+			elseif($getnot['repfreq']==2){
+				
+		   $schedule->command('Sendreport')->weekly();;
+		   $schedule->command('lrattendance')->weekly();;
+			}
+			else{
+		   $schedule->command('Sendreport')->monthly();	
+		   $schedule->command('lrattendance')->monthly();	
+			}
     }
 
     /**
