@@ -33,7 +33,7 @@ class Kernel extends ConsoleKernel
 		   $schedule->command('Birthdaynot')->daily();
 		   
 		//send attenndance report
-		   $getnot=\App\notifcation_sett::where('modulename','attendance')
+		   $getnot=\App\notifcation_sett::where('id',1)
 					->select('repfreq')
 					->first();		
 						

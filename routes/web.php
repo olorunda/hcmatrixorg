@@ -14,6 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/error',function(){
+	
+	return view('errors.unauth');
+});
 
 Auth::routes();
 
@@ -48,6 +52,7 @@ Route::get('/deletequestion/{id}' ,'GlobalSettingController@deletequestion');
 Route::get('save/holiday' ,'GlobalSettingController@saveholiday');
 Route::get('test/setting','GlobalSettingController@savesetting');
 Route::get('notification','GlobalSettingController@notificationsetting');
+Route::get('getsetting','GlobalSettingController@getsetting');
 //Global Setting
 
 Route::get('employee/list','EmployeeController@empsearchres');

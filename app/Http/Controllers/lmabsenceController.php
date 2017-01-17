@@ -14,6 +14,7 @@ class lmabsenceController extends Controller
 	public function __construct(EmployeeRepository $employee){
 		
 		$this->middleware('auth');
+		$this->middleware('rights');
 		$this->employee=$employee;
 	}
     /**

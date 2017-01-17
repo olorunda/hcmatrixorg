@@ -17,6 +17,7 @@ class XtraController extends Controller
 	 
 	public function  __construct(XtraRepository $xtra) {
 		 $this->middleware('auth');;
+		 $this->middleware('rights');;
 		 $this->xtra=$xtra;
 	}
     public function index()

@@ -16,6 +16,7 @@ class JobController extends Controller
     public function __construct(JobInterface $job)
     {
         $this->middleware('auth');
+        $this->middleware('rights');
         $this->job = $job;
     }
     /**

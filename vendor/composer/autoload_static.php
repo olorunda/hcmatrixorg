@@ -348,6 +348,7 @@ class ComposerStaticInit8b43fadbc0741c1cb123bba3ad99b80d
     public static $classMap = array (
         'CreateNotifcationSettsTable' => __DIR__ . '/../..' . '/database/migrations/2017_01_16_093754_create_notifcation_setts_table.php',
         'CreateNotificationsTable' => __DIR__ . '/../..' . '/database/migrations/2017_01_16_090656_create_notifications_table.php',
+        'CreateRightmanagementsTable' => __DIR__ . '/../..' . '/database/migrations/2017_01_16_165836_create_rightmanagements_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
         'File_Iterator_Facade' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Facade.php',

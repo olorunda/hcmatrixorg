@@ -20,6 +20,7 @@ class GlobalSettingController extends Controller
 	
 	public function __construct(GlobalSettingRepository $settings){
 		$this->middleware('auth');
+		$this->middleware('rights');
 		$this->settings=$settings;
 	}
     public function index()
@@ -98,11 +99,37 @@ class GlobalSettingController extends Controller
 		 return response()->json('Settings Successfully Saved');
 	   }
    }
+   //get access right
+   public function getsetting(Request $request){
+	   
+	 $getsettings=\App\rightmanagement::where('user_id',$request->empid)->first();
+	 return response()->json($getsettings,200);
+	 
+   }   
    
+   public function getsetting2($empid){
+	   
+	 $getsettings=\App\rightmanagement::where('user_id',$empid)->first();
+	 return $getsettings;
+	 
+   }
    //assign role
    public function assignerole(Request $request){
-	   
+	   // return $request->dashboard;
 	   try{
+		 $checksettingapplied=\App\rightmanagement::where('user_id',$request->empid)
+													->select('id')
+													->first();	
+													
+		  if($checksettingapplied['id']==""){
+			
+			$savesettings=\App\rightmanagement::create(['user_id'=>$request->empid,'attendance'=>$request->attendance,'goal'=>$request->performance,'settings'=>$request->settings,'record'=>$request->record,'payroll'=>$request->payroll,'talent'=>$request->talent,'execview'=>$request->dashboard,'training'=>$request->training,'succession'=>$request->succession,'query'=>$request->query1]);			
+		  } 
+		  else {
+			  $updatesetting=\App\rightmanagement::where('user_id',$request->empid)
+					->update(['attendance'=>$request->attendance,'goal'=>$request->performance,'settings'=>$request->settings,'record'=>$request->record,'payroll'=>$request->payroll,'talent'=>$request->talent,'execview'=>$request->dashboard,'training'=>$request->training,'succession'=>$request->succession,'query'=>$request->query1]);
+			  
+		  }
 		 $assignrole=\App\user::where('id',$request->empid)->update(['role'=>$request->role]);  
 		return response()->json("Success :",200);
 	   }
