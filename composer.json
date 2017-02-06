@@ -11,7 +11,9 @@
         "intervention/image": "^2.3",
 		"maatwebsite/excel": "~2.1.0",
         "league/csv": "8.0",
-        "laravel/socialite": "^2.0"
+        "laravel/socialite": "^2.0",
+        "microsoft/microsoft-graph": "0.1.*",
+        "ixudra/curl": "6.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

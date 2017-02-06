@@ -213,7 +213,7 @@ function loadcal(type){
 							<div class="list-group" style="margin:0px 20px 0 20px;">
 							<select id="statusleave"   data-plugin="select2" onclick="sort()" class="form-control" >
 			
-				<option>-Select Critteria-</option>
+				<option>-Select Criteria-</option>
 				<option value="5">All</option>
 				<option disabled class="select2-results__group" style="font-size:15px;"><p class="text-center">  -Priority- </p></option>
 				<option value="0">Normal</option>

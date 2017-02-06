@@ -181,7 +181,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 		Maatwebsite\Excel\ExcelServiceProvider::class,
-
+		Ixudra\Curl\CurlServiceProvider::class,
+ 
     ],
 
     /*
@@ -197,6 +198,8 @@ return [
 
     'aliases' => [
 
+ 
+		'Curl'           => Ixudra\Curl\Facades\Curl::class,
         'App' => Illuminate\Support\Facades\App::class,	
 		'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,

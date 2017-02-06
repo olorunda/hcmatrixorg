@@ -41,6 +41,8 @@ class MicrosoftProvider extends AbstractProvider implements ProviderInterface
 
     protected function getUserByToken($token)
     {
+		//little hack
+	 
         $response = $this->getHttpClient()->get('https://graph.windows.net/me?api-version=1.5', [
             'headers' => [
             'Authorization' => 'Bearer ' . $token,

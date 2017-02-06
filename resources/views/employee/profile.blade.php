@@ -98,6 +98,22 @@ function niceDate($date)
                   <h5>Emp. ID.: {{strtoupper(Auth::user()->emp_num)}}</h5>
                   <h5>Department: {{app('App\Http\Controllers\AvailJobController')->getDept(Auth::user()->workdept_id)}}</h5>
                   <h5>Last Promoted on: {{niceDate(Auth::user()->last_promoted)}}</h5>
+				  <h5><b> </b>
+									 <?php  $getrating=app('App\Http\Controllers\EmpController360')->getrate(Auth::user()->id,Auth::user()->id);  ?>
+						 <script>
+						 $(function(){
+							 
+							$('#rating{{Auth::user()->id}}1').raty({ starType: 'i' });
+							
+						  $('#rating{{Auth::user()->id}}1').raty('score', {{$getrating['rating']}});
+						  
+							$('#rating{{Auth::user()->id}}1').raty('readOnly', true);
+						 });
+						</script>
+							<span   id="rating{{Auth::user()->id}}1"></span>
+								   <br/>
+                             <span style="font-weight:bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;( Total Rating: {{$getrating['rating']}} )</span>
+									</h5>
                 </div>
               </div>
               <hr>
@@ -167,6 +183,22 @@ function niceDate($date)
                   <h5>Emp. ID.: {{strtoupper(Auth::user()->emp_num)}}</h5>
                   <h5>Department: {{app('App\Http\Controllers\AvailJobController')->getDept(Auth::user()->workdept_id)}}</h5>
                   <h5>Last Promoted on: {{niceDate(Auth::user()->last_promoted)}}</h5>
+				  <h5><b> </b>
+									 <?php  $getrating=app('App\Http\Controllers\EmpController360')->getrate(Auth::user()->id,Auth::user()->id);  ?>
+						 <script>
+						 $(function(){
+							 
+							$('#rating{{Auth::user()->id}}1').raty({ starType: 'i' });
+							
+						  $('#rating{{Auth::user()->id}}1').raty('score', {{$getrating['rating']}});
+						  
+							$('#rating{{Auth::user()->id}}1').raty('readOnly', true);
+						 });
+						</script>
+							<span   id="rating{{Auth::user()->id}}1"></span>
+								   <br/>
+                             <span style="font-weight:bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;( Total Rating: {{$getrating['rating']}} )</span>
+									</h5>
                 </div>
               </div>
               <hr>
@@ -184,6 +216,22 @@ function niceDate($date)
                   <h5>Emp. ID.: {{strtoupper(Auth::user()->emp_num)}}</h5>
                   <h5>Department: {{app('App\Http\Controllers\AvailJobController')->getDept(Auth::user()->workdept_id)}}</h5>
                   <h5>Last Promoted on: {{niceDate(Auth::user()->last_promoted)}}</h5>
+				  <h5><b> </b>
+									 <?php  $getrating=app('App\Http\Controllers\EmpController360')->getrate(Auth::user()->id,Auth::user()->id);  ?>
+						 <script>
+						 $(function(){
+							 
+							$('#rating{{Auth::user()->id}}3').raty({ starType: 'i' });
+							
+						  $('#rating{{Auth::user()->id}}3').raty('score', {{$getrating['rating']}});
+						  
+							$('#rating{{Auth::user()->id}}3').raty('readOnly', true);
+						 });
+						</script>
+							<span   id="rating{{Auth::user()->id}}3"></span>
+								   <br/>
+                             <span style="font-weight:bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;( Total Rating: {{$getrating['rating']}} )</span>
+									</h5>
                 </div>
               </div>
               <hr>
@@ -201,6 +249,22 @@ function niceDate($date)
                   <h5>Emp. ID.: {{strtoupper(Auth::user()->emp_num)}}</h5>
                   <h5>Department: {{app('App\Http\Controllers\AvailJobController')->getDept(Auth::user()->workdept_id)}}</h5>
                   <h5>Last Promoted on: {{niceDate(Auth::user()->last_promoted)}}</h5>
+				  <h5><b> </b>
+									 <?php  $getrating=app('App\Http\Controllers\EmpController360')->getrate(Auth::user()->id,Auth::user()->id);  ?>
+						 <script>
+						 $(function(){
+							 
+							$('#rating{{Auth::user()->id}}1').raty({ starType: 'i' });
+							
+						  $('#rating{{Auth::user()->id}}1').raty('score', {{$getrating['rating']}});
+						  
+							$('#rating{{Auth::user()->id}}1').raty('readOnly', true);
+						 });
+						</script>
+							<span   id="rating{{Auth::user()->id}}1"></span>
+								   <br/>
+                             <span style="font-weight:bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;( Total Rating: {{$getrating['rating']}} )</span>
+									</h5>
                 </div>
               </div>
               <hr>
@@ -218,6 +282,22 @@ function niceDate($date)
                   <h5>Emp. ID.: {{strtoupper(Auth::user()->emp_num)}}</h5>
                   <h5>Department: {{app('App\Http\Controllers\AvailJobController')->getDept(Auth::user()->workdept_id)}}</h5>
                   <h5>Last Promoted on: {{niceDate(Auth::user()->last_promoted)}}</h5>
+				  <h5><b> </b>
+									 <?php  $getrating=app('App\Http\Controllers\EmpController360')->getrate(Auth::user()->id,Auth::user()->id);  ?>
+						 <script>
+						 $(function(){
+							 
+							$('#rating{{Auth::user()->id}}2').raty({ starType: 'i' });
+							
+						  $('#rating{{Auth::user()->id}}2').raty('score', {{$getrating['rating']}});
+						  
+							$('#rating{{Auth::user()->id}}2').raty('readOnly', true);
+						 });
+						</script>
+							<span   id="rating{{Auth::user()->id}}2"></span>
+								   <br/>
+                             <span style="font-weight:bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;( Total Rating: {{$getrating['rating']}} )</span>
+									</h5>
                 </div>
               </div>
               <hr>

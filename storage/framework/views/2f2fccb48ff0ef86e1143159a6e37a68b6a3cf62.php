@@ -9,6 +9,8 @@
  }
 
  $(function(){
+	 
+	 
   $('#clockin').thooClock();
   	
   setInterval(function(){
@@ -230,7 +232,8 @@ canvas{
                 <div class="vertical-align-middle">
                   <a class="avatar avatar-100" href="javascript:void(0)">
                     <img alt="" src="../../../global/portraits/4.jpg">
-                  </a>
+       
+         </a>
                   <div class="font-size-20"><?php echo e(Auth::user()->name); ?></div>
                   <div class="font-size-14"><?php echo e($jobdetail['title']); ?></div>
 				  

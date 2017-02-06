@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -19,7 +20,22 @@ Route::get('/error',function(){
 	return view('errors.unauth');
 });
 
+
+Route::get('view/myevent','MicrosoftIntegration@displayevent');
+Route::get('outlookevent','MicrosoftIntegration@outlookevent');
+Route::get('createvent','MicrosoftIntegration@createvent');
+Route::get('mailsending','MicrosoftIntegration@sendmail');
+
 Auth::routes();
+
+//employee 360 review
+Route::get('review360','EmpController360@emplist');
+Route::get('savereview','EmpController360@savereview');
+Route::get('getrecentreview','EmpController360@getreview');
+Route::get('rateemployee','EmpController360@rateemployee');
+Route::get('countreview','EmpController360@countreview');
+								  
+								
 
 //Global Setting
 Route::post('hr/importjob','GlobalSettingController@csvupload');

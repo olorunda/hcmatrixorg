@@ -38,8 +38,10 @@
   <link rel="stylesheet" href="{{asset('assets/examples/css/dashboard/v1.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/sweetalert.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/font-awesome.min.css')}}">
-  
+   
   <link rel="stylesheet" href="{{asset('global/vendor/ionrangeslider/ionrangeslider.min.css')}}">  
+  
+  <link rel="stylesheet" href="{{asset('global/css/raty.css')}}">
   <link rel="stylesheet" href="{{asset('global/vendor/bootstrap-markdown/bootstrap-markdown.css')}}">
   <link rel="stylesheet" href="{{asset('global/vendor/dropify/dropify.css')}}">
   <link rel="stylesheet" href="{{asset('global/vendor/chartist/chartist.css')}}">
@@ -474,7 +476,7 @@ div p {
         <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
           <li class="nav-item hidden-float" style="margin-top:15px;">
             <select class="form-control " id="fiscalyear" onchange="setfy()"> 
-             <option value="{{date('Y')}}">- Fiscal Year -</option>
+             <option  >- Fiscal Year -</option>
 
             
              @for($i=2016; $i<=date('Y'); $i++ )
@@ -822,7 +824,7 @@ div p {
 	  <script src="{{asset('global/js/Plugin/clockpicker.js')}}"></script>
   <script src="{{asset('global/vendor/bootstrap-datepicker/bootstrap-datepicker.js')}}"></script>
 	 <script src="{{asset('global/js/Plugin/datepair.js')}}"></script>	 
-
+	<script src="{{asset('global/vendor/raty-js/jquery.raty.js')}}"></script>
   <script src="{{asset('assets/js/nprogress.js')}}"></script>
   @if(active('lm/goals'))
 	  

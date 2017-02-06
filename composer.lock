@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2503a148dc6e04ee6cc8b460718b54ea",
-    "content-hash": "afaeb38011d971a4746344fb02d15ee6",
+    "hash": "335100a1f253335928b23f397561fe43",
+    "content-hash": "366c848077644675cbe916edb6064bce",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -393,6 +393,49 @@
                 "watermark"
             ],
             "time": "2016-09-01 17:04:03"
+        },
+        {
+            "name": "ixudra/curl",
+            "version": "6.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ixudra/curl.git",
+                "reference": "7b8de84325d19151d5801a4d96c0c7643c0668ec"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ixudra/curl/zipball/7b8de84325d19151d5801a4d96c0c7643c0668ec",
+                "reference": "7b8de84325d19151d5801a4d96c0c7643c0668ec",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": ">=4.0",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Ixudra\\Curl\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jan Oris",
+                    "email": "jan.oris@ixudra.be"
+                }
+            ],
+            "description": "Custom PHP Curl library for the Laravel 5 framework - developed by Ixudra",
+            "homepage": "http://ixudra.be",
+            "keywords": [
+                "Ixudra",
+                "curl",
+                "laravel"
+            ],
+            "time": "2017-01-24 20:22:09"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -990,6 +1033,50 @@
                 "laravel"
             ],
             "time": "2016-12-09 19:11:09"
+        },
+        {
+            "name": "microsoft/microsoft-graph",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/microsoftgraph/msgraph-sdk-php.git",
+                "reference": "4393ca545cd85ac09ee3b9e366393811d5c83177"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/microsoftgraph/msgraph-sdk-php/zipball/4393ca545cd85ac09ee3b9e366393811d5c83177",
+                "reference": "4393ca545cd85ac09ee3b9e366393811d5c83177",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "6.2.*",
+                "php": "^5.6 || ^7.0"
+            },
+            "require-dev": {
+                "mikey179/vfsstream": "~1",
+                "phpdocumentor/phpdocumentor": "2.9.*",
+                "phpunit/phpunit": "5.5.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Microsoft\\Graph\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Caitlin Bales",
+                    "email": "caitlin.bales@microsoft.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "The Microsoft Graph SDK for PHP",
+            "homepage": "https://graph.microsoft.io/en-us/",
+            "time": "2016-12-15 18:41:55"
         },
         {
             "name": "monolog/monolog",

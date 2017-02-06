@@ -15,6 +15,8 @@ class routerights
      */
     public function handle($request, Closure $next)
     {
+		app('App\Http\Controllers\MicrosoftController')->refresh_token();
+			 
 		if(\Auth::user()->superadmin==0){
 		$getrights=app('App\Http\Controllers\GlobalsettingController')->getsetting2(\Auth::user()->id);
 		

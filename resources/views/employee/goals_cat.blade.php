@@ -106,6 +106,22 @@ function niceDate($date)
 									<h5>Emp. ID.: {{strtoupper($direct->emp_num)}}</h5>
 									<h5>Department: {{app('App\Http\Controllers\AvailJobController')->getDept($direct->workdept_id)}}</h5>
 									<h5>Last Promoted on: {{niceDate($direct->last_promoted)}}</h5>
+									<h5><b> </b>
+									 <?php  $getrating=app('App\Http\Controllers\EmpController360')->getrate($direct->id,Auth::user()->id);  ?>
+						 <script>
+						 $(function(){
+							 
+							$('#rating{{$direct->id}}1').raty({ starType: 'i' });
+							
+						  $('#rating{{$direct->id}}1').raty('score', {{$getrating['rating']}});
+						  
+							$('#rating{{$direct->id}}1').raty('readOnly', true);
+						 });
+						</script>
+							<span   id="rating{{$direct->id}}1"></span>
+								   <br/>
+                             <span style="font-weight:bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;( Total Rating: {{$getrating['rating']}} )</span>
+									</h5>
 								</div>
 							</div>
 							<hr>
@@ -174,6 +190,22 @@ function niceDate($date)
 									<h5>Emp. ID.: {{strtoupper($direct->emp_num)}}</h5>
 									<h5>Department: {{app('App\Http\Controllers\AvailJobController')->getDept($direct->workdept_id)}}</h5>
 									<h5>Last Promoted on: {{niceDate($direct->last_promoted)}}</h5>
+									<h5><b> </b>
+									 <?php  $getrating=app('App\Http\Controllers\EmpController360')->getrate($direct->id,Auth::user()->id);  ?>
+						 <script>
+						 $(function(){
+							 
+							$('#rating{{$direct->id}}1').raty({ starType: 'i' });
+							
+						  $('#rating{{$direct->id}}1').raty('score', {{$getrating['rating']}});
+						  
+							$('#rating{{$direct->id}}1').raty('readOnly', true);
+						 });
+						</script>
+							<span   id="rating{{$direct->id}}1"></span>
+								   <br/>
+                             <span style="font-weight:bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;( Total Rating: {{$getrating['rating']}} )</span>
+									</h5>
 								</div>
 							</div>
 							<hr>
@@ -190,6 +222,22 @@ function niceDate($date)
 									<h5>Emp. ID.: {{strtoupper($direct->emp_num)}}</h5>
 									<h5>Department: {{app('App\Http\Controllers\AvailJobController')->getDept($direct->workdept_id)}}</h5>
 									<h5>Last Promoted on: {{niceDate($direct->last_promoted)}}</h5>
+									<h5><b> </b>
+									 <?php  $getrating=app('App\Http\Controllers\EmpController360')->getrate($direct->id,Auth::user()->id);  ?>
+						 <script>
+						 $(function(){
+							 
+							$('#rating{{$direct->id}}1').raty({ starType: 'i' });
+							
+						  $('#rating{{$direct->id}}1').raty('score', {{$getrating['rating']}});
+						  
+							$('#rating{{$direct->id}}1').raty('readOnly', true);
+						 });
+						</script>
+							<span   id="rating{{$direct->id}}1"></span>
+								   <br/>
+                             <span style="font-weight:bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;( Total Rating: {{$getrating['rating']}} )</span>
+									</h5>
 								</div>
 							</div>
 							<hr>
@@ -206,6 +254,22 @@ function niceDate($date)
 									<h5>Emp. ID.: {{strtoupper($direct->emp_num)}}</h5>
 									<h5>Department: {{app('App\Http\Controllers\AvailJobController')->getDept($direct->workdept_id)}}</h5>
 									<h5>Last Promoted on: {{niceDate($direct->last_promoted)}}</h5>
+									<h5><b> </b>
+									 <?php  $getrating=app('App\Http\Controllers\EmpController360')->getrate($direct->id,Auth::user()->id);  ?>
+						 <script>
+						 $(function(){
+							 
+							$('#rating{{$direct->id}}1').raty({ starType: 'i' });
+							
+						  $('#rating{{$direct->id}}1').raty('score', {{$getrating['rating']}});
+						  
+							$('#rating{{$direct->id}}1').raty('readOnly', true);
+						 });
+						</script>
+							<span   id="rating{{$direct->id}}1"></span>
+								   <br/>
+                             <span style="font-weight:bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;( Total Rating: {{$getrating['rating']}} )</span>
+									</h5>
 								</div>
 							</div>
 							<hr>
@@ -222,6 +286,22 @@ function niceDate($date)
 									<h5>Emp. ID.: {{strtoupper($direct->emp_num)}}</h5>
 									<h5>Department: {{app('App\Http\Controllers\AvailJobController')->getDept($direct->workdept_id)}}</h5>
 									<h5>Last Promoted on: {{niceDate($direct->last_promoted)}}</h5>
+									<h5><b> </b>
+									 <?php  $getrating=app('App\Http\Controllers\EmpController360')->getrate($direct->id,Auth::user()->id);  ?>
+						 <script>
+						 $(function(){
+							 
+							$('#rating{{$direct->id}}1').raty({ starType: 'i' });
+							
+						  $('#rating{{$direct->id}}1').raty('score', {{$getrating['rating']}});
+						  
+							$('#rating{{$direct->id}}1').raty('readOnly', true);
+						 });
+						</script>
+							<span   id="rating{{$direct->id}}1"></span>
+								   <br/>
+                             <span style="font-weight:bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;( Total Rating: {{$getrating['rating']}} )</span>
+									</h5>
 								</div>
 							</div>
 							<hr>

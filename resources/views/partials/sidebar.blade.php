@@ -21,7 +21,15 @@
   </a>
 </li>
 @endif
+@if(Auth::user()->role>=1)
+	<li class="site-menu-item has-sub menuborder" >
+  <a href="javascript:void(0)" onclick="url('{{url('outlookevent')}}')">
+    <i class="site-menu-icon  wb-stats-bars" aria-hidden="true"></i>
+    <span class="site-menu-title">Calender Events</span>
 
+  </a>
+</li>
+@endif
 	@if(Auth::user()->role==3 ||   Auth::user()->role==2 || Auth::user()->role==1)
 <li class="site-menu-item has-sub menuborder" >
   <a href="javascript:void(0)" onclick="url('{{url('view/attendancecalender')}}')">
@@ -125,6 +133,11 @@
           <span class="site-menu-title">View Query</span>
         </a>
       </li>
+	  <li class="site-menu-item">
+        <a class="animsition-link" href="{{url('review360')}}">
+          <span class="site-menu-title">Employee Review 360</span>
+        </a>
+      </li>
     </ul>
     @endif
     @if(Auth::user()->role==2 ||Auth::user()->role==3)
@@ -142,6 +155,11 @@
     <li class="site-menu-item  {{active(['lm/query'])}}">
         <a class="animsition-link" href="javascript:void(0)" onclick="url('{{url('lm')}}/query')">
           <span class="site-menu-title">Discipline Management</span>
+        </a>
+      </li>
+	  <li class="site-menu-item">
+        <a class="animsition-link" href="{{url('review360')}}">
+          <span class="site-menu-title">Employee Review 360</span>
         </a>
       </li>
     </ul>

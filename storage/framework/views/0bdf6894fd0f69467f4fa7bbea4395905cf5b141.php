@@ -4,10 +4,16 @@ function niceDate($date)
 {
 	return date("l, jS \of F, Y. h:i:s A", strtotime($date));
 }
+
+   $modules=['1'=>'Attendance','2'=>'Performance','3'=>'Global Setting','4'=>'Record Management','5'=>'Executive Dashboard','6'=>'Talent Management','7'=>'**Payroll','8'=>'**Training','9'=>'**Succession Planning','10'=>'Query Management'];  
 ?>
 <input type="hidden" value="<?php echo e(csrf_token()); ?>" id="token" />
 <script>
-
+function mailemp(name,email){
+	sessionStorage.setItem('recpientname',name);
+	sessionStorage.setItem('recpientemail',email);
+	$('#mailtitle').text('Mail '+name);	
+}
 
 function query(id,name){
 	
@@ -20,6 +26,86 @@ function query(id,name){
 	//alert(empname);
 	$('#empname').html(empname);
 	sessionStorage.setItem('employeeid',employeeid);
+	
+	$.get('<?php echo e(url('getsetting')); ?>',{
+		
+		empid:employeeid
+		
+	},function(data,status,xhr){
+			if(xhr.status==200){
+		if(data.attendance==1){
+			$('#module1').prop("checked",true)
+		}
+		else{
+			$('#module1').prop("checked",false)
+		}
+  
+		if(data.execview==1){
+			$('#module5').prop("checked",true)
+		}
+		else{
+			$('#module5').prop("checked",false)
+		}
+ 
+		if(data.goal==1){
+			$('#module2').prop("checked",true)
+		}
+		else{
+			$('#module2').prop("checked",false)
+		}
+		if(data.payroll==1){
+			$('#module7').prop("checked",true)
+		}
+		else{
+			$('#module7').prop("checked",false)
+		}
+ 
+		if(data.record==1){
+			$('#module4').prop("checked",true)
+		}
+		else{
+			$('#module4').prop("checked",false)
+		}
+ 
+		if(data.settings==1){
+			
+			$('#module3').prop("checked",true)
+		}
+		else{
+			$('#module3').prop("checked",false)
+		}
+ 
+		if(data.succession==1){
+			$('#module9').prop("checked",true)
+		}
+		else{
+			$('#module9').prop("checked",false)
+		}
+		if(data.talent==1){
+			$('#module6').prop("checked",true)
+		}
+		else{
+			$('#module6').prop("checked",false)
+		}
+		if(data.training==1){
+			$('#module8').prop("checked",true)
+		}
+		else{
+			$('#module8').prop("checked",false)
+		}
+		if(data.query==1){
+			$('#module10').prop("checked",true)
+		}
+		else{
+			$('#module10').prop("checked",false)
+		}
+			}
+			else{
+				toastr.error("Error loading Rights Setting");
+			}
+		//console.log(data);
+		
+	});
 }
 
 function url(url){
@@ -106,6 +192,47 @@ function lockemp(empid){
 	
 $(function(){
 	
+	$('#mailsending').click(function(){
+		
+		content=$('#content').val();
+		subject=$('#subject').val();
+		 
+	$.get('<?php echo e(url('mailsending')); ?>',{
+		
+	
+		respname:sessionStorage.getItem('recpientname'),
+		respaddr:sessionStorage.getItem('recpientemail'),
+		content:content,
+		subject:subject
+		
+	},function(data,status,xhr){
+		
+		if(xhr.status==200){
+			
+			toastr.success("Mail Successfully sent");
+			return;
+		}
+		toastr.error("Mail Sending Failed");
+	});
+		
+		
+		
+		
+	});
+	
+	
+	  $('#assignedrole').change(function(){
+							  
+							 role=$('#assignedrole').val();
+							if(role== 2 || role== 3){
+								$('#right').removeClass('hide');
+							}
+							else{
+								$('#right').addClass('hide');
+							}
+							  
+						  });
+	
 	/**
 	* MAPP Employee TO LINE Manager BLOCK
 	*
@@ -132,6 +259,84 @@ $('#checkall').click(function(){
 	
 	$('#assign').click(function(){
 		
+		//##########################
+		//MODULE CONDITIONAL BLOCK
+		//##########################
+		if($('#module1').is(':checked')){
+			
+		module1=1;
+		}
+		else{
+		module1=0;
+		}
+		if($('#module2').is(':checked')){
+			
+		module2=1;
+		}
+		else{
+		module2=0;
+		}
+		if($('#module3').is(':checked')){
+			
+		module3=1;
+		}
+		else{
+		module3=0;
+		}
+		if($('#module4').is(':checked')){
+			
+		module4=1;
+		}
+		else{
+		module4=0;
+		}
+		if($('#module5').is(':checked')){
+			
+		module5=1;
+		}
+		else{
+		module5=0;
+		}
+		if($('#module6').is(':checked')){
+			
+		module6=1;
+		}
+		else{
+		module6=0;
+		}
+		if($('#module7').is(':checked')){
+			
+		module7=1;
+		}
+		else{
+		module7=0;
+		}
+		if($('#module8').is(':checked')){
+			
+		module8=1;
+		}
+		else{
+		module8=0;
+		}
+		if($('#module9').is(':checked')){
+			
+		module9=1;
+		}
+		else{
+		module9=0;
+		}
+		if($('#module10').is(':checked')){
+			
+		module10=1;
+		}
+		else{
+		module10=0;
+		}
+		
+		//##########################
+		//MODULE CONDITIONAL BLOCK
+		//##########################
+		
 		empid=sessionStorage.getItem('employeeid');
         role=$('#assignedrole').val();
 		if(role==2){
@@ -145,7 +350,22 @@ $('#checkall').click(function(){
 			rolename="Employee";
 		}
 		
-		$.get('<?php echo e(url('hr/assignerole')); ?>?empid='+empid+'&role='+role,function(data,status,xhr){
+		$.get('<?php echo e(url('hr/assignerole')); ?>',{
+			
+			empid:empid,
+			role:role,
+			attendance:module1,
+			performance:module2,
+			settings:module3,
+			record:module4,
+			dashboard:module5,
+			talent:module6,
+			payroll:module7,
+			training:module8,
+			succession:module9,
+			query1:module10,
+
+			},function(data,status,xhr){
 			//come here
 			if(xhr.status==200){
 				$('#role'+empid).html(rolename);
@@ -288,7 +508,7 @@ $('#issuequery').click(function(){
 
 <div class="page container-fluid" >
     <div class="page-header">
-  <h1 class="page-title"><?php if(Auth::user()->role==2): ?> <?php echo e(Auth::user()->name); ?>'s Direct Report <?php else: ?> Admin-Hr's Direct Report <?php endif; ?></h1>
+  <h1 class="page-title"><?php if(Auth::user()->role==2): ?> <?php echo e(Auth::user()->name); ?>'s Direct Report <?php else: ?> Hr's Direct Report <?php endif; ?></h1>
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="<?php echo e(url('/')); ?>">Home</a></li>
     <li class="breadcrumb-item active">You are Here</li>
@@ -431,10 +651,14 @@ $('#issuequery').click(function(){
 						  <?php endif; ?>
                         </span>
 						<?php if(Auth::user()->role==3): ?>
-						<br><span>
-                          <i class="icon icon-color fa fa-user-plus" aria-hidden="true"></i>&nbsp;Assign Role: <button type="button" title="Assign Role" class="btn btn-pure btn-primary fa fa-user-plus " data-toggle="modal" data-target="#assignrole"onclick="assignrole('<?php echo e($employee->id); ?>','<?php echo e($employee->name); ?>')"></i></button>
+						<br>
+					
+						<?php if(\Auth::user()->superadmin==1): ?>
+						<span>
+                          <i class="icon icon-color fa fa-user-plus" aria-hidden="true"></i>&nbsp;Assign Right: <button type="button" title="Assign Role" class="btn btn-pure btn-primary fa fa-user-plus " data-toggle="modal" data-target="#assignrole"onclick="assignrole('<?php echo e($employee->id); ?>','<?php echo e($employee->name); ?>')"></i></button>
 						  					  
                         </span>
+						<?php endif; ?>
 						<?php endif; ?>
 						<div>
                           <a class="text-action" href="mailto:">
@@ -453,6 +677,20 @@ $('#issuequery').click(function(){
                             <i class="icon icon-color bd-dribbble" aria-hidden="true"></i>
                           </a>
                         </div>
+						 <?php  $getrating=app('App\Http\Controllers\EmpController360')->getrate($employee->id,Auth::user()->id);  ?>
+						 <script>
+						 $(function(){
+							 
+							$('#rating<?php echo e($employee->id); ?>').raty({ starType: 'i' });
+							
+						  $('#rating<?php echo e($employee->id); ?>').raty('score', <?php echo e($getrating['rating']); ?>);
+						  
+							$('#rating<?php echo e($employee->id); ?>').raty('readOnly', true);
+						 });
+						</script>
+							<span   id="rating<?php echo e($employee->id); ?>"></span>
+								<br/>   
+                             <span style="font-weight:bold">&nbsp;&nbsp;&nbsp;&nbsp;( Total Rating: <?php echo e($getrating['rating']); ?> )</span>
                        </div>
 					   <?php if(Auth::user()->id==$employee->id): ?>
 						 <?php else: ?>
@@ -464,9 +702,13 @@ $('#issuequery').click(function(){
 					<!-- Make LINE MANAGER -->
 					
 					 <button type="button" data-toggle="modal"  data-target="#viewemp<?php echo e($employee->id); ?>" title="View Profile" class="btn btn-outline btn-primary"><i class="icon wb-eye" aria-hidden="true"></i></button>
-					 
+					 	<button type="button" id="disable" title="Mail Employee" class="btn btn-outline btn-info" onclick="mailemp('<?php echo e($employee->name); ?>','<?php echo e($employee->email); ?>')"><i  class="icon wb-envelope" aria-hidden="true" data-toggle="modal" data-target="#mailemp"></i></button> 
+					  <?php if(session('record')==1 || \Auth::user()->superadmin==1): ?>
 					 <a role="button" target="_blank" href="<?php echo e(url('searchdoc')); ?>?foldid=gen&q=<?php echo e(str_replace(' ','+',$employee->name)); ?>" title="View Document" class="btn btn-outline btn-primary"><i class="icon wb-briefcase" aria-hidden="true"></i></a>
-                    <button type="button" title="Query Employee" class="btn btn-outline btn-warning" data-target="#querymod" onclick="query('<?php echo e($employee->id); ?>','<?php echo e($employee->name); ?>')" data-toggle="modal" ><i class="icon wb-hammer" aria-hidden="true"></i></button>
+					<?php endif; ?>
+                   <?php if(session('query')==1 || \Auth::user()->superadmin==1): ?>
+				   <button type="button" title="Query Employee" class="btn btn-outline btn-warning" data-target="#querymod" onclick="query('<?php echo e($employee->id); ?>','<?php echo e($employee->name); ?>')" data-toggle="modal" ><i class="icon wb-hammer" aria-hidden="true"></i></button>
+				<?php endif; ?>
 					<?php if(Auth::user()->role==3): ?>
 						
 						<?php if($employee->locked==0): ?>
@@ -480,6 +722,7 @@ $('#issuequery').click(function(){
 					?>	
 					<?php endif; ?>
                     <button type="button" id="disable" title="Disable/Enable Employee" class="btn btn-outline btn-danger" onclick="lockemp(<?php echo e($employee->id); ?>)"><i id="icon<?php echo e($employee->id); ?>" class="icon <?php echo e($type); ?>" aria-hidden="true"></i></button> 
+				
 				
 				
 					<?php endif; ?>
@@ -580,7 +823,7 @@ $('#issuequery').click(function(){
                   </div>
 				  <!-- ASSIGN ROLE -->
 				  <div class="modal fade modal-3d-flip-vertical" id="assignrole" aria-labelledby="exampleModalTitle" role="dialog"  style="display: none;" aria-hidden="true">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog modal-md">
                       <div class="modal-content">
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -594,8 +837,42 @@ $('#issuequery').click(function(){
 						  <option value="1">Employee</option>
 						  <option value="2">Line-Manager</option>
 						  <option value="3">Admin-HR</option>
-						  
+						 
 						  </select>
+						  <div>
+						  <div class="hide" id="right">
+						  <br>
+						  <hr>
+						    <p>Access Rights</p>
+						  
+						<table class="table">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Module Name</th>
+                        <th>Assign</th>
+                       
+                      </tr>
+                    </thead>
+					
+                    <tbody>
+					 <?php $__currentLoopData = $modules; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$module): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
+                       <tr>
+					  
+                        <td><?php echo e($key); ?></td>
+                        <td><?php echo e($module); ?></td>
+                        <td><div style="margin-left:-100px;" class="checkbox-custom checkbox-warning">
+                      <input type="checkbox" id="module<?php echo e($key); ?>"  name="inputCheckboxes" >
+                      <label></label>
+                    </div></td> 
+                        
+                      </tr>
+					  <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
+				   
+                    </tbody>
+                  </table>
+						</div>
+						  </div>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -620,8 +897,9 @@ $('#issuequery').click(function(){
                           <div class="modal-body">
                           <br><span>Select Line Manager</span>
 						  <select id="linemanager">
-						  <?php if(count($lms)>0): ?>
-						  <?php $__currentLoopData = $lms; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $lm): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
+						  <?php  $linemanager=app('App\Repositories\EmployeeRepository')->getlm();  ?>
+						  <?php if(count($linemanager)>0): ?>
+						  <?php $__currentLoopData = $linemanager; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $lm): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
 						  <option value="<?php echo e($lm->id); ?>"><?php echo e($lm->name); ?></option>
 						  <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
 						  <?php else: ?>
@@ -638,7 +916,29 @@ $('#issuequery').click(function(){
                       </div>
                     </div>
                   </div>
+				  
 				  <!--MAP EMPLOYEE TO LINE-MANAGER -->
+				  <div class="modal fade modal-info" id="mailemp" aria-labelledby="exampleModalInfo" role="dialog" tabindex="-1" aria-hidden="true" style="display: none;">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                          </button>
+                          <h4 class="modal-title" id="mailtitle"></h4>
+                        </div>
+                        <div class="modal-body">
+                       
+					<input class="form-control" placeholder="mail subject" id="content" /><br>
+					<textarea   class="form-control"  placeholder="mail body"   id="subject"></textarea>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          <button type="button" id="mailsending" class="btn btn-primary">Save changes</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 				  
 				  
 <?php $__env->stopSection(); ?>

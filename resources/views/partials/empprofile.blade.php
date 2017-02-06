@@ -26,6 +26,22 @@
 									<h5><b style="font-weight:bold;"> ID: {{strtoupper($employee->emp_num)}}</b></h5>
 									<h5><b>Department: </b>{{app('App\Http\Controllers\AvailJobController')->getDept($employee->workdept_id)}}</h5>
 									<h5><b>Last Promoted on:</b> {{niceDate($employee->last_promoted)}}</h5>
+									<h5><b> </b>
+									 <?php  $getrating=app('App\Http\Controllers\EmpController360')->getrate($employee->id,Auth::user()->id);  ?>
+						 <script>
+						 $(function(){
+							 
+							$('#rating{{$employee->id}}1').raty({ starType: 'i' });
+							
+						  $('#rating{{$employee->id}}1').raty('score', {{$getrating['rating']}});
+						  
+							$('#rating{{$employee->id}}1').raty('readOnly', true);
+						 });
+						</script>
+							<span   id="rating{{$employee->id}}1"></span>
+								   <br/>
+                             <span style="font-weight:bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;( Total Rating: {{$getrating['rating']}} )</span>
+									</h5>
 								</div>
 							</div>
 							<hr>

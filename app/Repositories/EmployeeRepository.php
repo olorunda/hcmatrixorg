@@ -67,6 +67,26 @@ class EmployeeRepository{
 	//all employess
 	public function allemployee($type=0){
 		
+		if($type==4){
+			if(\Auth::user()->role==2){
+			$allemployee=\App\User::where('workdept_id',\Auth::user()->workdept_id)
+								->where('id','!=',\Auth::user()->id)
+								->orWhere('linemanager_id',\Auth::user()->linemanager_id)
+								->paginate(10);	
+			}
+			elseif(\Auth::user()->role==3){
+				
+		$allemployee=\App\User::where('id','!=',\Auth::user()->id)
+								->paginate(10);
+				
+			}
+			else{
+		$allemployee=\App\User::where('workdept_id',\Auth::user()->workdept_id)
+								->where('id','!=',\Auth::user()->id)
+								->paginate(10);
+			}
+		return $allemployee;	
+		}
 		if($type==1){
 		$allemployee=\App\User::where('role',2)->paginate(10);
 		return $allemployee;	
@@ -84,6 +104,12 @@ class EmployeeRepository{
 		
 		
 		
+	}
+	
+	public function getlm(){
+		
+		$allemployee=\App\User::where('role',2)->get();
+		return $allemployee;
 	}
 	//clock in
 	public function clockin($type){

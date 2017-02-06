@@ -10,7 +10,11 @@ function niceDate($date)
 ?>
 <input type="hidden" value="{{csrf_token()}}" id="token" />
 <script>
-
+function mailemp(name,email){
+	sessionStorage.setItem('recpientname',name);
+	sessionStorage.setItem('recpientemail',email);
+	$('#mailtitle').text('Mail '+name);	
+}
 
 function query(id,name){
 	
@@ -188,6 +192,35 @@ function lockemp(empid){
 	}
 	
 $(function(){
+	
+	$('#mailsending').click(function(){
+		
+		content=$('#content').val();
+		subject=$('#subject').val();
+		 
+	$.get('{{url('mailsending')}}',{
+		
+	
+		respname:sessionStorage.getItem('recpientname'),
+		respaddr:sessionStorage.getItem('recpientemail'),
+		content:content,
+		subject:subject
+		
+	},function(data,status,xhr){
+		
+		if(xhr.status==200){
+			
+			toastr.success("Mail Successfully sent");
+			return;
+		}
+		toastr.error("Mail Sending Failed");
+	});
+		
+		
+		
+		
+	});
+	
 	
 	  $('#assignedrole').change(function(){
 							  
@@ -642,6 +675,20 @@ $('#issuequery').click(function(){
                             <i class="icon icon-color bd-dribbble" aria-hidden="true"></i>
                           </a>
                         </div>
+						 <?php  $getrating=app('App\Http\Controllers\EmpController360')->getrate($employee->id,Auth::user()->id);  ?>
+						 <script>
+						 $(function(){
+							 
+							$('#rating{{$employee->id}}').raty({ starType: 'i' });
+							
+						  $('#rating{{$employee->id}}').raty('score', {{$getrating['rating']}});
+						  
+							$('#rating{{$employee->id}}').raty('readOnly', true);
+						 });
+						</script>
+							<span   id="rating{{$employee->id}}"></span>
+								<br/>   
+                             <span style="font-weight:bold">&nbsp;&nbsp;&nbsp;&nbsp;( Total Rating: {{$getrating['rating']}} )</span>
                        </div>
 					   @if(Auth::user()->id==$employee->id)
 						 @else
@@ -653,6 +700,7 @@ $('#issuequery').click(function(){
 					<!-- Make LINE MANAGER -->
 					
 					 <button type="button" data-toggle="modal"  data-target="#viewemp{{$employee->id}}" title="View Profile" class="btn btn-outline btn-primary"><i class="icon wb-eye" aria-hidden="true"></i></button>
+					 	<button type="button" id="disable" title="Mail Employee" class="btn btn-outline btn-info" onclick="mailemp('{{$employee->name}}','{{$employee->email}}')"><i  class="icon wb-envelope" aria-hidden="true" data-toggle="modal" data-target="#mailemp"></i></button> 
 					  @if(session('record')==1 || \Auth::user()->superadmin==1)
 					 <a role="button" target="_blank" href="{{url('searchdoc')}}?foldid=gen&q={{str_replace(' ','+',$employee->name)}}" title="View Document" class="btn btn-outline btn-primary"><i class="icon wb-briefcase" aria-hidden="true"></i></a>
 					@endif
@@ -672,6 +720,7 @@ $('#issuequery').click(function(){
 					?>	
 					@endif
                     <button type="button" id="disable" title="Disable/Enable Employee" class="btn btn-outline btn-danger" onclick="lockemp({{$employee->id}})"><i id="icon{{$employee->id}}" class="icon {{$type}}" aria-hidden="true"></i></button> 
+				
 				
 				
 					@endif
@@ -845,8 +894,9 @@ $('#issuequery').click(function(){
                           <div class="modal-body">
                           <br><span>Select Line Manager</span>
 						  <select id="linemanager">
-						  @if(count($lms)>0)
-						  @foreach($lms as $lm)
+						  <?php  $linemanager=app('App\Repositories\EmployeeRepository')->getlm();  ?>
+						  @if(count($linemanager)>0)
+						  @foreach($linemanager as $lm)
 						  <option value="{{$lm->id}}">{{$lm->name}}</option>
 						  @endforeach
 						  @else
@@ -863,7 +913,29 @@ $('#issuequery').click(function(){
                       </div>
                     </div>
                   </div>
+				  
 				  <!--MAP EMPLOYEE TO LINE-MANAGER -->
+				  <div class="modal fade modal-info" id="mailemp" aria-labelledby="exampleModalInfo" role="dialog" tabindex="-1" aria-hidden="true" style="display: none;">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                          </button>
+                          <h4 class="modal-title" id="mailtitle"></h4>
+                        </div>
+                        <div class="modal-body">
+                       
+					<input class="form-control" placeholder="mail subject" id="content" /><br>
+					<textarea   class="form-control"  placeholder="mail body"   id="subject"></textarea>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          <button type="button" id="mailsending" class="btn btn-primary">Save changes</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 				  
 				  
 @endsection

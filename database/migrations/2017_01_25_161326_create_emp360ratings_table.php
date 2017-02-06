@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDocumentsTable extends Migration
+class CreateEmp360ratingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateDocumentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('documents', function (Blueprint $table) {
+        Schema::create('emp360ratings', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('document');
-            $table->string('type_id');
+            $table->string('rate');
+            $table->integer('emp_id');
+            $table->integer('rater_id');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateDocumentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('documents');
+        Schema::dropIfExists('emp360ratings');
     }
 }

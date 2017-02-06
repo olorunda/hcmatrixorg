@@ -18,7 +18,7 @@ class SendNotification extends Mailable
      */
 	 public $name,$from,$email,$message;
 	 
-    public function __construct($name,$email,$message,$from)
+    public function __construct($name,$email,$message,$from="")
     {
         //
 		$this->name=$name;

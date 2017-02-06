@@ -26,6 +26,22 @@
 									<h5><b style="font-weight:bold;"> ID: <?php echo e(strtoupper($employee->emp_num)); ?></b></h5>
 									<h5><b>Department: </b><?php echo e(app('App\Http\Controllers\AvailJobController')->getDept($employee->workdept_id)); ?></h5>
 									<h5><b>Last Promoted on:</b> <?php echo e(niceDate($employee->last_promoted)); ?></h5>
+									<h5><b> </b>
+									 <?php  $getrating=app('App\Http\Controllers\EmpController360')->getrate($employee->id,Auth::user()->id);  ?>
+						 <script>
+						 $(function(){
+							 
+							$('#rating<?php echo e($employee->id); ?>1').raty({ starType: 'i' });
+							
+						  $('#rating<?php echo e($employee->id); ?>1').raty('score', <?php echo e($getrating['rating']); ?>);
+						  
+							$('#rating<?php echo e($employee->id); ?>1').raty('readOnly', true);
+						 });
+						</script>
+							<span   id="rating<?php echo e($employee->id); ?>1"></span>
+								   <br/>
+                             <span style="font-weight:bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;( Total Rating: <?php echo e($getrating['rating']); ?> )</span>
+									</h5>
 								</div>
 							</div>
 							<hr>
@@ -83,7 +99,9 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						   <?php if(session('record')==1 || \Auth::user()->superadmin==1): ?>
                           <a role="button"   target="_blank" href="<?php echo e(url('searchdoc')); ?>?foldid=gen&q=<?php echo e(str_replace(' ','+',$employee->name)); ?>" class="btn btn-primary">View Document</a>
+						<?php endif; ?>
                         </div>
                       </div>
                     </div>
