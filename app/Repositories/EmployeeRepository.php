@@ -38,9 +38,11 @@ class EmployeeRepository{
 		
 			if(session()->has('FY') && session('FY') != "")
 		{
-			return $date = session('FY');
+			 $date = session('FY');
+			 return $date;
 		}
-	   return $date=date('Y');  
+		$date=date('Y');  
+		 return  $date;
 	    
 	}
 	//get job details
@@ -105,6 +107,8 @@ class EmployeeRepository{
 		
 		
 	}
+	
+
 	
 	public function getlm(){
 		
@@ -816,7 +820,9 @@ class EmployeeRepository{
 		try {
 			if($eid=='pilot')
 			{
-				$goals = Goal::where('goal_cat', $goalcat)->where('created_at','like',$date.'%')->get();
+				$goals = Goal::where('goal_cat', $goalcat)
+				//->where('created_at','like',$date.'%')
+				->get();
 			}
 			else
 			{
@@ -835,7 +841,9 @@ class EmployeeRepository{
 		try {
 			if($lmid==0 && $empid==0)
 			{
-				$goals = Goal::where('goal_cat', $goalcat)->where('created_at','like',$date.'%')->get();
+				$goals = Goal::where('goal_cat', $goalcat)
+				//->where('created_at','like',$date.'%')
+				->get();
 			}
 			else
 			{
@@ -1021,7 +1029,8 @@ class EmployeeRepository{
 		}
 		else{
 			$displaylmgoal=\App\goal::where('goal_cat',$type)
-			->where('created_at','like',$date.'%')->get();
+			//->where('created_at','like',$date.'%')
+			->get();
 		}
 		return $displaylmgoal;
 	}
