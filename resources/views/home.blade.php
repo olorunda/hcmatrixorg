@@ -353,5 +353,9 @@ canvas{
 	 </div>
   </div>
 </div>
+<div clss="col-md-6">
+<script src="https://irecharge.com.ng/plugin/jquery.cookie.js" type="text/javascript"></script> <script src="https://irecharge.com.ng/plugin/topup_plugin_form.prod.js" type="text/javascript"></script> <script>$(document).ready(function(){var vid='1702C98A80'; $("#iRecharge_container").topUpForm(vid); load_irecharge_cookie();});</script> <div id="iRecharge_container">ss</div>
+</div>
+<!-- Personal -->
 </div>
 @endsection

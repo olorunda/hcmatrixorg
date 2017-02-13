@@ -425,7 +425,7 @@ div p {
   <!--[if lt IE 8]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-  <nav style="background-color:#077a3b" class="site-navbar navbar navbar-default navbar-fixed-top navbar-mega" role="navigation">
+  <nav  class="site-navbar navbar navbar-default navbar-fixed-top navbar-mega" role="navigation">
     <div class="navbar-header">
       <button type="button" class="navbar-toggler hamburger hamburger-close navbar-toggler-left hided"
       data-toggle="menubar">
@@ -446,9 +446,9 @@ div p {
         <i class="icon wb-search" aria-hidden="true"></i>
       </button>
     </div>
-    <div style="background-color:#ffde20;" class="navbar-container container-fluid">
+    <div  class="navbar-container container-fluid">
       <!-- Navbar Collapse -->
-      <div style="background-color:#ffde20"  class="collapse navbar-collapse navbar-collapse-toolbar" id="site-navbar-collapse">
+      <div  class="collapse navbar-collapse navbar-collapse-toolbar" id="site-navbar-collapse">
         <!-- Navbar Toolbar -->
         <ul class="nav navbar-toolbar">
           <li class="nav-item hidden-float" id="toggleMenubar">
@@ -513,7 +513,7 @@ div p {
               </span>
             </a>
             <div class="dropdown-menu" role="menu">
-              <a class="dropdown-item" href="<?php echo e(url('profile')); ?>" role="menuitem"><i class="icon wb-user" aria-hidden="true"></i> Profile</a>
+              <a class="dropdown-item" href="<?php echo e(url('employee/profile')); ?>" role="menuitem"><i class="icon wb-user" aria-hidden="true"></i> Profile</a>
               <a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i class="icon wb-settings" aria-hidden="true"></i> Settings</a>
               <div class="dropdown-divider" role="presentation"></div>
               <a class="dropdown-item" href="<?php echo e(url('logout')); ?>" role="menuitem" ><i class="icon wb-power" aria-hidden="true"></i> Logout</a>

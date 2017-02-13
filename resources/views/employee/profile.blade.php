@@ -103,14 +103,14 @@ function niceDate($date)
 						 <script>
 						 $(function(){
 							 
-							$('#rating{{Auth::user()->id}}1').raty({ starType: 'i' });
+							$('#rating{{Auth::user()->id}}5').raty({ starType: 'i' });
 							
-						  $('#rating{{Auth::user()->id}}1').raty('score', {{$getrating['rating']}});
+						  $('#rating{{Auth::user()->id}}5').raty('score', {{$getrating['rating']}});
 						  
-							$('#rating{{Auth::user()->id}}1').raty('readOnly', true);
+							$('#rating{{Auth::user()->id}}5').raty('readOnly', true);
 						 });
 						</script>
-							<span   id="rating{{Auth::user()->id}}1"></span>
+							<span   id="rating{{Auth::user()->id}}5"></span>
 								   <br/>
                              <span style="font-weight:bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;( Total Rating: {{$getrating['rating']}} )</span>
 									</h5>
@@ -254,14 +254,14 @@ function niceDate($date)
 						 <script>
 						 $(function(){
 							 
-							$('#rating{{Auth::user()->id}}1').raty({ starType: 'i' });
+							$('#rating{{Auth::user()->id}}4').raty({ starType: 'i' });
 							
-						  $('#rating{{Auth::user()->id}}1').raty('score', {{$getrating['rating']}});
+						  $('#rating{{Auth::user()->id}}4').raty('score', {{$getrating['rating']}});
 						  
-							$('#rating{{Auth::user()->id}}1').raty('readOnly', true);
+							$('#rating{{Auth::user()->id}}4').raty('readOnly', true);
 						 });
 						</script>
-							<span   id="rating{{Auth::user()->id}}1"></span>
+							<span   id="rating{{Auth::user()->id}}4"></span>
 								   <br/>
                              <span style="font-weight:bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;( Total Rating: {{$getrating['rating']}} )</span>
 									</h5>

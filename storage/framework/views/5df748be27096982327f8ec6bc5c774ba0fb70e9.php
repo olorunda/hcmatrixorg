@@ -101,14 +101,14 @@ function niceDate($date)
 						 <script>
 						 $(function(){
 							 
-							$('#rating<?php echo e(Auth::user()->id); ?>1').raty({ starType: 'i' });
+							$('#rating<?php echo e(Auth::user()->id); ?>5').raty({ starType: 'i' });
 							
-						  $('#rating<?php echo e(Auth::user()->id); ?>1').raty('score', <?php echo e($getrating['rating']); ?>);
+						  $('#rating<?php echo e(Auth::user()->id); ?>5').raty('score', <?php echo e($getrating['rating']); ?>);
 						  
-							$('#rating<?php echo e(Auth::user()->id); ?>1').raty('readOnly', true);
+							$('#rating<?php echo e(Auth::user()->id); ?>5').raty('readOnly', true);
 						 });
 						</script>
-							<span   id="rating<?php echo e(Auth::user()->id); ?>1"></span>
+							<span   id="rating<?php echo e(Auth::user()->id); ?>5"></span>
 								   <br/>
                              <span style="font-weight:bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;( Total Rating: <?php echo e($getrating['rating']); ?> )</span>
 									</h5>
@@ -252,14 +252,14 @@ function niceDate($date)
 						 <script>
 						 $(function(){
 							 
-							$('#rating<?php echo e(Auth::user()->id); ?>1').raty({ starType: 'i' });
+							$('#rating<?php echo e(Auth::user()->id); ?>4').raty({ starType: 'i' });
 							
-						  $('#rating<?php echo e(Auth::user()->id); ?>1').raty('score', <?php echo e($getrating['rating']); ?>);
+						  $('#rating<?php echo e(Auth::user()->id); ?>4').raty('score', <?php echo e($getrating['rating']); ?>);
 						  
-							$('#rating<?php echo e(Auth::user()->id); ?>1').raty('readOnly', true);
+							$('#rating<?php echo e(Auth::user()->id); ?>4').raty('readOnly', true);
 						 });
 						</script>
-							<span   id="rating<?php echo e(Auth::user()->id); ?>1"></span>
+							<span   id="rating<?php echo e(Auth::user()->id); ?>4"></span>
 								   <br/>
                              <span style="font-weight:bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;( Total Rating: <?php echo e($getrating['rating']); ?> )</span>
 									</h5>
