@@ -79,7 +79,7 @@
   <link rel="stylesheet" href="{{asset('global/fonts/weather-icons/weather-icons.css')}}">
   <link rel="stylesheet" href="{{asset('global/fonts/web-icons/web-icons.min.css')}}">
   <link rel="stylesheet" href="{{asset('global/fonts/brand-icons/brand-icons.min.css')}}">
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic">
    @if(active('employee/objective'))
   <link rel="stylesheet" href="{{asset('assets/css/documents.css')}}">
   <link rel="stylesheet" href="{{asset('global/vendor/ladda/ladda.css')}}">
