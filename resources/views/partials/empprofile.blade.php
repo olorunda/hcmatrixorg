@@ -15,7 +15,7 @@
                          
 							<div class="row">
 								<div class="col-md-3">
-									<img class="img-thumbnail img-bordered img-default" src="{{asset('upload')}}/{{$employee->image}}" align="left" style="height: 100%;">
+									<img class="img-thumbnail img-bordered img-default" src="{{asset('upload')}}/{{$employee->image}}" align="left" style="">
 								</div>
 								<div class="col-md-9">
 									<h4>{{strtoupper($employee->name)}}</h4>
