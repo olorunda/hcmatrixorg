@@ -233,7 +233,7 @@ canvas{
               <div class="overlay-panel overlay-background vertical-align">
                 <div class="vertical-align-middle">
                   <a class="avatar avatar-100" href="javascript:void(0)">
-                    <img alt="" src="{{asset('upload')}}/{{$employee->image}}">
+                    <img alt="" src="{{asset('upload')}}/{{Auth::user()->image}}">
        
          </a>
                   <div class="font-size-20">{{Auth::user()->name}}</div>
