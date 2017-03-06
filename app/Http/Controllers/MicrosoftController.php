@@ -26,7 +26,7 @@ class MicrosoftController extends Controller
 	  $client_id=env('MICROSOFT_CLIENT_ID','');
 		$redirect_uri=env('MICROSOFT_AUTH_URL','');
 		$client_secret=env('MICROSOFT_CLIENT_SECRET','');
-	  
+	  try{
 	  $code=session('code');
 	  if($granttype=='refresh_token'){
 		 $response = Curl::to('https://login.microsoftonline.com/common/oauth2/token')
@@ -51,6 +51,7 @@ class MicrosoftController extends Controller
 		 ])->post();
 	  } 
 		$respone=json_decode($response);
+	
 		$accessToken=$respone->access_token;
 		$refreshtoken=$respone->refresh_token;
 		$notbeforetime=$respone->expires_on;
@@ -58,6 +59,11 @@ class MicrosoftController extends Controller
 		session(['refreshtoken'=>$refreshtoken]);
 		session(['accesstoken'=>$accessToken]);
 		 return;
+	  }
+	  catch(\Exception $ex){
+		  
+		  return redirect('/')->with('message','Some error occurred');
+	  }
 	}
 	
 	public function refresh_token(){
@@ -89,7 +95,7 @@ class MicrosoftController extends Controller
 	   //get details from callback
 	public function callbackurl(Request $request){
 		
-		
+		try{
  
 		if(\Auth::check()){
 		    
@@ -112,5 +118,10 @@ class MicrosoftController extends Controller
 		 $getid=\App\User::where('email',$user->getMail())->select('id')->first();
 		\Auth::loginUsingId($getid['id']);
 	     return redirect('home');
+		}
+		catch(\Exception $ex){
+			
+			return redirect('/')->with('message','Some error occurred');
+		}
 	}
 }

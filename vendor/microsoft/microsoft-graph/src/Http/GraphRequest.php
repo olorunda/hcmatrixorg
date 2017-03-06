@@ -136,7 +136,7 @@ class GraphRequest
     public function setReturnType($returnClass)
     {
         $this->returnType = $returnClass;
-        if (strcasecmp($this->returnType, 'stream') == 0) {
+        if ($this->returnType == "GuzzleHttp\Psr7\Stream") {
             $this->returnsStream  = true;
         } else {
             $this->returnsStream = false;
@@ -181,16 +181,7 @@ class GraphRequest
         if (is_string($obj) || is_a($obj, 'GuzzleHttp\\Psr7\\Stream')) {
             $this->requestBody = $obj;
         } 
-        // JSON-encode the model object's property dictionary
-        else if (method_exists($obj, 'getProperties')) {
-            $class = get_class($obj);
-            $class = explode("\\", $class);
-            $model = strtolower(end($class));
-            
-            $body = $this->flattenDictionary($obj->getProperties());
-            $this->requestBody = "{" . $model . ":" . json_encode($body) . "}";
-        } 
-        // By default, JSON-encode (i.e. arrays)
+        // By default, JSON-encode
         else {
             $this->requestBody = json_encode($obj);
         }
@@ -246,22 +237,13 @@ class GraphRequest
             ]
         );
 
-        //Send back the bare response
-        if ($this->returnsStream) {
-            return $result;
-        }
-
         // Wrap response in GraphResponse layer
-        try {
-            $response = new GraphResponse(
-                $this, 
-                $result->getBody()->getContents(), 
-                $result->getStatusCode(), 
-                $result->getHeaders()
-            );
-        } catch (GraphException $e) {
-            throw new GraphException(GraphConstants::UNABLE_TO_PARSE_RESPONSE);
-        }
+        $response = new GraphResponse(
+            $this, 
+            $result->getBody(), 
+            $result->getStatusCode(), 
+            $result->getHeaders()
+        );
 
         // If no return type is specified, return GraphResponse
         $returnObj = $response;
@@ -299,7 +281,7 @@ class GraphRequest
             function ($result) {
                 $response = new GraphResponse(
                     $this, 
-                    $result->getBody()->getContents(), 
+                    $result->getBody(), 
                     $result->getStatusCode(), 
                     $result->getHeaders()
                 );
@@ -336,17 +318,22 @@ class GraphRequest
             $client = $this->createGuzzleClient();
         }
         try {
-            $file = fopen($path, 'w');
+            if (file_exists($path) && is_writeable($path)) {
+                $file = fopen($path, 'w');
 
-            $client->request(
-                $this->requestType, 
-                $this->_getRequestUrl(), 
-                [
-                    'body' => $this->requestBody,
-                    'sink' => $file
-                ]
-            );
-            fclose($file);
+                $client->request(
+                    $this->requestType, 
+                    $this->_getRequestUrl(), 
+                    [
+                        'body' => $this->requestBody,
+                        'sink' => $file
+                    ]
+                );
+                fclose($file);
+            } else {
+                throw new GraphException(GraphConstants::INVALID_FILE);
+            }
+            
         } catch(GraphException $e) {
             throw new GraphException(GraphConstants::INVALID_FILE);
         }
@@ -369,10 +356,14 @@ class GraphRequest
             $client = $this->createGuzzleClient();
         }
         try {
-            $file = fopen($path, 'r');
-            $stream = \GuzzleHttp\Psr7\stream_for($file);
-            $this->requestBody = $stream;
-            return $this->execute($client);
+            if (file_exists($path) && is_readable($path)) {
+                $file = fopen($path, 'r');
+                $stream = \GuzzleHttp\Psr7\stream_for($file);
+                $this->requestBody = $stream;
+                return $this->execute($client);
+            } else {
+                throw new GraphException(GraphConstants::INVALID_FILE);
+            }
         } catch(GraphException $e) {
             throw new GraphException(GraphConstants::INVALID_FILE);
         }
@@ -437,29 +428,5 @@ class GraphRequest
             ]
         );
         return $client;
-    }
-
-    /**
-    * Flattens the property dictionaries into 
-    * JSON-friendly arrays
-    *
-    * @param mixed $obj the object to flatten
-    *
-    * @return array flattened object
-    */
-    protected function flattenDictionary($obj) {
-        foreach ($obj as $arrayKey => $arrayValue) {
-            if (method_exists($arrayValue, 'getProperties')) {
-                $data = $arrayValue->getProperties();
-                $obj[$arrayKey] = $data;
-            } else {
-                $data = $arrayValue;
-            }
-            if (is_array($data)) {
-                $newItem = $this->flattenDictionary($data);
-                $obj[$arrayKey] = $newItem;
-            }
-        }
-        return $obj;
     }
 }

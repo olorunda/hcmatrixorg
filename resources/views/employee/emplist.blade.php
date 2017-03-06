@@ -114,6 +114,7 @@ function url(url){
 	window.location=url;
 }
 
+ 
 function lockemp(empid){
 	
 	
@@ -619,7 +620,7 @@ $('#issuequery').click(function(){
                           <label></label>
                         </span>
 						@endif
-						 <img src="{{url('upload')}}/{{$employee->image}}" alt="{{$employee->name}}">
+						 <img src="{{asset('storage')}}/{{$employee->image}}" alt="{{$employee->name}}">
                           <i></i>
                         </div>
                       </div>
@@ -708,7 +709,14 @@ $('#issuequery').click(function(){
 				   <button type="button" title="Query Employee" class="btn btn-outline btn-warning" data-target="#querymod" onclick="query('{{$employee->id}}','{{$employee->name}}')" data-toggle="modal" ><i class="icon wb-hammer" aria-hidden="true"></i></button>
 				@endif
 					@if(Auth::user()->role==3)
-						
+					  <form id="view_form" action="{{ url('/view-emp-daily-attendance')}}" method="post">
+                    <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+                    <input type="hidden" name="id" id = "emp_id" value="{{$employee->id}}">
+					<button type="submit"   title="View Attendance Record" class="btn btn-outline btn-success"  ><i  class="icon wb-list" aria-hidden="true"></i></button> 
+                  </form> 	
+				
+				
+				
 						@if($employee->locked==0)
 						<?php 
 					$type="wb-link";
@@ -720,7 +728,6 @@ $('#issuequery').click(function(){
 					?>	
 					@endif
                     <button type="button" id="disable" title="Disable/Enable Employee" class="btn btn-outline btn-danger" onclick="lockemp({{$employee->id}})"><i id="icon{{$employee->id}}" class="icon {{$type}}" aria-hidden="true"></i></button> 
-				
 				
 				
 					@endif

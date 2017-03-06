@@ -20,10 +20,10 @@ $(function (){
 								
 								if(xhr.status==200){
 									
-									toastr.success('Settings saved successfully');
+									toastr.success('{{_t('Settings saved successfully')}}');
 									return ;
 							}
-								toastr.error('Some error Occurred:'+data);
+								toastr.error('{{_t('Some error Occurred')}}:'+data);
 							})
 						});
 						
@@ -58,7 +58,7 @@ $(function (){
    myDropzone.on("success",function(file,response){
 	   
 			
-		   toastr.success('Import Successfull'+response);
+		   toastr.success('{{_t('Import Successfull')}}'+response);
 	  	 myDropzone.removeFile(file);
 		 
 		 	setTimeout(function(){
@@ -72,7 +72,7 @@ $(function (){
     myDropzone.on("error", function(file,response) {
                    // sessionStorage.setItem("error", 1);
                    // $("#disp").html(response);
-                  toastr.error('Some error Occurred:'+response);
+                  toastr.error('{{_t('Some error Occurred')}}:'+response);
 				 myDropzone.removeFile(file);
                 });
    
@@ -103,20 +103,20 @@ $(function (){
 
 //delete question
 function deletequest(quesid){
-	swal({   title: "Are you sure?", 
-          	text: "You will not be able to recover this question!", 
+	swal({   title: "{{_t('Are you sure?')}}", 
+          	text: "{{_t('You will not be able to recover this question!')}}", 
 			type: "warning", 
 			showCancelButton: true,  
 			confirmButtonColor: "#DD6B55", 
-			confirmButtonText: "Yes, delete it!", 
+			confirmButtonText: "{{_t('Yes, delete it!')}}", 
 			closeOnConfirm: false }, 
 			function(){  
 			$.get('/deletequestion/'+quesid,function(data,status,xhr){
 		if(xhr.status==200){
 			
-			swal("Deleted!", "Question Successully Deleted", "success"); 
+			swal("{{_t('Deleted!')}}", "{{_t('Question Successully Deleted')}}", "success"); 
 		   
-				toastr.success("Question Successully Deleted"); 
+				toastr.success("{{_t('Question Successully Deleted')}}"); 
 				
 				setTimeout(function(){
 	
@@ -124,8 +124,8 @@ function deletequest(quesid){
 				},2000);
 		}
 		else{
-			swal("Error", "Unable to delete question at the moment", "error"); 
-				toastr.error("Unable to delete question at the moment"); 
+			swal("Error", "{{_t('Unable to delete question at the moment')}}", "error"); 
+				toastr.error("{{_t('Unable to delete question at the moment')}}"); 
 		
 		}
 		
@@ -168,9 +168,9 @@ function modified(id){
 	if(xhr.status==200){
 		
 		if(data==0){
-			return toastr.success("No Changes Made");
+			return toastr.success("{{_t('No Changes Made')}}");
 		}
-	toastr.success("Question Succewssfully Modified");
+	toastr.success("{{_t('Question Succewssfully Modified')}}");
 	
 	setTimeout(function(){
 		
@@ -179,7 +179,7 @@ function modified(id){
 	}
 	else{
 		
-		toastr.error("Soeme Error Occurred:"+data);
+		toastr.error("{{_t('Some Error Occurred')}}:"+data);
 	}
 	
 	
@@ -193,10 +193,10 @@ function modified(id){
 </script>
 <input type="hidden" value="{{csrf_token()}}" id="token" />
 <div class="page-header">
-  <h1 class="page-title">Apptitude Test Settings</h1>
+  <h1 class="page-title">{{_t('Apptitude Test Settings')}}</h1>
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/">Home</a></li>
-    <li class="breadcrumb-item active">You are Here</li>
+    <li class="breadcrumb-item"><a href="/">{{_t('Home')}}</a></li>
+    <li class="breadcrumb-item active">{{_t('You are Here')}}</li>
   </ol>
   <div class="page-header-actions">
     <div class="row no-space w-250 hidden-sm-down">
@@ -222,17 +222,17 @@ function modified(id){
   <div class="panel-body">
    <div class="ribbon ribbon-clip ribbon-reverse ribbon-success">
     <span style="cursor:pointer"  class="ribbon-inner" title="Apply"  data-target="#myModal{{$question->id}}" data-toggle="modal">
-	Modify Question
+	{{_t('Modify Question')}}
     </span>
   </div>
   <div  class="ribbon ribbon-clip ribbon-danger">
-     <span style="cursor:pointer" onclick="deletequest('{{$question->question_id}}')" class="ribbon-inner" >Delete Question</span>
+     <span style="cursor:pointer" onclick="deletequest('{{$question->question_id}}')" class="ribbon-inner" >{{_t('Delete Question')}}</span>
   </div>
     <div class="panel-group panel-group-simple" id="siteMegaAccordion" aria-multiselectable="true" role="tablist">
       <div class="panel">
         <div class="panel-heading" id="siteMegaAccordionHeadingThree" role="tab">
           <a class="panel-title" data-toggle="collapse" href="#siteMegaCollapseThree{{$question->id}}" data-parent="#siteMegaAccordion" aria-expanded="false" aria-controls="siteMegaCollapseThree{{$question->id}}">
-            <h4 class="text-warning">Question {{$question->id}}</h4>
+            <h4 class="text-warning">{{_t('Question '.$question->id)}}</h4>
             <span class="text-default">
 			{{$question->content}}
             </span>
@@ -293,46 +293,46 @@ function modified(id){
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h3 class="modal-title">Edit Question</h3>
+        <h3 class="modal-title">{{_t('Edit Question')}}</h3>
       </div>
       <div class="modal-body">
         <div >
-		<h4>Question</h4>
+		<h4>{{_t('Question')}}</h4>
 		
 	
 		    <textarea  data-provide="markdown" data-iconlibrary="fa" data-height="400px" class="md-input" rows="5"  style=""  id="question{{$question->question_id}}" >{{$question->content}}
 									</textarea>
 		<br>
 		<br>
-		<div class="col-md-3">Option One</div>
+		<div class="col-md-3">{{_t('Option One')}}</div>
 		<div class="col-md-9"><input type="text" class="form-control" id="option1{{$question->question_id}}" value="{{$question->option1}}"  /></div>
 		<br>
 		<br>
-		<div class="col-md-3">Option Two</div>
+		<div class="col-md-3">{{_t('Option Two')}}</div>
 		<div class="col-md-9">
 		<input type="text" class="form-control" id="option2{{$question->question_id}}" value="{{$question->option2}}"  />
 		</div>
 		<br>
 		<br>
-		<div class="col-md-3">Option Three</div>
+		<div class="col-md-3">{{_t('Option Three')}}</div>
 		<div class="col-md-9">
 		<input type="text" class="form-control" id="option3{{$question->question_id}}" value="{{$question->option3}}"  />
 		</div>
 		<br>
 		<br>
-		<div class="col-md-3">Option Four</div>
+		<div class="col-md-3">{{_t('Option Four')}}</div>
 		<div class="col-md-9">
 		<input type="text" class="form-control" id="option4{{$question->question_id}}"  value="{{$question->option4}}"  />
 		</div>
 		<br>
 		<br>
-		<div class="col-md-3">Correct Option</div>
+		<div class="col-md-3">{{_t('Correct Option')}}</div>
 		<div class="col-md-9">
 		<select name="center"  id="correct{{$question->question_id}}" class="form-control">
-		<option value="1">Option 1</option>
-		<option value="2">Option 2</option>
-		<option value="3">Option 3</option>
-		<option value="4">Option 4</option>
+		<option value="1">{{_t('Option 1')}}</option>
+		<option value="2">{{_t('Option 2')}}</option>
+		<option value="3">{{_t('Option 3')}}</option>
+		<option value="4">{{_t('Option 4')}}</option>
 		</select>
 		</div>
 		<br>
@@ -341,8 +341,8 @@ function modified(id){
 			
       </div>
       <div class="modal-footer">
-	  <button class="btn btn-md btn-success"   style="pointer:cursor;" onclick="modified({{$question->question_id}})" value="export"><i class="fa fw fa-pencil-square-o"></i>Modify</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	  <button class="btn btn-md btn-success"   style="pointer:cursor;" onclick="modified({{$question->question_id}})" value="export"><i class="fa fw fa-pencil-square-o"></i>{{_t('Modify')}}</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">{{_t('Close')}}</button>
       </div>
     </div>
 
@@ -352,7 +352,7 @@ function modified(id){
 @endforeach
 @else
 	
-<span>No Question Found, Click on the Plus Button to add question</span>
+<span>{{_t('No Question Found, Click on the Plus Button to add question')}}</span>
 @endif
 {{$questions->render()}}
 <div class="modal fade modal-3d-flip-horizontal modal-success" id="importques" aria-labelledby="exampleModalTitle" role="dialog" tabindex="-1" aria-hidden="true" style="display: none;">
@@ -362,11 +362,11 @@ function modified(id){
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                           </button>
-                          <h4 class="modal-title">Upload Apptitude Question</h4>
+                          <h4 class="modal-title">{{_t('Upload Apptitude Question')}}</h4>
                         </div>
                         <div class="modal-body">
                          <div class="col-xs-12 col-xl-12 form-group" id="dropboxpane">
-							   <b>Upload Apptitude Question:</b><br>
+							   <b>{{_t('Upload Apptitude Question')}}:</b><br>
 							        <div style="" class="dropzone" id="my-dropzone-files" name="my-dropzone-files">
 
                                                 
@@ -379,7 +379,7 @@ function modified(id){
                         </div>
                         <div class="modal-footer">
                          
-                          <a type="button" href="{{url('upload/samplequestion.csv')}}" class="btn btn-success"><i class="fa fa-download" style="border:none" ></i>&nbsp;&nbsp;Download Template</a> <button type="button" id="importquestion" class="btn btn-primary"><i class="fa fa-upload" ></i>&nbsp;&nbsp;Upload Question</button>
+                          <a type="button" href="{{url('upload/samplequestion.csv')}}" class="btn btn-success"><i class="fa fa-download" style="border:none" ></i>&nbsp;&nbsp;{{_t('Download Template')}}</a> <button type="button" id="importquestion" class="btn btn-primary"><i class="fa fa-upload" ></i>&nbsp;&nbsp;{{_t('Upload Question')}}</button>
                         </div>
                       </div>
                     </div>
@@ -391,20 +391,20 @@ function modified(id){
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                           </button>
-                          <h4 class="modal-title">Apptitude Test Settings</h4>
+                          <h4 class="modal-title">{{_t('Apptitude Test Settings')}}</h4>
                         </div>
                         <div class="modal-body">
                        <?php $mm=app('App\Repositories\GlobalSettingRepository')->appsett(); ?>
-						 <p>Duration:</p>
+						 <p>{{_t('Duration')}}:</p>
 						<input class="form-control" type="number" value="{{$mm['duration']}}" placeholder="Enter Test duration in minute" min="0" id="testduration" />
 						<br>
-						 <p>Number of Question:</p>
+						 <p>{{_t('Number of Question')}}:</p>
 						<input type="number" class="form-control" placeholder="Enter Number of randomly generated question to display to applicants" min="0" value="{{$mm['dispques']}}" id="quesnum"  />
  				
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                          <button type="button" id="savetestsett" class="btn btn-primary">Save changes</button>
+                          <button type="button" class="btn btn-default" data-dismiss="modal">{{_t('Close')}}</button>
+                          <button type="button" id="savetestsett" class="btn btn-primary">{{_t('Save changes')}}</button>
                         </div>
                       </div>
                     </div>

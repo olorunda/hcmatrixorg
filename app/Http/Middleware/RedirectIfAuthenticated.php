@@ -17,6 +17,9 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
+			if(session('locale')=="") {
+				session(['locale'=>'en']);
+			}
         if (Auth::guard($guard)->check()) {
 			
 			if(\Auth::user()->role==0){

@@ -11,7 +11,7 @@
 		}
 		else{
 			
-			toastr.error('Please Select Docment(s) to Move');
+			toastr.error('{{_t('Please Select Docment(s) to Move')}}');
 			return ;
 		}
 		
@@ -39,7 +39,7 @@
 			}); 
 				}
 			if(sessionStorage.getItem('status')==1){
-				toastr.success('Document Successfully Moved');
+				toastr.success('{{_t('Document Successfully Moved')}}');
 					setTimeout(function(){
 						
 					window.location.reload();	
@@ -47,7 +47,7 @@
 					},2000);
 			}
 			else{
-			toastr.error('Some error occurred');	
+			toastr.error('{{_t('Some error occurred')}}');	
 			}
 			
 		
@@ -61,7 +61,7 @@ function deletedocs(){
 		}
 		else{
 			
-			toastr.error('Please Select Docment(s) to delete');
+			toastr.error('{{_t('Please Select Docment(s) to delete')}}');
 			return ;
 		}
 	    var valuearr=$('.doclist:checked').map(function() {return this.value;}).get();
@@ -87,7 +87,7 @@ function deletedocs(){
 			}); 
 				}
 			if(sessionStorage.getItem('status')==1){
-				toastr.success('Document Successfully Deleted');
+				toastr.success('{{_t('Document Successfully Deleted')}}');
 					setTimeout(function(){
 						
 					window.location.reload();	
@@ -95,7 +95,7 @@ function deletedocs(){
 					},2000);
 			}
 			else{
-			toastr.error('Some error occurred');	
+			toastr.error('{{_t('Some error occurred')}}');	
 			}
 			
 		
@@ -161,7 +161,7 @@ formData.append("folderid", '{{$_GET['foldid']}}');
 	  	 myDropzone.removeFile(file);
 		 
 		 if(response=="Success"){
-			 		   toastr.success('Document Uploaded Successfully:'+response);
+			 		   toastr.success('{{_t('Document Uploaded Successfully')}}:'+response);
 		   
 			 
 			 setTimeout(function(){
@@ -180,7 +180,7 @@ formData.append("folderid", '{{$_GET['foldid']}}');
 		 }
 		 else{
 			 console.log(response);
-		 toastr.error('Error Uploading Document:'+response);
+		 toastr.error('{{_t('Error Uploading Document')}}:'+response);
 		   
 		 }
   
@@ -189,7 +189,7 @@ formData.append("folderid", '{{$_GET['foldid']}}');
     myDropzone.on("error", function(file,response) {
                    // sessionStorage.setItem("error", 1);
                    // $("#disp").html(response);
-                  toastr.error('Some error Occurred: '+response);
+                  toastr.error('{{_t('Some error Occurred')}}: '+response);
 				 myDropzone.removeFile(file);
                 });
    
@@ -201,7 +201,7 @@ formData.append("folderid", '{{$_GET['foldid']}}');
 	 var name=$('#docname').val();
 	 if(name==""){
 		 
-		 toastr.error("Please Fill in the document name")
+		 toastr.error("{{_t('Please Fill in the document name')}}")
 	 }
 		myDropzone.processQueue(); 
 		 
@@ -221,16 +221,16 @@ formData.append("folderid", '{{$_GET['foldid']}}');
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                           </button>
-                          <h4 class="modal-title">Upload Document</h4>
+                          <h4 class="modal-title">{{_t('Upload Document')}}</h4>
                         </div>
                         <div class="modal-body">
 						<div class="col-xs-12 col-xl-12 form-group">
-						Document Name :<br>
+						{{_t('Document Name')}} :<br>
 						<input type="text" class="form-control" id="docname" />
 						</div>
 						<br>
                          <div class="col-xs-12 col-xl-12 form-group" id="dropboxpane">
-							   <b>Upload Document:</b><br>
+							   <b>{{_t('Upload Document')}}:</b><br>
 							        <div style="" class="dropzone" id="my-dropzone-files" name="my-dropzone-files">
 
                                                 
@@ -243,7 +243,7 @@ formData.append("folderid", '{{$_GET['foldid']}}');
                         </div>
                         <div class="modal-footer">
                          
-                          <button type="button" id="uploaddocument" class="btn btn-primary"><i class="fa fa-upload" ></i>&nbsp;&nbsp;Upload</button>
+                          <button type="button" id="uploaddocument" class="btn btn-primary"><i class="fa fa-upload" ></i>&nbsp;&nbsp;{{_t('Upload')}}</button>
                         </div>
                       </div>
                     </div>
@@ -253,8 +253,8 @@ formData.append("folderid", '{{$_GET['foldid']}}');
 <div class="page-header">
   <h1 class="page-title">@if(isset($_GET['foldername'])) {{$_GET['foldername']}} @endif</h1>
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/">Home</a></li>
-    <li class="breadcrumb-item active">You are Here</li>
+    <li class="breadcrumb-item"><a href="/">{{_t('Home')}}</a></li>
+    <li class="breadcrumb-item active">{{_t('You are Here')}}</li>
   </ol>
   <div class="page-header-actions">
     <div class="row no-space w-250 hidden-sm-down">
@@ -313,12 +313,12 @@ formData.append("folderid", '{{$_GET['foldid']}}');
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                           </button>
-                          <h4 class="modal-title">Move Doc</h4>
+                          <h4 class="modal-title">{{_t('Move Doc')}}</h4>
                         </div>
                         <div class="modal-body">
-                          <p>Select Folder To Move Selected Document To</p>
+                          <p>{{_t('Select Folder To Move Selected Document To')}}</p>
 						  <select data-plugin="select2" id="folderid">
-						  <option value="" >--Select Folder--</option>
+						  <option value="" >--{{_t('Select Folder')}}--</option>
 						  <?php  $folders=app('App\Repositories\XtraRepository')->allfolder(1) ?>
 						  @foreach($folders as $folder)
 						   <option value="{{$folder->id}}" >{{$folder->name}}</option>
@@ -328,7 +328,7 @@ formData.append("folderid", '{{$_GET['foldid']}}');
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                          <button type="button" onclick="movefile()" class="btn btn-primary"><i class="icon wb-move"></i>&nbsp;&nbsp;Move</button>
+                          <button type="button" onclick="movefile()" class="btn btn-primary"><i class="icon wb-move"></i>&nbsp;&nbsp;{{_t('Move')}}</button>
                         </div>
                       </div>
                     </div>
@@ -346,19 +346,19 @@ formData.append("folderid", '{{$_GET['foldid']}}');
                         </span>
                       </th>
                       <th>
-                        Name
+                        {{_t('Name')}}
                       </th>
                       <th>
-                        Uploaded By
+                        {{_t('Uploaded By')}}
                       </th>
 					  <th>
-                        Category
+                        {{_t('Category')}}
                       </th>
                       
                       <th>
-                        Date Created
+                       {{_t('Date Created')}}
                       </th>
-                      <th>Action</th>
+                      <th>{{_t('Action')}}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -399,7 +399,7 @@ formData.append("folderid", '{{$_GET['foldid']}}');
           </div>
 		   {!! $documents->render() !!}
 		  @else
-		 <div style="margin-top:10px;" class="alert alert-danger"><h4>Folder Empty</h4></div>
+		 <div style="margin-top:10px;" class="alert alert-danger"><h4>{{_t('Folder Empty')}}</h4></div>
        @endif
 	   </div> </div>
 	   

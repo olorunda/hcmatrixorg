@@ -52,6 +52,11 @@ return [
             'driver' => 'local',
             'root' => storage_path('app/public'),
             'visibility' => 'public',
+        ] ,
+		'profile' => [
+            'driver' => 'local',
+            'root' => storage_path('public'),
+            'visibility' => 'public',
         ],
 		'att'=>[
 			'driver'=>'local',

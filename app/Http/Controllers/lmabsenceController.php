@@ -13,6 +13,11 @@ class lmabsenceController extends Controller
 	
 	public function __construct(EmployeeRepository $employee){
 		
+			if(session('locale')==""){
+			session(['locale'=>'en']); 
+	
+		}
+		  
 		$this->middleware('auth');
 		$this->middleware('rights');
 		$this->employee=$employee;

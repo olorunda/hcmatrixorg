@@ -47,10 +47,10 @@ $(function(){
 								if(xhr.status==200){
 									
 									
-									toastr.success("Leave Settings Save Successfully");
+									toastr.success("{{_t('Leave Settings Save Successfully')}}");
 								return ;
 								}
-								toastr.error("Some error Occurred");
+								toastr.error("{{_t('Some error Occurred')}}");
 								
 								
 							});
@@ -90,7 +90,7 @@ $(function(){
    myDropzone.on("success",function(file,response){
 	   
 			
-		   toastr.success('Import Successfull');
+		   toastr.success('{{_t('Import Successfull')}}');
 	  	 myDropzone.removeFile(file);
   
    });
@@ -98,7 +98,7 @@ $(function(){
     myDropzone.on("error", function(file,response) {
                    // sessionStorage.setItem("error", 1);
                    // $("#disp").html(response);
-                  toastr.error('Some error Occurred:'+response);
+                  toastr.error('{{_t('Some error Occurred')}}:'+response);
 				 myDropzone.removeFile(file);
                 });
    
@@ -136,8 +136,8 @@ $(function(){
 		 console.log(data);
 		 if(xhr.status==200){
 			 
-			 toastr.success('Query Has been Modified Successfully');
-			 		toastr.success("Query Template Successfully Saved");
+			 toastr.success('{{_t('Query Has been Modified Successfully')}}');
+			 		toastr.success("{{_t('Query Template Successfully Saved')}}");
 					
 			setTimeout(function(){
 				
@@ -145,7 +145,7 @@ $(function(){
 				
 			},2000);
 		 }
-		 toastr.error('Some Error Occurred');
+		 toastr.error('{{_t('Some Error Occurred')}}');
 		 
 		 
 	 });
@@ -160,13 +160,13 @@ $(function(){
 		
 		template=$('#qtemplate').val();
 		if(template=="" || title==""){
-			toastr.error("Some Fields are Empty");
+			toastr.error("{{_t('Some Fields are Empty')}}");
 			return ;
 		}
 		$.get('{{url('savequery')}}?title='+title+'&template='+template,function(data,status,xhr){
 			
 			if(xhr.status==200){
-				toastr.success("Query Template Successfully Saved");
+				toastr.success("{{_t('Query Template Successfully Saved')}}");
 			
 			setTimeout(function(){
 				
@@ -176,7 +176,7 @@ $(function(){
 			
 			}
 			else{
-				toastr.error("Some Error Occurred:"+data);
+				toastr.error("{{_t('Some Error Occurred')}}:"+data);
 			}
 			
 		});
@@ -229,7 +229,7 @@ $(function(){
 		 console.log(data);
 		 if(xhr.status==200){
 			 
-			 toastr.success('Leave Has been Modified Successfully');
+			 toastr.success('{{_t('Leave Has been Modified Successfully')}}');
 			 		
 			setTimeout(function(){
 				
@@ -238,7 +238,7 @@ $(function(){
 			},2000);
 			return ;
 		 }
-		 toastr.error('Some Error Occurred');
+		 toastr.error('{{_t('Some Error Occurred')}}');
 		 
 		 
 	 });
@@ -253,13 +253,13 @@ $(function(){
 		
 		template=$('#qtemplatel').val();
 		if(template=="" || title==""){
-			toastr.error("Some Fields are Empty");
+			toastr.error("{{_t('Some Fields are Empty')}}");
 			return ;
 		}
 		$.get('{{url('saveleave')}}?title='+title+'&daynum='+template,function(data,status,xhr){
 			
 			if(xhr.status==200){
-				toastr.success("Leave Successfully Saved");
+				toastr.success("{{_t('Leave Successfully Saved')}}");
 			
 			setTimeout(function(){
 				
@@ -269,7 +269,7 @@ $(function(){
 			
 			}
 			else{
-				toastr.error("Some Error Occurred:"+data);
+				toastr.error("{{_t('Some Error Occurred')}}:"+data);
 			}
 			
 		});
@@ -353,7 +353,7 @@ $(function(){
 			if(xhr.status==200){
 				
 				
-				toastr.success('Modification Successfull');
+				toastr.success('{{_t('Modification Successfull')}}');
 				setTimeout(function(){
 					
 					window.location.reload();
@@ -361,7 +361,7 @@ $(function(){
 				},2000);
 				return ;
 			}
-			toastr.error("Some Error Occurred:"+data);
+			toastr.error("{{_t('Some Error Occurred')}}:"+data);
 			
 			
 		});
@@ -550,10 +550,10 @@ $(function(){
 								},function(data,status,xhr){
 									
 									if(xhr.status==200){
-										toastr.success('Settings Saved');
+										toastr.success('{{_t('Settings Saved')}}');
 									}
 									else{
-										toastr.error('Some Error Occurred:'+data);
+										toastr.error('{{_t('Some Error Occurred')}}:'+data);
 									}
 									
 								});
@@ -566,10 +566,10 @@ $(function(){
 </script>
 <input type="hidden" value="{{csrf_token()}}" id="token" />
 <div class="page-header">
-  <h1 class="page-title">All Settings</h1>
+  <h1 class="page-title">{{_t('All Settings')}}</h1>
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
-    <li class="breadcrumb-item active">You are Here</li>
+    <li class="breadcrumb-item"><a href="{{url('/')}}">{{_t('Home')}}</a></li>
+    <li class="breadcrumb-item active">{{_t('You are Here')}}</li>
   </ol>
   <div class="page-header-actions">
     <div class="row no-space w-250 hidden-sm-down">
@@ -596,8 +596,8 @@ $(function(){
             <div class="card-watermark darker font-size-60 m-15"><i class="icon wb-settings" aria-hidden="true"></i></div>
             <div class="counter counter-md counter-inverse text-xs-left">
               <div class="counter-number-group">
-                <span class="counter-number">Employee</span>
-                <span class="counter-number-related text-capitalize">Management</span>
+                <span class="counter-number">{{_t('Employee')}}</span>
+                <span class="counter-number-related text-capitalize">{{_t('Management')}}</span>
               </div>
               <div class="counter-label text-capitalize"><a href="{{url('employee/list')}}" class="btn btn-icon btn-warning btn-round"><i class="icon wb-settings" aria-hidden="true"></i></a>
 			  &nbsp;
@@ -611,10 +611,10 @@ $(function(){
             <div class="card-watermark darker font-size-60 m-15"><i class="icon wb-settings" aria-hidden="true"></i></div>
             <div class="counter counter-md counter-inverse text-xs-left">
               <div class="counter-number-group">
-                <span class="counter-number">Job/Department</span>
-                <span class="counter-number-related text-capitalize">Settings</span>
+                <span class="counter-number">{{_t('Job/Department')}}</span>
+                <span class="counter-number-related text-capitalize">{{_t('Settings')}}</span>
               </div>
-              <div class="counter-label text-capitalize"><a href="{{url('hr/jobdepsettings')}}" class="btn btn-icon btn-warning btn-round"><i class="icon wb-settings" aria-hidden="true"></i></a></div>
+              <div class="counter-label text-capitalize"><a href="{{url(session('locale').'/hr/jobdepsettings')}}" class="btn btn-icon btn-warning btn-round"><i class="icon wb-settings" aria-hidden="true"></i></a></div>
             </div>
           </div>
 		  
@@ -627,8 +627,8 @@ $(function(){
             <div class="card-watermark darker font-size-60 m-15"><i class="icon wb-settings" aria-hidden="true"></i></div>
             <div class="counter counter-md counter-inverse text-xs-left">
               <div class="counter-number-group">
-                <span class="counter-number">Leave</span>
-                <span class="counter-number-related text-capitalize">Settings</span>
+                <span class="counter-number">{{_t('Leave')}}</span>
+                <span class="counter-number-related text-capitalize">{{_t('Settings')}}</span>
               </div>
               <div class="counter-label text-capitalize"><button data-toggle="modal" data-target="#leave" type="button" class="btn btn-icon btn-warning btn-round"><i class="icon wb-settings" aria-hidden="true"></i></button>
 			  <button data-toggle="modal" data-target="#attachtorole" type="button" class="btn btn-icon btn-warning btn-round"><i class="icon  wb-plus-circle" aria-hidden="true"></i></button></div>
@@ -642,8 +642,8 @@ $(function(){
             <div class="card-watermark darker font-size-60 m-15"><i class="icon wb-settings" aria-hidden="true"></i></div>
             <div class="counter counter-md counter-inverse text-xs-left">
               <div class="counter-number-group">
-                <span class="counter-number">Fiscal</span>
-                <span class="counter-number-related text-capitalize">Year Settings</span>
+                <span class="counter-number">{{_t('Fiscal')}}</span>
+                <span class="counter-number-related text-capitalize">{{_t('Year Settings')}}</span>
               </div>
               <div class="counter-label text-capitalize"><button data-toggle="modal" data-target="#fiscalyears" type="button" id="getfiscal"  class="btn btn-icon btn-warning btn-round"><i class="icon wb-settings" aria-hidden="true"></i></button></div>
             </div>
@@ -657,8 +657,8 @@ $(function(){
             <div class="card-watermark darker font-size-60 m-15"><i class="icon wb-settings" aria-hidden="true"></i></div>
             <div class="counter counter-md counter-inverse text-xs-left">
               <div class="counter-number-group">
-                <span class="counter-number">Disciplinary</span>
-                <span class="counter-number-related text-capitalize">Settings</span>
+                <span class="counter-number">{{_t('Disciplinary')}}</span>
+                <span class="counter-number-related text-capitalize">{{_t('Settings')}}</span>
               </div>
               <div class="counter-label text-capitalize"><button data-toggle="modal" data-target="#querysettings" id="qsett" type="button" class="btn btn-icon btn-warning btn-round"><i class="icon wb-settings" aria-hidden="true"></i></button></div>
             </div>
@@ -671,8 +671,8 @@ $(function(){
             <div class="card-watermark darker font-size-60 m-15"><i class="icon wb-settings" aria-hidden="true"></i></div>
             <div class="counter counter-md counter-inverse text-xs-left">
               <div class="counter-number-group">
-                <span class="counter-number">Pilot Goal</span>
-                <span class="counter-number-related text-capitalize">Settings</span>
+                <span class="counter-number">{{_t('Pilot Goal')}}</span>
+                <span class="counter-number-related text-capitalize">{{_t('Settings')}}</span>
               </div>
               <div class="counter-label text-capitalize"><button data-toggle="modal" data-target="#pilotgoals" type="button" class="btn btn-icon btn-warning btn-round"><i class="icon wb-settings" aria-hidden="true"></i></button></div>
             </div>
@@ -686,8 +686,8 @@ $(function(){
             <div class="card-watermark darker font-size-60 m-15"><i class="icon wb-settings" aria-hidden="true"></i></div>
             <div class="counter counter-md counter-inverse text-xs-left">
               <div class="counter-number-group">
-                <span class="counter-number">Payroll</span>
-                <span class="counter-number-related text-capitalize">Settings</span>
+                <span class="counter-number">{{_t('Payroll')}}</span>
+                <span class="counter-number-related text-capitalize">{{_t('Settings')}}</span>
               </div>
               <div class="counter-label text-capitalize"><button data-toggle="modal" data-target="" type="button" class="btn btn-icon btn-warning btn-round"><i class="icon wb-settings" aria-hidden="true"></i></button></div>
             </div>
@@ -700,8 +700,8 @@ $(function(){
             <div class="card-watermark darker font-size-60 m-15"><i class="icon wb-settings" aria-hidden="true"></i></div>
             <div class="counter counter-md counter-inverse text-xs-left">
               <div class="counter-number-group">
-                <span class="counter-number">Attendance</span>
-                <span class="counter-number-related text-capitalize">Settings</span>
+                <span class="counter-number">{{_t('Attendance')}}</span>
+                <span class="counter-number-related text-capitalize">{{_t('Settings')}}</span>
               </div>
               <div class="counter-label text-capitalize"><button data-toggle="modal" data-target="#setbiztime" type="button" class="btn btn-icon btn-warning btn-round"><i class="icon wb-settings" aria-hidden="true"></i></button></div>
             </div>
@@ -715,8 +715,8 @@ $(function(){
             <div class="card-watermark darker font-size-60 m-15"><i class="icon wb-settings" aria-hidden="true"></i></div>
             <div class="counter counter-md counter-inverse text-xs-left">
               <div class="counter-number-group">
-                <span class="counter-number">Notifications & Alert</span>
-                <span class="counter-number-related text-capitalize">Settings</span>
+                <span class="counter-number">{{_t('Notifications & Alert')}}</span>
+                <span class="counter-number-related text-capitalize">{{_t('Settings')}}</span>
               </div>
               <div class="counter-label text-capitalize"><button data-toggle="modal" data-target="#notification" type="button" class="btn btn-icon btn-warning btn-round"><i class="icon wb-settings" aria-hidden="true"></i></button></div>
             </div>
@@ -732,11 +732,11 @@ $(function(){
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                           </button>
-                          <h4 class="modal-title">Import Employee</h4>
+                          <h4 class="modal-title">{{_t('Import Employee')}}</h4>
                         </div>
                         <div class="modal-body">
                          <div class="col-xs-12 col-xl-12 form-group" id="dropboxpane">
-							   <b>Upload Employee Record:</b><br>
+							   <b>{{_t('Upload Employee Record')}}:</b><br>
 							        <div style="" class="dropzone" id="my-dropzone-files" name="my-dropzone-files">
 
                                                 
@@ -749,7 +749,7 @@ $(function(){
                         </div>
                         <div class="modal-footer">
                          
-                          <button type="button" id="importemployee" class="btn btn-primary"><i class="fa fa-upload" ></i>&nbsp;&nbsp;Import</button>
+                          <button type="button" id="importemployee" class="btn btn-primary"><i class="fa fa-upload" ></i>&nbsp;&nbsp;{{_t('Import')}}</button>
                         </div>
                       </div>
                     </div>
@@ -764,43 +764,43 @@ $(function(){
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                           </button>
-                          <h4 class="modal-title">Set Fiscal Year</h4>
+                          <h4 class="modal-title">{{_t('Set Fiscal Year')}}</h4>
                         </div>
                         <div class="modal-body">
-                        <p>Start Month:</p>
+                        <p>{{_t('Start Month')}}:</p>
 						<select id="startmont" data-plugin="select2" >
  						@foreach($month as $id=>$months)
-						<option value="{{$id}}">{{$months}}</option>
+						<option value="{{$id}}">{{_t($months)}}</option>
 						@endforeach
 						
 						</select><br>
-						 <p>Review:</p>
+						 <p>{{_t('Review')}}:</p>
 						<select id="review" data-plugin="select2" >
  						
-						<option value="1">Every Month</option>
-						<option value="2">Every 2 Months</option>
-						<option value="3">Every 3 Months</option>
-						<option value="4">Every 4 Months</option>
-						<option value="6">Every 6 Months</option>
-						<option value="12">Every Year</option>
+						<option value="1">{{_t('Every Month')}}</option>
+						<option value="2">{{_t('Every 2 Months')}}</option>
+						<option value="3">{{_t('Every 3 Months')}}</option>
+						<option value="4">{{_t('Every 4 Months')}}</option>
+						<option value="6">{{_t('Every 6 Months')}}</option>
+						<option value="12">{{_t('Every Year')}}</option>
 						
 						
 						</select>
 						<br>
-						 <p>Grace Period:</p>
+						 <p>{{_t('Grace Period')}}:</p>
 						<select id="graceperiod" data-plugin="select2" >
  						
-						<option value="1">One Week</option>
-						<option value="2">Two Weeks</option>
-						<option value="3">Three Weeks</option>
-						<option value="4">Four Weeks</option>
+						<option value="1">{{_t('One Week')}}</option>
+						<option value="2">{{_t('Two Weeks')}}</option>
+						<option value="3">{{_t('Three Weeks')}}</option>
+						<option value="4">{{_t('Four Weeks')}}</option>
 						
 						
 						</select>
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                          <button type="button" id="savefiscal" class="btn btn-primary">Save changes</button>
+                          <button type="button" class="btn btn-default" data-dismiss="modal">{{_t('Close')}}</button>
+                          <button type="button" id="savefiscal" class="btn btn-primary">{{_t('Save changes')}}</button>
                         </div>
                       </div>
                     </div>
@@ -814,25 +814,25 @@ $(function(){
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                           </button>
-                          <h4 class="modal-title">Add Query Template</h4>
+                          <h4 class="modal-title">{{_t('Add Query Template')}}</h4>
                         </div>
                         <div class="modal-body">
-                        <p>Action Type</p>
+                        <p>{{_t('Action Type')}}</p>
 						<select data-plugin="select2" id="actiontype">
 						
-						<option >--Select Action--</option>
-						<option value="edit">Edit</option>
-						<option value="add">Add</option>
+						<option >--{{_t('Select Action')}}--</option>
+						<option value="edit">{{_t('Edit')}}</option>
+						<option value="add">{{_t('Add')}}</option>
 						
 						</select>
 						<br>
 						
 						<!-- aDD aCTION -->
 						<div id="add">
-						 <p>Query Type</p>
+						 <p>{{_t('Query Type')}}</p>
 						<input type="text" placeholder="Enter query Type .." class="form-control" id="qtype" /><br>
 						
-						<p>Template</p>
+						<p>{{_t('Template')}}</p>
 						 <textarea  data-provide="markdown" data-iconlibrary="fa" data-height="400px" class="md-input" rows="5"  style=""  placeholder="Enter Query Template" id="qtemplate">
 									</textarea>
 									<br>
@@ -842,7 +842,7 @@ $(function(){
 						<div id="edit">
 						
 						<div class="col-xl-4 col-xs-12">
-							<b>Select Query Types:</b>
+							<b>{{url('Select Query Types')}}:</b>
 							</div>
                               <div class="col-xs-12 col-xl-8 form-group">
 							     @if(count($querytype)>0)
@@ -852,12 +852,12 @@ $(function(){
 								  @endif
 								  
 						         <select id="qtype1" data-plugin="select2" type="text" class="form-control" >
-								  <option value="0">-Select query Type--</option>
+								  <option value="0">-{{_t('Select query Type')}}--</option>
 								
 								 @if(count($querytype)>0)
 									 @foreach($querytype as $types)
 								
-								  <option value="{{$types->id}}">{{$types->title}}</option>
+								  <option value="{{$types->id}}">{{_t('$types->title')}}</option>
 									@endforeach
 								  @endif
 								 </select>
@@ -866,7 +866,7 @@ $(function(){
 
 						</div>
 						
-							<b>Title:</b><br>
+							<b>{{_t('Title')}}:</b><br>
 							 
 							      <input type="text" id="qtitledeit" class="form-control" disabled>
 							    
@@ -882,9 +882,9 @@ $(function(){
                               </div>
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                          <button type="button" id="saveqtemplate" class="btn btn-primary">Save changes</button>
-						  <button type="button" id="modifyqtemplate" class="btn btn-primary" disabled>Save changes</button>
+                          <button type="button" class="btn btn-default" data-dismiss="modal">{{_t('Close')}}</button>
+                          <button type="button" id="saveqtemplate" class="btn btn-primary">{{_t('Save changes')}}</button>
+						  <button type="button" id="modifyqtemplate" class="btn btn-primary" disabled>{{_t('Save changes')}}</button>
                         </div>
                       </div>
                     </div>

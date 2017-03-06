@@ -25,37 +25,6 @@ namespace Microsoft\Graph\Model;
 */
 class SharingLink extends Entity
 {
-    /**
-    * The array of properties available 
-    * to the model
-    *
-    * @var array(string => string)
-    */
-    private $_propDict;
-    /**
-    * SharingLink constructor
-    *
-    * @param array $propDict List of properties to set
-    * Defaults to an empty array
-    *
-    * @return SharingLink
-    */
-    public function __construct($propDict=array())
-    {
-        parent::__construct();
-        $this->_propDict = $propDict;
-        return $this;
-    }
-
-	/**
-    * Gets the property dictionary of the SharingLink
-    *
-    * @return array The list of properties
-    */
-    public function getProperties()
-    {
-        return $this->_propDict;
-    }
 
     /**
     * Gets the application
@@ -87,7 +56,6 @@ class SharingLink extends Entity
         $this->_propDict["application"] = $val;
          return $this;
     }
-    
     /**
     * Gets the type
     *
@@ -114,7 +82,6 @@ class SharingLink extends Entity
         $this->_propDict["type"] = $val;
         return $this;
     }
-    
     /**
     * Gets the scope
     *
@@ -141,7 +108,6 @@ class SharingLink extends Entity
         $this->_propDict["scope"] = $val;
         return $this;
     }
-    
     /**
     * Gets the webUrl
     *

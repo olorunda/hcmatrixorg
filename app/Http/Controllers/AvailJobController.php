@@ -13,7 +13,14 @@ class AvailJobController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-	 
+	public function __construct(){
+		if(session('locale')==""){
+			session(['locale'=>'en']); 
+	
+		}
+		 
+			 
+	} 
     public function index()
     {
         //

@@ -27,38 +27,6 @@ namespace Microsoft\Graph\Model;
 class WorkbookRangeView extends Entity
 {
     /**
-    * The array of properties available
-    * to the model
-    *
-    * @var array(string => string)
-    */
-    private $_propDict;
-    
-    /**
-    * Construct a new WorkbookRangeView
-    *
-    * @param array $propDict A list of properties to set
-    *
-    * @return WorkbookRangeView
-    */
-    function __construct($propDict = array())
-    {
-        parent::__construct();
-        $this->_propDict = $propDict;
-        return $this;
-    }
-
-    /**
-    * Gets the property dictionary of the WorkbookRangeView
-    *
-    * @return array The list of properties
-    */
-    public function getProperties()
-    {
-        return $this->_propDict;
-    }
-
-    /**
     * Gets the cellAddresses
     *
     * @return string The cellAddresses
@@ -71,7 +39,7 @@ class WorkbookRangeView extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the cellAddresses
     *
@@ -84,7 +52,7 @@ class WorkbookRangeView extends Entity
         $this->_propDict["cellAddresses"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the columnCount
     *
@@ -98,7 +66,7 @@ class WorkbookRangeView extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the columnCount
     *
@@ -111,7 +79,7 @@ class WorkbookRangeView extends Entity
         $this->_propDict["columnCount"] = intval($val);
         return $this;
     }
-
+    
     /**
     * Gets the formulas
     *
@@ -125,7 +93,7 @@ class WorkbookRangeView extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the formulas
     *
@@ -138,7 +106,7 @@ class WorkbookRangeView extends Entity
         $this->_propDict["formulas"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the formulasLocal
     *
@@ -152,7 +120,7 @@ class WorkbookRangeView extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the formulasLocal
     *
@@ -165,7 +133,7 @@ class WorkbookRangeView extends Entity
         $this->_propDict["formulasLocal"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the formulasR1C1
     *
@@ -179,7 +147,7 @@ class WorkbookRangeView extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the formulasR1C1
     *
@@ -192,7 +160,7 @@ class WorkbookRangeView extends Entity
         $this->_propDict["formulasR1C1"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the index
     *
@@ -206,7 +174,7 @@ class WorkbookRangeView extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the index
     *
@@ -219,7 +187,7 @@ class WorkbookRangeView extends Entity
         $this->_propDict["index"] = intval($val);
         return $this;
     }
-
+    
     /**
     * Gets the numberFormat
     *
@@ -233,7 +201,7 @@ class WorkbookRangeView extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the numberFormat
     *
@@ -246,7 +214,7 @@ class WorkbookRangeView extends Entity
         $this->_propDict["numberFormat"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the rowCount
     *
@@ -260,7 +228,7 @@ class WorkbookRangeView extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the rowCount
     *
@@ -273,7 +241,7 @@ class WorkbookRangeView extends Entity
         $this->_propDict["rowCount"] = intval($val);
         return $this;
     }
-
+    
     /**
     * Gets the text
     *
@@ -287,7 +255,7 @@ class WorkbookRangeView extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the text
     *
@@ -300,7 +268,7 @@ class WorkbookRangeView extends Entity
         $this->_propDict["text"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the valueTypes
     *
@@ -314,7 +282,7 @@ class WorkbookRangeView extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the valueTypes
     *
@@ -327,7 +295,7 @@ class WorkbookRangeView extends Entity
         $this->_propDict["valueTypes"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the values
     *
@@ -341,7 +309,7 @@ class WorkbookRangeView extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the values
     *
@@ -354,7 +322,7 @@ class WorkbookRangeView extends Entity
         $this->_propDict["values"] = $val;
         return $this;
     }
-
+    
     /** 
     * Gets the rows
     *
@@ -368,7 +336,7 @@ class WorkbookRangeView extends Entity
             return null;
         }
     }
-	
+    
     /** 
     * Sets the rows
     *
@@ -381,5 +349,5 @@ class WorkbookRangeView extends Entity
 		$this->_propDict["rows"] = $val;
         return $this;
     }
-
+    
 }

@@ -18,6 +18,9 @@
   <link rel="stylesheet" href="<?php echo e(asset('global/css/bootstrap-extend.min.css')); ?>">
   <link rel="stylesheet" href="<?php echo e(asset('assets/css/site.min.css')); ?>">
    <link type="text/css" href="<?php echo e(asset('assets/css/pdfSlider.css')); ?>" rel="stylesheet"/>
+   
+  <script src="<?php echo e(asset('assets/getorgchart/getorgchart.js')); ?>"></script>
+   <link type="text/css" href="<?php echo e(asset('assets/getorgchart/getorgchart.css')); ?>" rel="stylesheet"/>
     <link rel="stylesheet" href="<?php echo e(asset('global/vendor/clockpicker/clockpicker.css')); ?>">
 		<link rel="stylesheet" href="<?php echo e(asset('global/vendor/jt-timepicker/jquery-timepicker.css')); ?>">
 	   <link rel="stylesheet" href="<?php echo e(asset('global/vendor/bootstrap-datepicker/bootstrap-datepicker.css')); ?>">
@@ -25,6 +28,13 @@
   <link rel="stylesheet" href="<?php echo e(asset('assets/css/documents.css')); ?>">
    <link rel="stylesheet" href="<?php echo e(asset('global/vendor/tablesaw/tablesaw.css')); ?>">
   <link rel="stylesheet" href="<?php echo e(asset('assets/css/nprogress.css')); ?>">
+ <?php if(active(session('locale').'/employee/profile_*')): ?>
+	   <link rel="stylesheet" href="<?php echo e(asset('global/vendor/datatables-bootstrap/dataTables.bootstrap.css')); ?>">
+  <link rel="stylesheet" href="<?php echo e(asset('global/vendor/datatables-fixedheader/dataTables.fixedHeader.css')); ?>">
+  <link rel="stylesheet" href="<?php echo e(asset('global/vendor/datatables-responsive/dataTables.responsive.css')); ?>">
+  <link rel="stylesheet" href="<?php echo e(asset('assets/examples/css/tables/datatable.css')); ?>">
+   <?php endif; ?>
+   
  
   <!-- Plugins -->
     <link rel="stylesheet" href="<?php echo e(asset('global/vendor/multi-select/multi-select.css')); ?>">
@@ -38,6 +48,7 @@
   <link rel="stylesheet" href="<?php echo e(asset('assets/examples/css/dashboard/v1.css')); ?>">
   <link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets/css/sweetalert.css')); ?>">
   <link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets/css/font-awesome.min.css')); ?>">
+  <link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets/css/typeaheadjs.css')); ?>">
    
   <link rel="stylesheet" href="<?php echo e(asset('global/vendor/ionrangeslider/ionrangeslider.min.css')); ?>">  
   
@@ -67,7 +78,7 @@
   <link rel="stylesheet" href="<?php echo e(asset('global/vendor/toastr/toastr.css')); ?>">
   <link rel="stylesheet" href="<?php echo e(asset('assets/examples/css/advanced/toastr.css')); ?>">
   <link rel="stylesheet" href="<?php echo e(asset('assets/css/fullcalendar.min.css')); ?>">
-	     <?php if(active('manage/*') || active('leave') || active('sort/*') || active('search')): ?>
+	     <?php if(active(session('locale').'/manage/*') || active(session('locale').'/leave') || active(session('locale').'/sort/*') || active(session('locale').'/search')): ?>
 	 
   <link rel="stylesheet" href="<?php echo e(asset('global/vendor/tablesaw/tablesaw.css')); ?>">
  
@@ -79,11 +90,11 @@
   <link rel="stylesheet" href="<?php echo e(asset('global/fonts/weather-icons/weather-icons.css')); ?>">
   <link rel="stylesheet" href="<?php echo e(asset('global/fonts/web-icons/web-icons.min.css')); ?>">
   <link rel="stylesheet" href="<?php echo e(asset('global/fonts/brand-icons/brand-icons.min.css')); ?>">
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic">
-   <?php if(active('employee/objective')): ?>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic">
+   <?php if(active(session('locale').'/employee/objective')): ?>
   <link rel="stylesheet" href="<?php echo e(asset('assets/css/documents.css')); ?>">
   <link rel="stylesheet" href="<?php echo e(asset('global/vendor/ladda/ladda.css')); ?>">
-  <?php elseif(active('lm/objectives_c')): ?>
+  <?php elseif(active(session('locale').'/lm/objectives_c')): ?>
   <link rel="stylesheet" href="<?php echo e(asset('global/vendor/tablesaw/tablesaw.css')); ?>">
   <link rel="stylesheet" href="<?php echo e(asset('assets/examples/css/apps/contacts.css')); ?>">
   <link rel="stylesheet" href="<?php echo e(asset('assets/css/objectives.css')); ?>">
@@ -96,7 +107,7 @@
           display: none;
         }
       </style>
-  <?php elseif(active('lm/rate')): ?>
+  <?php elseif(active(session('locale').'/lm/rate')): ?>
   <link rel="stylesheet" href="<?php echo e(asset('global/vendor/select2/select2.css')); ?>">
   <link rel="stylesheet" href="<?php echo e(asset('global/vendor/morris/morris.css')); ?>">
   <link rel="stylesheet" href="<?php echo e(asset('assets/examples/css/advanced/rating.css')); ?>">
@@ -107,7 +118,7 @@
 	.modal { position: absolute; } 
   </style>
   
-  <?php elseif(active('lm/goals')): ?>
+  <?php elseif(active(session('locale').'/lm/goals')): ?>
   <link rel="stylesheet" href="<?php echo e(asset('global/vendor/summernote/summernote.css')); ?>">
   <link rel="stylesheet" href="<?php echo e(asset('global/vendor/select2/select2.css')); ?>">
   <link rel="stylesheet" href="<?php echo e(asset('global/vendor/webui-popover/webui-popover.css')); ?>">
@@ -117,7 +128,7 @@
       height: 100px;
     }
   </style>
-  <?php elseif(active('employee/absence') || active('manage/*')): ?>
+  <?php elseif(active(session('locale').'/employee/absence') || active(session('locale').'/manage/*')): ?>
   <link rel="stylesheet" href="<?php echo e(asset('global/vendor/select2/select2.css')); ?>">
   <link rel="stylesheet" href="<?php echo e(asset('global/vendor/chartist/chartist.css')); ?>">
   <link rel="stylesheet" href="<?php echo e(asset('global/vendor/aspieprogress/asPieProgress.css')); ?>">
@@ -148,7 +159,7 @@
   <?php endif; ?>
 
   <style>
-  <?php if(active('view/attendancecalender')): ?>
+  <?php if(active(session('locale').'/view/attendancecalender')): ?>
   .fc-content{
 	  
 	  background-color:#53a26c;
@@ -168,7 +179,7 @@
  }
   <?php endif; ?>
   
-  <?php if(active('view/docadmin')|| active('view/mydocument')): ?>
+  <?php if(active(session('locale').'/view/docadmin')|| active(session('locale').'/view/mydocument')): ?>
   div.raspberry {
     float: left;
     margin: 2px;
@@ -217,9 +228,9 @@ div p {
 <?php endif; ?>
   .page-header{
 	 
-<?php if(active('applicant/job')): ?>
+<?php if(active(session('locale').'/applicant/job')): ?>
 <?php else: ?>	
-	  margin-top: <?php if(active('employee/list')): ?> -25px <?php elseif(active('manage/*')||active('leave') ||active('lm/*')|| active('search')): ?>  <?php else: ?> -40px; <?php endif; ?> <?php endif; ?>
+	  margin-top: <?php if(active(session('locale').'/employee/list')): ?> -25px <?php elseif(active(session('locale').'/manage/*')||active(session('locale').'/leave') ||active(session('locale').'/lm/*')|| active(session('locale').'/search')): ?>  <?php else: ?> -40px; <?php endif; ?> <?php endif; ?>
   }
   .pdfSlider_close{
 	  
@@ -254,7 +265,7 @@ div p {
 .site-menu-item:hover{
 	background:rgba(7, 122, 59, 0.37)
 }
-
+ 
   .site-menu-item a {
     display: block;
     color: hsla(219, 100%, 100%, 0.99);
@@ -337,7 +348,7 @@ div p {
 	  font-family:helvetica;
   }
   </style>
-  <?php if(active('job/*')): ?>
+  <?php if(active(session('locale').'/job/*')): ?>
 <link rel="stylesheet" href="<?php echo e(asset('global/vendor/select2/select2.css')); ?>">
 <link rel="stylesheet" href="<?php echo e(asset('assets/examples/css/structure/ribbon.css')); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets/css/dropzone.min.css')); ?>">
@@ -380,7 +391,7 @@ div p {
 <script>
  $(function(){
  
-	 <?php if(active('lm/rate')): ?>
+	 <?php if(active(session('locale').'/lm/rate')): ?>
 		 <?php else: ?>
 	
 	 $(document).ajaxStart(function(){
@@ -412,9 +423,9 @@ div p {
 
 </script>
 </head>
-<?php if(active('manage/absence') || active('leave') || active('sort/*') || active('search')|| active('applicant/*')): ?>
+<?php if(active(session('locale').'/manage/absence') || active(session('locale').'/leave') || active(session('locale').'/sort/*') || active(session('locale').'/search')|| active(session('locale').'/applicant/*')): ?>
 	<body class="animsition app-contacts page-aside-left site-menubar-fold"   >
-<?php elseif(active('lm/query')|| active('lm/querytype/*') || active('employee/list')|| active('employee/linemanager')): ?>
+<?php elseif(active(session('locale').'/lm/query')|| active(session('locale').'/lm/querytype/*') || active(session('locale').'/employee/list')|| active(session('locale').'/employee/linemanager')): ?>
 <body class="animsition app-forum page-aside-left site-menubar-fold" style="animation-duration: 800ms; opacity: 1;">
 <?php else: ?>
 	
@@ -467,7 +478,7 @@ div p {
           <li class="nav-item hidden-float">
             <a class="nav-link icon wb-search" data-toggle="collapse" href="#" data-target="#site-navbar-search"
             role="button">
-              <span class="sr-only">Toggle Search</span>
+              <span class="sr-only"><?php echo e(_t('Toggle Search')); ?></span>
             </a>
           </li>
         </ul>
@@ -476,7 +487,7 @@ div p {
         <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
           <li class="nav-item hidden-float" style="margin-top:15px;">
             <select class="form-control " id="fiscalyear" onchange="setfy()"> 
-             <option  >- Fiscal Year -</option>
+             <option  >- <?php echo e(_t('Fiscal Year')); ?> -</option>
 
             
              <?php for($i=2016; $i<=date('Y'); $i++ ): ?>
@@ -486,22 +497,37 @@ div p {
            </select>
 
          </li>
-          <li class="nav-item dropdown">
+             <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="javascript:void(0)" data-animation="scale-up"
             aria-expanded="false" role="button">
-              <span class="flag-icon flag-icon-us"></span>
+			<?php   
+			
+					if(session('locale')=='en'):
+
+						$lang='gb';
+					elseif(session('locale')=='fr'):
+						$lang='fr';
+					elseif(session('locale')=='zu'):
+						$lang='sa';
+					elseif(session('locale')=='yo'||session('locale')=='ig'):
+						$lang='ng';
+					else:
+						$lang='gb';
+					endif
+			?>
+              <span class="flag-icon flag-icon-<?php echo e($lang); ?>"></span>
             </a>
             <div class="dropdown-menu" role="menu">
-              <a class="dropdown-item" href="javascript:void(0)" role="menuitem">
-                <span class="flag-icon flag-icon-gb"></span> English</a>
-              <a class="dropdown-item" href="javascript:void(0)" role="menuitem">
-                <span class="flag-icon flag-icon-fr"></span> French</a>
-              <a class="dropdown-item" href="javascript:void(0)" role="menuitem">
-                <span class="flag-icon flag-icon-cn"></span> Chinese</a>
-              <a class="dropdown-item" href="javascript:void(0)" role="menuitem">
-                <span class="flag-icon flag-icon-de"></span> German</a>
-              <a class="dropdown-item" href="javascript:void(0)" role="menuitem">
-                <span class="flag-icon flag-icon-nl"></span> Dutch</a>
+              <a class="dropdown-item" href="<?php echo e(url('change/en')); ?>" role="menuitem">
+                <span class="flag-icon flag-icon-gb"></span> <?php echo e(_t('English')); ?></a>
+              <a class="dropdown-item" href="<?php echo e(url('change/fr')); ?>" role="menuitem">
+                <span class="flag-icon flag-icon-fr"></span> <?php echo e(_t('French')); ?></a>
+              <a class="dropdown-item" href="<?php echo e(url('change/zu')); ?>" role="menuitem">
+                <span class="flag-icon flag-icon-sa"></span> <?php echo e(_t('Zulu')); ?></a>
+              <a class="dropdown-item" href="<?php echo e(url('change/yo')); ?>" role="menuitem">
+                <span class="flag-icon flag-icon-ng"></span> <?php echo e(_t('Yoruba')); ?></a>
+              <a class="dropdown-item" href="<?php echo e(url('change/ig')); ?>" role="menuitem">
+                <span class="flag-icon flag-icon-ng"></span> <?php echo e(_t('Igbo')); ?></a>
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -513,10 +539,10 @@ div p {
               </span>
             </a>
             <div class="dropdown-menu" role="menu">
-              <a class="dropdown-item" href="<?php echo e(url('employee/profile')); ?>" role="menuitem"><i class="icon wb-user" aria-hidden="true"></i> Profile</a>
-              <a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i class="icon wb-settings" aria-hidden="true"></i> Settings</a>
+              <a class="dropdown-item" href="<?php echo e(url('employee/profile')); ?>" role="menuitem"><i class="icon wb-user" aria-hidden="true"></i> <?php echo e(_t('Profile')); ?></a>
+              <a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i class="icon wb-settings" aria-hidden="true"></i> <?php echo e(_t('Settings')); ?></a>
               <div class="dropdown-divider" role="presentation"></div>
-              <a class="dropdown-item" href="<?php echo e(url('logout')); ?>" role="menuitem" ><i class="icon wb-power" aria-hidden="true"></i> Logout</a>
+              <a class="dropdown-item" href="<?php echo e(url('logout')); ?>" role="menuitem" ><i class="icon wb-power" aria-hidden="true"></i> <?php echo e(_t('Logout')); ?></a>
 			  <input type="hidden" id="logout" name="token" value="<?php echo e(csrf_token()); ?>" /> 
              </div>
           </li>
@@ -545,7 +571,7 @@ div p {
       <div>
         <div>
           <ul class="site-menu" data-plugin="menu">
-            <li class="site-menu-category">Welcome <?php echo e(strtoupper(Auth::user()->name)); ?></li>
+            <li class="site-menu-category"><?php echo e(_t('Welcome :name',['name'=>Auth::user()->name])); ?></li>
 			
 			<!-- SUBMENU ICON  -->           
 		 <?php echo $__env->make('partials.sidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
@@ -557,7 +583,7 @@ div p {
   </div>
   
   <!-- Page -->
-<?php if(active('manage/absence') || active('leave') || active('sort/*') || active('search')|| active('applicant/*') || active('lm/query')||active('lm/querytype/*') || active('employee/list')||active('employee/linemanager')): ?>
+<?php if(active(session('locale').'/manage/absence') || active(session('locale').'/leave') || active(session('locale').'/sort/*') || active(session('locale').'/search')|| active(session('locale').'/applicant/*') || active(session('locale').'/lm/query')||active(session('locale').'/lm/querytype/*') || active(session('locale').'/employee/list')||active(session('locale').'/employee/linemanager')): ?>
 	  		<?php echo $__env->yieldContent('content'); ?>
  
    <?php else: ?>
@@ -576,7 +602,7 @@ div p {
   <footer class="site-footer">
     <div class="site-footer-legal">© 2016 <a href="http://www.snapnet.com.ng">Snapnet Limited</a></div>
     <div class="site-footer-right">
-      Developed By  <a href="http://www.snapnet.com.ng">Snapnet Limited</a>
+	<?php echo e(_t('Developed By ')); ?> <a href="http://www.snapnet.com.ng">Snapnet Limited</a>
     </div>
   </footer>
   <!-- Core  -->
@@ -584,15 +610,15 @@ div p {
  
 
   <script src="<?php echo e(asset('global/vendor/tether/tether.js')); ?>"></script>
-   <?php if(active('employee/absence') || active('manage/*') || active('applicant/*')): ?>
-		<?php if(active('manage/absence')): ?>
+   <?php if(active(session('locale').'/employee/absence') || active(session('locale').'/manage/*') || active(session('locale').'/applicant/*')): ?>
+		<?php if(active(session('locale').'/manage/absence')): ?>
 	 <script src="<?php echo e(asset('global/vendor/bootstrap/bootstrap.js')); ?>"></script>
  
 	<?php endif; ?>
 	   <?php else: ?>
   <script src="<?php echo e(asset('global/vendor/bootstrap/bootstrap.js')); ?>"></script>
   <?php endif; ?>
-  <?php if(active('manage/leavestat') || active('manage/positions')): ?>
+  <?php if(active(session('locale').'/manage/leavestat') || active(session('locale').'/manage/positions')): ?>
 	    <script src="<?php echo e(asset('global/vendor/bootstrap/bootstrap.js')); ?>"></script>
  
 	<?php endif; ?>
@@ -664,7 +690,7 @@ div p {
   <script src="<?php echo e(asset('global/js/Plugin/toastr.js')); ?>"></script>
     <script src="<?php echo e(asset('global/vendor/toastr/toastr.js')); ?>"></script>
   <script src="<?php echo e(asset('assets/examples/js/dashboard/v1.js')); ?>"></script>
-   <?php if(active('employee/objective')): ?>
+   <?php if(active(session('locale').'/employee/objective')): ?>
   <script type="text/javascript" src="<?php echo e(asset('assets/js/App/Documents.js')); ?>"></script>
   <script src="<?php echo e(asset('global/vendor/jquery-appear/jquery.appear.js')); ?>"></script>
   <script src="<?php echo e(asset('global/js/Plugin/jquery-appear.js')); ?>"></script>
@@ -675,7 +701,7 @@ div p {
   <script src="<?php echo e(asset('global/js/Plugin/ladda.js')); ?>"></script>
   <script src="<?php echo e(asset('global/js/Plugin/peity.js')); ?>"></script>
   <script src="<?php echo e(asset('assets/examples/js/tables/jqtabledit.js')); ?>"></script>
-  <?php elseif(active('lm/objectives_c')||active('employee/*')): ?>
+  <?php elseif(active(session('locale').'/lm/objectives_c')||active(session('locale').'/employee/*')): ?>
   <script src="<?php echo e(asset('global/js/Plugin/tablesaw.js')); ?>"></script>
   <script src="<?php echo e(asset('global/js/Plugin/sticky-header.js')); ?>"></script>
   <script src="<?php echo e(asset('global/js/Plugin/action-btn.js')); ?>"></script>
@@ -705,7 +731,7 @@ div p {
  
   <script src="<?php echo e(asset('global/js/Plugin/jquery-appear.js')); ?>"></script>
  
-  <?php elseif(active('lm/rate')): ?>
+  <?php elseif(active(session('locale').'/lm/rate')): ?>
   <script src="<?php echo e(asset('global/vendor/select2/select2.full.min.js')); ?>"></script>
   <script src="<?php echo e(asset('global/js/Plugin/select2.js')); ?>"></script>
   <script src="<?php echo e(asset('assets/js/sweetalert.min.js')); ?>"></script>
@@ -715,7 +741,7 @@ div p {
   <script src="<?php echo e(asset('global/vendor/raty/jquery.raty.js')); ?>"></script>
   <!--<script src="<?php echo e(asset('global/js/Plugin/raty.js')); ?>"></script>-->
   <script src="<?php echo e(asset('assets/js/myrate.js')); ?>"></script>
-    <?php elseif(active('job/*')): ?>
+    <?php elseif(active(session('locale').'/job/*')): ?>
       <script src="<?php echo e(asset('global/vendor/select2/select2.full.min.js')); ?>"></script>
       <script src="<?php echo e(asset('global/js/Plugin/select2.js')); ?>"></script>
       <script type="text/javascript">
@@ -736,7 +762,7 @@ div p {
       <script src="<?php echo e(asset('global/js/Plugin/panel.js')); ?>"></script>
       <script src="<?php echo e(asset('assets/examples/js/uikit/panel-actions.js')); ?>"></script>
       
-  <?php elseif(active('lm/goals')): ?>
+  <?php elseif(active(session('locale').'/lm/goals')): ?>
   <script src="<?php echo e(asset('assets/js/Site.js')); ?>"></script>
   <script src="<?php echo e(asset('global/js/Plugin/asscrollable.js')); ?>"></script>
   <script src="<?php echo e(asset('global/js/Plugin/slidepanel.js')); ?>"></script>
@@ -750,14 +776,14 @@ div p {
   <script src="<?php echo e(asset('global/js/Plugin/summernote.js')); ?>"></script>
   <script src="<?php echo e(asset('assets/examples/js/forms/editor-summernote.js')); ?>"></script>
   <?php endif; ?>
- <?php if(active('manage/absence') || active('leave') || active('sort/*') || active('search')|| active('applicant/*')): ?>
+ <?php if(active(session('locale').'/manage/absence') || active(session('locale').'/leave') || active(session('locale').'/sort/*') || active(session('locale').'/search')|| active(session('locale').'/applicant/*')): ?>
 
 
   <?php endif; ?>
   
-  <?php if(active('manage/*')  || active('sort/*') ): ?>
+  <?php if(active(session('locale').'/manage/*')  || active(session('locale').'/sort/*') ): ?>
 
-<?php if(active('manage/absence') || active('leave') || active('search')): ?>
+<?php if(active(session('locale').'/manage/absence') || active(session('locale').'/leave') || active(session('locale').'/search')): ?>
 	<?php else: ?>
   <script src="<?php echo e(asset('assets/js/Site.js')); ?>"></script>
   <script src="<?php echo e(asset('global/js/Plugin/asscrollable.js')); ?>"></script>
@@ -774,14 +800,15 @@ div p {
   <script src="<?php echo e(asset('global/js/Plugin/material.js')); ?>"></script>
   <script src="<?php echo e(asset('global/js/Plugin/selectable.js')); ?>"></script>
   <script src="<?php echo e(asset('global/js/Plugin/bootbox.js')); ?>"></script>
+  <script src="<?php echo e(asset('global/js/jqextendputdelete.js')); ?>"></script>
   <script src="<?php echo e(asset('assets/js/BaseApp.js')); ?>"></script>
   <script src="<?php echo e(asset('assets/js/App/Contacts.js')); ?>"></script>
   <script src="<?php echo e(asset('assets/examples/js/apps/contacts.js')); ?>"></script>
   <?php endif; ?>
   <?php endif; ?>
- <?php if(active('employee/absence') || active('manage/*') || active('applicant/*')): ?>
+ <?php if(active(session('locale').'/employee/absence') || active(session('locale').'/manage/*') || active(session('locale').'/applicant/*')): ?>
 	 
- <?php if( active('manage/*') ): ?>
+ <?php if( active(session('locale').'/manage/*') ): ?>
 	 <?php else: ?>
       <script src="<?php echo e(asset('global/vendor/bootstrap/bootstrap.js')); ?>"></script>
   <?php endif; ?>
@@ -814,7 +841,14 @@ div p {
              <script src="<?php echo e(asset('assets/js/jquery.contextMenu.min.js')); ?>" type="text/javascript"></script>
 
     <script src="<?php echo e(asset('assets/js/jquery.ui.position.min.js')); ?>" type="text/javascript"></script>
-	<?php if(active('manage/leavestat')): ?>
+	 <?php if(active(session('locale').'/employee/profile_*')): ?>
+  <script src="<?php echo e(asset('global/vendor/datatables/jquery.dataTables.js')); ?>"></script>
+  <script src="<?php echo e(asset('global/vendor/datatables-fixedheader/dataTables.fixedHeader.js')); ?>"></script>
+  <script src="<?php echo e(asset('global/vendor/datatables-bootstrap/dataTables.bootstrap.js')); ?>"></script>
+  <script src="<?php echo e(asset('global/vendor/datatables-responsive/dataTables.responsive.js')); ?>"></script>
+  <script src="<?php echo e(asset('global/vendor/datatables-tabletools/dataTables.tableTools.js')); ?>"></script>
+  <?php endif; ?>
+	<?php if(active(session('locale').'/manage/leavestat')): ?>
 		  <script src="<?php echo e(asset('assets/examples/js/charts/morris.js')); ?>"></script>
 	<?php endif; ?>
 			      <script src="<?php echo e(asset('global/vendor/datepair/datepair.min.js')); ?>"></script>
@@ -826,7 +860,10 @@ div p {
 	 <script src="<?php echo e(asset('global/js/Plugin/datepair.js')); ?>"></script>	 
 	<script src="<?php echo e(asset('global/vendor/raty-js/jquery.raty.js')); ?>"></script>
   <script src="<?php echo e(asset('assets/js/nprogress.js')); ?>"></script>
-  <?php if(active('lm/goals')): ?>
+  <?php if(active(session('locale').'/project/*')): ?>
+	  <script src="<?php echo e(asset('assets/js/bootstrap-typeahead.min.js')); ?>" type="text/javascript"></script>
+  <?php endif; ?>
+  <?php if(active(session('locale').'/lm/goals')): ?>
 	  
   <?php else: ?>
   <script src="https://cdn.jsdelivr.net/jquery.loadingoverlay/latest/loadingoverlay.min.js"></script>	

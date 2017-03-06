@@ -19,6 +19,12 @@ class GlobalSettingController extends Controller
 	protected $settings;
 	
 	public function __construct(GlobalSettingRepository $settings){
+			if(session('locale')==""){
+			session(['locale'=>'en']); 
+	
+		}
+		 
+		
 		$this->middleware('auth');
 		$this->middleware('rights');
 		$this->settings=$settings;
@@ -256,6 +262,12 @@ class GlobalSettingController extends Controller
      */
     public function show($route)
     {
+		 if($route=="payrollsetting"){
+		 
+		  
+		return view('adminsettings.payrollsetting');
+	   } 
+	   
        if($route=="jobdepsettings"){
 		   
 		  $getjob=$this->settings->getjob(0);
@@ -263,6 +275,8 @@ class GlobalSettingController extends Controller
 		  
 		return view('adminsettings.jobdepsettings',['alljobs'=>$getjob,'dept'=>$getdept]);
 	   } 
+
+	  
 	   
 	   if($route=="settings"){
 		   

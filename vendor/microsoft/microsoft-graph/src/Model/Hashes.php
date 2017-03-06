@@ -26,38 +26,6 @@ namespace Microsoft\Graph\Model;
 class Hashes extends Entity
 {
     /**
-    * The array of properties available 
-    * to the model
-    *
-    * @var array(string => string)
-    */
-    private $_propDict;
-    /**
-    * Hashes constructor
-    *
-    * @param array $propDict List of properties to set
-    * Defaults to an empty array
-    *
-    * @return Hashes
-    */
-    public function __construct($propDict=array())
-    {
-        parent::__construct();
-        $this->_propDict = $propDict;
-        return $this;
-    }
-
-	/**
-    * Gets the property dictionary of the Hashes
-    *
-    * @return array The list of properties
-    */
-    public function getProperties()
-    {
-        return $this->_propDict;
-    }
-    
-    /**
     * Gets the crc32Hash
     *
     * @return string The crc32Hash
@@ -83,7 +51,6 @@ class Hashes extends Entity
         $this->_propDict["crc32_hash"] = $val;
         return $this;
     }
-    
     /**
     * Gets the sha1Hash
     *
@@ -110,7 +77,6 @@ class Hashes extends Entity
         $this->_propDict["sha1_hash"] = $val;
         return $this;
     }
-    
     /**
     * Gets the quickXorHash
     *

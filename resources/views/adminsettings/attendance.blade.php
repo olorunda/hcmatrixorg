@@ -171,10 +171,10 @@ $('#qtype').change(function(){
 </script>
 <input type="hidden" value="{{csrf_token()}}" id="token" />
 <div class="page-header">
-  <h1 class="page-title">Attendance Management</h1>
+  <h1 class="page-title">{{_t('Attendance Management')}}</h1>
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/">Home</a></li>
-    <li class="breadcrumb-item active">You are Here</li>
+    <li class="breadcrumb-item"><a href="/">{{_t('Home')}}</a></li>
+    <li class="breadcrumb-item active">{{_t('You are Here')}}</li>
   </ol>
   <div class="page-header-actions">
     <div class="row no-space w-250 hidden-sm-down">
@@ -199,7 +199,7 @@ $('#qtype').change(function(){
               <!-- Card -->
               <div class="card card-block p-30">
                 <div class="counter counter-md text-xs-left">
-                  <div class="counter-label text-uppercase m-b-5"><b>Total Early Employee(s) Today</b></div>
+                  <div class="counter-label text-uppercase m-b-5"><b>{{_t('Total Early Employee(s) Today')}}</b></div>
                   <div class="counter-number-group m-b-10">
                     <span class="counter-number">{{$attstat['early']}}</span>
                   </div>
@@ -225,7 +225,7 @@ $('#qtype').change(function(){
               <!-- Card -->
               <div class="card card-block p-30">
                 <div class="counter counter-md text-xs-left">
-                  <div class="counter-label text-uppercase m-b-5"><b>Total Late Employee(s) Today</b></div>
+                  <div class="counter-label text-uppercase m-b-5"><b>{{_t('Total Late Employee(s) Today')}}</b></div>
                   <div class="counter-number-group m-b-10">
                     <span class="counter-number">{{$attstat['late']}}</span>
                   </div>
@@ -266,7 +266,7 @@ $('#qtype').change(function(){
                     
                   </div></div><div class="col-md-12" style="margin-top:30px;"></div>
               <div class="example-wrap">
-			  	<div class="col-md-2"><b>Date Range :</b></div>
+			  	<div class="col-md-2"><b>{{_t('Date Range')}} :</b></div>
                 <p id="basicExample">
 				
 				<div class="col-md-5" style="margin-left:-40px">
@@ -285,7 +285,7 @@ $('#qtype').change(function(){
                   </div>
 				  
 				  <div class="col-xl-1">
-				  to
+				  {{_t('to')}}
 				  </div>
 				  <div class="col-xl-5">
 				  <div class="input-group col-xl-5" style="margin-top:-23px; margin-left:15px; ">
@@ -312,7 +312,7 @@ $('#qtype').change(function(){
 </p><div class="col-md-12" style="margin-bottom:40px;"></div>
 
                 <div class="example">
-				  <div class="pull-right">About <b>{{$attendances->total()}}</b> result(s)</div>
+				  <div class="pull-right"><b>{{_t('About :total result(s)',['total'=>$attendances->total()])}}  </b></div>
 				  <div class="col-md-12" style="margin-top:10px;"></div>
                   <table class="table table-hover" data-plugin="selectable" data-row-selectable="true">
                     <thead>
@@ -322,19 +322,19 @@ $('#qtype').change(function(){
                           EMPID
                         </th>
                         <th>
-                          NAME
+                        {{_t('NAME')}}
                         </th>
                         <th class="hidden-sm-down">
-                          CLOCK IN TIME
+                          {{_t('CLOCK IN TIME')}}
                         </th>
                         <th class="hidden-sm-down">
-                          CLOCK OUT TIME
+                          {{_t('CLOCK OUT TIME')}}
                         </th> 
 						<th class="hidden-sm-down">
-                          STATUS
+                          {{_t('STATUS')}}
                         </th>
 						<th class="hidden-sm-down">
-                          ACTION
+                          {{_t('ACTION
                         </th>
                       </tr>
                     </thead>
@@ -363,7 +363,7 @@ $('#qtype').change(function(){
 						@else
 							<?php $latestat=$attendance->status; ?>
 						@endif
-						<span class="tag @if($latestat=='Early') tag-success @else tag-danger @endif">{{$latestat}}</span>
+						<span class="tag @if($latestat=='Early') tag-success @else tag-danger @endif">{{_t($latestat)}}</span>
 						</td>
 						<td>
 						 <button type="button" title="Query Employee" class="btn btn-outline btn-warning" data-target="#querymod" onclick="query('{{$attendance->id}}','{{$attendance->name}}')" data-toggle="modal" ><i class="icon wb-hammer" aria-hidden="true"></i></button>
@@ -377,7 +377,7 @@ $('#qtype').change(function(){
 					</td><td>
 					</td>
 					<td >
-						<b style="font-size:20px;" class="text-success"> No Attendance Report For Today Yet</b>
+						<b style="font-size:20px;" class="text-success"> {{_t('No Attendance Report For Today Yet')}}</b>
 						</td>
 
 						</tr>
@@ -414,7 +414,7 @@ $('#qtype').change(function(){
 						  <form>
                             <div class="row">
 							<div class="col-xl-4 col-xs-12">
-							<b>Select Query Types:</b>
+							<b>{{_t('Select Query Types')}}:</b>
 							</div>
                               <div class="col-xs-12 col-xl-8 form-group">
 							     @if(count($querytype)>0)
@@ -424,7 +424,7 @@ $('#qtype').change(function(){
 								  @endif
 								  
 						         <select id="qtype" data-plugin="select2" type="text" class="form-control" >
-								  <option >-Select query Type--</option>
+								  <option >-{{_t('Select query Type')}}--</option>
 								
 								 @if(count($querytype)>0)
 									 @foreach($querytype as $types)
@@ -432,7 +432,7 @@ $('#qtype').change(function(){
 								  <option value="{{$types->id}}">{{$types->title}}</option>
 									@endforeach
 								  @endif
-								  <option value="others">Others</option>
+						  <option value="others">{{_t('Others')}}</option>
 								
 								 </select>
 								
@@ -448,7 +448,7 @@ $('#qtype').change(function(){
                                
                               </div>
 							   <div class="col-xs-12 col-xl-12 form-group" id="dropboxpane">
-							   <b>Upload Query Letter:</b><br>
+						  <b>{_t('Upload Query Letter')}}:</b><br>
 							        <div style="" class="dropzone" id="my-dropzone-files" name="my-dropzone-files">
 
                                                 
@@ -463,9 +463,9 @@ $('#qtype').change(function(){
 						
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                          <button type="button" id="issuequery" class="btn btn-primary">Issue Query</button>  
-						  <button type="button" id="issueother" class="btn btn-primary">Issue Query</button>
+                          <button type="button" class="btn btn-default" data-dismiss="modal">{{_t('Close')}}</button>
+                          <button type="button" id="issuequery" class="btn btn-primary">{{_t('Issue Query')}}</button>  
+						  <button type="button" id="issueother" class="btn btn-primary">{{_t('Issue Query')}}</button>
                         </div>
                       </div>
                     </div>

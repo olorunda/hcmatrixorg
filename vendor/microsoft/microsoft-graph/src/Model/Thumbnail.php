@@ -25,37 +25,6 @@ namespace Microsoft\Graph\Model;
 */
 class Thumbnail extends Entity
 {
-    /**
-    * The array of properties available 
-    * to the model
-    *
-    * @var array(string => string)
-    */
-    private $_propDict;
-    /**
-    * Thumbnail constructor
-    *
-    * @param array $propDict List of properties to set
-    * Defaults to an empty array
-    *
-    * @return Thumbnail
-    */
-    public function __construct($propDict=array())
-    {
-        parent::__construct();
-        $this->_propDict = $propDict;
-        return $this;
-    }
-
-	/**
-    * Gets the property dictionary of the Thumbnail
-    *
-    * @return array The list of properties
-    */
-    public function getProperties()
-    {
-        return $this->_propDict;
-    }
 
     /**
     * Gets the content
@@ -68,7 +37,7 @@ class Thumbnail extends Entity
             if (is_a($this->_propDict["content"], "\GuzzleHttp\Psr7\Stream")) {
                 return $this->_propDict["content"];
             } else {
-                $this->_propDict["content"] = new \GuzzleHttp\Psr7\Stream($this->_propDict["content"]);
+                $this->_propDict["content"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["content"]);
                 return $this->_propDict["content"];
             }
         }
@@ -87,7 +56,6 @@ class Thumbnail extends Entity
         $this->_propDict["content"] = $val;
          return $this;
     }
-    
     /**
     * Gets the height
     *
@@ -114,7 +82,6 @@ class Thumbnail extends Entity
         $this->_propDict["height"] = $val;
         return $this;
     }
-    
     /**
     * Gets the url
     *
@@ -141,7 +108,6 @@ class Thumbnail extends Entity
         $this->_propDict["url"] = $val;
         return $this;
     }
-    
     /**
     * Gets the width
     *

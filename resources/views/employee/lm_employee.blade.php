@@ -139,7 +139,7 @@ function search1(){
 							@endif
 						</td>
 						<td height="10">
-							<img class="img-circle img-bordered img-bordered-primary" alt="avatar" src="{{asset('upload')}}/{{$emp->image}}" style="width: 50px;height: 50px;">
+							<img class="img-circle img-bordered img-bordered-primary" alt="avatar" src="{{asset('storage')}}/{{$emp->image}}" style="width: 50px;height: 50px;">
 							{{$emp->name}}
 						</td>
 						<td height="10">{{$emp->emp_num}}</td>

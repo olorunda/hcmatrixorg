@@ -26,38 +26,6 @@ namespace Microsoft\Graph\Model;
 class DateTimeTimeZone extends Entity
 {
     /**
-    * The array of properties available 
-    * to the model
-    *
-    * @var array(string => string)
-    */
-    private $_propDict;
-    /**
-    * DateTimeTimeZone constructor
-    *
-    * @param array $propDict List of properties to set
-    * Defaults to an empty array
-    *
-    * @return DateTimeTimeZone
-    */
-    public function __construct($propDict=array())
-    {
-        parent::__construct();
-        $this->_propDict = $propDict;
-        return $this;
-    }
-
-	/**
-    * Gets the property dictionary of the DateTimeTimeZone
-    *
-    * @return array The list of properties
-    */
-    public function getProperties()
-    {
-        return $this->_propDict;
-    }
-    
-    /**
     * Gets the dateTime
     *
     * @return string The dateTime
@@ -83,7 +51,6 @@ class DateTimeTimeZone extends Entity
         $this->_propDict["date_time"] = $val;
         return $this;
     }
-    
     /**
     * Gets the timeZone
     *

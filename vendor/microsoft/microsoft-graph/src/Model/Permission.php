@@ -27,38 +27,6 @@ namespace Microsoft\Graph\Model;
 class Permission extends Entity
 {
     /**
-    * The array of properties available
-    * to the model
-    *
-    * @var array(string => string)
-    */
-    private $_propDict;
-    
-    /**
-    * Construct a new Permission
-    *
-    * @param array $propDict A list of properties to set
-    *
-    * @return Permission
-    */
-    function __construct($propDict = array())
-    {
-        parent::__construct();
-        $this->_propDict = $propDict;
-        return $this;
-    }
-
-    /**
-    * Gets the property dictionary of the Permission
-    *
-    * @return array The list of properties
-    */
-    public function getProperties()
-    {
-        return $this->_propDict;
-    }
-
-    /**
     * Gets the grantedTo
     *
     * @return IdentitySet The grantedTo
@@ -75,7 +43,7 @@ class Permission extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the grantedTo
     *
@@ -88,7 +56,7 @@ class Permission extends Entity
         $this->_propDict["grantedTo"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the invitation
     *
@@ -106,7 +74,7 @@ class Permission extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the invitation
     *
@@ -119,7 +87,7 @@ class Permission extends Entity
         $this->_propDict["invitation"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the inheritedFrom
     *
@@ -137,7 +105,7 @@ class Permission extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the inheritedFrom
     *
@@ -150,7 +118,7 @@ class Permission extends Entity
         $this->_propDict["inheritedFrom"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the link
     *
@@ -168,7 +136,7 @@ class Permission extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the link
     *
@@ -181,7 +149,7 @@ class Permission extends Entity
         $this->_propDict["link"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the roles
     *
@@ -195,7 +163,7 @@ class Permission extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the roles
     *
@@ -208,7 +176,7 @@ class Permission extends Entity
         $this->_propDict["roles"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the shareId
     *
@@ -222,7 +190,7 @@ class Permission extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the shareId
     *
@@ -235,4 +203,5 @@ class Permission extends Entity
         $this->_propDict["shareId"] = $val;
         return $this;
     }
+    
 }

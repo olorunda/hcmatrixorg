@@ -26,38 +26,6 @@ namespace Microsoft\Graph\Model;
 class WorkbookWorksheetProtectionOptions extends Entity
 {
     /**
-    * The array of properties available 
-    * to the model
-    *
-    * @var array(string => string)
-    */
-    private $_propDict;
-    /**
-    * WorkbookWorksheetProtectionOptions constructor
-    *
-    * @param array $propDict List of properties to set
-    * Defaults to an empty array
-    *
-    * @return WorkbookWorksheetProtectionOptions
-    */
-    public function __construct($propDict=array())
-    {
-        parent::__construct();
-        $this->_propDict = $propDict;
-        return $this;
-    }
-
-	/**
-    * Gets the property dictionary of the WorkbookWorksheetProtectionOptions
-    *
-    * @return array The list of properties
-    */
-    public function getProperties()
-    {
-        return $this->_propDict;
-    }
-    
-    /**
     * Gets the allowAutoFilter
     *
     * @return bool The allowAutoFilter
@@ -83,7 +51,6 @@ class WorkbookWorksheetProtectionOptions extends Entity
         $this->_propDict["allow_auto_filter"] = $val;
         return $this;
     }
-    
     /**
     * Gets the allowDeleteColumns
     *
@@ -110,7 +77,6 @@ class WorkbookWorksheetProtectionOptions extends Entity
         $this->_propDict["allow_delete_columns"] = $val;
         return $this;
     }
-    
     /**
     * Gets the allowDeleteRows
     *
@@ -137,7 +103,6 @@ class WorkbookWorksheetProtectionOptions extends Entity
         $this->_propDict["allow_delete_rows"] = $val;
         return $this;
     }
-    
     /**
     * Gets the allowFormatCells
     *
@@ -164,7 +129,6 @@ class WorkbookWorksheetProtectionOptions extends Entity
         $this->_propDict["allow_format_cells"] = $val;
         return $this;
     }
-    
     /**
     * Gets the allowFormatColumns
     *
@@ -191,7 +155,6 @@ class WorkbookWorksheetProtectionOptions extends Entity
         $this->_propDict["allow_format_columns"] = $val;
         return $this;
     }
-    
     /**
     * Gets the allowFormatRows
     *
@@ -218,7 +181,6 @@ class WorkbookWorksheetProtectionOptions extends Entity
         $this->_propDict["allow_format_rows"] = $val;
         return $this;
     }
-    
     /**
     * Gets the allowInsertColumns
     *
@@ -245,7 +207,6 @@ class WorkbookWorksheetProtectionOptions extends Entity
         $this->_propDict["allow_insert_columns"] = $val;
         return $this;
     }
-    
     /**
     * Gets the allowInsertHyperlinks
     *
@@ -272,7 +233,6 @@ class WorkbookWorksheetProtectionOptions extends Entity
         $this->_propDict["allow_insert_hyperlinks"] = $val;
         return $this;
     }
-    
     /**
     * Gets the allowInsertRows
     *
@@ -299,7 +259,6 @@ class WorkbookWorksheetProtectionOptions extends Entity
         $this->_propDict["allow_insert_rows"] = $val;
         return $this;
     }
-    
     /**
     * Gets the allowPivotTables
     *
@@ -326,7 +285,6 @@ class WorkbookWorksheetProtectionOptions extends Entity
         $this->_propDict["allow_pivot_tables"] = $val;
         return $this;
     }
-    
     /**
     * Gets the allowSort
     *

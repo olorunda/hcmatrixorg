@@ -169,7 +169,7 @@ else{
 					</div>
 
 					<div class="col-md-3 col-xs-12 pull-right">
-						<img class="img-rounded img-bordered img-bordered-primary" width="150" height="150" src="{{asset('upload')}}/{{$employee->image}}">
+						<img class="img-rounded img-bordered img-bordered-primary" width="150" height="150" src="{{asset('storage')}}/{{$employee->image}}">
 					</div>
 				</div>
 			</div>
@@ -442,7 +442,7 @@ else{
 							<h4 class="modal-title">{{$employee->name}}</h4>
 						</div>
 						<div class="modal-body">
-						<!--	<img class="img-rounded img-bordered img-bordered-primary" width="150" height="150" src="{{asset('upload')}}/{{$employee->image}}"> -->
+						<!--	<img class="img-rounded img-bordered img-bordered-primary" width="150" height="150" src="{{asset('storage')}}/{{$employee->image}}"> -->
 							<br>
 							<div class="form-group">
 								<label for="ratingval{{$pilot->id}}">Rating</label>

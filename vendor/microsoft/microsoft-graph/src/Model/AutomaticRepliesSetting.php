@@ -25,37 +25,6 @@ namespace Microsoft\Graph\Model;
 */
 class AutomaticRepliesSetting extends Entity
 {
-    /**
-    * The array of properties available 
-    * to the model
-    *
-    * @var array(string => string)
-    */
-    private $_propDict;
-    /**
-    * AutomaticRepliesSetting constructor
-    *
-    * @param array $propDict List of properties to set
-    * Defaults to an empty array
-    *
-    * @return AutomaticRepliesSetting
-    */
-    public function __construct($propDict=array())
-    {
-        parent::__construct();
-        $this->_propDict = $propDict;
-        return $this;
-    }
-
-	/**
-    * Gets the property dictionary of the AutomaticRepliesSetting
-    *
-    * @return array The list of properties
-    */
-    public function getProperties()
-    {
-        return $this->_propDict;
-    }
 
     /**
     * Gets the status
@@ -180,7 +149,6 @@ class AutomaticRepliesSetting extends Entity
         $this->_propDict["scheduledEndDateTime"] = $val;
          return $this;
     }
-    
     /**
     * Gets the internalReplyMessage
     *
@@ -207,7 +175,6 @@ class AutomaticRepliesSetting extends Entity
         $this->_propDict["internal_reply_message"] = $val;
         return $this;
     }
-    
     /**
     * Gets the externalReplyMessage
     *

@@ -16,7 +16,7 @@
 			caltype='jobm';
 		}
 		else{
-			customise='Department(s)';
+			customise='{{_t('Department(s)')}}';
 			hideid='delblock';
 			caltype='dept';
 		}
@@ -24,16 +24,16 @@
 		
 	 }
 	 else{
-		  toastr.error('Please Select '+customise+' to delete');
+		  toastr.error('{{_t('Please Select')}} '+customise+' to delete');
 		 return ;
 	 }
 	 swal({
-  title: "Are you sure?",
-  text: "You will not be able to recover deleted "+customise,
-  type: "warning",
+  title: "{{_t('Are you sure')}}?",
+  text: "{{_t('You will not be able to recover deleted')}} "+customise,
+  type: "{{_t('warning')}}",
   showCancelButton: true,
   confirmButtonColor: "#DD6B55",
-  confirmButtonText: "Yes, delete it!",
+  confirmButtonText: "{{_t('Yes, delete it!')}}",
   closeOnConfirm: false
 },
 function(){
@@ -76,12 +76,12 @@ function(){
 			toastr.success(customise+' Deleted');	//i++;
 			}
 			else{
-				toastr.success('Error Ocurred');	//i++;
+				toastr.success('{{_t('Error Ocurred')}}');	//i++;
 			
 				return ;
 			}
 			
-			 swal("Deleted!", customise+" Successfully Deleted.", "success");
+			 swal("{{_t('Deleted!", customise+" Successfully Deleted.')}}", "success");
 	
 			
 		/** setTimeout(function(){
@@ -140,7 +140,7 @@ function(){
 		$('#description').val("");
 		$('#departmentm').val("");
       
-			$('#changebtn').html('<button type="button" class="btn btn-primary btn-outline" id="savejobdepm" onclick="savejobdepm()"><i class="fa fa-save mailico"></i><i class="fa fa-circle-o-notch fa-spin fa-fw hidespin" style="display: none;"></i>&nbsp;&nbsp;Save changes</button>');
+			$('#changebtn').html('<button type="button" class="btn btn-primary btn-outline" id="savejobdepm" onclick="savejobdepm()"><i class="fa fa-save mailico"></i><i class="fa fa-circle-o-notch fa-spin fa-fw hidespin" style="display: none;"></i>&nbsp;&nbsp;{{_t('Save changes')}}</button>');
 		$('.hidespin').hide();
  }
 
@@ -165,7 +165,7 @@ function(){
 			department=$('#departmentm').val(title);
 			sessionStorage.setItem('depid',depid);
 				
-				$('#changebtn').html('<button type="button" class="btn btn-primary btn-outline" onclick="manualmodify(1)"><i class="fa fa-save mailico"></i><i class="fa fa-circle-o-notch fa-spin fa-fw hidespin"></i>&nbsp;&nbsp;Modify</button>');
+				$('#changebtn').html('<button type="button" class="btn btn-primary btn-outline" onclick="manualmodify(1)"><i class="fa fa-save mailico"></i><i class="fa fa-circle-o-notch fa-spin fa-fw hidespin"></i>&nbsp;&nbsp;{{_t('Modify')}}</button>');
 		$('.hidespin').hide(); 
 		
 	     }
@@ -186,7 +186,7 @@ function(){
 		description=$('#description').val(description);
       
 		
-		$('#changebtn').html('<button type="button" class="btn btn-primary btn-outline" onclick="manualmodify()"><i class="fa fa-save mailico"></i><i class="fa fa-circle-o-notch fa-spin fa-fw hidespin"></i>&nbsp;&nbsp;Modify</button>');
+		$('#changebtn').html('<button type="button" class="btn btn-primary btn-outline" onclick="manualmodify()"><i class="fa fa-save mailico"></i><i class="fa fa-circle-o-notch fa-spin fa-fw hidespin"></i>&nbsp;&nbsp;{{_t('Modify')}}</button>');
 		$('.hidespin').hide();
 		
 	  } 
@@ -215,7 +215,7 @@ function(){
 		},2000);
 	}
 	else{
-		toastr.error("Some error Occurred:"+ data);
+		toastr.error("{{_t('Some error Occurred')}}:"+ data);
 	}
 });
 
@@ -249,7 +249,7 @@ function(){
 		},2000);
 	}
 	else{
-		toastr.error("Some error Occurred:"+ data);
+		toastr.error("{{_t('Some error Occurred')}}:"+ data);
 	}
 });
 
@@ -318,10 +318,10 @@ $.post('{{url('hr/manualadd/0')}}',{
 },function(data,status,xhr){
 	
 	if(xhr.status==200){
-		 $('#showdeptm').html('<select id="jobdepidm" class="form-control" ><option  disabled>--Select Department --</option></select>');
+		 $('#showdeptm').html('<select id="jobdepidm" class="form-control" ><option  disabled>-- {{_t('Select Department')}} --</option></select>');
 		
 	    updatedep("jobdepidm");
-		toastr.success("<span style='z-index:9999999999'>Department Added Successfully</span>");
+		toastr.success("<span style='z-index:9999999999'>{{_t('Department Added Successfully')}}</span>");
 		
 		setTimeout(function(){
 			
@@ -330,7 +330,7 @@ $.post('{{url('hr/manualadd/0')}}',{
 		},2000);
 	}
 	else{
-		toastr.error("<span style='z-index:9999999999'>Some error Occurred:"+ data+"</span>");
+		toastr.error("<span style='z-index:9999999999'>{{_t('Some error Occurred')}}:"+ data+"</span>");
 	}
 });	
 	
@@ -427,7 +427,7 @@ $('#checkall').click(function(){
    
    //success upload
    myDropzone.on("success",function(file,response){
-	   $('#showdept').html('<select id="jobdepid" class="form-control" ><option  disabled>--Select Department --</option></select>');
+	   $('#showdept').html('<select id="jobdepid" class="form-control" ><option  disabled>--{{_t('Select Department')}} --</option></select>');
 			console.log(response);
 		   toastr.success('Import was successfull:'+response);
 		   updatedep('jobdepid');
@@ -448,7 +448,7 @@ $('#checkall').click(function(){
     myDropzone.on("error", function(file,response) {
                    // sessionStorage.setItem("error", 1);
                    // $("#disp").html(response);
-                  toastr.error('Some error Occurred: '+response);
+                  toastr.error('{{_t('Some error Occurred')}}: '+response);
 				 myDropzone.removeFile(file);
                 });
    
@@ -511,10 +511,10 @@ $('#checkall').click(function(){
 
 <input type="hidden" value="{{csrf_token()}}" id="token" />
 <div class="page-header">
-  <h1 class="page-title">Job/Department Settings</h1>
+  <h1 class="page-title">{{_t('Job/Department Settings')}}</h1>
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/">Home</a></li>
-    <li class="breadcrumb-item active">You are Here</li>
+    <li class="breadcrumb-item"><a href="/">{{_t('Home')}}</a></li>
+    <li class="breadcrumb-item active">{{_t('You are Here')}}</li>
   </ol>
   <div class="page-header-actions">
     <div class="row no-space w-250 hidden-sm-down">
@@ -545,9 +545,9 @@ $('#checkall').click(function(){
                 <div class="counter counter-md counter text-xs-right pull-xs-right">
                   <div class="counter-number-group">
                     <span class="counter-number jobm">{{count($alljobs)}}</span>
-                    <span class="counter-number-related text-capitalize">Job(s)</span>
+                    <span class="counter-number-related text-capitalize">{{_t('Job')}}(s)</span>
                   </div>
-                  <div class="counter-label text-capitalize font-size-16">in Total</div>
+                  <div class="counter-label text-capitalize font-size-16">{{_t('in Total')}}</div>
                 </div>
               </div>
               <!-- End Card -->
@@ -559,9 +559,9 @@ $('#checkall').click(function(){
                 <div class="counter counter-md pull-xs-left text-xs-left">
                   <div class="counter-number-group">
                     <span class="counter-number dept">{{count($dept)}} </span>
-                    <span class="counter-number-related text-capitalize">Department(s)</span>
+                    <span class="counter-number-related text-capitalize">{{_t('Department')}}(s)</span>
                   </div>
-                  <div class="counter-label text-capitalize font-size-16">in total</div>
+                  <div class="counter-label text-capitalize font-size-16">{{_t('in total')}}</div>
                 </div>
                 <div class="pull-xs-right white" style="cursor:pointer" data-toggle="modal" data-target="#managedepartment">
                   <i class="icon icon-circle icon-2x wb-users bg-blue-600" aria-hidden="true"></i>
@@ -611,17 +611,17 @@ $('#checkall').click(function(){
                         </span>
                       </th>
                       <th>
-                        Title
+					  {{_t('Title')}}
                       </th>
                       <th>
-                        Description
+                        {{_t('Description')}}
                       </th>
                     
                       <th>
-                        Department
+                        {{_t('Department')}}
                       </th> 
 					  <th>
-                        Action
+                        {{_t('Action')}}
                       </th>
                      
                     </tr>
@@ -636,15 +636,21 @@ $('#checkall').click(function(){
                           <label></label>
                         </span>
                       </td>
-                      <td>{{$job->title}}
+                      <td>{{_t($job->title)}}
                        
                       </td>
-                      <td>{{$job->description}}
+                      <td>{{_t($job->description)}}
                        
                       </td>
 					
 					  <td>
-					  {{app('App\Repositories\GlobalSettingRepository')->getdept($job->jobdep_id)['spec']}}
+					  <?php 
+					  $deptname=app('App\Repositories\GlobalSettingRepository')->getdept($job->jobdep_id)['spec']; 
+					  if($deptname==""){ 
+					  $deptname="";
+					  }  
+					  ?>
+					  {{_t($deptname)}}
                        
                       </td>
 					    <td><button type="button" class="btn btn-sm btn-icon btn-flat btn-default" data-toggle="tooltip" onclick="jobmodal(1,'{{$job->title}}','{{$job->description}}','{{$job->jobdep_id}}','{{$job->id}}')" data-original-title="Edit">
@@ -656,7 +662,7 @@ $('#checkall').click(function(){
 					@endforeach
 					@else
 						<tr>
-					<span style="tex-align:center">No Record Found</span>
+ <span style="tex-align:center">{{_t('No Record Found')}}</span>
 					</tr>
 						
 						@endif
@@ -690,7 +696,7 @@ $('#checkall').click(function(){
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                   <span aria-hidden="true">×</span>
                                 </button>
-                                <h4 class="modal-title">Add/Modify Job/Department</h4>
+                                <h4 class="modal-title">{{_t('Add/Modify Job/Department')}}</h4>
                               </div>
                               <div class="modal-body">
 							  <div>
@@ -771,38 +777,38 @@ $('#checkall').click(function(){
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                           </button>
-                          <h4 class="modal-title">Upload Job/Department CSV</h4>
+                          <h4 class="modal-title">{{_t('Upload Job/Department')}} CSV</h4>
                         </div>
                         <div class="modal-body">
                            <form>
                             <div class="row">
 							<div class="col-xl-4 col-xs-12">
-							<b>Data type:</b>
+							<b>{{_t('Data type')}}:</b>
 							</div>
                               <div class="col-xs-12 col-xl-8 form-group">
 
 						         <select id="datatype" type="text" class="form-control" >
-								  <option value="2">Department</option>
-								  <option value="1">Job</option>
+								  <option value="2">{{_t('Department')}}</option>
+								  <option value="1">{{_t('Job')}}</option>
 								 </select>
                               </div> 
 							  <div id="hidedep">
 							<div class="col-xl-4 col-xs-12">
-							<b>Department:</b>
+							<b>{{_t('Department')}}:</b>
 							</div>
                               <div class="col-xs-12 col-xl-8 form-group" id="showdept">
 
 						         <select id="jobdepid" class="form-control" >
 								  <option  disabled>--Select Department --</option>
 								  @foreach($dept as $depts)
-								  <option value="{{$depts->id}}">{{$depts->spec}}</option>
+								  <option value="{{$depts->id}}">{{_t($depts->spec)}}</option>
 								  @endforeach
 								 </select>
                               </div> 
 								</div>
 							
 							   <div class="col-xs-12 col-xl-12 form-group" id="dropboxpane">
-							   <b>Upload CSV:</b><br>
+							   <b>{{_t('Upload CSV')}}:</b><br>
 							        <div style="" class="dropzone" id="my-dropzone-files" name="my-dropzone-files">
 
                                                 
@@ -817,8 +823,8 @@ $('#checkall').click(function(){
 						
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                          <button type="button" id="import" class="btn btn-primary"><i class="fa fa-file-excel-o mailico"><i class="fa fa-circle-o-notch fa-spin fa-fw hidespin"></i></i>&nbsp;&nbsp;Import</button>
+                          <button type="button" class="btn btn-default" data-dismiss="modal">{{_t('Close')}}</button>
+                          <button type="button" id="import" class="btn btn-primary"><i class="fa fa-file-excel-o mailico"><i class="fa fa-circle-o-notch fa-spin fa-fw hidespin"></i></i>&nbsp;&nbsp;{{_t('Import')}}</button>
                         </div>
                       </div>
                     </div>
@@ -835,7 +841,7 @@ $('#checkall').click(function(){
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                           </button>
-                          <h4 class="modal-title">All Department</h4>
+                          <h4 class="modal-title">{{_t('All Department')}}</h4>
                         </div>
                         <div class="modal-body">
 						<div class="panel" id="exampleReport">
@@ -871,10 +877,10 @@ $('#checkall').click(function(){
                         </span>
                       </th>
                       <th>
-                        Department Name
+                        {{_t('Department Name')}}
                       </th> 
 					  <th>
-                        Action
+                       {{_t('Action')}}
                       </th>
                      
                     </tr>
@@ -889,7 +895,7 @@ $('#checkall').click(function(){
                           <label></label>
                         </span>
                       </td>
-                      <td >{{$dept->spec}}
+                      <td >{{_t($dept->spec)}}
                        
                       </td>
                      
@@ -903,7 +909,7 @@ $('#checkall').click(function(){
 					@endforeach
 					@else
 						<tr>
-					<span style="tex-align:center">No Record Found</span>
+					<span style="tex-align:center">{{_t('No Record Found')}}</span>
 					</tr>
 						
 						@endif
@@ -918,7 +924,7 @@ $('#checkall').click(function(){
                           
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-default" data-dismiss="modal">{{_t('Close')}}</button>
                            </div>
                       </div>
                     </div>

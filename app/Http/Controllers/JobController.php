@@ -15,6 +15,11 @@ class JobController extends Controller
     protected $job;
     public function __construct(JobInterface $job)
     {
+			if(session('locale')==""){
+			session(['locale'=>'en']); 
+	
+		}
+		 
         $this->middleware('auth');
         $this->middleware('rights');
         $this->job = $job;

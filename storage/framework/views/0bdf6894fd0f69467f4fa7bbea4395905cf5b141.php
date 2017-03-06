@@ -113,6 +113,7 @@ function url(url){
 	window.location=url;
 }
 
+ 
 function lockemp(empid){
 	
 	
@@ -618,7 +619,7 @@ $('#issuequery').click(function(){
                           <label></label>
                         </span>
 						<?php endif; ?>
-						 <img src="<?php echo e(url('upload')); ?>/<?php echo e($employee->image); ?>" alt="<?php echo e($employee->name); ?>">
+						 <img src="<?php echo e(asset('storage')); ?>/<?php echo e($employee->image); ?>" alt="<?php echo e($employee->name); ?>">
                           <i></i>
                         </div>
                       </div>
@@ -710,7 +711,14 @@ $('#issuequery').click(function(){
 				   <button type="button" title="Query Employee" class="btn btn-outline btn-warning" data-target="#querymod" onclick="query('<?php echo e($employee->id); ?>','<?php echo e($employee->name); ?>')" data-toggle="modal" ><i class="icon wb-hammer" aria-hidden="true"></i></button>
 				<?php endif; ?>
 					<?php if(Auth::user()->role==3): ?>
-						
+					  <form id="view_form" action="<?php echo e(url('/view-emp-daily-attendance')); ?>" method="post">
+                    <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+                    <input type="hidden" name="id" id = "emp_id" value="<?php echo e($employee->id); ?>">
+					<button type="submit"   title="View Attendance Record" class="btn btn-outline btn-success"  ><i  class="icon wb-list" aria-hidden="true"></i></button> 
+                  </form> 	
+				
+				
+				
 						<?php if($employee->locked==0): ?>
 						<?php 
 					$type="wb-link";
@@ -722,7 +730,6 @@ $('#issuequery').click(function(){
 					?>	
 					<?php endif; ?>
                     <button type="button" id="disable" title="Disable/Enable Employee" class="btn btn-outline btn-danger" onclick="lockemp(<?php echo e($employee->id); ?>)"><i id="icon<?php echo e($employee->id); ?>" class="icon <?php echo e($type); ?>" aria-hidden="true"></i></button> 
-				
 				
 				
 					<?php endif; ?>

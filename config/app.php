@@ -182,6 +182,9 @@ return [
         App\Providers\RouteServiceProvider::class,
 		Maatwebsite\Excel\ExcelServiceProvider::class,
 		Ixudra\Curl\CurlServiceProvider::class,
+		//Barryvdh\DomPDF\ServiceProvider::class,
+        Seguce92\DomPDF\ServiceProvider::class,
+		Stevebauman\Translation\TranslationServiceProvider::class,
  
     ],
 
@@ -235,7 +238,14 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+		 'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
+		//'PDF1' => Barryvdh\DomPDF\Facade::class,
+        'PDF' => Seguce92\DomPDF\Facade::class,
+		'Translation' => Stevebauman\Translation\Facades\Translation::class,
+
 
     ],
+	//'facades' => ['PDF' => Barryvdh\DomPDF\Facade::class,]
 
 ];

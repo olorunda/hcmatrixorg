@@ -24,40 +24,8 @@ namespace Microsoft\Graph\Model;
 * @version   Release: 0.1.0
 * @link      https://graph.microsoft.io/
 */
-class FileAttachment extends Entity
+class FileAttachment extends Attachment
 {
-    /**
-    * The array of properties available
-    * to the model
-    *
-    * @var array(string => string)
-    */
-    private $_propDict;
-    
-    /**
-    * Construct a new FileAttachment
-    *
-    * @param array $propDict A list of properties to set
-    *
-    * @return FileAttachment
-    */
-    function __construct($propDict = array())
-    {
-        parent::__construct();
-        $this->_propDict = $propDict;
-        return $this;
-    }
-
-    /**
-    * Gets the property dictionary of the FileAttachment
-    *
-    * @return array The list of properties
-    */
-    public function getProperties()
-    {
-        return $this->_propDict;
-    }
-
     /**
     * Gets the contentId
     *
@@ -71,7 +39,7 @@ class FileAttachment extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the contentId
     *
@@ -84,7 +52,7 @@ class FileAttachment extends Entity
         $this->_propDict["contentId"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the contentLocation
     *
@@ -98,7 +66,7 @@ class FileAttachment extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the contentLocation
     *
@@ -111,7 +79,7 @@ class FileAttachment extends Entity
         $this->_propDict["contentLocation"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the contentBytes
     *
@@ -123,13 +91,13 @@ class FileAttachment extends Entity
             if (is_a($this->_propDict["contentBytes"], "\GuzzleHttp\Psr7\Stream")) {
                 return $this->_propDict["contentBytes"];
             } else {
-                $this->_propDict["contentBytes"] = new \GuzzleHttp\Psr7\Stream($this->_propDict["contentBytes"]);
+                $this->_propDict["contentBytes"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["contentBytes"]);
                 return $this->_propDict["contentBytes"];
             }
         }
         return null;
     }
-
+    
     /**
     * Sets the contentBytes
     *
@@ -142,4 +110,5 @@ class FileAttachment extends Entity
         $this->_propDict["contentBytes"] = $val;
         return $this;
     }
+    
 }

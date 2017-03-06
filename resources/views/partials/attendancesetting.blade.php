@@ -28,21 +28,21 @@ $(function(){
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                           </button>
-                          <h4 class="modal-title">Set Working Hours</h4>
+                          <h4 class="modal-title">{{_t('Set Working Hours')}}</h4>
                         </div>
                         <div class="modal-body">
                        <?php $mm=app('App\Repositories\GlobalSettingRepository')->getworkinghours(); ?>
-						 <p>Start of Business:</p>
+						 <p>{{_t('Start of Business')}}:</p>
 						<input type="time" class="form-control" value="{{$mm['sob']}}" id="startbiz" data-plugin="clockpicker" />
 						<br>
-						 <p>Close of Business:</p>
+						 <p>{{_t('Close of Business')}}:</p>
 						<input  type="time" class="form-control" id="closebiz" data-plugin="clockpicker" value="{{$mm['cob']}}" />
  						
 						
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                          <button type="button" id="savebizwrk" class="btn btn-primary">Save changes</button>
+                          <button type="button" class="btn btn-default" data-dismiss="modal">{{_t('Close')}}</button>
+                          <button type="button" id="savebizwrk" class="btn btn-primary">{{_t('Save changes')}}</button>
                         </div>
                       </div>
                     </div>

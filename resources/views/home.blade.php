@@ -72,10 +72,10 @@
 
 </style>
 <div class="page-header">
-  <h1 class="page-title">Home</h1>
+  <h1 class="page-title">{{_t('Home')}}</h1>
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/">Home</a></li>
-    <li class="breadcrumb-item active">You are Here</li>
+    <li class="breadcrumb-item"><a href="/">{{_t('Home')}}</a></li>
+    <li class="breadcrumb-item active">{{_t('You are Here')}}</li>
   </ol>
   <div class="page-header-actions">
     <div class="row no-space w-250 hidden-sm-down">
@@ -105,7 +105,7 @@
         <button onclick="url('{{url('/employee/profile')}}')" type="button" class="btn btn-floating btn-sm btn-warning">
           <i class="fa fa-user"></i>
         </button>
-        <span class="m-l-15 font-weight-400">Profile</span>
+        <span class="m-l-15 font-weight-400">{{_t('Profile')}}</span>
         <div class="content-text text-xs-center m-b-0">
 
         </div>
@@ -121,7 +121,7 @@
         <button onclick="url('{{url('manage/absence')}}')" type="button" class="btn btn-floating btn-sm btn-success">
           <i class="fa fa-plane"></i>
         </button>
-        <span class="m-l-15 font-weight-400">Absence Mgt</span>
+        <span class="m-l-15 font-weight-400">{{_t('Absence :Mgt',['Mgt'=>'Mgt'])}}</span>
         <div class="content-text text-xs-center m-b-0">
 
         </div>
@@ -136,7 +136,7 @@
 		@else  onclick="url('{{url('employee/performance')}}')"      @endif type="button" class="btn btn-floating btn-sm btn-primary">
           <i class="fa fa-signal"></i>
         </button>
-        <span class="m-l-15 font-weight-400">Performance</span>
+        <span class="m-l-15 font-weight-400">{{_t('Performance')}}</span>
         <div class="content-text text-xs-center m-b-0">
 
         </div>
@@ -150,7 +150,7 @@
         <button type="button" class="btn btn-floating btn-sm btn-info">
           <i class="fa fa-book"></i>
         </button>
-        <span class="m-l-15 font-weight-400">Training </span>
+        <span class="m-l-15 font-weight-400">{{_t('Training')}} </span>
         <div class="content-text text-xs-center m-b-0">
 
         </div>
@@ -163,7 +163,7 @@
         <button type="button" class="btn btn-floating btn-sm btn-warning">
           <i class="fa fa-money"></i>
         </button>
-        <span class="m-l-15 font-weight-400">Finance</span>
+        <span class="m-l-15 font-weight-400">{{_t('Finance')}}</span>
         <div class="content-text text-xs-center m-b-0">
 
         </div>
@@ -176,7 +176,7 @@
         <button type="button" class="btn btn-floating btn-sm btn-danger">
           <i class="fa fa-heartbeat"></i>
         </button>
-        <span class="m-l-15 font-weight-400">Health</span>
+        <span class="m-l-15 font-weight-400">{{_t('Health')}}</span>
         <div class="content-text text-xs-center m-b-0">
 
         </div>
@@ -190,7 +190,7 @@
         <button onclick="url('{{url('hr/attendance')}}')" type="button" class="btn btn-floating btn-sm btn-info">
           <i class="fa fa-calendar"></i>
         </button>
-        <span class="m-l-15 font-weight-400">Attendance</span>
+        <span class="m-l-15 font-weight-400">{{_t('Attendance')}}</span>
         <div class="content-text text-xs-center m-b-0">
 
         </div>
@@ -228,16 +228,16 @@ canvas{
 <!-- Personal -->
         <div class="col-md-6">
           <div id="personalCompletedWidget" class="card card-shadow">
-            <div class="card-header text-xs-center card-header-transparent cover overlay">
-              <img class="cover-image" src="../../../global/photos/placeholder.png">
+            <div style="" class="card-header text-xs-center card-header-transparent cover overlay">
+              <img class="cover-image" style=" " src="../../../global/photos/placeholder.png">
               <div class="overlay-panel overlay-background vertical-align">
                 <div class="vertical-align-middle">
                   <a class="avatar avatar-100" href="javascript:void(0)">
-                    <img alt="" src="{{asset('upload')}}/{{Auth::user()->image}}">
+                    <img alt=""  src="{{asset('storage')}}/{{Auth::user()->image}}">
        
          </a>
                   <div class="font-size-20">{{Auth::user()->name}}</div>
-                  <div class="font-size-14">{{$jobdetail['title']}}</div>
+                  <div class="font-size-14">{{_t($jobdetail['title'])}}</div>
 				  
 				  <!--<ul class="list-inline font-size-18 m-b-35">
         <li class="list-inline-item">
@@ -271,14 +271,14 @@ canvas{
 	  
                 @if(Auth::user()->age == 0)
         @if(session()->has('preview_job'))
-          <button type="button" class="btn btn-primary p-x-40" onclick="url('{{url('job')}}/default?job_id={{session('preview_job')}}')">Complete Job Application
+          <button type="button" class="btn btn-primary p-x-40" onclick="url('{{url('job')}}/default?job_id={{session('preview_job')}}')">{{_t('Complete Job Application')}}
           </button>
         @else
-          <button type="button" class="btn btn-primary p-x-40" onclick="url('{{url('available_jobs')}}/joblist')">Available Jobs
+          <button type="button" class="btn btn-primary p-x-40" onclick="url('{{url('available_jobs')}}/joblist')">{{_t('Available Jobs')}}
           </button>
         @endif
       @else
-      <button type="button" class="btn btn-primary p-x-40" onclick="url('employee/profile')">View Profile</button>
+      <button type="button" class="btn btn-primary p-x-40" onclick="url('employee/profile')">{{_t('View Profile')}}</button>
       @endif
               </div>
               
@@ -338,10 +338,10 @@ canvas{
 <div class="col-md-6">
   <div class="card card-shadow" style="padding:0 0 5px 0; ">
   <div class="ribbon ribbon-clip ribbon-success" >
-                        <span id="clocking" style="z-index:999999999; cursor:pointer;" class="ribbon-inner">Clock In</span>
+                        <span id="clocking" style="z-index:999999999; cursor:pointer;" class="ribbon-inner">{{_t('Clock In')}}</span>
                       </div>
 	<div  class="ribbon ribbon-clip ribbon-reverse ribbon-danger" >
-                        <span class="ribbon-inner" id="clockout" style="z-index:999999999; cursor:pointer;">Clock Out</span>
+                        <span class="ribbon-inner" id="clockout" style="z-index:999999999; cursor:pointer;">{{_t('Clock Out')}}</span>
                       </div>
     <div class="card-block text-xs-center bg-white p-40">
      
@@ -353,8 +353,9 @@ canvas{
 	 </div>
   </div>
 </div>
+
 <div clss="col-md-6">
-<script src="https://irecharge.com.ng/plugin/jquery.cookie.js" type="text/javascript"></script> <script src="https://irecharge.com.ng/plugin/topup_plugin_form.prod.js" type="text/javascript"></script> <script>$(document).ready(function(){var vid='1702C98A80'; $("#iRecharge_container").topUpForm(vid); load_irecharge_cookie();});</script> <div id="iRecharge_container">ss</div>
+<script src="https://irecharge.com.ng/plugin/jquery.cookie.js" type="text/javascript"></script> <script src="https://irecharge.com.ng/plugin/topup_plugin_form.prod.js" type="text/javascript"></script> <script>$(document).ready(function(){var vid='1702C98A80'; $("#iRecharge_container").topUpForm(vid); load_irecharge_cookie();});</script> <div id="iRecharge_container">..</div>
 </div>
 <!-- Personal -->
 </div>

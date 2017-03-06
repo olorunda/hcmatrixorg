@@ -27,38 +27,6 @@ namespace Microsoft\Graph\Model;
 class WorkbookTableColumn extends Entity
 {
     /**
-    * The array of properties available
-    * to the model
-    *
-    * @var array(string => string)
-    */
-    private $_propDict;
-    
-    /**
-    * Construct a new WorkbookTableColumn
-    *
-    * @param array $propDict A list of properties to set
-    *
-    * @return WorkbookTableColumn
-    */
-    function __construct($propDict = array())
-    {
-        parent::__construct();
-        $this->_propDict = $propDict;
-        return $this;
-    }
-
-    /**
-    * Gets the property dictionary of the WorkbookTableColumn
-    *
-    * @return array The list of properties
-    */
-    public function getProperties()
-    {
-        return $this->_propDict;
-    }
-
-    /**
     * Gets the index
     *
     * @return int The index
@@ -71,7 +39,7 @@ class WorkbookTableColumn extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the index
     *
@@ -84,7 +52,7 @@ class WorkbookTableColumn extends Entity
         $this->_propDict["index"] = intval($val);
         return $this;
     }
-
+    
     /**
     * Gets the name
     *
@@ -98,7 +66,7 @@ class WorkbookTableColumn extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the name
     *
@@ -111,7 +79,7 @@ class WorkbookTableColumn extends Entity
         $this->_propDict["name"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the values
     *
@@ -125,7 +93,7 @@ class WorkbookTableColumn extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the values
     *
@@ -138,7 +106,7 @@ class WorkbookTableColumn extends Entity
         $this->_propDict["values"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the filter
     *
@@ -156,7 +124,7 @@ class WorkbookTableColumn extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the filter
     *
@@ -169,4 +137,5 @@ class WorkbookTableColumn extends Entity
         $this->_propDict["filter"] = $val;
         return $this;
     }
+    
 }

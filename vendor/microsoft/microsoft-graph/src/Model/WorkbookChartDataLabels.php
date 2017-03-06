@@ -27,38 +27,6 @@ namespace Microsoft\Graph\Model;
 class WorkbookChartDataLabels extends Entity
 {
     /**
-    * The array of properties available
-    * to the model
-    *
-    * @var array(string => string)
-    */
-    private $_propDict;
-    
-    /**
-    * Construct a new WorkbookChartDataLabels
-    *
-    * @param array $propDict A list of properties to set
-    *
-    * @return WorkbookChartDataLabels
-    */
-    function __construct($propDict = array())
-    {
-        parent::__construct();
-        $this->_propDict = $propDict;
-        return $this;
-    }
-
-    /**
-    * Gets the property dictionary of the WorkbookChartDataLabels
-    *
-    * @return array The list of properties
-    */
-    public function getProperties()
-    {
-        return $this->_propDict;
-    }
-
-    /**
     * Gets the position
     *
     * @return string The position
@@ -71,7 +39,7 @@ class WorkbookChartDataLabels extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the position
     *
@@ -84,7 +52,7 @@ class WorkbookChartDataLabels extends Entity
         $this->_propDict["position"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the separator
     *
@@ -98,7 +66,7 @@ class WorkbookChartDataLabels extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the separator
     *
@@ -111,7 +79,7 @@ class WorkbookChartDataLabels extends Entity
         $this->_propDict["separator"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the showBubbleSize
     *
@@ -125,7 +93,7 @@ class WorkbookChartDataLabels extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the showBubbleSize
     *
@@ -138,7 +106,7 @@ class WorkbookChartDataLabels extends Entity
         $this->_propDict["showBubbleSize"] = boolval($val);
         return $this;
     }
-
+    
     /**
     * Gets the showCategoryName
     *
@@ -152,7 +120,7 @@ class WorkbookChartDataLabels extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the showCategoryName
     *
@@ -165,7 +133,7 @@ class WorkbookChartDataLabels extends Entity
         $this->_propDict["showCategoryName"] = boolval($val);
         return $this;
     }
-
+    
     /**
     * Gets the showLegendKey
     *
@@ -179,7 +147,7 @@ class WorkbookChartDataLabels extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the showLegendKey
     *
@@ -192,7 +160,7 @@ class WorkbookChartDataLabels extends Entity
         $this->_propDict["showLegendKey"] = boolval($val);
         return $this;
     }
-
+    
     /**
     * Gets the showPercentage
     *
@@ -206,7 +174,7 @@ class WorkbookChartDataLabels extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the showPercentage
     *
@@ -219,7 +187,7 @@ class WorkbookChartDataLabels extends Entity
         $this->_propDict["showPercentage"] = boolval($val);
         return $this;
     }
-
+    
     /**
     * Gets the showSeriesName
     *
@@ -233,7 +201,7 @@ class WorkbookChartDataLabels extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the showSeriesName
     *
@@ -246,7 +214,7 @@ class WorkbookChartDataLabels extends Entity
         $this->_propDict["showSeriesName"] = boolval($val);
         return $this;
     }
-
+    
     /**
     * Gets the showValue
     *
@@ -260,7 +228,7 @@ class WorkbookChartDataLabels extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the showValue
     *
@@ -273,7 +241,7 @@ class WorkbookChartDataLabels extends Entity
         $this->_propDict["showValue"] = boolval($val);
         return $this;
     }
-
+    
     /**
     * Gets the format
     *
@@ -291,7 +259,7 @@ class WorkbookChartDataLabels extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the format
     *
@@ -304,4 +272,5 @@ class WorkbookChartDataLabels extends Entity
         $this->_propDict["format"] = $val;
         return $this;
     }
+    
 }

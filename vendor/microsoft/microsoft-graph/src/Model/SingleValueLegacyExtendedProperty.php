@@ -27,38 +27,6 @@ namespace Microsoft\Graph\Model;
 class SingleValueLegacyExtendedProperty extends Entity
 {
     /**
-    * The array of properties available
-    * to the model
-    *
-    * @var array(string => string)
-    */
-    private $_propDict;
-    
-    /**
-    * Construct a new SingleValueLegacyExtendedProperty
-    *
-    * @param array $propDict A list of properties to set
-    *
-    * @return SingleValueLegacyExtendedProperty
-    */
-    function __construct($propDict = array())
-    {
-        parent::__construct();
-        $this->_propDict = $propDict;
-        return $this;
-    }
-
-    /**
-    * Gets the property dictionary of the SingleValueLegacyExtendedProperty
-    *
-    * @return array The list of properties
-    */
-    public function getProperties()
-    {
-        return $this->_propDict;
-    }
-
-    /**
     * Gets the value
     *
     * @return string The value
@@ -71,7 +39,7 @@ class SingleValueLegacyExtendedProperty extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the value
     *
@@ -84,4 +52,5 @@ class SingleValueLegacyExtendedProperty extends Entity
         $this->_propDict["value"] = $val;
         return $this;
     }
+    
 }

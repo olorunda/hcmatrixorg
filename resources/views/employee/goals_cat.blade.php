@@ -42,7 +42,7 @@ function niceDate($date)
 					@if(count($directemps) > 0)
 					@foreach($directemps as $direct)
 					<?php $job = app('App\Http\Controllers\EmployeeController')->getjobdetail($direct->job_id); ?>
-					<img class="img-circle img-bordered img-bordered-primary" id="avatar{{$direct->id}}" width="50" height="50" src="{{asset('upload')}}/{{$direct->image}}" style="cursor: pointer;" title="{{$direct->name}}" data-toggle="modal" data-target="#manageEmployeeModal{{$direct->id}}">
+					<img style="margin:10px 10px 0 0" class="img-circle img-bordered img-bordered-primary" id="avatar{{$direct->id}}" width="70" height="70" src="{{asset('storage')}}/{{$direct->image}}" style="cursor: pointer;" title="{{$direct->name}}" data-toggle="modal" data-target="#manageEmployeeModal{{$direct->id}}">
 
 					<input type="hidden" name="last" id="last" value="{{$direct->id}}">
 					@endforeach
@@ -98,7 +98,7 @@ function niceDate($date)
 						<div class="tab-pane active" id="headingDistinct1{{$direct->id}}" role="tabpanel">
 							<div class="row">
 								<div class="col-md-2">
-									<img class="img-thumbnail img-bordered img-default" src="{{asset('upload')}}/{{$direct->image}}" align="left" style="width: 120px;height: 120px;margin-top: 10px;">
+									<img class="img-thumbnail img-bordered img-default" src="{{asset('storage')}}/{{$direct->image}}" align="left" style="width: 120px;height: 120px;margin-top: 10px;">
 								</div>
 								<div class="col-md-10">
 									<h4>{{strtoupper($direct->name)}}</h4>
@@ -111,14 +111,14 @@ function niceDate($date)
 						 <script>
 						 $(function(){
 							 
-							$('#rating{{$direct->id}}1').raty({ starType: 'i' });
+							$('#rating{{$direct->id}}5').raty({ starType: 'i' });
 							
-						  $('#rating{{$direct->id}}1').raty('score', {{$getrating['rating']}});
+						  $('#rating{{$direct->id}}5').raty('score', {{$getrating['rating']}});
 						  
-							$('#rating{{$direct->id}}1').raty('readOnly', true);
+							$('#rating{{$direct->id}}5').raty('readOnly', true);
 						 });
 						</script>
-							<span   id="rating{{$direct->id}}1"></span>
+							<span   id="rating{{$direct->id}}5"></span>
 								   <br/>
                              <span style="font-weight:bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;( Total Rating: {{$getrating['rating']}} )</span>
 									</h5>
@@ -182,7 +182,7 @@ function niceDate($date)
 						<div class="tab-pane" id="headingDistinct2{{$direct->id}}" role="tabpanel">
 							<div class="row">
 								<div class="col-md-2">
-									<img class="img-thumbnail img-bordered img-default" src="{{asset('upload')}}/{{$direct->image}}" align="left" style="width: 120px;height: 120px;margin-top: 10px;">
+									<img class="img-thumbnail img-bordered img-default" src="{{asset('storage')}}/{{$direct->image}}" align="left" style="width: 120px;height: 120px;margin-top: 10px;">
 								</div>
 								<div class="col-md-10">
 									<h4>{{strtoupper($direct->name)}}</h4>
@@ -195,14 +195,14 @@ function niceDate($date)
 						 <script>
 						 $(function(){
 							 
-							$('#rating{{$direct->id}}1').raty({ starType: 'i' });
+							$('#rating{{$direct->id}}3').raty({ starType: 'i' });
 							
-						  $('#rating{{$direct->id}}1').raty('score', {{$getrating['rating']}});
+						  $('#rating{{$direct->id}}3').raty('score', {{$getrating['rating']}});
 						  
-							$('#rating{{$direct->id}}1').raty('readOnly', true);
+							$('#rating{{$direct->id}}3').raty('readOnly', true);
 						 });
 						</script>
-							<span   id="rating{{$direct->id}}1"></span>
+							<span   id="rating{{$direct->id}}3"></span>
 								   <br/>
                              <span style="font-weight:bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;( Total Rating: {{$getrating['rating']}} )</span>
 									</h5>
@@ -214,7 +214,7 @@ function niceDate($date)
 						<div class="tab-pane" id="headingDistinct3{{$direct->id}}" role="tabpanel">
 							<div class="row">
 								<div class="col-md-2">
-									<img class="img-thumbnail img-bordered img-default" src="{{asset('upload')}}/{{$direct->image}}" align="left" style="width: 120px;height: 120px;margin-top: 10px;">
+									<img class="img-thumbnail img-bordered img-default" src="{{asset('storage')}}/{{$direct->image}}" align="left" style="width: 120px;height: 120px;margin-top: 10px;">
 								</div>
 								<div class="col-md-10">
 									<h4>{{strtoupper($direct->name)}}</h4>
@@ -227,14 +227,14 @@ function niceDate($date)
 						 <script>
 						 $(function(){
 							 
-							$('#rating{{$direct->id}}1').raty({ starType: 'i' });
+							$('#rating{{$direct->id}}2').raty({ starType: 'i' });
 							
-						  $('#rating{{$direct->id}}1').raty('score', {{$getrating['rating']}});
+						  $('#rating{{$direct->id}}2').raty('score', {{$getrating['rating']}});
 						  
-							$('#rating{{$direct->id}}1').raty('readOnly', true);
+							$('#rating{{$direct->id}}2').raty('readOnly', true);
 						 });
 						</script>
-							<span   id="rating{{$direct->id}}1"></span>
+							<span   id="rating{{$direct->id}}2"></span>
 								   <br/>
                              <span style="font-weight:bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;( Total Rating: {{$getrating['rating']}} )</span>
 									</h5>
@@ -246,7 +246,7 @@ function niceDate($date)
 						<div class="tab-pane" id="headingDistinct4{{$direct->id}}" role="tabpanel">
 							<div class="row">
 								<div class="col-md-2">
-									<img class="img-thumbnail img-bordered img-default" src="{{asset('upload')}}/{{$direct->image}}" align="left" style="width: 120px;height: 120px;margin-top: 10px;">
+									<img class="img-thumbnail img-bordered img-default" src="{{asset('storage')}}/{{$direct->image}}" align="left" style="width: 120px;height: 120px;margin-top: 10px;">
 								</div>
 								<div class="col-md-10">
 									<h4>{{strtoupper($direct->name)}}</h4>
@@ -278,7 +278,7 @@ function niceDate($date)
 						<div class="tab-pane" id="headingDistinct5{{$direct->id}}" role="tabpanel">
 							<div class="row">
 								<div class="col-md-2">
-									<img class="img-thumbnail img-bordered img-default" src="{{asset('upload')}}/{{$direct->image}}" align="left" style="width: 120px;height: 120px;margin-top: 10px;">
+									<img class="img-thumbnail img-bordered img-default" src="{{asset('storage')}}/{{$direct->image}}" align="left" style="width: 120px;height: 120px;margin-top: 10px;">
 								</div>
 								<div class="col-md-10">
 									<h4>{{strtoupper($direct->name)}}</h4>
@@ -291,14 +291,14 @@ function niceDate($date)
 						 <script>
 						 $(function(){
 							 
-							$('#rating{{$direct->id}}1').raty({ starType: 'i' });
+							$('#rating{{$direct->id}}4').raty({ starType: 'i' });
 							
-						  $('#rating{{$direct->id}}1').raty('score', {{$getrating['rating']}});
+						  $('#rating{{$direct->id}}4').raty('score', {{$getrating['rating']}});
 						  
-							$('#rating{{$direct->id}}1').raty('readOnly', true);
+							$('#rating{{$direct->id}}4').raty('readOnly', true);
 						 });
 						</script>
-							<span   id="rating{{$direct->id}}1"></span>
+							<span   id="rating{{$direct->id}}4"></span>
 								   <br/>
                              <span style="font-weight:bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;( Total Rating: {{$getrating['rating']}} )</span>
 									</h5>

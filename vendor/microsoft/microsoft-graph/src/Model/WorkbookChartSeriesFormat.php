@@ -27,38 +27,6 @@ namespace Microsoft\Graph\Model;
 class WorkbookChartSeriesFormat extends Entity
 {
     /**
-    * The array of properties available
-    * to the model
-    *
-    * @var array(string => string)
-    */
-    private $_propDict;
-    
-    /**
-    * Construct a new WorkbookChartSeriesFormat
-    *
-    * @param array $propDict A list of properties to set
-    *
-    * @return WorkbookChartSeriesFormat
-    */
-    function __construct($propDict = array())
-    {
-        parent::__construct();
-        $this->_propDict = $propDict;
-        return $this;
-    }
-
-    /**
-    * Gets the property dictionary of the WorkbookChartSeriesFormat
-    *
-    * @return array The list of properties
-    */
-    public function getProperties()
-    {
-        return $this->_propDict;
-    }
-
-    /**
     * Gets the fill
     *
     * @return WorkbookChartFill The fill
@@ -75,7 +43,7 @@ class WorkbookChartSeriesFormat extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the fill
     *
@@ -88,7 +56,7 @@ class WorkbookChartSeriesFormat extends Entity
         $this->_propDict["fill"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the line
     *
@@ -106,7 +74,7 @@ class WorkbookChartSeriesFormat extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the line
     *
@@ -119,4 +87,5 @@ class WorkbookChartSeriesFormat extends Entity
         $this->_propDict["line"] = $val;
         return $this;
     }
+    
 }

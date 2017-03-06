@@ -26,38 +26,6 @@ namespace Microsoft\Graph\Model;
 class WorkbookSessionInfo extends Entity
 {
     /**
-    * The array of properties available 
-    * to the model
-    *
-    * @var array(string => string)
-    */
-    private $_propDict;
-    /**
-    * WorkbookSessionInfo constructor
-    *
-    * @param array $propDict List of properties to set
-    * Defaults to an empty array
-    *
-    * @return WorkbookSessionInfo
-    */
-    public function __construct($propDict=array())
-    {
-        parent::__construct();
-        $this->_propDict = $propDict;
-        return $this;
-    }
-
-	/**
-    * Gets the property dictionary of the WorkbookSessionInfo
-    *
-    * @return array The list of properties
-    */
-    public function getProperties()
-    {
-        return $this->_propDict;
-    }
-    
-    /**
     * Gets the id
     *
     * @return string The id
@@ -83,7 +51,6 @@ class WorkbookSessionInfo extends Entity
         $this->_propDict["id"] = $val;
         return $this;
     }
-    
     /**
     * Gets the persistChanges
     *

@@ -24,40 +24,8 @@ namespace Microsoft\Graph\Model;
 * @version   Release: 0.1.0
 * @link      https://graph.microsoft.io/
 */
-class Contact extends Entity
+class Contact extends OutlookItem
 {
-    /**
-    * The array of properties available
-    * to the model
-    *
-    * @var array(string => string)
-    */
-    private $_propDict;
-    
-    /**
-    * Construct a new Contact
-    *
-    * @param array $propDict A list of properties to set
-    *
-    * @return Contact
-    */
-    function __construct($propDict = array())
-    {
-        parent::__construct();
-        $this->_propDict = $propDict;
-        return $this;
-    }
-
-    /**
-    * Gets the property dictionary of the Contact
-    *
-    * @return array The list of properties
-    */
-    public function getProperties()
-    {
-        return $this->_propDict;
-    }
-
     /**
     * Gets the parentFolderId
     *
@@ -71,7 +39,7 @@ class Contact extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the parentFolderId
     *
@@ -84,7 +52,7 @@ class Contact extends Entity
         $this->_propDict["parentFolderId"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the birthday
     *
@@ -102,7 +70,7 @@ class Contact extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the birthday
     *
@@ -115,7 +83,7 @@ class Contact extends Entity
         $this->_propDict["birthday"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the fileAs
     *
@@ -129,7 +97,7 @@ class Contact extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the fileAs
     *
@@ -142,7 +110,7 @@ class Contact extends Entity
         $this->_propDict["fileAs"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the displayName
     *
@@ -156,7 +124,7 @@ class Contact extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the displayName
     *
@@ -169,7 +137,7 @@ class Contact extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the givenName
     *
@@ -183,7 +151,7 @@ class Contact extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the givenName
     *
@@ -196,7 +164,7 @@ class Contact extends Entity
         $this->_propDict["givenName"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the initials
     *
@@ -210,7 +178,7 @@ class Contact extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the initials
     *
@@ -223,7 +191,7 @@ class Contact extends Entity
         $this->_propDict["initials"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the middleName
     *
@@ -237,7 +205,7 @@ class Contact extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the middleName
     *
@@ -250,7 +218,7 @@ class Contact extends Entity
         $this->_propDict["middleName"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the nickName
     *
@@ -264,7 +232,7 @@ class Contact extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the nickName
     *
@@ -277,7 +245,7 @@ class Contact extends Entity
         $this->_propDict["nickName"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the surname
     *
@@ -291,7 +259,7 @@ class Contact extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the surname
     *
@@ -304,7 +272,7 @@ class Contact extends Entity
         $this->_propDict["surname"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the title
     *
@@ -318,7 +286,7 @@ class Contact extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the title
     *
@@ -331,7 +299,7 @@ class Contact extends Entity
         $this->_propDict["title"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the yomiGivenName
     *
@@ -345,7 +313,7 @@ class Contact extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the yomiGivenName
     *
@@ -358,7 +326,7 @@ class Contact extends Entity
         $this->_propDict["yomiGivenName"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the yomiSurname
     *
@@ -372,7 +340,7 @@ class Contact extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the yomiSurname
     *
@@ -385,7 +353,7 @@ class Contact extends Entity
         $this->_propDict["yomiSurname"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the yomiCompanyName
     *
@@ -399,7 +367,7 @@ class Contact extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the yomiCompanyName
     *
@@ -412,7 +380,7 @@ class Contact extends Entity
         $this->_propDict["yomiCompanyName"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the generation
     *
@@ -426,7 +394,7 @@ class Contact extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the generation
     *
@@ -439,7 +407,7 @@ class Contact extends Entity
         $this->_propDict["generation"] = $val;
         return $this;
     }
-
+    
     /** 
     * Gets the emailAddresses
     *
@@ -453,7 +421,7 @@ class Contact extends Entity
             return null;
         }
     }
-	
+    
     /** 
     * Sets the emailAddresses
     *
@@ -466,8 +434,7 @@ class Contact extends Entity
 		$this->_propDict["emailAddresses"] = $val;
         return $this;
     }
-
-
+    
     /**
     * Gets the imAddresses
     *
@@ -481,7 +448,7 @@ class Contact extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the imAddresses
     *
@@ -494,7 +461,7 @@ class Contact extends Entity
         $this->_propDict["imAddresses"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the jobTitle
     *
@@ -508,7 +475,7 @@ class Contact extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the jobTitle
     *
@@ -521,7 +488,7 @@ class Contact extends Entity
         $this->_propDict["jobTitle"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the companyName
     *
@@ -535,7 +502,7 @@ class Contact extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the companyName
     *
@@ -548,7 +515,7 @@ class Contact extends Entity
         $this->_propDict["companyName"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the department
     *
@@ -562,7 +529,7 @@ class Contact extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the department
     *
@@ -575,7 +542,7 @@ class Contact extends Entity
         $this->_propDict["department"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the officeLocation
     *
@@ -589,7 +556,7 @@ class Contact extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the officeLocation
     *
@@ -602,7 +569,7 @@ class Contact extends Entity
         $this->_propDict["officeLocation"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the profession
     *
@@ -616,7 +583,7 @@ class Contact extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the profession
     *
@@ -629,7 +596,7 @@ class Contact extends Entity
         $this->_propDict["profession"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the businessHomePage
     *
@@ -643,7 +610,7 @@ class Contact extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the businessHomePage
     *
@@ -656,7 +623,7 @@ class Contact extends Entity
         $this->_propDict["businessHomePage"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the assistantName
     *
@@ -670,7 +637,7 @@ class Contact extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the assistantName
     *
@@ -683,7 +650,7 @@ class Contact extends Entity
         $this->_propDict["assistantName"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the manager
     *
@@ -697,7 +664,7 @@ class Contact extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the manager
     *
@@ -710,7 +677,7 @@ class Contact extends Entity
         $this->_propDict["manager"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the homePhones
     *
@@ -724,7 +691,7 @@ class Contact extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the homePhones
     *
@@ -737,7 +704,7 @@ class Contact extends Entity
         $this->_propDict["homePhones"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the mobilePhone
     *
@@ -751,7 +718,7 @@ class Contact extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the mobilePhone
     *
@@ -764,7 +731,7 @@ class Contact extends Entity
         $this->_propDict["mobilePhone"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the businessPhones
     *
@@ -778,7 +745,7 @@ class Contact extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the businessPhones
     *
@@ -791,7 +758,7 @@ class Contact extends Entity
         $this->_propDict["businessPhones"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the homeAddress
     *
@@ -809,7 +776,7 @@ class Contact extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the homeAddress
     *
@@ -822,7 +789,7 @@ class Contact extends Entity
         $this->_propDict["homeAddress"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the businessAddress
     *
@@ -840,7 +807,7 @@ class Contact extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the businessAddress
     *
@@ -853,7 +820,7 @@ class Contact extends Entity
         $this->_propDict["businessAddress"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the otherAddress
     *
@@ -871,7 +838,7 @@ class Contact extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the otherAddress
     *
@@ -884,7 +851,7 @@ class Contact extends Entity
         $this->_propDict["otherAddress"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the spouseName
     *
@@ -898,7 +865,7 @@ class Contact extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the spouseName
     *
@@ -911,7 +878,7 @@ class Contact extends Entity
         $this->_propDict["spouseName"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the personalNotes
     *
@@ -925,7 +892,7 @@ class Contact extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the personalNotes
     *
@@ -938,7 +905,7 @@ class Contact extends Entity
         $this->_propDict["personalNotes"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the children
     *
@@ -952,7 +919,7 @@ class Contact extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the children
     *
@@ -965,7 +932,7 @@ class Contact extends Entity
         $this->_propDict["children"] = $val;
         return $this;
     }
-
+    
     /** 
     * Gets the extensions
     *
@@ -979,7 +946,7 @@ class Contact extends Entity
             return null;
         }
     }
-	
+    
     /** 
     * Sets the extensions
     *
@@ -992,8 +959,7 @@ class Contact extends Entity
 		$this->_propDict["extensions"] = $val;
         return $this;
     }
-
-
+    
     /** 
     * Gets the singleValueExtendedProperties
     *
@@ -1007,7 +973,7 @@ class Contact extends Entity
             return null;
         }
     }
-	
+    
     /** 
     * Sets the singleValueExtendedProperties
     *
@@ -1020,8 +986,7 @@ class Contact extends Entity
 		$this->_propDict["singleValueExtendedProperties"] = $val;
         return $this;
     }
-
-
+    
     /** 
     * Gets the multiValueExtendedProperties
     *
@@ -1035,7 +1000,7 @@ class Contact extends Entity
             return null;
         }
     }
-	
+    
     /** 
     * Sets the multiValueExtendedProperties
     *
@@ -1048,8 +1013,7 @@ class Contact extends Entity
 		$this->_propDict["multiValueExtendedProperties"] = $val;
         return $this;
     }
-
-
+    
     /**
     * Gets the photo
     *
@@ -1067,7 +1031,7 @@ class Contact extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the photo
     *
@@ -1080,4 +1044,5 @@ class Contact extends Entity
         $this->_propDict["photo"] = $val;
         return $this;
     }
+    
 }

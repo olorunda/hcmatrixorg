@@ -27,38 +27,6 @@ namespace Microsoft\Graph\Model;
 class WorkbookChartAxisTitleFormat extends Entity
 {
     /**
-    * The array of properties available
-    * to the model
-    *
-    * @var array(string => string)
-    */
-    private $_propDict;
-    
-    /**
-    * Construct a new WorkbookChartAxisTitleFormat
-    *
-    * @param array $propDict A list of properties to set
-    *
-    * @return WorkbookChartAxisTitleFormat
-    */
-    function __construct($propDict = array())
-    {
-        parent::__construct();
-        $this->_propDict = $propDict;
-        return $this;
-    }
-
-    /**
-    * Gets the property dictionary of the WorkbookChartAxisTitleFormat
-    *
-    * @return array The list of properties
-    */
-    public function getProperties()
-    {
-        return $this->_propDict;
-    }
-
-    /**
     * Gets the font
     *
     * @return WorkbookChartFont The font
@@ -75,7 +43,7 @@ class WorkbookChartAxisTitleFormat extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the font
     *
@@ -88,4 +56,5 @@ class WorkbookChartAxisTitleFormat extends Entity
         $this->_propDict["font"] = $val;
         return $this;
     }
+    
 }

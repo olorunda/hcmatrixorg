@@ -294,7 +294,7 @@ function loadcal(type){
 					<tr>
 						
 						<td height="10">
-							<img  class="img-circle img-bordered img-bordered-primary" alt="avatar" src="<?php echo e(asset('upload')); ?>/<?php echo e($emp->image); ?>" style="margin-left:5px; align:center; width: 50px;height: 50px;" /><br>
+							<img  class="img-circle img-bordered img-bordered-primary" alt="avatar" src="<?php echo e(asset('storage')); ?>/<?php echo e($emp->image); ?>" style="margin-left:5px; align:center; width: 50px;height: 50px;" /><br>
 							<?php echo e($emp->name); ?>
 
 						</td>

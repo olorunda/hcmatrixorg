@@ -132,7 +132,7 @@ $(function(){
                         <span class="ribbon-inner" style="cursor:pointer" onclick="deletes('<?php echo e($pilot->id); ?>')">Delete</span>
                       </div>
 					  <div class="ribbon ribbon-bookmark ribbon-reverse ribbon-success">
-                        <span class="ribbon-inner" style="cursor:pointer" onclick="modify('<?php echo e($pilot->id); ?>','<?php echo e($pilot->objective); ?>','<?php echo e($pilot->commitment); ?>')">Modify</span>
+                        <span class="ribbon-inner" style="cursor:pointer" onclick='modify("<?php echo e($pilot->id); ?>","<?php echo e($pilot->objective); ?>","<?php echo e(htmlspecialchars($pilot->commitment)); ?>")'>Modify</span>
                       </div><br><Br>
                       <a class="panel-title collapsed" data-parent="#exampleAccordionContinuous" data-toggle="collapse" href="#exampleCollapseContinuousThree<?php echo e($pilot->id); ?>" aria-controls="exampleCollapseContinuousThree<?php echo e($pilot->id); ?>" aria-expanded="false">
                       <?php echo e($pilot->objective); ?>

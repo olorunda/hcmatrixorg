@@ -27,38 +27,6 @@ namespace Microsoft\Graph\Model;
 class WorkbookWorksheet extends Entity
 {
     /**
-    * The array of properties available
-    * to the model
-    *
-    * @var array(string => string)
-    */
-    private $_propDict;
-    
-    /**
-    * Construct a new WorkbookWorksheet
-    *
-    * @param array $propDict A list of properties to set
-    *
-    * @return WorkbookWorksheet
-    */
-    function __construct($propDict = array())
-    {
-        parent::__construct();
-        $this->_propDict = $propDict;
-        return $this;
-    }
-
-    /**
-    * Gets the property dictionary of the WorkbookWorksheet
-    *
-    * @return array The list of properties
-    */
-    public function getProperties()
-    {
-        return $this->_propDict;
-    }
-
-    /**
     * Gets the name
     *
     * @return string The name
@@ -71,7 +39,7 @@ class WorkbookWorksheet extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the name
     *
@@ -84,7 +52,7 @@ class WorkbookWorksheet extends Entity
         $this->_propDict["name"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the position
     *
@@ -98,7 +66,7 @@ class WorkbookWorksheet extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the position
     *
@@ -111,7 +79,7 @@ class WorkbookWorksheet extends Entity
         $this->_propDict["position"] = intval($val);
         return $this;
     }
-
+    
     /**
     * Gets the visibility
     *
@@ -125,7 +93,7 @@ class WorkbookWorksheet extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the visibility
     *
@@ -138,7 +106,7 @@ class WorkbookWorksheet extends Entity
         $this->_propDict["visibility"] = $val;
         return $this;
     }
-
+    
     /** 
     * Gets the charts
     *
@@ -152,7 +120,7 @@ class WorkbookWorksheet extends Entity
             return null;
         }
     }
-	
+    
     /** 
     * Sets the charts
     *
@@ -165,8 +133,7 @@ class WorkbookWorksheet extends Entity
 		$this->_propDict["charts"] = $val;
         return $this;
     }
-
-
+    
     /** 
     * Gets the pivotTables
     *
@@ -180,7 +147,7 @@ class WorkbookWorksheet extends Entity
             return null;
         }
     }
-	
+    
     /** 
     * Sets the pivotTables
     *
@@ -193,8 +160,7 @@ class WorkbookWorksheet extends Entity
 		$this->_propDict["pivotTables"] = $val;
         return $this;
     }
-
-
+    
     /**
     * Gets the protection
     *
@@ -212,7 +178,7 @@ class WorkbookWorksheet extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the protection
     *
@@ -225,7 +191,7 @@ class WorkbookWorksheet extends Entity
         $this->_propDict["protection"] = $val;
         return $this;
     }
-
+    
     /** 
     * Gets the tables
     *
@@ -239,7 +205,7 @@ class WorkbookWorksheet extends Entity
             return null;
         }
     }
-	
+    
     /** 
     * Sets the tables
     *
@@ -252,5 +218,5 @@ class WorkbookWorksheet extends Entity
 		$this->_propDict["tables"] = $val;
         return $this;
     }
-
+    
 }

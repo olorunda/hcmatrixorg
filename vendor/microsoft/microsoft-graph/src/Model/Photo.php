@@ -26,38 +26,6 @@ namespace Microsoft\Graph\Model;
 class Photo extends Entity
 {
     /**
-    * The array of properties available 
-    * to the model
-    *
-    * @var array(string => string)
-    */
-    private $_propDict;
-    /**
-    * Photo constructor
-    *
-    * @param array $propDict List of properties to set
-    * Defaults to an empty array
-    *
-    * @return Photo
-    */
-    public function __construct($propDict=array())
-    {
-        parent::__construct();
-        $this->_propDict = $propDict;
-        return $this;
-    }
-
-	/**
-    * Gets the property dictionary of the Photo
-    *
-    * @return array The list of properties
-    */
-    public function getProperties()
-    {
-        return $this->_propDict;
-    }
-    
-    /**
     * Gets the cameraMake
     *
     * @return string The cameraMake
@@ -83,7 +51,6 @@ class Photo extends Entity
         $this->_propDict["camera_make"] = $val;
         return $this;
     }
-    
     /**
     * Gets the cameraModel
     *
@@ -110,7 +77,6 @@ class Photo extends Entity
         $this->_propDict["camera_model"] = $val;
         return $this;
     }
-    
     /**
     * Gets the exposureDenominator
     *
@@ -137,7 +103,6 @@ class Photo extends Entity
         $this->_propDict["exposure_denominator"] = $val;
         return $this;
     }
-    
     /**
     * Gets the exposureNumerator
     *
@@ -164,7 +129,6 @@ class Photo extends Entity
         $this->_propDict["exposure_numerator"] = $val;
         return $this;
     }
-    
     /**
     * Gets the focalLength
     *
@@ -191,7 +155,6 @@ class Photo extends Entity
         $this->_propDict["focal_length"] = $val;
         return $this;
     }
-    
     /**
     * Gets the fNumber
     *
@@ -249,7 +212,6 @@ class Photo extends Entity
         $this->_propDict["takenDateTime"] = $val;
          return $this;
     }
-    
     /**
     * Gets the iso
     *

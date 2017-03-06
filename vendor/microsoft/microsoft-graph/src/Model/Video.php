@@ -26,38 +26,6 @@ namespace Microsoft\Graph\Model;
 class Video extends Entity
 {
     /**
-    * The array of properties available 
-    * to the model
-    *
-    * @var array(string => string)
-    */
-    private $_propDict;
-    /**
-    * Video constructor
-    *
-    * @param array $propDict List of properties to set
-    * Defaults to an empty array
-    *
-    * @return Video
-    */
-    public function __construct($propDict=array())
-    {
-        parent::__construct();
-        $this->_propDict = $propDict;
-        return $this;
-    }
-
-	/**
-    * Gets the property dictionary of the Video
-    *
-    * @return array The list of properties
-    */
-    public function getProperties()
-    {
-        return $this->_propDict;
-    }
-    
-    /**
     * Gets the bitrate
     *
     * @return int The bitrate
@@ -83,7 +51,6 @@ class Video extends Entity
         $this->_propDict["bitrate"] = $val;
         return $this;
     }
-    
     /**
     * Gets the duration
     *
@@ -110,7 +77,6 @@ class Video extends Entity
         $this->_propDict["duration"] = $val;
         return $this;
     }
-    
     /**
     * Gets the height
     *
@@ -137,7 +103,6 @@ class Video extends Entity
         $this->_propDict["height"] = $val;
         return $this;
     }
-    
     /**
     * Gets the width
     *

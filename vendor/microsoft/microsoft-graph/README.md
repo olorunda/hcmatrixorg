@@ -3,14 +3,17 @@
 *This SDK is currently in preview. Please continue to provide [feedback](https://github.com/microsoftgraph/msgraph-sdk-php/issues/new) as we iterate towards a production-supported library.*
 
 [![Build Status](https://travis-ci.org/microsoftgraph/msgraph-sdk-php.svg?branch=master)](https://travis-ci.org/microsoftgraph/msgraph-sdk-php)
+[![Latest Stable Version](https://poser.pugx.org/microsoft/microsoft-graph/version)](https://packagist.org/packages/microsoft/microsoft-graph)
 
+## Get started with the PHP Connect Sample
+If you want to play around with the PHP library, you can get up and running quickly with the [PHP Connect Sample](https://github.com/microsoftgraph/php-connect-sample). This sample will start you with a little Laravel project that helps you with registration, authentication, and making a simple call to the service.
 
 ## Install the SDK
 You can install the PHP SDK with Composer.
 ```
 {
     "require": {
-        "Microsoft/Graph": "0.1.*"
+        "microsoft/microsoft-graph": "0.1.*"
     }
 }
 ```
@@ -33,7 +36,7 @@ The Microsoft Graph SDK for PHP does not include any default authentication impl
 Instead, you can authenticate with the library of your choice, or against the OAuth
 endpoint directly.
 
-To connect with Oauth2, see the [PHP Connect Sample](https://github.com/microsoftgraph/php-rest-connect-sample.php).
+To connect with Oauth2, see the [PHP Connect Sample](https://github.com/microsoftgraph/php-connect-sample).
 
 ### Call Microsoft Graph
 
@@ -45,16 +48,19 @@ use Microsoft\Graph\Model;
 
 class UsageExample
 {
-    $accessToken = 'xxx';
+    public function run()
+    {
+        $accessToken = 'xxx';
 
-    $graph = new Graph();
-    $graph->setAccessToken($accessToken);
+        $graph = new Graph();
+        $graph->setAccessToken($accessToken);
 
-    $user = $graph->createRequest("GET", "/me")
-                  ->setReturnType(Model\User::class)
-                  ->execute();
+        $user = $graph->createRequest("GET", "/me")
+                      ->setReturnType(Model\User::class)
+                      ->execute();
 
-    echo "Hello, I am $user->getGivenName() ";
+        echo "Hello, I am $user->getGivenName() ";
+    }
 }
 ```
 
@@ -62,7 +68,14 @@ class UsageExample
 
 ### Run Tests
 
-Run ```vendor/bin/phpunit``` from the base directory.
+Run 
+```php
+vendor/bin/phpunit --exclude-group functional
+``` 
+from the base directory.
+
+*The set of functional tests are meant to be run against a test account. Currently, the 
+tests to do not restore state of the account.*
 
 
 ## Documentation and resources

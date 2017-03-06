@@ -31,7 +31,7 @@ $(function (){
 		$.get('{{url('edit')}}/folder?id='+sessionStorage.getItem('foldid')+'&newname='+newfoldname,function(data,status,xhr){
 			
 			if(xhr.status==200){
-				toastr.success("Modification Succesfull");
+				toastr.success("{{_t('Modification Succesfull')}}");
 				setTimeout(function(){
 					
 					window.location.reload();
@@ -39,7 +39,7 @@ $(function (){
 				},2000);
 				return;
 			}
-			toastr.error("Some Error Occurred");
+			toastr.error("{{_t('Some Error Occurred')}}");
 			
 			
 		});
@@ -59,25 +59,25 @@ $(function (){
 				}
 				if(key=="delete"){
 					swal({
-  title: "Are you sure?",
-  text: "You will not be able to recover this folder once deleted!",
+  title: "{{_t('Are you sure?')}}",
+  text: "{{_t('You will not be able to recover this folder once deleted!')}}",
   type: "warning",
   showCancelButton: true,
   confirmButtonColor: "#DD6B55",
-  confirmButtonText: "Yes, delete it!",
+  confirmButtonText: "{{_t('Yes, delete it!')}}",
   closeOnConfirm: false
 },
 function(){
 	$.get('{{url('delete')}}/folder?id='+sessionStorage.getItem('foldid'),function(data,status,xhr){
 		
 		if(xhr.status==200){
-			 swal("Deleted!", "Folder Succesfully Deleted", "success");
+			 swal("Deleted!", "{{_t('Folder Succesfully Deleted')}}", "success");
 			 setTimeout(function(){
 				window.location.reload();
 				},2000);
 		}
 		else{
-			toastr.error("Error Occurred");
+			toastr.error("{{_t('Error Occurred')}}");
 		}
 		
 	});
@@ -87,8 +87,8 @@ function(){
                 
             },
             items: {
-                "edit": {name: "Edit", icon: "edit"},
-                "delete": {name: "Delete", icon: "delete"},
+                "edit": {name: "{{_t('Edit')}}", icon: "edit"},
+                "delete": {name: "{{_t('Delete')}}", icon: "delete"},
                 
                 "close": {name: "close", icon: function(){
                     return 'context-menu-icon context-menu-icon-quit';
@@ -116,7 +116,7 @@ function(){
 								$.get('{{url('savefolder?name=')}}'+$('#foldername').val(),function(data,status,xhr){
 									if(xhr.status==200){
 										
-										toastr.success("Folder Created Successfully");
+										toastr.success("{{_t('Folder Created Successfully')}}");
 										
 										setTimeout(function(){
 											
@@ -125,7 +125,7 @@ function(){
 										return ;
 									}
 									else {
-										toastr.error("Some Error Occurred");
+										toastr.error("{{_t('Some Error Occurred')}}");
 									}
 									
 								});
@@ -141,10 +141,10 @@ function(){
 
 <input type="hidden" value="{{csrf_token()}}" id="token" />
 <div class="page-header">
-  <h1 class="page-title">Document Administration</h1>
+  <h1 class="page-title">{{_t('Document Administration')}}</h1>
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/">Home</a></li>
-    <li class="breadcrumb-item active">You are Here</li>
+    <li class="breadcrumb-item"><a href="/">{{_t('Home')}}</a></li>
+    <li class="breadcrumb-item active">{{_t('You are Here')}}</li>
   </ol>
   <div class="page-header-actions">
     <div class="row no-space w-250 hidden-sm-down">
@@ -174,9 +174,9 @@ function(){
                 <div class="counter counter-md counter text-xs-right pull-xs-right">
                   <div class="counter-number-group">
                     <span class="counter-number">{{$foldercount}}</span>
-                    <span class="counter-number-related text-capitalize">Folders</span>
+                    <span class="counter-number-related text-capitalize">{{_t('Folders')}}</span>
                   </div>
-                  <div class="counter-label text-capitalize font-size-16">available</div>
+                  <div class="counter-label text-capitalize font-size-16">{{_t('available')}}</div>
                 </div>
               </div>
               <!-- End Card -->
@@ -190,9 +190,9 @@ function(){
                 <div class="counter counter-md counter text-xs-right pull-xs-right">
                   <div class="counter-number-group">
                     <span class="counter-number">{{$docucount}}</span>
-                    <span class="counter-number-related text-capitalize">Documents</span>
+                    <span class="counter-number-related text-capitalize">{{_t('Documents')}}</span>
                   </div>
-                  <div class="counter-label text-capitalize font-size-16">Uploaded</div>
+                  <div class="counter-label text-capitalize font-size-16">{{_t('Uploaded')}}</div>
                 </div>
               </div>
               <!-- End Card -->
@@ -202,7 +202,7 @@ function(){
 	<div class="col-lg-12 col-md-12 col-xs-12" oncontextmenu="dd(event)" onclick="dd2(event)">		 
 <div class="panel panel-success panel-line">
             <div class="panel-heading">
-              <h3 class="panel-title">All Folders
+              <h3 class="panel-title">{{_t('All Folders')}}
 			 <div class="col-md-4 pull-right">
 			  <form method="get"  action="{{url('searchdoc')}}">
                     <input type="hidden" name="foldid"  value="gen">
@@ -211,7 +211,7 @@ function(){
 				  
                     <input required type="text" name="q" class="form-control" placeholder="Search for...">
                     <span class="input-group-btn">
-                      <button type="submit" class="btn btn-default btn-outline" onclick="searchq()" id="searchbtn">Search</button>
+                      <button type="submit" class="btn btn-default btn-outline" onclick="searchq()" id="searchbtn">{{_t('Search')}}</button>
                     </span>
 					
 					
@@ -238,7 +238,7 @@ function(){
 	@else
 		
 	<div class="alert alert-info">
-	<h3>No Folder Found, Click on the Plus Button at the buttom of this page to add folder</h3>
+	<h3>{{_t('No Folder Found, Click on the Plus Button at the buttom of this page to add folder')}}</h3>
 	
 	</div>
 	@endif
@@ -262,15 +262,15 @@ function(){
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                           </button>
-                          <h4 class="modal-title">Add Folder</h4>
+                          <h4 class="modal-title">{{_t('Add Folder')}}</h4>
                         </div>
                         <div class="modal-body">
-                           Folder Name : </br>
+                           {{_t('Folder Name')}} : </br>
 						  <input type='text' class="form-control" id="foldername" />
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                          <button type="button" id="savefolder" class="btn btn-primary">Save changes</button>
+                          <button type="button" class="btn btn-default" data-dismiss="modal">{{_t('Close')}}</button>
+                          <button type="button" id="savefolder" class="btn btn-primary">{{_t('Save changes')}}</button>
 						  <script>
 						  
 						  </script>
@@ -286,15 +286,15 @@ function(){
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                           </button>
-                          <h4 class="modal-title">Edit Folder Name</h4>
+                          <h4 class="modal-title">{{_t('Edit Folder Name')}}</h4>
                         </div>
                         <div class="modal-body">
-                           Folder Name : </br>
+                           {{_t('Folder Name')}} : </br>
 						  <input type='text' class="form-control" id="editfoldername" />
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                          <button type="button" id="saveedit" class="btn btn-primary">Save changes</button>
+                          <button type="button" class="btn btn-default" data-dismiss="modal">{{_t('Close')}}</button>
+                          <button type="button" id="saveedit" class="btn btn-primary">{{_t('Save changes')}}</button>
 						  <script>
 						  
 						  </script>

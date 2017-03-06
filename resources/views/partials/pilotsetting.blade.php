@@ -15,12 +15,12 @@ function modify(id,objective,commitment){
 function deletes(id){
 	
 	swal({
-  title: "Are you sure?",
-  text: "You will not be able to recover this goal!",
+  title: "{{_t('Are you sure?')}}",
+  text: "{{_t('You will not be able to recover this goal!')}}",
   type: "warning",
   showCancelButton: true,
   confirmButtonColor: "#DD6B55",
-  confirmButtonText: "Yes, delete it!",
+  confirmButtonText: "{{_t('Yes, delete it!')}}",
   closeOnConfirm: false
 },
 function(){
@@ -28,7 +28,7 @@ function(){
 		
 		if(xhr.status==200){
 
-		 swal("Deleted!", "Pilot Goal Deleted.", "success");
+		 swal("Deleted!", "{{_t('Pilot Goal Deleted.')}}", "success");
 		 
 		 setTimeout(function(){
 			 window.location.reload();
@@ -36,7 +36,7 @@ function(){
 		 },2000);
 		}
 		else{
-			toastr.error("Some Error Occurred");
+			toastr.error("{{_t('Some Error Occurred')}}");
 		}
 	});
  
@@ -75,7 +75,7 @@ $(function(){
 			  commitment=$('#commitment').val();
 			  if(objective=="" || commitment==""){
 				  
-				  toastr.error("Please Fill all fields");
+				  toastr.error("{{_t('Please Fill all fields')}}");
 				  return;
 			  }
 			$.get('{{url('save/pilot')}}',{
@@ -90,11 +90,11 @@ $(function(){
 					if(type==1){
 						
 					
-					toastr.success("Successfully Add Pilot Goal");
+					toastr.success("{{_t('Successfully Add Pilot Goal')}}");
 					}
 					else{
 						
-					toastr.success("Successfully Modified Pilot Goal");
+					toastr.success("{{_t('Successfully Modified Pilot Goal')}}");
 					}
 				setTimeout(function(){
 					
@@ -102,7 +102,7 @@ $(function(){
 				},2000);
 				return ;
 				}
-				toastr.error("Some Error Occurred");
+				toastr.error("{{_t('Some Error Occurred')}}");
 				
 				
 			});
@@ -119,7 +119,7 @@ $(function(){
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                           </button>
-                          <h4 class="modal-title">Add/Modify Pilot Goals</h4>
+                          <h4 class="modal-title">{{_t('Add/Modify Pilot Goals')}}</h4>
                         </div>
                         <div class="modal-body">
                         <div class="panel-group panel-group-continuous" id="exampleAccordionContinuous" aria-multiselectable="true" role="tablist">
@@ -129,10 +129,10 @@ $(function(){
 				  
                     <div class="panel-heading" id="exampleHeadingContinuousThree" role="tab">
 					 <div class="ribbon ribbon-bookmark ribbon-danger">
-                        <span class="ribbon-inner" style="cursor:pointer" onclick="deletes('{{$pilot->id}}')">Delete</span>
+                        <span class="ribbon-inner" style="cursor:pointer" onclick="deletes('{{$pilot->id}}')">{{_t('Delete')}}</span>
                       </div>
 					  <div class="ribbon ribbon-bookmark ribbon-reverse ribbon-success">
-                        <span class="ribbon-inner" style="cursor:pointer" onclick="modify('{{$pilot->id}}','{{$pilot->objective}}','{{$pilot->commitment}}')">Modify</span>
+                        <span class="ribbon-inner" style="cursor:pointer" onclick='modify("{{$pilot->id}}","{{$pilot->objective}}","{{htmlspecialchars($pilot->commitment)}}")'>{{_t('Modify')}}</span>
                       </div><br><Br>
                       <a class="panel-title collapsed" data-parent="#exampleAccordionContinuous" data-toggle="collapse" href="#exampleCollapseContinuousThree{{$pilot->id}}" aria-controls="exampleCollapseContinuousThree{{$pilot->id}}" aria-expanded="false">
                       {{$pilot->objective}}
@@ -146,27 +146,27 @@ $(function(){
                   </div>
 				  @endforeach
 				  @else
-					  <h3>No PIlot Goals Has Been Set for this Year</h3>
+					  <h3>{{_t('No PIlot Goals Has Been Set for this Year')}}</h3>
 				  @endif
                 </div>
 				<div id="addpilotcontrol">
 				<div class="example-wrap">
-                <h4 class="example-title">Objective</h4>
+                <h4 class="example-title">{{_t('Objective')}}</h4>
 				<input type="hidden" id="type" />
 				<input type="hidden" id="id" value="0" />
                 <textarea class="form-control" id="objective" rows="3"></textarea>
 				<br>
-               <h4 class="example-title">Commitment</h4>
+               <h4 class="example-title">{{_t('Commitment')}}</h4>
                 <textarea class="form-control" id="commitment" rows="3"></textarea><br>
            
-				<button type="button" id="savepilot" class="btn btn-primary"><i class="fa fa-save"></i>&nbsp;&nbsp; Save Goal</button>
+				<button type="button" id="savepilot" class="btn btn-primary"><i class="fa fa-save"></i>&nbsp;&nbsp;{{_t('Save Goal')}}</button>
 				<button type="button" id="cancelpilot" class="btn btn-danger"><i class="fa fa-ban"></i>&nbsp;&nbsp; Cancel</button>
 				   </div>
 				</div>
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                          <button type="button" id="addpilot" class="btn btn-primary"><i class="fa fa-plus"></i>&nbsp;&nbsp;Add Goal</button>
+                          <button type="button" class="btn btn-default" data-dismiss="modal">{{_t('Close')}}</button>
+                          <button type="button" id="addpilot" class="btn btn-primary"><i class="fa fa-plus"></i>&nbsp;&nbsp;{{_t('Add Goal')}}</button>
 						   
                         </div>
                       </div>

@@ -24,40 +24,8 @@ namespace Microsoft\Graph\Model;
 * @version   Release: 0.1.0
 * @link      https://graph.microsoft.io/
 */
-class Group extends Entity
+class Group extends DirectoryObject
 {
-    /**
-    * The array of properties available
-    * to the model
-    *
-    * @var array(string => string)
-    */
-    private $_propDict;
-    
-    /**
-    * Construct a new Group
-    *
-    * @param array $propDict A list of properties to set
-    *
-    * @return Group
-    */
-    function __construct($propDict = array())
-    {
-        parent::__construct();
-        $this->_propDict = $propDict;
-        return $this;
-    }
-
-    /**
-    * Gets the property dictionary of the Group
-    *
-    * @return array The list of properties
-    */
-    public function getProperties()
-    {
-        return $this->_propDict;
-    }
-
     /**
     * Gets the description
     *
@@ -71,7 +39,7 @@ class Group extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the description
     *
@@ -84,7 +52,7 @@ class Group extends Entity
         $this->_propDict["description"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the displayName
     *
@@ -98,7 +66,7 @@ class Group extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the displayName
     *
@@ -111,7 +79,7 @@ class Group extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the groupTypes
     *
@@ -125,7 +93,7 @@ class Group extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the groupTypes
     *
@@ -138,7 +106,7 @@ class Group extends Entity
         $this->_propDict["groupTypes"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the mail
     *
@@ -152,7 +120,7 @@ class Group extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the mail
     *
@@ -165,7 +133,7 @@ class Group extends Entity
         $this->_propDict["mail"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the mailEnabled
     *
@@ -179,7 +147,7 @@ class Group extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the mailEnabled
     *
@@ -192,7 +160,7 @@ class Group extends Entity
         $this->_propDict["mailEnabled"] = boolval($val);
         return $this;
     }
-
+    
     /**
     * Gets the mailNickname
     *
@@ -206,7 +174,7 @@ class Group extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the mailNickname
     *
@@ -219,7 +187,7 @@ class Group extends Entity
         $this->_propDict["mailNickname"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the onPremisesLastSyncDateTime
     *
@@ -237,7 +205,7 @@ class Group extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the onPremisesLastSyncDateTime
     *
@@ -250,7 +218,7 @@ class Group extends Entity
         $this->_propDict["onPremisesLastSyncDateTime"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the onPremisesSecurityIdentifier
     *
@@ -264,7 +232,7 @@ class Group extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the onPremisesSecurityIdentifier
     *
@@ -277,7 +245,7 @@ class Group extends Entity
         $this->_propDict["onPremisesSecurityIdentifier"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the onPremisesSyncEnabled
     *
@@ -291,7 +259,7 @@ class Group extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the onPremisesSyncEnabled
     *
@@ -304,7 +272,7 @@ class Group extends Entity
         $this->_propDict["onPremisesSyncEnabled"] = boolval($val);
         return $this;
     }
-
+    
     /**
     * Gets the proxyAddresses
     *
@@ -318,7 +286,7 @@ class Group extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the proxyAddresses
     *
@@ -331,7 +299,7 @@ class Group extends Entity
         $this->_propDict["proxyAddresses"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the securityEnabled
     *
@@ -345,7 +313,7 @@ class Group extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the securityEnabled
     *
@@ -358,7 +326,7 @@ class Group extends Entity
         $this->_propDict["securityEnabled"] = boolval($val);
         return $this;
     }
-
+    
     /**
     * Gets the visibility
     *
@@ -372,7 +340,7 @@ class Group extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the visibility
     *
@@ -385,7 +353,7 @@ class Group extends Entity
         $this->_propDict["visibility"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the allowExternalSenders
     *
@@ -399,7 +367,7 @@ class Group extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the allowExternalSenders
     *
@@ -412,7 +380,7 @@ class Group extends Entity
         $this->_propDict["allowExternalSenders"] = boolval($val);
         return $this;
     }
-
+    
     /**
     * Gets the autoSubscribeNewMembers
     *
@@ -426,7 +394,7 @@ class Group extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the autoSubscribeNewMembers
     *
@@ -439,7 +407,7 @@ class Group extends Entity
         $this->_propDict["autoSubscribeNewMembers"] = boolval($val);
         return $this;
     }
-
+    
     /**
     * Gets the isSubscribedByMail
     *
@@ -453,7 +421,7 @@ class Group extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the isSubscribedByMail
     *
@@ -466,7 +434,7 @@ class Group extends Entity
         $this->_propDict["isSubscribedByMail"] = boolval($val);
         return $this;
     }
-
+    
     /**
     * Gets the unseenCount
     *
@@ -480,7 +448,7 @@ class Group extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the unseenCount
     *
@@ -493,7 +461,7 @@ class Group extends Entity
         $this->_propDict["unseenCount"] = intval($val);
         return $this;
     }
-
+    
     /** 
     * Gets the members
     *
@@ -507,7 +475,7 @@ class Group extends Entity
             return null;
         }
     }
-	
+    
     /** 
     * Sets the members
     *
@@ -520,8 +488,7 @@ class Group extends Entity
 		$this->_propDict["members"] = $val;
         return $this;
     }
-
-
+    
     /** 
     * Gets the memberOf
     *
@@ -535,7 +502,7 @@ class Group extends Entity
             return null;
         }
     }
-	
+    
     /** 
     * Sets the memberOf
     *
@@ -548,8 +515,7 @@ class Group extends Entity
 		$this->_propDict["memberOf"] = $val;
         return $this;
     }
-
-
+    
     /**
     * Gets the createdOnBehalfOf
     *
@@ -567,7 +533,7 @@ class Group extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the createdOnBehalfOf
     *
@@ -580,7 +546,7 @@ class Group extends Entity
         $this->_propDict["createdOnBehalfOf"] = $val;
         return $this;
     }
-
+    
     /** 
     * Gets the owners
     *
@@ -594,7 +560,7 @@ class Group extends Entity
             return null;
         }
     }
-	
+    
     /** 
     * Sets the owners
     *
@@ -607,8 +573,7 @@ class Group extends Entity
 		$this->_propDict["owners"] = $val;
         return $this;
     }
-
-
+    
     /** 
     * Gets the threads
     *
@@ -622,7 +587,7 @@ class Group extends Entity
             return null;
         }
     }
-	
+    
     /** 
     * Sets the threads
     *
@@ -635,8 +600,7 @@ class Group extends Entity
 		$this->_propDict["threads"] = $val;
         return $this;
     }
-
-
+    
     /**
     * Gets the calendar
     *
@@ -654,7 +618,7 @@ class Group extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the calendar
     *
@@ -667,7 +631,7 @@ class Group extends Entity
         $this->_propDict["calendar"] = $val;
         return $this;
     }
-
+    
     /** 
     * Gets the calendarView
     *
@@ -681,7 +645,7 @@ class Group extends Entity
             return null;
         }
     }
-	
+    
     /** 
     * Sets the calendarView
     *
@@ -694,8 +658,7 @@ class Group extends Entity
 		$this->_propDict["calendarView"] = $val;
         return $this;
     }
-
-
+    
     /** 
     * Gets the events
     *
@@ -709,7 +672,7 @@ class Group extends Entity
             return null;
         }
     }
-	
+    
     /** 
     * Sets the events
     *
@@ -722,8 +685,7 @@ class Group extends Entity
 		$this->_propDict["events"] = $val;
         return $this;
     }
-
-
+    
     /** 
     * Gets the conversations
     *
@@ -737,7 +699,7 @@ class Group extends Entity
             return null;
         }
     }
-	
+    
     /** 
     * Sets the conversations
     *
@@ -750,8 +712,7 @@ class Group extends Entity
 		$this->_propDict["conversations"] = $val;
         return $this;
     }
-
-
+    
     /**
     * Gets the photo
     *
@@ -769,7 +730,7 @@ class Group extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the photo
     *
@@ -782,7 +743,7 @@ class Group extends Entity
         $this->_propDict["photo"] = $val;
         return $this;
     }
-
+    
     /** 
     * Gets the acceptedSenders
     *
@@ -796,7 +757,7 @@ class Group extends Entity
             return null;
         }
     }
-	
+    
     /** 
     * Sets the acceptedSenders
     *
@@ -809,8 +770,7 @@ class Group extends Entity
 		$this->_propDict["acceptedSenders"] = $val;
         return $this;
     }
-
-
+    
     /** 
     * Gets the rejectedSenders
     *
@@ -824,7 +784,7 @@ class Group extends Entity
             return null;
         }
     }
-	
+    
     /** 
     * Sets the rejectedSenders
     *
@@ -837,8 +797,7 @@ class Group extends Entity
 		$this->_propDict["rejectedSenders"] = $val;
         return $this;
     }
-
-
+    
     /**
     * Gets the drive
     *
@@ -856,7 +815,7 @@ class Group extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the drive
     *
@@ -869,4 +828,5 @@ class Group extends Entity
         $this->_propDict["drive"] = $val;
         return $this;
     }
+    
 }

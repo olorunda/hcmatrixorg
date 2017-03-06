@@ -8,7 +8,7 @@
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                           </button>
-                          <h4 class="modal-title" id="exampleFormModalLabel">Add Job</h4>
+                          <h4 class="modal-title" id="exampleFormModalLabel">{{_t('Add Job')}}</h4>
                         </div>
                         <div class="modal-body">
                           <div class="row">
@@ -20,10 +20,10 @@
 							
 							<div class="col-xs-12 col-xl-12 form-group">
                              <select data-plugin="select2" class="form-control" id="taketest"  >
-							<option value="0">-Take Apptitude Test-</option>
+							<option value="0">-{{_t('Take Apptitude Test')}}-</option>
 							
-							<option value="1">Yes</option>
-							<option value="0">No</option>
+							<option value="1">{{_t('Yes')}}</option>
+							<option value="0">{{_t('No')}}</option>
 									
 							</select>
                             </div>
@@ -33,7 +33,7 @@
                             </div>
 							<div class="col-xs-12 col-xl-12 form-group">
 							<select data-plugin="select2" class="form-control" id="levelid"  >
-							<option value="0">-Select Level-</option>
+							<option value="0">-{{_t('Select Level')}}-</option>
 									@if(count($levels)>0)
 									@foreach($levels as $level)
 							<option value="{{$level->id}}">{{$level->level}}</option>
@@ -44,7 +44,7 @@
 							
 							<div class="col-xs-12 col-xl-12 form-group">
 							<select data-plugin="select2" class="form-control" id="typeid"  >
-							<option value="0">-Work Type-</option>
+							<option value="0">-{{_t('Work Type')}}-</option>
 									@if(count($types)>0)
 									@foreach($types as $type)
 							<option value="{{$type->id}}">{{$type->work_type}}</option>
@@ -55,7 +55,7 @@
 							
 							<div class="col-xs-12 col-xl-12 form-group">
 							<select data-plugin="select2" class="form-control" id="specid"  >
-							<option value="0">-Department-</option>
+							<option value="0">-{{_t('Department')}}-</option>
 									@if(count($specs)>0)
 									@foreach($specs as $spec)
 							<option value="{{$spec->id}}">{{$spec->spec}}</option>
@@ -66,14 +66,14 @@
 							
                             <div class="col-xs-12 col-xl-12 form-group">
 							<select data-plugin="select2" class="form-control" id="state"  >
-							<option value="0">Location (all)</option>
+							<option value="0">{{_t('Location (all)')}}</option>
 									@foreach($states as $state)
 							<option value="{{$state->id}}">{{$state->state}}</option>
 									@endforeach
 							</select>
 							</div>
 					  	   <div class="col-xs-12 col-xl-12 form-group expreq">
-							Experience Required
+							{{_t('Experience Required')}}
 							<input required  type="text"  id="expyear" data-plugin="ionRangeSlider" data-min=0 data-max=25 data-from=2  data-prefix="Year(s)"  data-type="double" data-grid="true">
 							</div>
 							
@@ -92,7 +92,7 @@
                               <textarea required  data-provide="markdown" data-iconlibrary="fa"  id="otherskill" class="md-input" rows="5" style="width: 100%; resize: none;" placeholder="Other Skills"></textarea>
                             </div>
 							<div class="col-xs-12 col-xl-12 form-group salrange">
-							Salary Range
+							{{_t('Salary Range')}}
 							<input required  type="text"  id="range" data-plugin="ionRangeSlider" data-min=10000 data-max=1000000 data-from=15000  data-prefix="Salary( N"  data-type="double" data-grid="true">
 							</div>
 							   <div class="col-xs-12 col-xl-12 form-group">

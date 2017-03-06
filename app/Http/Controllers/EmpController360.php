@@ -13,7 +13,13 @@ class EmpController360 extends Controller
 	public function __construct(EmployeeRepository $employee){
 		
 		$this->middleware('auth');
-		$this->employee=$employee;
+		$this->employee=$employee;		
+		if(session('locale')==""){
+			session(['locale'=>'en']); 
+	
+		}
+		 
+		
 	}
 	
 	//employee list disp

@@ -26,38 +26,6 @@ namespace Microsoft\Graph\Model;
 class WorkbookSortField extends Entity
 {
     /**
-    * The array of properties available 
-    * to the model
-    *
-    * @var array(string => string)
-    */
-    private $_propDict;
-    /**
-    * WorkbookSortField constructor
-    *
-    * @param array $propDict List of properties to set
-    * Defaults to an empty array
-    *
-    * @return WorkbookSortField
-    */
-    public function __construct($propDict=array())
-    {
-        parent::__construct();
-        $this->_propDict = $propDict;
-        return $this;
-    }
-
-	/**
-    * Gets the property dictionary of the WorkbookSortField
-    *
-    * @return array The list of properties
-    */
-    public function getProperties()
-    {
-        return $this->_propDict;
-    }
-    
-    /**
     * Gets the ascending
     *
     * @return bool The ascending
@@ -83,7 +51,6 @@ class WorkbookSortField extends Entity
         $this->_propDict["ascending"] = $val;
         return $this;
     }
-    
     /**
     * Gets the color
     *
@@ -110,7 +77,6 @@ class WorkbookSortField extends Entity
         $this->_propDict["color"] = $val;
         return $this;
     }
-    
     /**
     * Gets the dataOption
     *
@@ -168,7 +134,6 @@ class WorkbookSortField extends Entity
         $this->_propDict["icon"] = $val;
          return $this;
     }
-    
     /**
     * Gets the key
     *
@@ -195,7 +160,6 @@ class WorkbookSortField extends Entity
         $this->_propDict["key"] = $val;
         return $this;
     }
-    
     /**
     * Gets the sortOn
     *

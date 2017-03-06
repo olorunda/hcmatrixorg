@@ -27,38 +27,6 @@ namespace Microsoft\Graph\Model;
 class WorkbookApplication extends Entity
 {
     /**
-    * The array of properties available
-    * to the model
-    *
-    * @var array(string => string)
-    */
-    private $_propDict;
-    
-    /**
-    * Construct a new WorkbookApplication
-    *
-    * @param array $propDict A list of properties to set
-    *
-    * @return WorkbookApplication
-    */
-    function __construct($propDict = array())
-    {
-        parent::__construct();
-        $this->_propDict = $propDict;
-        return $this;
-    }
-
-    /**
-    * Gets the property dictionary of the WorkbookApplication
-    *
-    * @return array The list of properties
-    */
-    public function getProperties()
-    {
-        return $this->_propDict;
-    }
-
-    /**
     * Gets the calculationMode
     *
     * @return string The calculationMode
@@ -71,7 +39,7 @@ class WorkbookApplication extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the calculationMode
     *
@@ -84,4 +52,5 @@ class WorkbookApplication extends Entity
         $this->_propDict["calculationMode"] = $val;
         return $this;
     }
+    
 }

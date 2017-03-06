@@ -167,7 +167,7 @@ function month($id)
 				</div>
 
 <div class="col-md-3 col-xs-12 pull-right">
-					<img class="img-rounded img-bordered img-bordered-primary" width="150" height="150" src="{{asset('upload')}}/{{$employee->image}}">
+					<img class="img-rounded img-bordered img-bordered-primary" width="150" height="150" src="{{asset('storage')}}/{{$employee->image}}">
 				</div>
 			</div>
 		</div>

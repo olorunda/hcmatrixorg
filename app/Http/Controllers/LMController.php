@@ -15,6 +15,11 @@ class LMController extends Controller
 	protected $employee;
     public function __construct(EmployeeRepository $employee)
     {
+		if(session('locale')==""){
+			session(['locale'=>'en']); 
+	
+		}
+			 
         $this->middleware('auth');
         $this->middleware('rights');
 		$this->employee=$employee;

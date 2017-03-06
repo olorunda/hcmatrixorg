@@ -26,35 +26,4 @@ namespace Microsoft\Graph\Model;
 */
 class WorkbookFunctions extends Entity
 {
-    /**
-    * The array of properties available
-    * to the model
-    *
-    * @var array(string => string)
-    */
-    private $_propDict;
-    
-    /**
-    * Construct a new WorkbookFunctions
-    *
-    * @param array $propDict A list of properties to set
-    *
-    * @return WorkbookFunctions
-    */
-    function __construct($propDict = array())
-    {
-        parent::__construct();
-        $this->_propDict = $propDict;
-        return $this;
-    }
-
-    /**
-    * Gets the property dictionary of the WorkbookFunctions
-    *
-    * @return array The list of properties
-    */
-    public function getProperties()
-    {
-        return $this->_propDict;
-    }
 }

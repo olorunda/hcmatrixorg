@@ -27,38 +27,6 @@ namespace Microsoft\Graph\Model;
 class WorkbookRangeFormat extends Entity
 {
     /**
-    * The array of properties available
-    * to the model
-    *
-    * @var array(string => string)
-    */
-    private $_propDict;
-    
-    /**
-    * Construct a new WorkbookRangeFormat
-    *
-    * @param array $propDict A list of properties to set
-    *
-    * @return WorkbookRangeFormat
-    */
-    function __construct($propDict = array())
-    {
-        parent::__construct();
-        $this->_propDict = $propDict;
-        return $this;
-    }
-
-    /**
-    * Gets the property dictionary of the WorkbookRangeFormat
-    *
-    * @return array The list of properties
-    */
-    public function getProperties()
-    {
-        return $this->_propDict;
-    }
-
-    /**
     * Gets the columnWidth
     *
     * @return float The columnWidth
@@ -71,7 +39,7 @@ class WorkbookRangeFormat extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the columnWidth
     *
@@ -84,7 +52,7 @@ class WorkbookRangeFormat extends Entity
         $this->_propDict["columnWidth"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the horizontalAlignment
     *
@@ -98,7 +66,7 @@ class WorkbookRangeFormat extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the horizontalAlignment
     *
@@ -111,7 +79,7 @@ class WorkbookRangeFormat extends Entity
         $this->_propDict["horizontalAlignment"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the rowHeight
     *
@@ -125,7 +93,7 @@ class WorkbookRangeFormat extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the rowHeight
     *
@@ -138,7 +106,7 @@ class WorkbookRangeFormat extends Entity
         $this->_propDict["rowHeight"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the verticalAlignment
     *
@@ -152,7 +120,7 @@ class WorkbookRangeFormat extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the verticalAlignment
     *
@@ -165,7 +133,7 @@ class WorkbookRangeFormat extends Entity
         $this->_propDict["verticalAlignment"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the wrapText
     *
@@ -179,7 +147,7 @@ class WorkbookRangeFormat extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the wrapText
     *
@@ -192,7 +160,7 @@ class WorkbookRangeFormat extends Entity
         $this->_propDict["wrapText"] = boolval($val);
         return $this;
     }
-
+    
     /** 
     * Gets the borders
     *
@@ -206,7 +174,7 @@ class WorkbookRangeFormat extends Entity
             return null;
         }
     }
-	
+    
     /** 
     * Sets the borders
     *
@@ -219,8 +187,7 @@ class WorkbookRangeFormat extends Entity
 		$this->_propDict["borders"] = $val;
         return $this;
     }
-
-
+    
     /**
     * Gets the fill
     *
@@ -238,7 +205,7 @@ class WorkbookRangeFormat extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the fill
     *
@@ -251,7 +218,7 @@ class WorkbookRangeFormat extends Entity
         $this->_propDict["fill"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the font
     *
@@ -269,7 +236,7 @@ class WorkbookRangeFormat extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the font
     *
@@ -282,7 +249,7 @@ class WorkbookRangeFormat extends Entity
         $this->_propDict["font"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the protection
     *
@@ -300,7 +267,7 @@ class WorkbookRangeFormat extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the protection
     *
@@ -313,4 +280,5 @@ class WorkbookRangeFormat extends Entity
         $this->_propDict["protection"] = $val;
         return $this;
     }
+    
 }

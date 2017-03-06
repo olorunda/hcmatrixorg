@@ -17,11 +17,16 @@ class EmployeeController extends Controller
 	protected $employee;
 	
 	public function __construct(EmployeeRepository $employee){
+				 
        $this->middleware('auth');
        $this->middleware('rights');
 	   
        $this->employee=$employee;
-    
+		if(session('locale')==""){
+			session(['locale'=>'en']); 
+	
+		}
+		 
    }
 
 	//get employee job details
@@ -193,10 +198,25 @@ elseif($route=='myquery'){
 	$queries=$this->employee->myquery();
 	return view('employee.myquery',['query'=>$queries]);
 	
-}
-		$directemps          = app('App\Repositories\EmployeeRepository')->lmemployee(Auth::user()->id, 'all');
-		$pilots              = app('App\Repositories\EmployeeRepository')->getGoalTo(0, 0, 2);
-	return view('employee.profile', ['directemps'=>$directemps, 'pilots'=>$pilots]);
+} 
+$realroute=explode('_',$route);
+	if(isset($realroute[1])){
+		if(is_numeric($realroute[1])){
+		$dependants              = app('App\Http\Controllers\ProfileController')->displaydependant($realroute[1]);
+		$skills              = app('App\Http\Controllers\ProfileController')->displayskill($realroute[1]);
+		$academics              = app('App\Http\Controllers\ProfileController')->displayacademics($realroute[1]);
+		$experiences             = app('App\Http\Controllers\ProfileController')->displayexperiences($realroute[1]);
+		$employeedata=\App\User::where('id',$realroute[1])->first();
+		if($employeedata==""){
+			return redirect('error');
+		 
+		}
+	return view('employee.profile', ['employeedata'=>$employeedata, 'dependants'=>$dependants,'skills'=>$skills,'academics'=>$academics,'experiences'=>$experiences]);
+		}
+	}
+			return redirect('error');
+		 
+		
 }
 
 public function setreadquery(Request $request){

@@ -26,38 +26,6 @@ namespace Microsoft\Graph\Model;
 class Reminder extends Entity
 {
     /**
-    * The array of properties available 
-    * to the model
-    *
-    * @var array(string => string)
-    */
-    private $_propDict;
-    /**
-    * Reminder constructor
-    *
-    * @param array $propDict List of properties to set
-    * Defaults to an empty array
-    *
-    * @return Reminder
-    */
-    public function __construct($propDict=array())
-    {
-        parent::__construct();
-        $this->_propDict = $propDict;
-        return $this;
-    }
-
-	/**
-    * Gets the property dictionary of the Reminder
-    *
-    * @return array The list of properties
-    */
-    public function getProperties()
-    {
-        return $this->_propDict;
-    }
-    
-    /**
     * Gets the eventId
     *
     * @return string The eventId
@@ -145,7 +113,6 @@ class Reminder extends Entity
         $this->_propDict["eventEndTime"] = $val;
          return $this;
     }
-    
     /**
     * Gets the changeKey
     *
@@ -172,7 +139,6 @@ class Reminder extends Entity
         $this->_propDict["change_key"] = $val;
         return $this;
     }
-    
     /**
     * Gets the eventSubject
     *
@@ -230,7 +196,6 @@ class Reminder extends Entity
         $this->_propDict["eventLocation"] = $val;
          return $this;
     }
-    
     /**
     * Gets the eventWebLink
     *

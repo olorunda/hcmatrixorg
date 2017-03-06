@@ -303,11 +303,11 @@ class GlobalSettingRepository{
 		if($cron==1){
 			
 		       $getattendance=\DB::table('users')
-							->join('attendances','users.emp_num','=','attendances.user_id')
-							->select('attendances.created_at','attendances.id as ids ','attendances.clockout_time','attendances.status','users.name','users.id','users.emp_num')
+							->join('daily_attendance','users.emp_num','=','daily_attendance.emp_num')
+							->select('daily_attendance.clock_in as created_at','daily_attendance.id as ids ','daily_attendance.clock_out as clockout_time','daily_attendance.flag as status','users.name','users.id','users.emp_num')
 							->where('users.linemanager_id','!=',0)
 							
-							->whereBetween('attendances.created_at',[$startdate,$enddate])
+							->whereBetween('daily_attendance.clock_in',[$startdate,$enddate])
 							
 							->get();
 						
@@ -317,51 +317,59 @@ class GlobalSettingRepository{
 		if(\Auth::user()->role==3){
 			if($type==='datesearch'){
 				$getattendance=\DB::table('users')
-							->join('attendances','users.emp_num','=','attendances.user_id')
-							->select('attendances.created_at','attendances.id as ids ','attendances.clockout_time','attendances.status','users.name','users.id','users.emp_num')
+							->join('daily_attendance','users.emp_num','=','daily_attendance.emp_num')
+							->select('daily_attendance.clock_in as created_at','daily_attendance.id as ids ','daily_attendance.clock_out as clockout_time','daily_attendance.flag as status','users.name','users.id','users.emp_num')
+							
 							->where('users.linemanager_id','!=',0)
 							
-							->whereBetween('attendances.created_at',[$startdate,$enddate])
+							->whereBetween('daily_attendance.clock_in',[$startdate,$enddate])
 							
 							->paginate(30);		
 			}
 			 elseif($type==='empsearch'){
 				$getattendance=\DB::table('users')
-							->join('attendances','users.emp_num','=','attendances.user_id')
-							->select('attendances.created_at','attendances.id as ids','attendances.clockout_time','attendances.status','users.name','users.id','users.emp_num')
+							->join('daily_attendance','users.emp_num','=','daily_attendance.emp_num')
+							->select('daily_attendance.clock_in as created_at','daily_attendance.id as ids ','daily_attendance.clock_out as clockout_time','daily_attendance.flag as status','users.name','users.id','users.emp_num')
+							
 							->where('users.linemanager_id','!=',0)
 							->where('users.name','like','%'.$empname.'%')
-							->whereBetween('attendances.created_at',[$startdate,$enddate])
+							->whereBetween('daily_attendance.clock_in',[$startdate,$enddate])
 							->paginate(30);
 				
 			} 
 			else{
 			$getattendance=\DB::table('users')
-							->join('attendances','users.emp_num','=','attendances.user_id')
-							->select('attendances.created_at','attendances.id as ids','attendances.clockout_time','attendances.status','users.name','users.id','users.emp_num')
-							->where('attendances.created_at','like','%'.date('Y-m-d').'%')
+							->join('daily_attendance','users.emp_num','=','daily_attendance.emp_num')
+							->select('daily_attendance.clock_in as created_at','daily_attendance.id as ids ','daily_attendance.clock_out as clockout_time','daily_attendance.flag as status','users.name','users.id','users.emp_num')
+							->where('daily_attendance.date',date('Y-m-d'))
 							->where('users.linemanager_id','!=',0)
 							->paginate(30);
+							
+							//return $getattendance;
 			}
 		}
 			//LINE MANAGER CONDITION
 		else{
 						if($type==="datesearch"){
 				$getattendance=\DB::table('users')
-							->join('attendances','users.emp_num','=','attendances.user_id')
-							->select('attendances.created_at','attendances.id as ids','attendances.clockout_time','attendances.status','users.name','users.id','users.emp_num')
+							->join('daily_attendance','users.emp_num','=','daily_attendance.emp_num')
+							->select('daily_attendance.clock_in as created_at','daily_attendance.id as ids ','daily_attendance.clock_out as clockout_time','daily_attendance.flag as status','users.name','users.id','users.emp_num')
 							
-							->whereBetween('attendances.created_at',[$startdate,$enddate])
+							
+							->whereBetween('daily_attendance.clock_in',[$startdate,$enddate])
 							
 							->paginate(30);	
+							
+							//return $getattendance;
 				
 				
 			}
 			elseif($type==="empsearch"){
 				$getattendance=\DB::table('users')
-							->join('attendances','users.emp_num','=','attendances.user_id')
-							->select('attendances.created_at','attendances.id as ids','attendances.clockout_time','attendances.status','users.name','users.id','users.emp_num')
-							->whereBetween('attendances.created_at',[$startdate,$enddate])
+							->join('daily_attendance','users.emp_num','=','daily_attendance.emp_num')
+							->select('daily_attendance.clock_in as created_at','daily_attendance.id as ids ','daily_attendance.clock_out as clockout_time','daily_attendance.flag as status','users.name','users.id','users.emp_num')
+							
+							->whereBetween('daily_attendance.clock_in',[$startdate,$enddate])
 							->where('users.linemanager_id','=',\Auth::user()->id)
 						
 							->where('users.name','like','%'.$empname.'%')
@@ -373,10 +381,12 @@ class GlobalSettingRepository{
 			
 		
 			else{
+				
 			$getattendance=\DB::table('users')
-							->join('attendances','users.emp_num','=','attendances.user_id')
-							->select('attendances.created_at','attendances.id as ids','attendances.clockout_time','attendances.status','users.name','users.id','users.emp_num')
-							->where('attendances.created_at','like','%'.date('Y-m-d').'%')
+							->join('daily_attendance','users.emp_num','=','daily_attendance.emp_num')
+							->select('daily_attendance.clock_in as created_at','daily_attendance.id as ids ','daily_attendance.clock_out as clockout_time','daily_attendance.flag as status','users.name','users.id','users.emp_num')
+							
+							->where('daily_attendance.date',date('Y-m-d'))
 							->where('users.linemanager_id','=',\Auth::user()->id)
 							->paginate(30);
 			}	
@@ -488,35 +498,35 @@ class GlobalSettingRepository{
 		if($role==3){
 			$users=\App\user::where('linemanager_id','!=',0)->count('id');	
 			$countearly=\DB::table('users')
-					->join('attendances','users.emp_num','=','attendances.user_id')
+					->join('daily_attendance','users.emp_num','=','daily_attendance.emp_num')
 					->where('users.linemanager_id','!=',0)
-					->where('attendances.created_at','like','%'.date('Y-m-d').'%')
-					->where('attendances.status','Early')
-					->count('attendances.id');
+					->where('daily_attendance.date',date('Y-m-d'))
+					->where('daily_attendance.flag','Early')
+					->count('daily_attendance.id');
 			
 			$countlate=\DB::table('users')
-					->join('attendances','users.emp_num','=','attendances.user_id')
+					->join('daily_attendance','users.emp_num','=','daily_attendance.emp_num')
 					->where('users.linemanager_id','!=',0)
-					->where('attendances.created_at','like','%'.date('Y-m-d').'%')
-					->where('attendances.status','Late')
-					->count('attendances.id');
+					->where('daily_attendance.date',date('Y-m-d'))
+					->where('daily_attendance.flag','Late')
+					->count('daily_attendance.id');
 					
 		}
 		else{
 			$users=\App\user::where('linemanager_id','=',\Auth::user()->id)->count();
 				$countearly=\DB::table('users')
-					->join('attendances','users.emp_num','=','attendances.user_id')
+					->join('daily_attendance','users.emp_num','=','daily_attendance.emp_num')
 					->where('users.linemanager_id','=',\Auth::user()->id)
-					->where('attendances.created_at','like','%'.date('Y-m-d').'%')
-					->where('attendances.status','Early')
-					->count('attendances.id');	
+					->where('daily_attendance.date',date('Y-m-d'))
+					->where('daily_attendance.flag','Early')
+					->count('daily_attendance.id');	
 			    
 				$countlate=\DB::table('users')
-					->join('attendances','users.emp_num','=','attendances.user_id')
+					->join('daily_attendance','users.emp_num','=','daily_attendance.emp_num')
 					->where('users.linemanager_id','=',\Auth::user()->id)
-					->where('attendances.created_at','like','%'.date('Y-m-d').'%')
-					->where('attendances.status','Late')
-					->count('attendances.id');
+					->where('daily_attendance.date',date('Y-m-d'))
+					->where('daily_attendance.flag','Late')
+					->count('daily_attendance.id');
 		}
 		return ['early'=>$countearly,'late'=>$countlate,'total'=>$users];
 		
@@ -548,15 +558,15 @@ class GlobalSettingRepository{
 						
 						if (strtotime($clocktime) < strtotime($getbuinesshours['sob'])) {
 					if($updatedearly==""){
-						\App\attendance::where('id',$attendanceid)
-								->update(['status'=>'Early']);
+						\App\daily_attendance::where('id',$attendanceid)
+								->update(['flag'=>'Early']);
 					}
 							return "Early";
 							}
 							
 						else{
 							if($updatedearly==""){
-						\App\attendance::where('id',$attendanceid)->update(['status'=>'Late']);
+						\App\daily_attendance::where('id',$attendanceid)->update(['flag'=>'Late','late_time'=>date('H:i:s',strtotime($clockintime))]);
 					}
 							return "Late";
 						}

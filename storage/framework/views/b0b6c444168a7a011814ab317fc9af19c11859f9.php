@@ -42,6 +42,7 @@ function niceDate($date)
 ?>
 <script>
 	function reviewed(id,name,lmid){
+	 
 		 	sessionStorage.setItem('count',0);
 		$('#prev').show();		
 	 $('#next').show();	
@@ -52,7 +53,7 @@ function niceDate($date)
 			
 		},function(data,status,xhr){
 
-	if((Math.ceil(data/5))-1==0){
+	if((Math.ceil(data/5))-1<=0){
 	 $('#prev').hide();		
 	 $('#next').hide();		
 	}
@@ -156,7 +157,7 @@ function niceDate($date)
 					name=element.name;
 				}
 			$('#myreviews').append(
-			'<div class="col-sm-2"> <div class="thumbnail"> <img class="img-responsive user-photo" style="height:50px; weight:50px;" src="<?php echo e(url('upload')); ?>/<?php echo e(Auth::user()->image); ?>"> </div>  </div>  <div class="col-sm-10"> <div class="panel panel-default"> <div class="panel-heading"> <strong>'+
+			'<div class="col-sm-2"> <div class="thumbnail"> <img class="img-responsive user-photo" style="height:50px; weight:50px;" src="<?php echo e(asset('storage')); ?>/<?php echo e(Auth::user()->image); ?>"> </div>  </div>  <div class="col-sm-10"> <div class="panel panel-default"> <div class="panel-heading"> <strong>'+
 			name
 			+' </strong> <span class="text-muted">commented @'+element.created_at+'</span> </div> <div class="panel-body">'+element.review+'</div></div> </div>');
 			});
@@ -168,6 +169,7 @@ function niceDate($date)
 		
 	}
 $(function (){
+	
 	
 //jquery pagination
 //implement the count
@@ -321,7 +323,7 @@ $(function (){
                       <div class="media-left">
                         <div class="avatar ">
 						 
-						 <img src="<?php echo e(url('upload')); ?>/<?php echo e($employee->image); ?>" alt="<?php echo e($employee->name); ?>">
+						 <img src="<?php echo e(asset('storage')); ?>/<?php echo e($employee->image); ?>" alt="<?php echo e($employee->name); ?>">
                           <i></i>
                         </div>
                       </div>

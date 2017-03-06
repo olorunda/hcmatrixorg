@@ -16,7 +16,12 @@ class XtraController extends Controller
 	protected $xtra;
 	 
 	public function  __construct(XtraRepository $xtra) {
-		 $this->middleware('auth');;
+			if(session('locale')==""){
+			session(['locale'=>'en']); 
+	
+		}
+		 		 
+		$this->middleware('auth');;
 		 $this->middleware('rights');;
 		 $this->xtra=$xtra;
 	}

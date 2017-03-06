@@ -27,38 +27,6 @@ namespace Microsoft\Graph\Model;
 class Subscription extends Entity
 {
     /**
-    * The array of properties available
-    * to the model
-    *
-    * @var array(string => string)
-    */
-    private $_propDict;
-    
-    /**
-    * Construct a new Subscription
-    *
-    * @param array $propDict A list of properties to set
-    *
-    * @return Subscription
-    */
-    function __construct($propDict = array())
-    {
-        parent::__construct();
-        $this->_propDict = $propDict;
-        return $this;
-    }
-
-    /**
-    * Gets the property dictionary of the Subscription
-    *
-    * @return array The list of properties
-    */
-    public function getProperties()
-    {
-        return $this->_propDict;
-    }
-
-    /**
     * Gets the resource
     *
     * @return string The resource
@@ -71,7 +39,7 @@ class Subscription extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the resource
     *
@@ -84,7 +52,7 @@ class Subscription extends Entity
         $this->_propDict["resource"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the changeType
     *
@@ -98,7 +66,7 @@ class Subscription extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the changeType
     *
@@ -111,7 +79,7 @@ class Subscription extends Entity
         $this->_propDict["changeType"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the clientState
     *
@@ -125,7 +93,7 @@ class Subscription extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the clientState
     *
@@ -138,7 +106,7 @@ class Subscription extends Entity
         $this->_propDict["clientState"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the notificationUrl
     *
@@ -152,7 +120,7 @@ class Subscription extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the notificationUrl
     *
@@ -165,7 +133,7 @@ class Subscription extends Entity
         $this->_propDict["notificationUrl"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the expirationDateTime
     *
@@ -183,7 +151,7 @@ class Subscription extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the expirationDateTime
     *
@@ -196,4 +164,5 @@ class Subscription extends Entity
         $this->_propDict["expirationDateTime"] = $val;
         return $this;
     }
+    
 }

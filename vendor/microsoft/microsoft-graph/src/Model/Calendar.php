@@ -27,38 +27,6 @@ namespace Microsoft\Graph\Model;
 class Calendar extends Entity
 {
     /**
-    * The array of properties available
-    * to the model
-    *
-    * @var array(string => string)
-    */
-    private $_propDict;
-    
-    /**
-    * Construct a new Calendar
-    *
-    * @param array $propDict A list of properties to set
-    *
-    * @return Calendar
-    */
-    function __construct($propDict = array())
-    {
-        parent::__construct();
-        $this->_propDict = $propDict;
-        return $this;
-    }
-
-    /**
-    * Gets the property dictionary of the Calendar
-    *
-    * @return array The list of properties
-    */
-    public function getProperties()
-    {
-        return $this->_propDict;
-    }
-
-    /**
     * Gets the name
     *
     * @return string The name
@@ -71,7 +39,7 @@ class Calendar extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the name
     *
@@ -84,7 +52,7 @@ class Calendar extends Entity
         $this->_propDict["name"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the color
     *
@@ -102,7 +70,7 @@ class Calendar extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the color
     *
@@ -115,7 +83,7 @@ class Calendar extends Entity
         $this->_propDict["color"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the changeKey
     *
@@ -129,7 +97,7 @@ class Calendar extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the changeKey
     *
@@ -142,7 +110,7 @@ class Calendar extends Entity
         $this->_propDict["changeKey"] = $val;
         return $this;
     }
-
+    
     /** 
     * Gets the events
     *
@@ -156,7 +124,7 @@ class Calendar extends Entity
             return null;
         }
     }
-	
+    
     /** 
     * Sets the events
     *
@@ -169,8 +137,7 @@ class Calendar extends Entity
 		$this->_propDict["events"] = $val;
         return $this;
     }
-
-
+    
     /** 
     * Gets the calendarView
     *
@@ -184,7 +151,7 @@ class Calendar extends Entity
             return null;
         }
     }
-	
+    
     /** 
     * Sets the calendarView
     *
@@ -197,8 +164,7 @@ class Calendar extends Entity
 		$this->_propDict["calendarView"] = $val;
         return $this;
     }
-
-
+    
     /** 
     * Gets the singleValueExtendedProperties
     *
@@ -212,7 +178,7 @@ class Calendar extends Entity
             return null;
         }
     }
-	
+    
     /** 
     * Sets the singleValueExtendedProperties
     *
@@ -225,8 +191,7 @@ class Calendar extends Entity
 		$this->_propDict["singleValueExtendedProperties"] = $val;
         return $this;
     }
-
-
+    
     /** 
     * Gets the multiValueExtendedProperties
     *
@@ -240,7 +205,7 @@ class Calendar extends Entity
             return null;
         }
     }
-	
+    
     /** 
     * Sets the multiValueExtendedProperties
     *
@@ -253,5 +218,5 @@ class Calendar extends Entity
 		$this->_propDict["multiValueExtendedProperties"] = $val;
         return $this;
     }
-
+    
 }

@@ -27,38 +27,6 @@ namespace Microsoft\Graph\Model;
 class WorkbookChart extends Entity
 {
     /**
-    * The array of properties available
-    * to the model
-    *
-    * @var array(string => string)
-    */
-    private $_propDict;
-    
-    /**
-    * Construct a new WorkbookChart
-    *
-    * @param array $propDict A list of properties to set
-    *
-    * @return WorkbookChart
-    */
-    function __construct($propDict = array())
-    {
-        parent::__construct();
-        $this->_propDict = $propDict;
-        return $this;
-    }
-
-    /**
-    * Gets the property dictionary of the WorkbookChart
-    *
-    * @return array The list of properties
-    */
-    public function getProperties()
-    {
-        return $this->_propDict;
-    }
-
-    /**
     * Gets the height
     *
     * @return float The height
@@ -71,7 +39,7 @@ class WorkbookChart extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the height
     *
@@ -84,7 +52,7 @@ class WorkbookChart extends Entity
         $this->_propDict["height"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the left
     *
@@ -98,7 +66,7 @@ class WorkbookChart extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the left
     *
@@ -111,7 +79,7 @@ class WorkbookChart extends Entity
         $this->_propDict["left"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the name
     *
@@ -125,7 +93,7 @@ class WorkbookChart extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the name
     *
@@ -138,7 +106,7 @@ class WorkbookChart extends Entity
         $this->_propDict["name"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the top
     *
@@ -152,7 +120,7 @@ class WorkbookChart extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the top
     *
@@ -165,7 +133,7 @@ class WorkbookChart extends Entity
         $this->_propDict["top"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the width
     *
@@ -179,7 +147,7 @@ class WorkbookChart extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the width
     *
@@ -192,7 +160,7 @@ class WorkbookChart extends Entity
         $this->_propDict["width"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the axes
     *
@@ -210,7 +178,7 @@ class WorkbookChart extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the axes
     *
@@ -223,7 +191,7 @@ class WorkbookChart extends Entity
         $this->_propDict["axes"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the dataLabels
     *
@@ -241,7 +209,7 @@ class WorkbookChart extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the dataLabels
     *
@@ -254,7 +222,7 @@ class WorkbookChart extends Entity
         $this->_propDict["dataLabels"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the format
     *
@@ -272,7 +240,7 @@ class WorkbookChart extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the format
     *
@@ -285,7 +253,7 @@ class WorkbookChart extends Entity
         $this->_propDict["format"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the legend
     *
@@ -303,7 +271,7 @@ class WorkbookChart extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the legend
     *
@@ -316,7 +284,7 @@ class WorkbookChart extends Entity
         $this->_propDict["legend"] = $val;
         return $this;
     }
-
+    
     /** 
     * Gets the series
     *
@@ -330,7 +298,7 @@ class WorkbookChart extends Entity
             return null;
         }
     }
-	
+    
     /** 
     * Sets the series
     *
@@ -343,8 +311,7 @@ class WorkbookChart extends Entity
 		$this->_propDict["series"] = $val;
         return $this;
     }
-
-
+    
     /**
     * Gets the title
     *
@@ -362,7 +329,7 @@ class WorkbookChart extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the title
     *
@@ -375,7 +342,7 @@ class WorkbookChart extends Entity
         $this->_propDict["title"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the worksheet
     *
@@ -393,7 +360,7 @@ class WorkbookChart extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the worksheet
     *
@@ -406,4 +373,5 @@ class WorkbookChart extends Entity
         $this->_propDict["worksheet"] = $val;
         return $this;
     }
+    
 }

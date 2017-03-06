@@ -25,37 +25,6 @@ namespace Microsoft\Graph\Model;
 */
 class Shared extends Entity
 {
-    /**
-    * The array of properties available 
-    * to the model
-    *
-    * @var array(string => string)
-    */
-    private $_propDict;
-    /**
-    * Shared constructor
-    *
-    * @param array $propDict List of properties to set
-    * Defaults to an empty array
-    *
-    * @return Shared
-    */
-    public function __construct($propDict=array())
-    {
-        parent::__construct();
-        $this->_propDict = $propDict;
-        return $this;
-    }
-
-	/**
-    * Gets the property dictionary of the Shared
-    *
-    * @return array The list of properties
-    */
-    public function getProperties()
-    {
-        return $this->_propDict;
-    }
 
     /**
     * Gets the owner
@@ -87,7 +56,6 @@ class Shared extends Entity
         $this->_propDict["owner"] = $val;
          return $this;
     }
-    
     /**
     * Gets the scope
     *

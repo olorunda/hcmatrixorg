@@ -35,10 +35,10 @@
   <link rel="stylesheet" href="../../../../global/fonts/font-awesome/font-awesome.css">
   <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
 
-  @if(active('employee/objective'))
+  @if(active(session('locale').'/employee/objective'))
   <link rel="stylesheet" href="{{asset('assets/css/documents.css')}}">
   <link rel="stylesheet" href="../../../global/vendor/ladda/ladda.css">
-  @elseif(active('lm/objectives_c'))
+  @elseif(active(session('locale').'/lm/objectives_c'))
   <link rel="stylesheet" href="../../../../global/vendor/tablesaw/tablesaw.css">
   <link rel="stylesheet" href="../../../assets/examples/css/apps/contacts.css">
   <link rel="stylesheet" href="{{asset('assets/css/objectives.css')}}">
@@ -48,7 +48,7 @@
   <link rel="stylesheet" href="../../../global/vendor/editable-table/editable-table.css">
   <link rel="stylesheet" href="../../../global/vendor/summernote/summernote.css">
   <link rel="stylesheet" href="../../../global/vendor/select2/select2.css">
-  @elseif(active('lm/rate'))
+  @elseif(active(session('locale').'/lm/rate'))
   <link rel="stylesheet" href="../../../global/vendor/select2/select2.css">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/sweetalert.css')}}">
   <link rel="stylesheet" href="../../../global/vendor/morris/morris.css">
@@ -102,7 +102,7 @@
     </style>
   </head>
 
-  @if(active('lm/objectives_c'))
+  @if(active(session('locale').'/lm/objectives_c'))
   <body class="animsition app-contacts page-aside-left">
     @else
     <body class="animsition dashboard">
@@ -170,24 +170,39 @@
          </select>
 
        </li>
-       <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="javascript:void(0)" data-animation="scale-up"
-        aria-expanded="false" role="button">
-        <span class="flag-icon flag-icon-us"></span>
-      </a>
-      <div class="dropdown-menu" role="menu">
-        <a class="dropdown-item" href="javascript:void(0)" role="menuitem">
-          <span class="flag-icon flag-icon-gb"></span> English</a>
-          <a class="dropdown-item" href="javascript:void(0)" role="menuitem">
-            <span class="flag-icon flag-icon-fr"></span> French</a>
-            <a class="dropdown-item" href="javascript:void(0)" role="menuitem">
-              <span class="flag-icon flag-icon-cn"></span> Chinese</a>
-              <a class="dropdown-item" href="javascript:void(0)" role="menuitem">
-                <span class="flag-icon flag-icon-de"></span> German</a>
-                <a class="dropdown-item" href="javascript:void(0)" role="menuitem">
-                  <span class="flag-icon flag-icon-nl"></span> Dutch</a>
-                </div>
-              </li>
+            <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="dropdown" href="javascript:void(0)" data-animation="scale-up"
+            aria-expanded="false" role="button">	
+			<?php   
+			
+					if(session('locale')=='en'):
+
+						$lang='gb';
+					elseif(session('locale')=='fr'):
+						$lang='fr';
+					elseif(session('locale')=='zu'):
+						$lang='sa';
+					elseif(session('locale')=='yo'||session('locale')=='ig'):
+						$lang='ng';
+					else:
+						$lang='gb';
+					endif
+			?>
+              <span class="flag-icon flag-icon-{{$lang}}"></span>
+            </a>
+            <div class="dropdown-menu" role="menu">
+              <a class="dropdown-item" href="{{url('change/en')}}" role="menuitem">
+                <span class="flag-icon flag-icon-gb"></span> {{_t('English')}}</a>
+              <a class="dropdown-item" href="{{url('change/fr')}}" role="menuitem">
+                <span class="flag-icon flag-icon-fr"></span> {{_t('French')}}</a>
+              <a class="dropdown-item" href="{{url('change/zu')}}" role="menuitem">
+                <span class="flag-icon flag-icon-sa"></span> {{_t('Zulu')}}</a>
+              <a class="dropdown-item" href="{{url('change/yo')}}" role="menuitem">
+                <span class="flag-icon flag-icon-ng"></span> {{_t('Yoruba')}}</a>
+              <a class="dropdown-item" href="{{url('change/ig')}}" role="menuitem">
+                <span class="flag-icon flag-icon-ng"></span> {{_t('Igbo')}}</a>
+            </div>
+          </li>
               <li class="nav-item dropdown">
                 <a class="nav-link navbar-avatar" data-toggle="dropdown" href="#" aria-expanded="false"
                 data-animation="scale-up" role="button">
@@ -240,7 +255,7 @@
         </div>
       </div>
       <!-- Page -->
-      @if(active('lm/objectives_c'))
+      @if(active(session('locale').'/lm/objectives_c'))
       @yield('content')
       @else
       <div class="page">
@@ -331,7 +346,7 @@
 
   </script>
 
-  @if(active('employee/objective'))
+  @if(active(session('locale').'/employee/objective'))
   <script type="text/javascript" src="{{asset('assets/js/App/Documents.js')}}"></script>
   <script src="../../../global/vendor/jquery-appear/jquery.appear.js"></script>
   <script src="../../../global/js/Plugin/jquery-appear.js"></script>
@@ -342,7 +357,7 @@
   <script src="../../../global/js/Plugin/ladda.js"></script>
   <script src="../../../global/js/Plugin/peity.js"></script>
   <script src="../../assets/examples/js/tables/jqtabledit.js"></script>
-  @elseif(active('lm/objectives_c'))
+  @elseif(active(session('locale').'/lm/objectives_c'))
   <script src="../../../../global/js/Plugin/tablesaw.js"></script>
   <script src="../../../../global/js/Plugin/sticky-header.js"></script>
   <script src="../../../../global/js/Plugin/action-btn.js"></script>
@@ -377,7 +392,7 @@
       display: none;
     }
   </style>
-  @elseif(active('lm/rate'))
+  @elseif(active(session('locale').'/lm/rate'))
   <script src="../../../global/vendor/select2/select2.full.min.js"></script>
   <script src="../../../global/js/Plugin/select2.js"></script>
    <script src="{{asset('assets/js/nprogress.js')}}"></script>

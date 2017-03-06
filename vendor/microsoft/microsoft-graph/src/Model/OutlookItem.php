@@ -27,38 +27,6 @@ namespace Microsoft\Graph\Model;
 class OutlookItem extends Entity
 {
     /**
-    * The array of properties available
-    * to the model
-    *
-    * @var array(string => string)
-    */
-    private $_propDict;
-    
-    /**
-    * Construct a new OutlookItem
-    *
-    * @param array $propDict A list of properties to set
-    *
-    * @return OutlookItem
-    */
-    function __construct($propDict = array())
-    {
-        parent::__construct();
-        $this->_propDict = $propDict;
-        return $this;
-    }
-
-    /**
-    * Gets the property dictionary of the OutlookItem
-    *
-    * @return array The list of properties
-    */
-    public function getProperties()
-    {
-        return $this->_propDict;
-    }
-
-    /**
     * Gets the createdDateTime
     *
     * @return \DateTime The createdDateTime
@@ -75,7 +43,7 @@ class OutlookItem extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the createdDateTime
     *
@@ -88,7 +56,7 @@ class OutlookItem extends Entity
         $this->_propDict["createdDateTime"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the lastModifiedDateTime
     *
@@ -106,7 +74,7 @@ class OutlookItem extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the lastModifiedDateTime
     *
@@ -119,7 +87,7 @@ class OutlookItem extends Entity
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the changeKey
     *
@@ -133,7 +101,7 @@ class OutlookItem extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the changeKey
     *
@@ -146,7 +114,7 @@ class OutlookItem extends Entity
         $this->_propDict["changeKey"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the categories
     *
@@ -160,7 +128,7 @@ class OutlookItem extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the categories
     *
@@ -173,4 +141,5 @@ class OutlookItem extends Entity
         $this->_propDict["categories"] = $val;
         return $this;
     }
+    
 }

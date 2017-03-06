@@ -24,40 +24,8 @@ namespace Microsoft\Graph\Model;
 * @version   Release: 0.1.0
 * @link      https://graph.microsoft.io/
 */
-class Organization extends Entity
+class Organization extends DirectoryObject
 {
-    /**
-    * The array of properties available
-    * to the model
-    *
-    * @var array(string => string)
-    */
-    private $_propDict;
-    
-    /**
-    * Construct a new Organization
-    *
-    * @param array $propDict A list of properties to set
-    *
-    * @return Organization
-    */
-    function __construct($propDict = array())
-    {
-        parent::__construct();
-        $this->_propDict = $propDict;
-        return $this;
-    }
-
-    /**
-    * Gets the property dictionary of the Organization
-    *
-    * @return array The list of properties
-    */
-    public function getProperties()
-    {
-        return $this->_propDict;
-    }
-
     /** 
     * Gets the assignedPlans
     *
@@ -71,7 +39,7 @@ class Organization extends Entity
             return null;
         }
     }
-	
+    
     /** 
     * Sets the assignedPlans
     *
@@ -84,8 +52,7 @@ class Organization extends Entity
 		$this->_propDict["assignedPlans"] = $val;
         return $this;
     }
-
-
+    
     /**
     * Gets the businessPhones
     *
@@ -99,7 +66,7 @@ class Organization extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the businessPhones
     *
@@ -112,7 +79,7 @@ class Organization extends Entity
         $this->_propDict["businessPhones"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the city
     *
@@ -126,7 +93,7 @@ class Organization extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the city
     *
@@ -139,7 +106,7 @@ class Organization extends Entity
         $this->_propDict["city"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the country
     *
@@ -153,7 +120,7 @@ class Organization extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the country
     *
@@ -166,7 +133,7 @@ class Organization extends Entity
         $this->_propDict["country"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the countryLetterCode
     *
@@ -180,7 +147,7 @@ class Organization extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the countryLetterCode
     *
@@ -193,7 +160,7 @@ class Organization extends Entity
         $this->_propDict["countryLetterCode"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the displayName
     *
@@ -207,7 +174,7 @@ class Organization extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the displayName
     *
@@ -220,7 +187,7 @@ class Organization extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the marketingNotificationEmails
     *
@@ -234,7 +201,7 @@ class Organization extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the marketingNotificationEmails
     *
@@ -247,7 +214,7 @@ class Organization extends Entity
         $this->_propDict["marketingNotificationEmails"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the onPremisesLastSyncDateTime
     *
@@ -265,7 +232,7 @@ class Organization extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the onPremisesLastSyncDateTime
     *
@@ -278,7 +245,7 @@ class Organization extends Entity
         $this->_propDict["onPremisesLastSyncDateTime"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the onPremisesSyncEnabled
     *
@@ -292,7 +259,7 @@ class Organization extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the onPremisesSyncEnabled
     *
@@ -305,7 +272,7 @@ class Organization extends Entity
         $this->_propDict["onPremisesSyncEnabled"] = boolval($val);
         return $this;
     }
-
+    
     /**
     * Gets the postalCode
     *
@@ -319,7 +286,7 @@ class Organization extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the postalCode
     *
@@ -332,7 +299,7 @@ class Organization extends Entity
         $this->_propDict["postalCode"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the preferredLanguage
     *
@@ -346,7 +313,7 @@ class Organization extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the preferredLanguage
     *
@@ -359,7 +326,7 @@ class Organization extends Entity
         $this->_propDict["preferredLanguage"] = $val;
         return $this;
     }
-
+    
     /** 
     * Gets the provisionedPlans
     *
@@ -373,7 +340,7 @@ class Organization extends Entity
             return null;
         }
     }
-	
+    
     /** 
     * Sets the provisionedPlans
     *
@@ -386,8 +353,7 @@ class Organization extends Entity
 		$this->_propDict["provisionedPlans"] = $val;
         return $this;
     }
-
-
+    
     /**
     * Gets the securityComplianceNotificationMails
     *
@@ -401,7 +367,7 @@ class Organization extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the securityComplianceNotificationMails
     *
@@ -414,7 +380,7 @@ class Organization extends Entity
         $this->_propDict["securityComplianceNotificationMails"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the securityComplianceNotificationPhones
     *
@@ -428,7 +394,7 @@ class Organization extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the securityComplianceNotificationPhones
     *
@@ -441,7 +407,7 @@ class Organization extends Entity
         $this->_propDict["securityComplianceNotificationPhones"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the state
     *
@@ -455,7 +421,7 @@ class Organization extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the state
     *
@@ -468,7 +434,7 @@ class Organization extends Entity
         $this->_propDict["state"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the street
     *
@@ -482,7 +448,7 @@ class Organization extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the street
     *
@@ -495,7 +461,7 @@ class Organization extends Entity
         $this->_propDict["street"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the technicalNotificationMails
     *
@@ -509,7 +475,7 @@ class Organization extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the technicalNotificationMails
     *
@@ -522,7 +488,7 @@ class Organization extends Entity
         $this->_propDict["technicalNotificationMails"] = $val;
         return $this;
     }
-
+    
     /** 
     * Gets the verifiedDomains
     *
@@ -536,7 +502,7 @@ class Organization extends Entity
             return null;
         }
     }
-	
+    
     /** 
     * Sets the verifiedDomains
     *
@@ -549,5 +515,5 @@ class Organization extends Entity
 		$this->_propDict["verifiedDomains"] = $val;
         return $this;
     }
-
+    
 }

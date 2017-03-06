@@ -19,6 +19,7 @@
 	     otherskill=$('#jobotherskill'+id).val();
 		 locations=$('#joblocation_id'+id).val();
 		 specid=$('#jobspec_id'+id).val();
+		 
 		 typeid=$('#jobtype_id'+id).val();
 		 levelid=$('#joblevel_id'+id).val();
 		 minsal=$('#jobmin_sal'+id).val();
@@ -26,7 +27,6 @@
 		 minexp=$('#jobmin_exp'+id).val();
 		 maxexp=$('#jobmax_exp'+id).val(); 
 		 
-		  
 		 
 		   $('#requirement').val($('#jobqualification'+id).val());
 		
@@ -104,6 +104,11 @@
 			var requiredexp=$('#requiredexp').val();
 			var specid=$('#specid').val();
 			var levelid=$('#levelid').val();
+					if(specid==null){
+				toastr.error("Some Fields are blank");	
+					return;
+					}
+			//return alert(specid);
 						
 	$.post('<?php echo e(url('savelisting')); ?>/'+type,{
 		

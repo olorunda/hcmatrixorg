@@ -27,38 +27,6 @@ namespace Microsoft\Graph\Model;
 class WorkbookRange extends Entity
 {
     /**
-    * The array of properties available
-    * to the model
-    *
-    * @var array(string => string)
-    */
-    private $_propDict;
-    
-    /**
-    * Construct a new WorkbookRange
-    *
-    * @param array $propDict A list of properties to set
-    *
-    * @return WorkbookRange
-    */
-    function __construct($propDict = array())
-    {
-        parent::__construct();
-        $this->_propDict = $propDict;
-        return $this;
-    }
-
-    /**
-    * Gets the property dictionary of the WorkbookRange
-    *
-    * @return array The list of properties
-    */
-    public function getProperties()
-    {
-        return $this->_propDict;
-    }
-
-    /**
     * Gets the address
     *
     * @return string The address
@@ -71,7 +39,7 @@ class WorkbookRange extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the address
     *
@@ -84,7 +52,7 @@ class WorkbookRange extends Entity
         $this->_propDict["address"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the addressLocal
     *
@@ -98,7 +66,7 @@ class WorkbookRange extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the addressLocal
     *
@@ -111,7 +79,7 @@ class WorkbookRange extends Entity
         $this->_propDict["addressLocal"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the cellCount
     *
@@ -125,7 +93,7 @@ class WorkbookRange extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the cellCount
     *
@@ -138,7 +106,7 @@ class WorkbookRange extends Entity
         $this->_propDict["cellCount"] = intval($val);
         return $this;
     }
-
+    
     /**
     * Gets the columnCount
     *
@@ -152,7 +120,7 @@ class WorkbookRange extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the columnCount
     *
@@ -165,7 +133,7 @@ class WorkbookRange extends Entity
         $this->_propDict["columnCount"] = intval($val);
         return $this;
     }
-
+    
     /**
     * Gets the columnHidden
     *
@@ -179,7 +147,7 @@ class WorkbookRange extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the columnHidden
     *
@@ -192,7 +160,7 @@ class WorkbookRange extends Entity
         $this->_propDict["columnHidden"] = boolval($val);
         return $this;
     }
-
+    
     /**
     * Gets the columnIndex
     *
@@ -206,7 +174,7 @@ class WorkbookRange extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the columnIndex
     *
@@ -219,7 +187,7 @@ class WorkbookRange extends Entity
         $this->_propDict["columnIndex"] = intval($val);
         return $this;
     }
-
+    
     /**
     * Gets the formulas
     *
@@ -233,7 +201,7 @@ class WorkbookRange extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the formulas
     *
@@ -246,7 +214,7 @@ class WorkbookRange extends Entity
         $this->_propDict["formulas"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the formulasLocal
     *
@@ -260,7 +228,7 @@ class WorkbookRange extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the formulasLocal
     *
@@ -273,7 +241,7 @@ class WorkbookRange extends Entity
         $this->_propDict["formulasLocal"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the formulasR1C1
     *
@@ -287,7 +255,7 @@ class WorkbookRange extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the formulasR1C1
     *
@@ -300,7 +268,7 @@ class WorkbookRange extends Entity
         $this->_propDict["formulasR1C1"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the hidden
     *
@@ -314,7 +282,7 @@ class WorkbookRange extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the hidden
     *
@@ -327,7 +295,7 @@ class WorkbookRange extends Entity
         $this->_propDict["hidden"] = boolval($val);
         return $this;
     }
-
+    
     /**
     * Gets the numberFormat
     *
@@ -341,7 +309,7 @@ class WorkbookRange extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the numberFormat
     *
@@ -354,7 +322,7 @@ class WorkbookRange extends Entity
         $this->_propDict["numberFormat"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the rowCount
     *
@@ -368,7 +336,7 @@ class WorkbookRange extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the rowCount
     *
@@ -381,7 +349,7 @@ class WorkbookRange extends Entity
         $this->_propDict["rowCount"] = intval($val);
         return $this;
     }
-
+    
     /**
     * Gets the rowHidden
     *
@@ -395,7 +363,7 @@ class WorkbookRange extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the rowHidden
     *
@@ -408,7 +376,7 @@ class WorkbookRange extends Entity
         $this->_propDict["rowHidden"] = boolval($val);
         return $this;
     }
-
+    
     /**
     * Gets the rowIndex
     *
@@ -422,7 +390,7 @@ class WorkbookRange extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the rowIndex
     *
@@ -435,7 +403,7 @@ class WorkbookRange extends Entity
         $this->_propDict["rowIndex"] = intval($val);
         return $this;
     }
-
+    
     /**
     * Gets the text
     *
@@ -449,7 +417,7 @@ class WorkbookRange extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the text
     *
@@ -462,7 +430,7 @@ class WorkbookRange extends Entity
         $this->_propDict["text"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the valueTypes
     *
@@ -476,7 +444,7 @@ class WorkbookRange extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the valueTypes
     *
@@ -489,7 +457,7 @@ class WorkbookRange extends Entity
         $this->_propDict["valueTypes"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the values
     *
@@ -503,7 +471,7 @@ class WorkbookRange extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the values
     *
@@ -516,7 +484,7 @@ class WorkbookRange extends Entity
         $this->_propDict["values"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the format
     *
@@ -534,7 +502,7 @@ class WorkbookRange extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the format
     *
@@ -547,7 +515,7 @@ class WorkbookRange extends Entity
         $this->_propDict["format"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the sort
     *
@@ -565,7 +533,7 @@ class WorkbookRange extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the sort
     *
@@ -578,7 +546,7 @@ class WorkbookRange extends Entity
         $this->_propDict["sort"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the worksheet
     *
@@ -596,7 +564,7 @@ class WorkbookRange extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the worksheet
     *
@@ -609,4 +577,5 @@ class WorkbookRange extends Entity
         $this->_propDict["worksheet"] = $val;
         return $this;
     }
+    
 }

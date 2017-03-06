@@ -14,7 +14,7 @@
 			caltype='jobm';
 		}
 		else{
-			customise='Department(s)';
+			customise='<?php echo e(_t('Department(s)')); ?>';
 			hideid='delblock';
 			caltype='dept';
 		}
@@ -22,16 +22,16 @@
 		
 	 }
 	 else{
-		  toastr.error('Please Select '+customise+' to delete');
+		  toastr.error('<?php echo e(_t('Please Select')); ?> '+customise+' to delete');
 		 return ;
 	 }
 	 swal({
-  title: "Are you sure?",
-  text: "You will not be able to recover deleted "+customise,
-  type: "warning",
+  title: "<?php echo e(_t('Are you sure')); ?>?",
+  text: "<?php echo e(_t('You will not be able to recover deleted')); ?> "+customise,
+  type: "<?php echo e(_t('warning')); ?>",
   showCancelButton: true,
   confirmButtonColor: "#DD6B55",
-  confirmButtonText: "Yes, delete it!",
+  confirmButtonText: "<?php echo e(_t('Yes, delete it!')); ?>",
   closeOnConfirm: false
 },
 function(){
@@ -74,12 +74,12 @@ function(){
 			toastr.success(customise+' Deleted');	//i++;
 			}
 			else{
-				toastr.success('Error Ocurred');	//i++;
+				toastr.success('<?php echo e(_t('Error Ocurred')); ?>');	//i++;
 			
 				return ;
 			}
 			
-			 swal("Deleted!", customise+" Successfully Deleted.", "success");
+			 swal("<?php echo e(_t('Deleted!", customise+" Successfully Deleted.')); ?>", "success");
 	
 			
 		/** setTimeout(function(){
@@ -138,7 +138,7 @@ function(){
 		$('#description').val("");
 		$('#departmentm').val("");
       
-			$('#changebtn').html('<button type="button" class="btn btn-primary btn-outline" id="savejobdepm" onclick="savejobdepm()"><i class="fa fa-save mailico"></i><i class="fa fa-circle-o-notch fa-spin fa-fw hidespin" style="display: none;"></i>&nbsp;&nbsp;Save changes</button>');
+			$('#changebtn').html('<button type="button" class="btn btn-primary btn-outline" id="savejobdepm" onclick="savejobdepm()"><i class="fa fa-save mailico"></i><i class="fa fa-circle-o-notch fa-spin fa-fw hidespin" style="display: none;"></i>&nbsp;&nbsp;<?php echo e(_t('Save changes')); ?></button>');
 		$('.hidespin').hide();
  }
 
@@ -163,7 +163,7 @@ function(){
 			department=$('#departmentm').val(title);
 			sessionStorage.setItem('depid',depid);
 				
-				$('#changebtn').html('<button type="button" class="btn btn-primary btn-outline" onclick="manualmodify(1)"><i class="fa fa-save mailico"></i><i class="fa fa-circle-o-notch fa-spin fa-fw hidespin"></i>&nbsp;&nbsp;Modify</button>');
+				$('#changebtn').html('<button type="button" class="btn btn-primary btn-outline" onclick="manualmodify(1)"><i class="fa fa-save mailico"></i><i class="fa fa-circle-o-notch fa-spin fa-fw hidespin"></i>&nbsp;&nbsp;<?php echo e(_t('Modify')); ?></button>');
 		$('.hidespin').hide(); 
 		
 	     }
@@ -184,7 +184,7 @@ function(){
 		description=$('#description').val(description);
       
 		
-		$('#changebtn').html('<button type="button" class="btn btn-primary btn-outline" onclick="manualmodify()"><i class="fa fa-save mailico"></i><i class="fa fa-circle-o-notch fa-spin fa-fw hidespin"></i>&nbsp;&nbsp;Modify</button>');
+		$('#changebtn').html('<button type="button" class="btn btn-primary btn-outline" onclick="manualmodify()"><i class="fa fa-save mailico"></i><i class="fa fa-circle-o-notch fa-spin fa-fw hidespin"></i>&nbsp;&nbsp;<?php echo e(_t('Modify')); ?></button>');
 		$('.hidespin').hide();
 		
 	  } 
@@ -213,7 +213,7 @@ function(){
 		},2000);
 	}
 	else{
-		toastr.error("Some error Occurred:"+ data);
+		toastr.error("<?php echo e(_t('Some error Occurred')); ?>:"+ data);
 	}
 });
 
@@ -247,7 +247,7 @@ function(){
 		},2000);
 	}
 	else{
-		toastr.error("Some error Occurred:"+ data);
+		toastr.error("<?php echo e(_t('Some error Occurred')); ?>:"+ data);
 	}
 });
 
@@ -316,10 +316,10 @@ $.post('<?php echo e(url('hr/manualadd/0')); ?>',{
 },function(data,status,xhr){
 	
 	if(xhr.status==200){
-		 $('#showdeptm').html('<select id="jobdepidm" class="form-control" ><option  disabled>--Select Department --</option></select>');
+		 $('#showdeptm').html('<select id="jobdepidm" class="form-control" ><option  disabled>-- <?php echo e(_t('Select Department')); ?> --</option></select>');
 		
 	    updatedep("jobdepidm");
-		toastr.success("<span style='z-index:9999999999'>Department Added Successfully</span>");
+		toastr.success("<span style='z-index:9999999999'><?php echo e(_t('Department Added Successfully')); ?></span>");
 		
 		setTimeout(function(){
 			
@@ -328,7 +328,7 @@ $.post('<?php echo e(url('hr/manualadd/0')); ?>',{
 		},2000);
 	}
 	else{
-		toastr.error("<span style='z-index:9999999999'>Some error Occurred:"+ data+"</span>");
+		toastr.error("<span style='z-index:9999999999'><?php echo e(_t('Some error Occurred')); ?>:"+ data+"</span>");
 	}
 });	
 	
@@ -425,7 +425,7 @@ $('#checkall').click(function(){
    
    //success upload
    myDropzone.on("success",function(file,response){
-	   $('#showdept').html('<select id="jobdepid" class="form-control" ><option  disabled>--Select Department --</option></select>');
+	   $('#showdept').html('<select id="jobdepid" class="form-control" ><option  disabled>--<?php echo e(_t('Select Department')); ?> --</option></select>');
 			console.log(response);
 		   toastr.success('Import was successfull:'+response);
 		   updatedep('jobdepid');
@@ -446,7 +446,7 @@ $('#checkall').click(function(){
     myDropzone.on("error", function(file,response) {
                    // sessionStorage.setItem("error", 1);
                    // $("#disp").html(response);
-                  toastr.error('Some error Occurred: '+response);
+                  toastr.error('<?php echo e(_t('Some error Occurred')); ?>: '+response);
 				 myDropzone.removeFile(file);
                 });
    
@@ -509,10 +509,10 @@ $('#checkall').click(function(){
 
 <input type="hidden" value="<?php echo e(csrf_token()); ?>" id="token" />
 <div class="page-header">
-  <h1 class="page-title">Job/Department Settings</h1>
+  <h1 class="page-title"><?php echo e(_t('Job/Department Settings')); ?></h1>
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/">Home</a></li>
-    <li class="breadcrumb-item active">You are Here</li>
+    <li class="breadcrumb-item"><a href="/"><?php echo e(_t('Home')); ?></a></li>
+    <li class="breadcrumb-item active"><?php echo e(_t('You are Here')); ?></li>
   </ol>
   <div class="page-header-actions">
     <div class="row no-space w-250 hidden-sm-down">
@@ -543,9 +543,9 @@ $('#checkall').click(function(){
                 <div class="counter counter-md counter text-xs-right pull-xs-right">
                   <div class="counter-number-group">
                     <span class="counter-number jobm"><?php echo e(count($alljobs)); ?></span>
-                    <span class="counter-number-related text-capitalize">Job(s)</span>
+                    <span class="counter-number-related text-capitalize"><?php echo e(_t('Job')); ?>(s)</span>
                   </div>
-                  <div class="counter-label text-capitalize font-size-16">in Total</div>
+                  <div class="counter-label text-capitalize font-size-16"><?php echo e(_t('in Total')); ?></div>
                 </div>
               </div>
               <!-- End Card -->
@@ -557,9 +557,9 @@ $('#checkall').click(function(){
                 <div class="counter counter-md pull-xs-left text-xs-left">
                   <div class="counter-number-group">
                     <span class="counter-number dept"><?php echo e(count($dept)); ?> </span>
-                    <span class="counter-number-related text-capitalize">Department(s)</span>
+                    <span class="counter-number-related text-capitalize"><?php echo e(_t('Department')); ?>(s)</span>
                   </div>
-                  <div class="counter-label text-capitalize font-size-16">in total</div>
+                  <div class="counter-label text-capitalize font-size-16"><?php echo e(_t('in total')); ?></div>
                 </div>
                 <div class="pull-xs-right white" style="cursor:pointer" data-toggle="modal" data-target="#managedepartment">
                   <i class="icon icon-circle icon-2x wb-users bg-blue-600" aria-hidden="true"></i>
@@ -609,17 +609,21 @@ $('#checkall').click(function(){
                         </span>
                       </th>
                       <th>
-                        Title
+					  <?php echo e(_t('Title')); ?>
+
                       </th>
                       <th>
-                        Description
+                        <?php echo e(_t('Description')); ?>
+
                       </th>
                     
                       <th>
-                        Department
+                        <?php echo e(_t('Department')); ?>
+
                       </th> 
 					  <th>
-                        Action
+                        <?php echo e(_t('Action')); ?>
+
                       </th>
                      
                     </tr>
@@ -634,17 +638,23 @@ $('#checkall').click(function(){
                           <label></label>
                         </span>
                       </td>
-                      <td><?php echo e($job->title); ?>
+                      <td><?php echo e(_t($job->title)); ?>
 
                        
                       </td>
-                      <td><?php echo e($job->description); ?>
+                      <td><?php echo e(_t($job->description)); ?>
 
                        
                       </td>
 					
 					  <td>
-					  <?php echo e(app('App\Repositories\GlobalSettingRepository')->getdept($job->jobdep_id)['spec']); ?>
+					  <?php 
+					  $deptname=app('App\Repositories\GlobalSettingRepository')->getdept($job->jobdep_id)['spec']; 
+					  if($deptname==""){ 
+					  $deptname="";
+					  }  
+					  ?>
+					  <?php echo e(_t($deptname)); ?>
 
                        
                       </td>
@@ -657,7 +667,7 @@ $('#checkall').click(function(){
 					<?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
 					<?php else: ?>
 						<tr>
-					<span style="tex-align:center">No Record Found</span>
+ <span style="tex-align:center"><?php echo e(_t('No Record Found')); ?></span>
 					</tr>
 						
 						<?php endif; ?>
@@ -691,7 +701,7 @@ $('#checkall').click(function(){
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                   <span aria-hidden="true">×</span>
                                 </button>
-                                <h4 class="modal-title">Add/Modify Job/Department</h4>
+                                <h4 class="modal-title"><?php echo e(_t('Add/Modify Job/Department')); ?></h4>
                               </div>
                               <div class="modal-body">
 							  <div>
@@ -772,38 +782,38 @@ $('#checkall').click(function(){
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                           </button>
-                          <h4 class="modal-title">Upload Job/Department CSV</h4>
+                          <h4 class="modal-title"><?php echo e(_t('Upload Job/Department')); ?> CSV</h4>
                         </div>
                         <div class="modal-body">
                            <form>
                             <div class="row">
 							<div class="col-xl-4 col-xs-12">
-							<b>Data type:</b>
+							<b><?php echo e(_t('Data type')); ?>:</b>
 							</div>
                               <div class="col-xs-12 col-xl-8 form-group">
 
 						         <select id="datatype" type="text" class="form-control" >
-								  <option value="2">Department</option>
-								  <option value="1">Job</option>
+								  <option value="2"><?php echo e(_t('Department')); ?></option>
+								  <option value="1"><?php echo e(_t('Job')); ?></option>
 								 </select>
                               </div> 
 							  <div id="hidedep">
 							<div class="col-xl-4 col-xs-12">
-							<b>Department:</b>
+							<b><?php echo e(_t('Department')); ?>:</b>
 							</div>
                               <div class="col-xs-12 col-xl-8 form-group" id="showdept">
 
 						         <select id="jobdepid" class="form-control" >
 								  <option  disabled>--Select Department --</option>
 								  <?php $__currentLoopData = $dept; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $depts): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
-								  <option value="<?php echo e($depts->id); ?>"><?php echo e($depts->spec); ?></option>
+								  <option value="<?php echo e($depts->id); ?>"><?php echo e(_t($depts->spec)); ?></option>
 								  <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
 								 </select>
                               </div> 
 								</div>
 							
 							   <div class="col-xs-12 col-xl-12 form-group" id="dropboxpane">
-							   <b>Upload CSV:</b><br>
+							   <b><?php echo e(_t('Upload CSV')); ?>:</b><br>
 							        <div style="" class="dropzone" id="my-dropzone-files" name="my-dropzone-files">
 
                                                 
@@ -818,8 +828,8 @@ $('#checkall').click(function(){
 						
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                          <button type="button" id="import" class="btn btn-primary"><i class="fa fa-file-excel-o mailico"><i class="fa fa-circle-o-notch fa-spin fa-fw hidespin"></i></i>&nbsp;&nbsp;Import</button>
+                          <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo e(_t('Close')); ?></button>
+                          <button type="button" id="import" class="btn btn-primary"><i class="fa fa-file-excel-o mailico"><i class="fa fa-circle-o-notch fa-spin fa-fw hidespin"></i></i>&nbsp;&nbsp;<?php echo e(_t('Import')); ?></button>
                         </div>
                       </div>
                     </div>
@@ -836,7 +846,7 @@ $('#checkall').click(function(){
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                           </button>
-                          <h4 class="modal-title">All Department</h4>
+                          <h4 class="modal-title"><?php echo e(_t('All Department')); ?></h4>
                         </div>
                         <div class="modal-body">
 						<div class="panel" id="exampleReport">
@@ -872,10 +882,12 @@ $('#checkall').click(function(){
                         </span>
                       </th>
                       <th>
-                        Department Name
+                        <?php echo e(_t('Department Name')); ?>
+
                       </th> 
 					  <th>
-                        Action
+                       <?php echo e(_t('Action')); ?>
+
                       </th>
                      
                     </tr>
@@ -890,7 +902,7 @@ $('#checkall').click(function(){
                           <label></label>
                         </span>
                       </td>
-                      <td ><?php echo e($dept->spec); ?>
+                      <td ><?php echo e(_t($dept->spec)); ?>
 
                        
                       </td>
@@ -905,7 +917,7 @@ $('#checkall').click(function(){
 					<?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
 					<?php else: ?>
 						<tr>
-					<span style="tex-align:center">No Record Found</span>
+					<span style="tex-align:center"><?php echo e(_t('No Record Found')); ?></span>
 					</tr>
 						
 						<?php endif; ?>
@@ -920,7 +932,7 @@ $('#checkall').click(function(){
                           
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo e(_t('Close')); ?></button>
                            </div>
                       </div>
                     </div>

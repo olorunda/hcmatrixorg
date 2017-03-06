@@ -26,38 +26,6 @@ namespace Microsoft\Graph\Model;
 class EmailAddress extends Entity
 {
     /**
-    * The array of properties available 
-    * to the model
-    *
-    * @var array(string => string)
-    */
-    private $_propDict;
-    /**
-    * EmailAddress constructor
-    *
-    * @param array $propDict List of properties to set
-    * Defaults to an empty array
-    *
-    * @return EmailAddress
-    */
-    public function __construct($propDict=array())
-    {
-        parent::__construct();
-        $this->_propDict = $propDict;
-        return $this;
-    }
-
-	/**
-    * Gets the property dictionary of the EmailAddress
-    *
-    * @return array The list of properties
-    */
-    public function getProperties()
-    {
-        return $this->_propDict;
-    }
-    
-    /**
     * Gets the name
     *
     * @return string The name
@@ -83,7 +51,6 @@ class EmailAddress extends Entity
         $this->_propDict["name"] = $val;
         return $this;
     }
-    
     /**
     * Gets the address
     *

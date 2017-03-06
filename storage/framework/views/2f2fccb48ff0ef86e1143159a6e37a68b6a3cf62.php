@@ -70,10 +70,10 @@
 
 </style>
 <div class="page-header">
-  <h1 class="page-title">Home</h1>
+  <h1 class="page-title"><?php echo e(_t('Home')); ?></h1>
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/">Home</a></li>
-    <li class="breadcrumb-item active">You are Here</li>
+    <li class="breadcrumb-item"><a href="/"><?php echo e(_t('Home')); ?></a></li>
+    <li class="breadcrumb-item active"><?php echo e(_t('You are Here')); ?></li>
   </ol>
   <div class="page-header-actions">
     <div class="row no-space w-250 hidden-sm-down">
@@ -103,7 +103,7 @@
         <button onclick="url('<?php echo e(url('/employee/profile')); ?>')" type="button" class="btn btn-floating btn-sm btn-warning">
           <i class="fa fa-user"></i>
         </button>
-        <span class="m-l-15 font-weight-400">Profile</span>
+        <span class="m-l-15 font-weight-400"><?php echo e(_t('Profile')); ?></span>
         <div class="content-text text-xs-center m-b-0">
 
         </div>
@@ -119,7 +119,7 @@
         <button onclick="url('<?php echo e(url('manage/absence')); ?>')" type="button" class="btn btn-floating btn-sm btn-success">
           <i class="fa fa-plane"></i>
         </button>
-        <span class="m-l-15 font-weight-400">Absence Mgt</span>
+        <span class="m-l-15 font-weight-400"><?php echo e(_t('Absence :Mgt',['Mgt'=>'Mgt'])); ?></span>
         <div class="content-text text-xs-center m-b-0">
 
         </div>
@@ -134,7 +134,7 @@
 		<?php else: ?>  onclick="url('<?php echo e(url('employee/performance')); ?>')"      <?php endif; ?> type="button" class="btn btn-floating btn-sm btn-primary">
           <i class="fa fa-signal"></i>
         </button>
-        <span class="m-l-15 font-weight-400">Performance</span>
+        <span class="m-l-15 font-weight-400"><?php echo e(_t('Performance')); ?></span>
         <div class="content-text text-xs-center m-b-0">
 
         </div>
@@ -148,7 +148,7 @@
         <button type="button" class="btn btn-floating btn-sm btn-info">
           <i class="fa fa-book"></i>
         </button>
-        <span class="m-l-15 font-weight-400">Training </span>
+        <span class="m-l-15 font-weight-400"><?php echo e(_t('Training')); ?> </span>
         <div class="content-text text-xs-center m-b-0">
 
         </div>
@@ -161,7 +161,7 @@
         <button type="button" class="btn btn-floating btn-sm btn-warning">
           <i class="fa fa-money"></i>
         </button>
-        <span class="m-l-15 font-weight-400">Finance</span>
+        <span class="m-l-15 font-weight-400"><?php echo e(_t('Finance')); ?></span>
         <div class="content-text text-xs-center m-b-0">
 
         </div>
@@ -174,7 +174,7 @@
         <button type="button" class="btn btn-floating btn-sm btn-danger">
           <i class="fa fa-heartbeat"></i>
         </button>
-        <span class="m-l-15 font-weight-400">Health</span>
+        <span class="m-l-15 font-weight-400"><?php echo e(_t('Health')); ?></span>
         <div class="content-text text-xs-center m-b-0">
 
         </div>
@@ -188,7 +188,7 @@
         <button onclick="url('<?php echo e(url('hr/attendance')); ?>')" type="button" class="btn btn-floating btn-sm btn-info">
           <i class="fa fa-calendar"></i>
         </button>
-        <span class="m-l-15 font-weight-400">Attendance</span>
+        <span class="m-l-15 font-weight-400"><?php echo e(_t('Attendance')); ?></span>
         <div class="content-text text-xs-center m-b-0">
 
         </div>
@@ -226,16 +226,16 @@ canvas{
 <!-- Personal -->
         <div class="col-md-6">
           <div id="personalCompletedWidget" class="card card-shadow">
-            <div class="card-header text-xs-center card-header-transparent cover overlay">
-              <img class="cover-image" src="../../../global/photos/placeholder.png">
+            <div style="" class="card-header text-xs-center card-header-transparent cover overlay">
+              <img class="cover-image" style=" " src="../../../global/photos/placeholder.png">
               <div class="overlay-panel overlay-background vertical-align">
                 <div class="vertical-align-middle">
                   <a class="avatar avatar-100" href="javascript:void(0)">
-                    <img alt="" src="../../../global/portraits/4.jpg">
+                    <img alt=""  src="<?php echo e(asset('storage')); ?>/<?php echo e(Auth::user()->image); ?>">
        
          </a>
                   <div class="font-size-20"><?php echo e(Auth::user()->name); ?></div>
-                  <div class="font-size-14"><?php echo e($jobdetail['title']); ?></div>
+                  <div class="font-size-14"><?php echo e(_t($jobdetail['title'])); ?></div>
 				  
 				  <!--<ul class="list-inline font-size-18 m-b-35">
         <li class="list-inline-item">
@@ -270,14 +270,16 @@ canvas{
 	  
                 <?php if(Auth::user()->age == 0): ?>
         <?php if(session()->has('preview_job')): ?>
-          <button type="button" class="btn btn-primary p-x-40" onclick="url('<?php echo e(url('job')); ?>/default?job_id=<?php echo e(session('preview_job')); ?>')">Complete Job Application
+          <button type="button" class="btn btn-primary p-x-40" onclick="url('<?php echo e(url('job')); ?>/default?job_id=<?php echo e(session('preview_job')); ?>')"><?php echo e(_t('Complete Job Application')); ?>
+
           </button>
         <?php else: ?>
-          <button type="button" class="btn btn-primary p-x-40" onclick="url('<?php echo e(url('available_jobs')); ?>/joblist')">Available Jobs
+          <button type="button" class="btn btn-primary p-x-40" onclick="url('<?php echo e(url('available_jobs')); ?>/joblist')"><?php echo e(_t('Available Jobs')); ?>
+
           </button>
         <?php endif; ?>
       <?php else: ?>
-      <button type="button" class="btn btn-primary p-x-40" onclick="url('employee/profile')">View Profile</button>
+      <button type="button" class="btn btn-primary p-x-40" onclick="url('employee/profile')"><?php echo e(_t('View Profile')); ?></button>
       <?php endif; ?>
               </div>
               
@@ -338,10 +340,10 @@ canvas{
 <div class="col-md-6">
   <div class="card card-shadow" style="padding:0 0 5px 0; ">
   <div class="ribbon ribbon-clip ribbon-success" >
-                        <span id="clocking" style="z-index:999999999; cursor:pointer;" class="ribbon-inner">Clock In</span>
+                        <span id="clocking" style="z-index:999999999; cursor:pointer;" class="ribbon-inner"><?php echo e(_t('Clock In')); ?></span>
                       </div>
 	<div  class="ribbon ribbon-clip ribbon-reverse ribbon-danger" >
-                        <span class="ribbon-inner" id="clockout" style="z-index:999999999; cursor:pointer;">Clock Out</span>
+                        <span class="ribbon-inner" id="clockout" style="z-index:999999999; cursor:pointer;"><?php echo e(_t('Clock Out')); ?></span>
                       </div>
     <div class="card-block text-xs-center bg-white p-40">
      
@@ -353,8 +355,9 @@ canvas{
 	 </div>
   </div>
 </div>
+
 <div clss="col-md-6">
-<script src="https://irecharge.com.ng/plugin/jquery.cookie.js" type="text/javascript"></script> <script src="https://irecharge.com.ng/plugin/topup_plugin_form.prod.js" type="text/javascript"></script> <script>$(document).ready(function(){var vid='1702C98A80'; $("#iRecharge_container").topUpForm(vid); load_irecharge_cookie();});</script> <div id="iRecharge_container">ss</div>
+<script src="https://irecharge.com.ng/plugin/jquery.cookie.js" type="text/javascript"></script> <script src="https://irecharge.com.ng/plugin/topup_plugin_form.prod.js" type="text/javascript"></script> <script>$(document).ready(function(){var vid='1702C98A80'; $("#iRecharge_container").topUpForm(vid); load_irecharge_cookie();});</script> <div id="iRecharge_container">..</div>
 </div>
 <!-- Personal -->
 </div>

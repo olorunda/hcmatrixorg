@@ -24,40 +24,8 @@ namespace Microsoft\Graph\Model;
 * @version   Release: 0.1.0
 * @link      https://graph.microsoft.io/
 */
-class Post extends Entity
+class Post extends OutlookItem
 {
-    /**
-    * The array of properties available
-    * to the model
-    *
-    * @var array(string => string)
-    */
-    private $_propDict;
-    
-    /**
-    * Construct a new Post
-    *
-    * @param array $propDict A list of properties to set
-    *
-    * @return Post
-    */
-    function __construct($propDict = array())
-    {
-        parent::__construct();
-        $this->_propDict = $propDict;
-        return $this;
-    }
-
-    /**
-    * Gets the property dictionary of the Post
-    *
-    * @return array The list of properties
-    */
-    public function getProperties()
-    {
-        return $this->_propDict;
-    }
-
     /**
     * Gets the body
     *
@@ -75,7 +43,7 @@ class Post extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the body
     *
@@ -88,7 +56,7 @@ class Post extends Entity
         $this->_propDict["body"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the receivedDateTime
     *
@@ -106,7 +74,7 @@ class Post extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the receivedDateTime
     *
@@ -119,7 +87,7 @@ class Post extends Entity
         $this->_propDict["receivedDateTime"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the hasAttachments
     *
@@ -133,7 +101,7 @@ class Post extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the hasAttachments
     *
@@ -146,7 +114,7 @@ class Post extends Entity
         $this->_propDict["hasAttachments"] = boolval($val);
         return $this;
     }
-
+    
     /**
     * Gets the from
     *
@@ -164,7 +132,7 @@ class Post extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the from
     *
@@ -177,7 +145,7 @@ class Post extends Entity
         $this->_propDict["from"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the sender
     *
@@ -195,7 +163,7 @@ class Post extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the sender
     *
@@ -208,7 +176,7 @@ class Post extends Entity
         $this->_propDict["sender"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the conversationThreadId
     *
@@ -222,7 +190,7 @@ class Post extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the conversationThreadId
     *
@@ -235,7 +203,7 @@ class Post extends Entity
         $this->_propDict["conversationThreadId"] = $val;
         return $this;
     }
-
+    
     /** 
     * Gets the newParticipants
     *
@@ -249,7 +217,7 @@ class Post extends Entity
             return null;
         }
     }
-	
+    
     /** 
     * Sets the newParticipants
     *
@@ -262,8 +230,7 @@ class Post extends Entity
 		$this->_propDict["newParticipants"] = $val;
         return $this;
     }
-
-
+    
     /**
     * Gets the conversationId
     *
@@ -277,7 +244,7 @@ class Post extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the conversationId
     *
@@ -290,7 +257,7 @@ class Post extends Entity
         $this->_propDict["conversationId"] = $val;
         return $this;
     }
-
+    
     /** 
     * Gets the extensions
     *
@@ -304,7 +271,7 @@ class Post extends Entity
             return null;
         }
     }
-	
+    
     /** 
     * Sets the extensions
     *
@@ -317,8 +284,7 @@ class Post extends Entity
 		$this->_propDict["extensions"] = $val;
         return $this;
     }
-
-
+    
     /**
     * Gets the inReplyTo
     *
@@ -336,7 +302,7 @@ class Post extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the inReplyTo
     *
@@ -349,7 +315,7 @@ class Post extends Entity
         $this->_propDict["inReplyTo"] = $val;
         return $this;
     }
-
+    
     /** 
     * Gets the attachments
     *
@@ -363,7 +329,7 @@ class Post extends Entity
             return null;
         }
     }
-	
+    
     /** 
     * Sets the attachments
     *
@@ -376,8 +342,7 @@ class Post extends Entity
 		$this->_propDict["attachments"] = $val;
         return $this;
     }
-
-
+    
     /** 
     * Gets the singleValueExtendedProperties
     *
@@ -391,7 +356,7 @@ class Post extends Entity
             return null;
         }
     }
-	
+    
     /** 
     * Sets the singleValueExtendedProperties
     *
@@ -404,8 +369,7 @@ class Post extends Entity
 		$this->_propDict["singleValueExtendedProperties"] = $val;
         return $this;
     }
-
-
+    
     /** 
     * Gets the multiValueExtendedProperties
     *
@@ -419,7 +383,7 @@ class Post extends Entity
             return null;
         }
     }
-	
+    
     /** 
     * Sets the multiValueExtendedProperties
     *
@@ -432,5 +396,5 @@ class Post extends Entity
 		$this->_propDict["multiValueExtendedProperties"] = $val;
         return $this;
     }
-
+    
 }

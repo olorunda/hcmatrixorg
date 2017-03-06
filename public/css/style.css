@@ -1,0 +1,36 @@
+.modal-header { border-bottom: 1px solid #e4eaec; }
+.no-padding{ padding:0; }
+.pac-container { z-index: 100000; }
+
+.survey_ques{
+    background: #333 none repeat scroll 0 0 !important;
+    color: #fff;
+    display: block;
+    font-size: 18px;
+    margin-bottom:10px;
+    margin-top: 0;
+    padding: 20px 30px;
+}
+
+.survey_padding{background-color: #F1F4F5}
+
+.survey_heading {
+    border-width: 0;
+    margin-top: 5px;
+    padding: 5px;
+}
+.survey_div{margin-bottom: 10px}
+.header_calendar{margin: 10px 10px 10px 0;}
+.required_filed{color: #ff0000;}
+.no-left-padding{padding-left: 0; }
+.no-right-padding{ padding-right:0; }
+.alert{ padding:8px !important; font-weight: 500 !important; font-size: 15px !important; }
+
+.tabletable-striped tbody td{border:1px solid #e4eaec !important;}
+.tabletable-striped thead th{border:1px solid #ffffff !important;}
+.tabletable-striped thead{background-color: #62A8EA !important;}
+.tabletable-striped th{font-weight: 500 !important; color: #fff !important; font-size: 15px !important;}
+.btn{font-weight: 500 !important; font-size: 14px !important;}
+.actions i{margin: 2px !important;}
+
+

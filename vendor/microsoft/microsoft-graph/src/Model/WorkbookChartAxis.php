@@ -27,38 +27,6 @@ namespace Microsoft\Graph\Model;
 class WorkbookChartAxis extends Entity
 {
     /**
-    * The array of properties available
-    * to the model
-    *
-    * @var array(string => string)
-    */
-    private $_propDict;
-    
-    /**
-    * Construct a new WorkbookChartAxis
-    *
-    * @param array $propDict A list of properties to set
-    *
-    * @return WorkbookChartAxis
-    */
-    function __construct($propDict = array())
-    {
-        parent::__construct();
-        $this->_propDict = $propDict;
-        return $this;
-    }
-
-    /**
-    * Gets the property dictionary of the WorkbookChartAxis
-    *
-    * @return array The list of properties
-    */
-    public function getProperties()
-    {
-        return $this->_propDict;
-    }
-
-    /**
     * Gets the majorUnit
     *
     * @return string The majorUnit
@@ -71,7 +39,7 @@ class WorkbookChartAxis extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the majorUnit
     *
@@ -84,7 +52,7 @@ class WorkbookChartAxis extends Entity
         $this->_propDict["majorUnit"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the maximum
     *
@@ -98,7 +66,7 @@ class WorkbookChartAxis extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the maximum
     *
@@ -111,7 +79,7 @@ class WorkbookChartAxis extends Entity
         $this->_propDict["maximum"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the minimum
     *
@@ -125,7 +93,7 @@ class WorkbookChartAxis extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the minimum
     *
@@ -138,7 +106,7 @@ class WorkbookChartAxis extends Entity
         $this->_propDict["minimum"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the minorUnit
     *
@@ -152,7 +120,7 @@ class WorkbookChartAxis extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the minorUnit
     *
@@ -165,7 +133,7 @@ class WorkbookChartAxis extends Entity
         $this->_propDict["minorUnit"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the format
     *
@@ -183,7 +151,7 @@ class WorkbookChartAxis extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the format
     *
@@ -196,7 +164,7 @@ class WorkbookChartAxis extends Entity
         $this->_propDict["format"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the majorGridlines
     *
@@ -214,7 +182,7 @@ class WorkbookChartAxis extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the majorGridlines
     *
@@ -227,7 +195,7 @@ class WorkbookChartAxis extends Entity
         $this->_propDict["majorGridlines"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the minorGridlines
     *
@@ -245,7 +213,7 @@ class WorkbookChartAxis extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the minorGridlines
     *
@@ -258,7 +226,7 @@ class WorkbookChartAxis extends Entity
         $this->_propDict["minorGridlines"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the title
     *
@@ -276,7 +244,7 @@ class WorkbookChartAxis extends Entity
         }
         return null;
     }
-
+    
     /**
     * Sets the title
     *
@@ -289,4 +257,5 @@ class WorkbookChartAxis extends Entity
         $this->_propDict["title"] = $val;
         return $this;
     }
+    
 }

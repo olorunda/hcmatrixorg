@@ -27,38 +27,6 @@ namespace Microsoft\Graph\Model;
 class WorkbookRangeFont extends Entity
 {
     /**
-    * The array of properties available
-    * to the model
-    *
-    * @var array(string => string)
-    */
-    private $_propDict;
-    
-    /**
-    * Construct a new WorkbookRangeFont
-    *
-    * @param array $propDict A list of properties to set
-    *
-    * @return WorkbookRangeFont
-    */
-    function __construct($propDict = array())
-    {
-        parent::__construct();
-        $this->_propDict = $propDict;
-        return $this;
-    }
-
-    /**
-    * Gets the property dictionary of the WorkbookRangeFont
-    *
-    * @return array The list of properties
-    */
-    public function getProperties()
-    {
-        return $this->_propDict;
-    }
-
-    /**
     * Gets the bold
     *
     * @return bool The bold
@@ -71,7 +39,7 @@ class WorkbookRangeFont extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the bold
     *
@@ -84,7 +52,7 @@ class WorkbookRangeFont extends Entity
         $this->_propDict["bold"] = boolval($val);
         return $this;
     }
-
+    
     /**
     * Gets the color
     *
@@ -98,7 +66,7 @@ class WorkbookRangeFont extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the color
     *
@@ -111,7 +79,7 @@ class WorkbookRangeFont extends Entity
         $this->_propDict["color"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the italic
     *
@@ -125,7 +93,7 @@ class WorkbookRangeFont extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the italic
     *
@@ -138,7 +106,7 @@ class WorkbookRangeFont extends Entity
         $this->_propDict["italic"] = boolval($val);
         return $this;
     }
-
+    
     /**
     * Gets the name
     *
@@ -152,7 +120,7 @@ class WorkbookRangeFont extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the name
     *
@@ -165,7 +133,7 @@ class WorkbookRangeFont extends Entity
         $this->_propDict["name"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the size
     *
@@ -179,7 +147,7 @@ class WorkbookRangeFont extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the size
     *
@@ -192,7 +160,7 @@ class WorkbookRangeFont extends Entity
         $this->_propDict["size"] = $val;
         return $this;
     }
-
+    
     /**
     * Gets the underline
     *
@@ -206,7 +174,7 @@ class WorkbookRangeFont extends Entity
             return null;
         }
     }
-
+    
     /**
     * Sets the underline
     *
@@ -219,4 +187,5 @@ class WorkbookRangeFont extends Entity
         $this->_propDict["underline"] = $val;
         return $this;
     }
+    
 }

@@ -15,7 +15,7 @@
                          
 							<div class="row">
 								<div class="col-md-3">
-									<img class="img-thumbnail img-bordered img-default" src="<?php echo e(asset('upload')); ?>/<?php echo e($employee->image); ?>" align="left" style="height: 100%;">
+									<img class="img-thumbnail img-bordered img-default" src="<?php echo e(asset('storage')); ?>/<?php echo e($employee->image); ?>" align="left" style="height: 70%; width:100%;">
 								</div>
 								<div class="col-md-9">
 									<h4><?php echo e(strtoupper($employee->name)); ?></h4>
@@ -102,6 +102,7 @@
 						   <?php if(session('record')==1 || \Auth::user()->superadmin==1): ?>
                           <a role="button"   target="_blank" href="<?php echo e(url('searchdoc')); ?>?foldid=gen&q=<?php echo e(str_replace(' ','+',$employee->name)); ?>" class="btn btn-primary">View Document</a>
 						<?php endif; ?>
+						  <a target="_blank" class="btn btn-info"  href="<?php echo e(url('employee')); ?>/profile_<?php echo e($employee->id); ?>" role="button" >View Full Profile</a>
                         </div>
                       </div>
                     </div>

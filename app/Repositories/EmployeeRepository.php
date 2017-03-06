@@ -117,34 +117,39 @@ class EmployeeRepository{
 	}
 	//clock in
 	public function clockin($type){
-		
 		try{
 		//check exist
 		if($type==0){
-		$checkexist=\App\attendance::where('user_id',\Auth::user()->emp_num)->where('created_at','like','%'.date('Y-m-d').'%')->first();
-		if($checkexist['user_id']!=""){
+		//remoded
+		$checkexist=\DB::table('daily_attendance')
+						->where('emp_num',\Auth::user()->emp_num)
+						->where('date',date('Y-m-d'))
+						->first();
+		//$checkexist=\App\attendance::where('user_id',\Auth::user()->emp_num)->where('created_at','like','%'.date('Y-m-d').'%')->first();
+		if(isset($checkexist->clock_in)!=""){
 			$msg='You have already clocked in';
 		}
-		else{
-			
-		\App\attendance::create(['user_id'=>\Auth::user()->emp_num]);
+		else{ 
+		
+		$clockin=\App\daily_attendance::create(["emp_id"=>\Auth::user()->id,"emp_num"=>\Auth::user()->emp_num,"date"=>date('Y-m-d'),"clock_in"=>date('Y-m-d H:i:s')]);
 		
 		$msg='Clock In successfull';
-		
+		//come here
+		$updatearly=app('App\Repositories\GlobalSettingRepository')->checkearly($clockin['clock_in'],"",\Auth::user()->emp_num,$clockin->id);
 		
 		}
 		}
 		//clockout
 		else{
-			$checkexist=\App\attendance::where('user_id',\Auth::user()->emp_num)->where('created_at','like','%'.date('Y-m-d').'%')->first();
-		if($checkexist['clockout_time']!=Null){
+			$checkexist=\App\daily_attendance::where('emp_num',\Auth::user()->emp_num)->where('date',date('Y-m-d'))->first();
+		if($checkexist['clock_out']!=Null){
 			$msg='You have already clocked out , Try Again Tomorrow';
 		}
 		else{
 			
-		\App\attendance::where('user_id',\Auth::user()->emp_num)
-		   ->where('created_at',$checkexist['created_at'])
-		   ->update(['clockout_time'=>date('Y-m-d H:i:s')]);
+		\App\daily_attendance::where('emp_num',\Auth::user()->emp_num)
+		   ->where('clock_in',$checkexist['clock_in'])
+		   ->update(['clock_out'=>date('Y-m-d H:i:s')]);
 		
 		$msg='Clock Out successful';
 		
@@ -156,7 +161,7 @@ class EmployeeRepository{
 	}
 	catch(\Exception $ex){
 		
-		return response()->json("Error:$ex",404);
+		return $ex;//response()->json("Error:$ex",404);
 	}
 		
 	}
@@ -1351,6 +1356,23 @@ class EmployeeRepository{
 	
 		
 	}
+	
+	 public function changepassword($id,$oldpass,$newpass){
+		
+		 try{
+                  
+		 $changepassword=\App\User::where('id',$id)
+		 ->update(['password'=>$newpass]);
+		 return response()->json('success',200);
+		 }
+		 catch(\Exception $e){
+                           //return $e;
+			 return response()->json($e,404);
+		 } 
+		 
+		 
+	 }
+
 	
 }
 

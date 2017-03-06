@@ -26,38 +26,6 @@ namespace Microsoft\Graph\Model;
 class PhysicalAddress extends Entity
 {
     /**
-    * The array of properties available 
-    * to the model
-    *
-    * @var array(string => string)
-    */
-    private $_propDict;
-    /**
-    * PhysicalAddress constructor
-    *
-    * @param array $propDict List of properties to set
-    * Defaults to an empty array
-    *
-    * @return PhysicalAddress
-    */
-    public function __construct($propDict=array())
-    {
-        parent::__construct();
-        $this->_propDict = $propDict;
-        return $this;
-    }
-
-	/**
-    * Gets the property dictionary of the PhysicalAddress
-    *
-    * @return array The list of properties
-    */
-    public function getProperties()
-    {
-        return $this->_propDict;
-    }
-    
-    /**
     * Gets the street
     *
     * @return string The street
@@ -83,7 +51,6 @@ class PhysicalAddress extends Entity
         $this->_propDict["street"] = $val;
         return $this;
     }
-    
     /**
     * Gets the city
     *
@@ -110,7 +77,6 @@ class PhysicalAddress extends Entity
         $this->_propDict["city"] = $val;
         return $this;
     }
-    
     /**
     * Gets the state
     *
@@ -137,7 +103,6 @@ class PhysicalAddress extends Entity
         $this->_propDict["state"] = $val;
         return $this;
     }
-    
     /**
     * Gets the countryOrRegion
     *
@@ -164,7 +129,6 @@ class PhysicalAddress extends Entity
         $this->_propDict["country_or_region"] = $val;
         return $this;
     }
-    
     /**
     * Gets the postalCode
     *
