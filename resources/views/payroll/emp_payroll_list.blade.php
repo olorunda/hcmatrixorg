@@ -55,7 +55,8 @@
                                 <td>{{ $employee->month_year }}</td>
                                 <td class="actions"> 
                                  @if($employee->ps_issued!=0 &&$employee->ps_file!='' && file_exists(public_path('psc').'/'.$employee->ps_file))                                     
-                                        <a href="public/psc/<?php echo $employee->ps_file; ?>" download target="_blank"><i class="btn btn-sm btn-success waves-effect icon fa-download" aria-hidden="true" title="Download Payslip Certificate"></i></a>                                                                 
+                                        <a href="public/psc/<?php echo $employee->ps_file; ?>" download target="_blank"><i class="btn btn-sm btn-success waves-effect icon fa-download" aria-hidden="true" title="Download Payslip Certificate"></i></a>                                                             @else
+											<span class="tag tag-info"><b>No Payslip Issued Yet</b></span>
                                  @endif
                                </td>
                             </tr> 

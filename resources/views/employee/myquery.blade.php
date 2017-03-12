@@ -35,7 +35,7 @@ function reply(){
 		
 		if(xhr.status==200){
 			
-			$('#threadbody').append('<div class="comment media"> <div class="media-left"> <a class="avatar avatar-lg" href="javascript:void(0)"> <img src="{{url('upload')}}/{{Auth::user()->image}}" alt="..."> </a></div> <div class="comment-body media-body"> <a class="comment-author" href="javascript:void(0)">You @ Now</a> <div class="comment-content">  <p>'+comment+'</p> </div>   </div></div><hr>');
+			$('#threadbody').append('<div class="comment media"> <div class="media-left"> <a class="avatar avatar-lg" href="javascript:void(0)"> <img src="{{asset(Auth::user()->image)}}" alt="..."> </a></div> <div class="comment-body media-body"> <a class="comment-author" href="javascript:void(0)">You @ Now</a> <div class="comment-content">  <p>'+comment+'</p> </div>   </div></div><hr>');
 			
 			toastr.success('Query Reply Sent');
 			
@@ -142,7 +142,7 @@ function setparam(title,email,id){
 
 			  $userid=app('App\Repositories\EmployeeRepository')->getuserdetails($comment->emp_id); ?>
 			   
-						<div class="comment media"> <div class="media-left"> <a class="avatar avatar-lg" href="javascript:void(0)"> <img src="{{url('upload')}}/{{$userid['image']}}" alt="..."> </a></div> <div class="comment-body media-body"> <a class="comment-author" href="javascript:void(0)">@if($comment->emp_id==Auth::user()->id)
+						<div class="comment media"> <div class="media-left"> <a class="avatar avatar-lg" href="javascript:void(0)"> <img src="{{asset($userid['image'])}}" alt="..."> </a></div> <div class="comment-body media-body"> <a class="comment-author" href="javascript:void(0)">@if($comment->emp_id==Auth::user()->id)
 							You @ {{$comment->created_at->diffForHumans()}}
 						@else
 						{{$userid['name']}} @ {{$comment->created_at->diffForHumans()}}

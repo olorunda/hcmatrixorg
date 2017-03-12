@@ -233,7 +233,7 @@ canvas{
               <div class="overlay-panel overlay-background vertical-align">
                 <div class="vertical-align-middle">
                   <a class="avatar avatar-100" href="javascript:void(0)">
-                    <img alt=""  src="{{asset('storage')}}/{{Auth::user()->image}}">
+                    <img alt=""  src="{{asset(Auth::user()->image)}}">
        
          </a>
                   <div class="font-size-20">{{Auth::user()->name}}</div>
@@ -274,11 +274,11 @@ canvas{
           <button type="button" class="btn btn-primary p-x-40" onclick="url('{{url('job')}}/default?job_id={{session('preview_job')}}')">{{_t('Complete Job Application')}}
           </button>
         @else
-          <button type="button" class="btn btn-primary p-x-40" onclick="url('{{url('available_jobs')}}/joblist')">{{_t('Available Jobs')}}
+          <button type="button" class="btn btn-primary p-x-40" onclick="url('{{url(session('locale').'/available_jobs')}}/joblist')">{{_t('Available Jobs')}}
           </button>
         @endif
       @else
-      <button type="button" class="btn btn-primary p-x-40" onclick="url('employee/profile')">{{_t('View Profile')}}</button>
+      <button type="button" class="btn btn-primary p-x-40" onclick="url('{{session('locale')}}/employee/profile_{{Auth::user()->id}}')">{{_t('View Profile')}}</button>
       @endif
               </div>
               

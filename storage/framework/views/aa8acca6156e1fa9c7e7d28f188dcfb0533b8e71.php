@@ -14,6 +14,7 @@
   <script src="<?php echo e(URL::asset('classic/global/vendor/asscrollbar/jquery-asScrollbar.js')); ?>"></script>
   <script src="<?php echo e(URL::asset('classic/global/vendor/asscrollable/jquery-asScrollable.js')); ?>"></script>
   <script src="<?php echo e(URL::asset('classic/global/vendor/ashoverscroll/jquery-asHoverScroll.js')); ?>"></script>
+  <script src="<?php echo e(URL::asset('js/pace.js')); ?>"></script>
   <!-- Plugins -->
   <script src="<?php echo e(URL::asset('classic/global/vendor/switchery/switchery.min.js')); ?>"></script>
   <script src="<?php echo e(URL::asset('classic/global/vendor/intro-js/intro.js')); ?>"></script>

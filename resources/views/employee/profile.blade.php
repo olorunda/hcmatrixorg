@@ -222,7 +222,7 @@ function niceDate($date)
               <div class="row">
                 <p></p>
                 <div class="col-md-2">
-                  <img class="img-thumbnail img-bordered img-default" src="{{asset('storage')}}/{{$employeedata->image}}" align="left" style="width: 120px;height: 120px;"><br>
+                  <img class="img-thumbnail img-bordered img-default" src="{{asset($employeedata->image)}}" align="left" style="width: 120px;height: 120px;"><br>
 				 <button data-toggle="modal" data-target="#picschange" style="margin-top:5px; width: 120px;" class="{{$class}} btn btn-info btn-md">
 				 {{_t('Change Picture')}}</button>
                 </div>
@@ -322,7 +322,7 @@ function niceDate($date)
               <div class="row">
                 <p></p>
                 <div class="col-md-2">
-                  <img class="img-thumbnail img-bordered img-default" src="{{asset('storage')}}/{{$employeedata->image}}" align="left" style="width: 120px;height: 120px;"><br>
+                  <img class="img-thumbnail img-bordered img-default" src="{{asset($employeedata->image)}}" align="left" style="width: 120px;height: 120px;"><br>
 				   <button data-toggle="modal" data-target="#picschange" style="margin-top:5px; width: 120px;" class="btn btn-info btn-md {{$class}}">
 				{{_t('Change Picture')}}</button>
                 </div>

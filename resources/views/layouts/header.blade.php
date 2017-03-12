@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="{{ URL::asset('classic/global/css/bootstrap-extend.min.css') }}">
   <link rel="stylesheet" href="{{ URL::asset('classic/base/assets/css/site.min.css') }}">
   <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
+  <link rel="stylesheet" href="{{ URL::asset('css/pace.css') }}">
   <!-- Plugins -->
   <!--<link rel="stylesheet" href="classic/global/vendor/animsition/animsition.css">-->
   <link rel="stylesheet" href="{{ URL::asset('classic/global/vendor/asscrollable/asScrollable.css') }}">
@@ -88,9 +89,7 @@
 .site-menubar-unfold .site-menu-category {
 	color:#f9f9f9;
 }
-  
-  
-  
+      
   </style>
 </head>
 <body class="animsition dashboard">

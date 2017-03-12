@@ -2003,7 +2003,16 @@ public function createDateRangeArray($strDateFrom,$strDateTo)
     function daily_attendance_calendar(Request $request) 
     {
         $id = $request->input('emp_id');//$id = Auth::id();
-        $daily_attendances = DB::select("SELECT * FROM ".Config::get('constants.tables.DAILY_ATTENDANCE')." WHERE (Month(date) = ".date('m').")  AND emp_id=".$id . " AND clock_out IS NOT NULL ORDER BY date ASC");
+		
+        $daily_attendances =DB::table('daily_attendance')
+					->where([['emp_id',$id],['clock_out','!=',null],[DB::raw('Month(date)'),date('m')]])
+					->select('*')
+					->orderBy('date','asc')
+					->get();
+					
+		//return $daily_attendances;
+			
+	
         
         //echo '<pre>'; print_r($daily_attendances); exit();
         
@@ -2041,7 +2050,7 @@ public function createDateRangeArray($strDateFrom,$strDateTo)
         $res_arr = array();
 
             $cnt = $j =0;
-            $strt = date("Y-m-01");
+            $strt = $request->start;
             for ($i=0; $i <= 31; $i++)
             {   
 			  if($strt == date("Y-m-d")) {
@@ -2055,7 +2064,7 @@ public function createDateRangeArray($strDateFrom,$strDateTo)
                     $res_arr[$cnt]['clock_out'] = '';
                     $res_arr[$cnt]['date'] = $strt;
                     $res_arr[$cnt]['title'] = 'Holiday';
-                    $res_arr[$cnt]['backgroundColor'] = $res_arr[$cnt]['borderColor'] = $_POST['cyan_clr'];
+                    $res_arr[$cnt]['backgroundColor'] = $res_arr[$cnt]['borderColor'] = $request->cyan_clr;
                   
               } else if(in_array(date( 'N', strtotime($strt) ), $weekends)) {
                     $res_arr[$cnt]['attendance_id'] = '';
@@ -2063,7 +2072,7 @@ public function createDateRangeArray($strDateFrom,$strDateTo)
                     $res_arr[$cnt]['clock_out'] = '';
                     $res_arr[$cnt]['date'] = $strt;
                     $res_arr[$cnt]['title'] = 'Weekend';
-                    $res_arr[$cnt]['backgroundColor'] = $res_arr[$cnt]['borderColor'] = $_POST['cyan_clr'];
+                    $res_arr[$cnt]['backgroundColor'] = $res_arr[$cnt]['borderColor'] = $request->cyan_clr;
                   
               } else if(!empty($daily_attendances) && $strt == $daily_attendances[$j]->date && $daily_attendances[$j]->clock_out != null) {
                   
@@ -2072,7 +2081,7 @@ public function createDateRangeArray($strDateFrom,$strDateTo)
                     $res_arr[$cnt]['clock_out'] = $daily_attendances[$j]->clock_out != null ? $daily_attendances[$j]->clock_out : '';
                     $res_arr[$cnt]['date'] = $daily_attendances[$j]->date;
                     $res_arr[$cnt]['title'] = 'Present';
-                    $res_arr[$cnt]['backgroundColor'] = $res_arr[$cnt]['borderColor'] = $_POST['green_clr'];
+                    $res_arr[$cnt]['backgroundColor'] = $res_arr[$cnt]['borderColor'] = $request->green_clr;
                     $j++;
                     if($j == count($daily_attendances))
                         $j--;
@@ -2082,7 +2091,7 @@ public function createDateRangeArray($strDateFrom,$strDateTo)
                     $res_arr[$cnt]['clock_out'] = '';
                     $res_arr[$cnt]['date'] = $strt;
                     $res_arr[$cnt]['title'] = 'Absent';
-                    $res_arr[$cnt]['backgroundColor'] = $res_arr[$cnt]['borderColor'] = $_POST['red_clr'];
+                    $res_arr[$cnt]['backgroundColor'] = $res_arr[$cnt]['borderColor'] = $request->red_clr;
                }
               
                

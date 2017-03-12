@@ -40,7 +40,7 @@ function reply(){
 			$('#commentbox').hide();
 			$('#realreply').hide();
 	        $('#reply').show();
-			$('#threadbody').append('<div class="comment media"> <div class="media-left"> <a class="avatar avatar-lg" href="javascript:void(0)"> <img src="{{url('upload')}}/{{Auth::user()->image}}" alt="..."> </a></div> <div class="comment-body media-body"> <a class="comment-author" href="javascript:void(0)">You</a> <div class="comment-content">  <p>'+comment+'</p> </div>   </div></div><hr>');
+			$('#threadbody').append('<div class="comment media"> <div class="media-left"> <a class="avatar avatar-lg" href="javascript:void(0)"> <img src="{{url(\Auth::user()->image)}}" alt="..."> </a></div> <div class="comment-body media-body"> <a class="comment-author" href="javascript:void(0)">You</a> <div class="comment-content">  <p>'+comment+'</p> </div>   </div></div><hr>');
 			
 			toastr.success('Query Reply Sent');
 			
@@ -89,7 +89,7 @@ function thread(qid,template,empname,image,email,qtitle){
 	$('#email').val(email);
 	$('#table'+qid).removeClass('table-active');
 	if(qtitle=="Others"){
-		$('#threadbody').html("<img style='width:100%; height:1000px;' src='{{url('storage')}}/"+template+"')}}' />");
+		$('#threadbody').html("<img style='width:100%; height:1000px;' src='{{asset('"+template+"')}}' />");
 		
 	}
 	
@@ -121,7 +121,7 @@ function thread(qid,template,empname,image,email,qtitle){
 				else{
 					name=empname;
 				}
-				$('#threadbody').append('<div class="comment media"> <div class="media-left"> <a class="avatar avatar-lg" href="javascript:void(0)"> <img src="{{url('upload')}}/'+image+'" alt="..."> </a></div> <div class="comment-body media-body"> <a class="comment-author" href="javascript:void(0)">'+name+'</a> <div class="comment-content">  <p>'+element.comment+'</p> </div>   </div></div><hr>');
+				$('#threadbody').append('<div class="comment media"> <div class="media-left"> <a class="avatar avatar-lg" href="javascript:void(0)"> <img src="{{asset('+image+')}}" alt="..."> </a></div> <div class="comment-body media-body"> <a class="comment-author" href="javascript:void(0)">'+name+'</a> <div class="comment-content">  <p>'+element.comment+'</p> </div>   </div></div><hr>');
 				
 				
 			}); 

@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="<?php echo e(asset('global/css/bootstrap-extend.min.css')); ?>">
   <link rel="stylesheet" href="<?php echo e(asset('assets/css/site.min.css')); ?>">
    <link type="text/css" href="<?php echo e(asset('assets/css/pdfSlider.css')); ?>" rel="stylesheet"/>
+   <link type="text/css" href="<?php echo e(asset('css/pace.css')); ?>" rel="stylesheet"/>
    
   <script src="<?php echo e(asset('assets/getorgchart/getorgchart.js')); ?>"></script>
    <link type="text/css" href="<?php echo e(asset('assets/getorgchart/getorgchart.css')); ?>" rel="stylesheet"/>
@@ -60,7 +61,7 @@
   <link href="<?php echo e(asset('global/vendor/select2/select2.css')); ?>" rel="stylesheet" >
 <link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets/css/sweetalert.css')); ?>">
   <link href="<?php echo e(asset('assets/css/jquery.contextMenu.min.css')); ?>" rel="stylesheet" type="text/css" />
-
+<link href="<?php echo e(asset('assets/css/theme-print.css')); ?>" rel="stylesheet" media="print" type="text/css" />
     
   <link rel="stylesheet" href="<?php echo e(asset('global/vendor/jvectormap/jquery-jvectormap.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('global/vendor/morris/morris.css')); ?>">
@@ -263,7 +264,7 @@ div p {
 	    background-image: url('<?php echo e(asset('upload/bg.jpg')); ?>');
   }
 .site-menu-item:hover{
-	background:rgba(7, 122, 59, 0.37)
+	background:rgba(32, 138, 222, 0.6);
 }
  
   .site-menu-item a {
@@ -394,20 +395,7 @@ div p {
 	 <?php if(active(session('locale').'/lm/rate')): ?>
 		 <?php else: ?>
 	
-	 $(document).ajaxStart(function(){
-		 $.LoadingOverlay("show",{
-			 image       : "",
-			fontawesome : "fa fa-spinner fa-spin"
-			 
-		 });
-		NProgress.start();
-	     
-	}).ajaxStop(function(){
-		
-		$.LoadingOverlay("hide", true);
-		NProgress.done();
-		 
-	});
+	 
 	
 	 <?php endif; ?>
 	
@@ -868,6 +856,7 @@ div p {
   <?php else: ?>
   <script src="https://cdn.jsdelivr.net/jquery.loadingoverlay/latest/loadingoverlay.min.js"></script>	
 <?php endif; ?> 
+  <script src="<?php echo e(asset('js/pace.js')); ?>"></script>
   <script src="<?php echo e(asset('global/vendor/moment/moment.min.js')); ?>"></script>
    <script src="<?php echo e(asset('global/vendor/fullcalendar/fullcalendar.js')); ?>"></script>
 	

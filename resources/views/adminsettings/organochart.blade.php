@@ -88,7 +88,7 @@ $(function (){
                 <td>{{$user->mail}}</td>
                 <td>{{$user->address}}</td>
                 <td>{{app('App\Http\Controllers\ProjectController')->jobtitle($user->job_id)}} </td>
-                <td>{{asset('storage')}}/{{$user->image}}</td>
+                <td>{{asset($user->image)}}</td>
 			</tr>
 			@endforeach
            

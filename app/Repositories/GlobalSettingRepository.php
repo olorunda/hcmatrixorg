@@ -299,7 +299,7 @@ class GlobalSettingRepository{
 	
 	//get attendance
 	public function attendance($type=0,$startdate=0,$enddate=0,$empname=0,$restype=0,$cron=0){
-		
+	 
 		if($cron==1){
 			
 		       $getattendance=\DB::table('users')
@@ -389,6 +389,7 @@ class GlobalSettingRepository{
 							->where('daily_attendance.date',date('Y-m-d'))
 							->where('users.linemanager_id','=',\Auth::user()->id)
 							->paginate(30);
+							//return $getattendance
 			}	
 		}
 	}

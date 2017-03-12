@@ -15,7 +15,7 @@ $(function(){
 								$.get('<?php echo e(url('savefolder?name=')); ?>'+$('#foldername').val(),function(data,status,xhr){
 									if(xhr.status==200){
 										
-										toastr.success("Folder Created Successfully");
+										toastr.success("<?php echo e(_t('Folder Created Successfully')); ?>");
 										
 										setTimeout(function(){
 											
@@ -24,7 +24,7 @@ $(function(){
 										return ;
 									}
 									else {
-										toastr.error("Some Error Occurred");
+										toastr.error("<?php echo e(_t('Some Error Occurred')); ?>");
 									}
 									
 								});
@@ -40,10 +40,10 @@ $(function(){
 
 <input type="hidden" value="<?php echo e(csrf_token()); ?>" id="token" />
 <div class="page-header">
-  <h1 class="page-title">My Document</h1>
+  <h1 class="page-title"><?php echo e(_t('My Document')); ?></h1>
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/">Home</a></li>
-    <li class="breadcrumb-item active">You are Here</li>
+    <li class="breadcrumb-item"><a href="/"><?php echo e(_t('Home')); ?></a></li>
+    <li class="breadcrumb-item active"><?php echo e(_t('You are Here')); ?></li>
   </ol>
   <div class="page-header-actions">
     <div class="row no-space w-250 hidden-sm-down">
@@ -72,9 +72,9 @@ $(function(){
                 <div class="counter counter-md counter text-xs-right pull-xs-right">
                   <div class="counter-number-group">
                     <span class="counter-number"><?php echo e($foldercount); ?></span>
-                    <span class="counter-number-related text-capitalize">Folders</span>
+                    <span class="counter-number-related text-capitalize"><?php echo e(_t('Folders')); ?></span>
                   </div>
-                  <div class="counter-label text-capitalize font-size-16">available</div>
+                  <div class="counter-label text-capitalize font-size-16"><?php echo e(_t('available')); ?></div>
                 </div>
               </div>
               <!-- End Card -->
@@ -88,9 +88,9 @@ $(function(){
                 <div class="counter counter-md counter text-xs-right pull-xs-right">
                   <div class="counter-number-group">
                     <span class="counter-number"><?php echo e($docucount); ?></span>
-                    <span class="counter-number-related text-capitalize">Documents</span>
+                    <span class="counter-number-related text-capitalize"><?php echo e(_t('Documents')); ?></span>
                   </div>
-                  <div class="counter-label text-capitalize font-size-16">Uploaded</div>
+                  <div class="counter-label text-capitalize font-size-16"><?php echo e(_t('Uploaded')); ?></div>
                 </div>
               </div>
               <!-- End Card -->
@@ -99,7 +99,8 @@ $(function(){
 	<div class="col-lg-12 col-md-12 col-xs-12">		 
 <div class="panel panel-success panel-line">
             <div class="panel-heading">
-              <h3 class="panel-title">All Folders
+              <h3 class="panel-title"><?php echo e(_t('All Folders')); ?>
+
 			  <?php  session(['type'=>'me']) ?>
 			   <div class="col-md-4 pull-right">
 			  <form method="get"  action="<?php echo e(url('searchdoc')); ?>">
@@ -109,7 +110,7 @@ $(function(){
 				  
                     <input required type="text" name="q" class="form-control" placeholder="Search for...">
                     <span class="input-group-btn">
-                      <button type="submit" class="btn btn-default btn-outline" onclick="searchq()" id="searchbtn">Search</button>
+                      <button type="submit" class="btn btn-default btn-outline" onclick="searchq()" id="searchbtn"><?php echo e(_t('Search')); ?></button>
                     </span>
 					
 					
@@ -132,9 +133,9 @@ $(function(){
 	<?php echo $allfolder->render(); ?>
 
 	<?php else: ?>
-		
+	  	
 	<div class="alert alert-info">
-	<h3>No Folder Found, Click on the Plus Button at the buttom of this page to add folder</h3>
+	<h3><?php echo e(_t('No Folder Found, Click on the Plus Button at the buttom of this page to add folder')); ?></h3>
 	
 	</div>
 	<?php endif; ?>
@@ -158,15 +159,15 @@ $(function(){
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                           </button>
-                          <h4 class="modal-title">Add Folder</h4>
+                          <h4 class="modal-title"><?php echo e(_t('Add Folder')); ?></h4>
                         </div>
                         <div class="modal-body">
-                           Folder Name : </br>
+                           <?php echo e(_t('Folder Name')); ?> : </br>
 						  <input type='text' class="form-control" id="foldername" />
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                          <button type="button" id="savefolder" class="btn btn-primary">Save changes</button>
+                          <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo e(_t('Close')); ?></button>
+                          <button type="button" id="savefolder" class="btn btn-primary"><?php echo e(_t('Save changes')); ?></button>
 						  <script>
 						  
 						  </script>

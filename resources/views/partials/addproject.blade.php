@@ -228,10 +228,10 @@ function(){
             </div>
 			<div class="form-group assigned_to_id">
               <label class="form-control-label m-b-15" for="name">{{_t('Project Manager')}}:</label>
-              <select     id="assigned_to_id" name="assigned_to_id" >
+              <select   multiple   id="assigned_to_id" name="assigned_to_id" >
 			  <option >{{_t('Type the employee name')}}</option>
 			  </select>
-            </div>
+         
             
             
         </div>

@@ -154,7 +154,7 @@ $(function (){
               <!-- Card -->
               <div class="card card-block p-35 clearfix">
                 <div class="pull-xs-left white">
-                  <i class="icon icon-circle icon-2x wb-clipboard bg-red-600" aria-hidden="true"></i>
+                 <a style="text-decoration:none; color:white;" href="{{url(session('locale').'/project')}}/total"> <i class="icon icon-circle icon-2x wb-clipboard bg-red-600" aria-hidden="true"></i></a>
                 </div>
                 <div class="counter counter-md counter text-xs-right pull-xs-right">
                   <div class="counter-number-group">
@@ -170,7 +170,7 @@ $(function (){
               <!-- Card -->
               <div class="card card-block p-35 clearfix">
                 <div class="pull-xs-left white">
-                  <i class="icon icon-circle icon-2x wb-alert bg-yellow-600" aria-hidden="true"></i>
+                  <a style="text-decoration:none;color:white;" href="{{url(session('locale').'/project')}}/pending">  <i class="icon icon-circle icon-2x wb-alert bg-yellow-600" aria-hidden="true"></i></a>
                 </div>
                 <div class="counter counter-md counter text-xs-right pull-xs-right">
                   <div class="counter-number-group">
@@ -186,7 +186,7 @@ $(function (){
               <!-- Card -->
               <div class="card card-block p-35 clearfix">
                 <div class="pull-xs-left white">
-                  <i class="icon icon-circle icon-2x  wb-check bg-green-600" aria-hidden="true"></i>
+                 <a style="text-decoration:none;color:white;" href="{{url(session('locale').'/project')}}/completed"><i class="icon icon-circle icon-2x  wb-check bg-green-600" aria-hidden="true"></i></a>
                 </div>
                 <div class="counter counter-md counter text-xs-right pull-xs-right">
                   <div class="counter-number-group">
@@ -243,7 +243,8 @@ $(function (){
 									<td><b>{{_t('Action')}}</b></td>
 									<td>
 					<button style="border:none" title="Mark as Completed" class="btn btn-icon btn-pure btn-success btn-sm"  onclick="completeproject('{{$project->id}}')"><i class="wb-check" ></i></button>
-					 @if(Auth::user()->role==3 || $project->assigned_to_id && Auth::user()->role==2 )
+					  
+					 @if(Auth::user()->role==3 && Auth::user()->role==2 )
 					<button style="border:none" title="Delete Task" class="btn btn-icon btn-pure btn-danger btn-sm"  onclick="deleteproject('{{$project->id}}')"><i class="wb-trash" ></i></button>
 					@endif
 					
@@ -281,7 +282,10 @@ $(function (){
 								</tr>
 								<tr>
 									<td><b>{{_t('Duration')}}</b></td>
-									<td><?php $date=getyear($project->start_date,1);  ?>	{{$project->start_date->createFromDate($date[0],$date[1],$date[2])->diff($project->end_est_date)->format('%y yr(s), %m mth(s) and %d day(s)')}}</td>
+									<td><?php $date=getyear($project->start_date,1); 
+											$date1= \Carbon\Carbon::parse($project->start_date);
+											$date2= \Carbon\Carbon::parse($project->end_est_date);
+									?>	{{$date1->createFromDate($date[0],$date[1],$date[2])->diff($date2)->format('%y yr(s), %m mth(s) and %d day(s)')}}</td>
 								
 								</tr>
 								
@@ -310,14 +314,21 @@ $(function (){
 								</tr>
 								<tr>
 									<td><b>{{_t('Project Manager')}}</b></td>
-									<td>{{app('App\Repositories\ProjectRepository')->getname($project->assigned_to_id)['name']}}</td>
+									<td>
+									<?php  $managers=app('App\Repositories\ProjectRepository')->getname($project->id); ?>
+									 @foreach($managers as $manager)
+									 {{$manager['name']}},
+									 @endforeach
+									
+									</td>
 								
 								</tr><tr>
 								<?php  $gettasks=app('App\Repositories\ProjectRepository')->gettask($project->id);   ?>
 									<td><b>{{_t('Project Task')}}</b></td>
 									<td>
 									@if(count($gettasks)>0)
-								  <button class="btn btn-icon btn-danger btn-sm" data-target="#addtasks" data-toggle="modal" onclick="projectid('{{$project->id}}')"><i class="fa fa-add" ></i>Add Task</button><br><br>
+										 @if(Auth::user()->role==3 || Auth::user()->role==2)
+								  <button class="btn btn-icon btn-danger btn-sm" data-target="#addtasks" data-toggle="modal" onclick="projectid('{{$project->id}}')"><i class="fa fa-add" ></i>Add Task</button><br><br>@endif
 										<table>
 												@foreach($gettasks as $task )
 										    <tr>
@@ -329,9 +340,13 @@ $(function (){
 											<td>  
 											<button style="border:none" title="Mark as Completed" class="btn btn-icon btn-pure btn-success btn-sm"  onclick="completetask('{{$task->id}}')"><i class="wb-check" ></i>
 											</button>
+											 @if(Auth::user()->role==3)
 											<button style="border:none" title="Mark as Completed" class="btn btn-icon btn-pure btn-danger btn-sm"  onclick="deletetask('{{$task->id}}')"><i class="wb-trash" ></i>
 											</button>
+											@endif
+											 @if(Auth::user()->role==3 || Auth::user()->role==2)
 											<button data-target="#addtasks" data-toggle="modal" style="border:none" title="Edit Task" class="btn btn-icon btn-pure btn-warning btn-sm"  onclick="edittask('{{$task->id}}','{{$task->name}}','{{$task->froms}}','{{$task->tos}}')"><i class="wb-edit" ></i></button>
+										    @endif
 											</td>
 											</tr>
 											<?php   $i++; ?>
@@ -339,7 +354,9 @@ $(function (){
 										  
 										</table>
 										 @else
+											  @if(Auth::user()->role==3 || Auth::user()->role==2)
 											  <button class="btn btn-icon btn-danger btn-sm" data-target="#addtasks" data-toggle="modal" onclick="projectid('{{$project->id}}')"><i class="fa fa-add" ></i>{{_t('Add Task')}}</button>
+												@endif
 										 
 											@endif
 									</td>

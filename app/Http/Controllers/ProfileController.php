@@ -88,9 +88,10 @@ class ProfileController extends Controller
 			if ($request->file('file')->isValid()) {
     //		$name\
 	
-		    $name=$request->name.'.'.$request->file('file')->extension();
-			$path = $request->file('file')->store('upload/'.\Auth::user()->id);
-		 	$updatepic=\App\User::where('id',\Auth::user()->id)
+		   // $name=$request->name.'.'.$request->file('file')->extension();
+			
+			$path = $request->file('file')->store('storage/upload/'.\Auth::user()->id,'public');
+			$updatepic=\App\User::where('id',\Auth::user()->id)
 								->update(['image'=>$path]);
 			if($updatepic==1){
 				

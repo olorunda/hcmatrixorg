@@ -86,7 +86,7 @@ $(function (){
                 <td><?php echo e($user->mail); ?></td>
                 <td><?php echo e($user->address); ?></td>
                 <td><?php echo e(app('App\Http\Controllers\ProjectController')->jobtitle($user->job_id)); ?> </td>
-                <td><?php echo e(asset('storage')); ?>/<?php echo e($user->image); ?></td>
+                <td><?php echo e(asset($user->image)); ?></td>
 			</tr>
 			<?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
            

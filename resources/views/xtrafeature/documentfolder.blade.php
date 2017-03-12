@@ -385,7 +385,7 @@ formData.append("folderid", '{{$_GET['foldid']}}');
                       
                       </td>
                     <td>
-				<a role="button" target="_blank" href="{{asset('storage')}}/{{$document->path}}" class="btn btn-sm btn-icon btn-flat btn-default" data-toggle="tooltip" data-original-title="View">
+				<a role="button" target="_blank" href="{{asset($document->path)}}" class="btn btn-sm btn-icon btn-flat btn-default" data-toggle="tooltip" data-original-title="View">
                             <i class="icon wb-eye" aria-hidden="true"></i>
                           </a>
 					

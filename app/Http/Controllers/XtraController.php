@@ -84,12 +84,13 @@ class XtraController extends Controller
 	public function dispcal(Request $request){
 		//start=2016-11-27&end=2017-01-08
 		//do som magic
+		 
 		try {
 			
 		$emps=\DB::table('users')
-						->join('attendances','users.emp_num','=','attendances.user_id')
-						->select('users.name','attendances.created_at as startdate')
-						->whereBetween('attendances.created_at',[$request->start,$request->end])
+						->join('daily_attendance','users.emp_num','=','daily_attendance.emp_num')
+						->select('users.name','daily_attendance.clock_in as startdate')
+						->whereBetween('daily_attendance.date',[$request->start,$request->end])
 						->get();
 		 
 			foreach($emps as $empres):

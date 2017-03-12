@@ -12,8 +12,8 @@ $(function (){
 
 $(function(){
     $('#calendar').fullCalendar({
-         noEventsMessage:'No Leave Request For today',
-		 allDayText:'Employee Present Today',
+         noEventsMessage:'<?php echo e(_t('No Leave Request For today')); ?>',
+		 allDayText:'<?php echo e(_t('Employee Present Today')); ?>',
 		 eventLimit: true,
 		  defaultView: 'month',
           header: {
@@ -38,10 +38,10 @@ $(function(){
 </script>
 <input type="hidden" value="<?php echo e(csrf_token()); ?>" id="token" />
 <div class="page-header">
-  <h1 class="page-title">View Daily Employee Attendance</h1>
+  <h1 class="page-title"><?php echo e(_t('View Daily Employee Attendance')); ?></h1>
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/">Home</a></li>
-    <li class="breadcrumb-item active">You are Here</li>
+    <li class="breadcrumb-item"><a href="/"><?php echo e(_t('Home')); ?></a></li>
+    <li class="breadcrumb-item active"><?php echo e(_t('You are Here')); ?></li>
   </ol>
   <div class="page-header-actions">
     <div class="row no-space w-250 hidden-sm-down">
@@ -63,7 +63,7 @@ $(function(){
 </div>
 <div class="panel panel-primary panel-line">
             <div class="panel-heading">
-              <h3 class="panel-title">Employee(s) At Work</h3>
+              <h3 class="panel-title"><?php echo e(_t('Employee(s) At Work')); ?></h3>
             </div>
             <div class="panel-body">
 			<div id="calendar">

@@ -40,7 +40,7 @@ function niceDate($date)
 					<?php if(count($directemps) > 0): ?>
 					<?php $__currentLoopData = $directemps; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $direct): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
 					<?php $job = app('App\Http\Controllers\EmployeeController')->getjobdetail($direct->job_id); ?>
-					<img style="margin:10px 10px 0 0" class="img-circle img-bordered img-bordered-primary" id="avatar<?php echo e($direct->id); ?>" width="70" height="70" src="<?php echo e(asset('storage')); ?>/<?php echo e($direct->image); ?>" style="cursor: pointer;" title="<?php echo e($direct->name); ?>" data-toggle="modal" data-target="#manageEmployeeModal<?php echo e($direct->id); ?>">
+					<img style="margin:10px 10px 0 0" class="img-circle img-bordered img-bordered-primary" id="avatar<?php echo e($direct->id); ?>" width="70" height="70" src="<?php echo e(asset($direct->image)); ?>" style="cursor: pointer;" title="<?php echo e($direct->name); ?>" data-toggle="modal" data-target="#manageEmployeeModal<?php echo e($direct->id); ?>">
 
 					<input type="hidden" name="last" id="last" value="<?php echo e($direct->id); ?>">
 					<?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
@@ -96,7 +96,7 @@ function niceDate($date)
 						<div class="tab-pane active" id="headingDistinct1<?php echo e($direct->id); ?>" role="tabpanel">
 							<div class="row">
 								<div class="col-md-2">
-									<img class="img-thumbnail img-bordered img-default" src="<?php echo e(asset('storage')); ?>/<?php echo e($direct->image); ?>" align="left" style="width: 120px;height: 120px;margin-top: 10px;">
+									<img class="img-thumbnail img-bordered img-default" src="<?php echo e(asset($direct->image)); ?>" align="left" style="width: 120px;height: 120px;margin-top: 10px;">
 								</div>
 								<div class="col-md-10">
 									<h4><?php echo e(strtoupper($direct->name)); ?></h4>
@@ -180,7 +180,7 @@ function niceDate($date)
 						<div class="tab-pane" id="headingDistinct2<?php echo e($direct->id); ?>" role="tabpanel">
 							<div class="row">
 								<div class="col-md-2">
-									<img class="img-thumbnail img-bordered img-default" src="<?php echo e(asset('storage')); ?>/<?php echo e($direct->image); ?>" align="left" style="width: 120px;height: 120px;margin-top: 10px;">
+									<img class="img-thumbnail img-bordered img-default" src="<?php echo e(asset($direct->image)); ?>" align="left" style="width: 120px;height: 120px;margin-top: 10px;">
 								</div>
 								<div class="col-md-10">
 									<h4><?php echo e(strtoupper($direct->name)); ?></h4>
@@ -212,7 +212,7 @@ function niceDate($date)
 						<div class="tab-pane" id="headingDistinct3<?php echo e($direct->id); ?>" role="tabpanel">
 							<div class="row">
 								<div class="col-md-2">
-									<img class="img-thumbnail img-bordered img-default" src="<?php echo e(asset('storage')); ?>/<?php echo e($direct->image); ?>" align="left" style="width: 120px;height: 120px;margin-top: 10px;">
+									<img class="img-thumbnail img-bordered img-default" src="<?php echo e(asset($direct->image)); ?>" align="left" style="width: 120px;height: 120px;margin-top: 10px;">
 								</div>
 								<div class="col-md-10">
 									<h4><?php echo e(strtoupper($direct->name)); ?></h4>
@@ -244,7 +244,7 @@ function niceDate($date)
 						<div class="tab-pane" id="headingDistinct4<?php echo e($direct->id); ?>" role="tabpanel">
 							<div class="row">
 								<div class="col-md-2">
-									<img class="img-thumbnail img-bordered img-default" src="<?php echo e(asset('storage')); ?>/<?php echo e($direct->image); ?>" align="left" style="width: 120px;height: 120px;margin-top: 10px;">
+									<img class="img-thumbnail img-bordered img-default" src="<?php echo e(asset($direct->image)); ?>" align="left" style="width: 120px;height: 120px;margin-top: 10px;">
 								</div>
 								<div class="col-md-10">
 									<h4><?php echo e(strtoupper($direct->name)); ?></h4>
@@ -276,7 +276,7 @@ function niceDate($date)
 						<div class="tab-pane" id="headingDistinct5<?php echo e($direct->id); ?>" role="tabpanel">
 							<div class="row">
 								<div class="col-md-2">
-									<img class="img-thumbnail img-bordered img-default" src="<?php echo e(asset('storage')); ?>/<?php echo e($direct->image); ?>" align="left" style="width: 120px;height: 120px;margin-top: 10px;">
+									<img class="img-thumbnail img-bordered img-default" src="<?php echo e(asset($direct->image)); ?>" align="left" style="width: 120px;height: 120px;margin-top: 10px;">
 								</div>
 								<div class="col-md-10">
 									<h4><?php echo e(strtoupper($direct->name)); ?></h4>

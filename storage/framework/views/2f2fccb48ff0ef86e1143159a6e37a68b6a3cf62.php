@@ -231,7 +231,7 @@ canvas{
               <div class="overlay-panel overlay-background vertical-align">
                 <div class="vertical-align-middle">
                   <a class="avatar avatar-100" href="javascript:void(0)">
-                    <img alt=""  src="<?php echo e(asset('storage')); ?>/<?php echo e(Auth::user()->image); ?>">
+                    <img alt=""  src="<?php echo e(asset(Auth::user()->image)); ?>">
        
          </a>
                   <div class="font-size-20"><?php echo e(Auth::user()->name); ?></div>
@@ -274,12 +274,12 @@ canvas{
 
           </button>
         <?php else: ?>
-          <button type="button" class="btn btn-primary p-x-40" onclick="url('<?php echo e(url('available_jobs')); ?>/joblist')"><?php echo e(_t('Available Jobs')); ?>
+          <button type="button" class="btn btn-primary p-x-40" onclick="url('<?php echo e(url(session('locale').'/available_jobs')); ?>/joblist')"><?php echo e(_t('Available Jobs')); ?>
 
           </button>
         <?php endif; ?>
       <?php else: ?>
-      <button type="button" class="btn btn-primary p-x-40" onclick="url('employee/profile')"><?php echo e(_t('View Profile')); ?></button>
+      <button type="button" class="btn btn-primary p-x-40" onclick="url('<?php echo e(session('locale')); ?>/employee/profile_<?php echo e(Auth::user()->id); ?>')"><?php echo e(_t('View Profile')); ?></button>
       <?php endif; ?>
               </div>
               

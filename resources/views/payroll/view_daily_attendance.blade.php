@@ -4,7 +4,6 @@
   <div class="page">
       <div class="page-header">
       <h1 class="page-title">Daily Attendance List</h1>
-     
     </div>
     <div class="page-content container-fluid">
       <div class="panel">

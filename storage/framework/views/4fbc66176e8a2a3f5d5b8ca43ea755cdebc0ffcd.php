@@ -2,8 +2,9 @@
   <!-- Page -->
   <div class="page">
     <div class="page-header">
-      <h1 class="page-title">Daily Attendances</h1>
+      <h1 class="page-title" style="display:inline-block">Daily Attendances</h1>
      
+     <button class="pull-right btn btn-pure btn-primary" title="print" onclick="window.print()"><i class="wb wb-print"></i></button>
     </div>
     <div class="page-content">
       <div class="panel">

@@ -56,14 +56,22 @@ class ProjectController extends Controller
 		//update task
 		
 				
-       $saveproject=\App\Project::create(['name'=>$request->pname,'code'=>$request->pcode,'start_date'=>self::convdate($request->startdate),'end_est_date'=>self::convdate($request->estendingdate),'assigned_to_id'=>$request->projectmanager,'remark'=>$request->remark,'client_id'=>$request->clientname]);
+       $saveproject=\App\Project::insertGetId(['name'=>$request->pname,'code'=>$request->pcode,'start_date'=>self::convdate($request->startdate),'end_est_date'=>self::convdate($request->estendingdate),'remark'=>$request->remark,'client_id'=>$request->clientname]);
 	   
-	   $getmanagerdetails=\App\User::where('id',$request->projectmanager)
+	   $managers=$request->projectmanager;
+	   foreach($managers as $manager){
+		   
+		   $saveprojectmanager=\App\projectmanager::create(['projectid'=>$saveproject,'manager_id'=>$manager]);
+		   
+		   $getmanagerdetails=\App\User::where('id',$manager)
 										->select('name','email')->first();
 	   //notify project manager
 	    $message="A new project has been assigned to you, Click <a href='".\URL::to('/login')."'>here</a> to view project";
 			 session(['notifymessage22'=>$message]);
 			\Mail::to($getmanagerdetails['email'])->send(new SendNotification($getmanagerdetails['name'],$getmanagerdetails['email'],$message));
+	   
+	   
+	   }
 	   
 	   
 	   return response()->json('success',200);
@@ -107,6 +115,7 @@ class ProjectController extends Controller
 		if($id=="management"){
 			
 			$allproject=$this->project->getallproject();
+		//	return $allproject;
 			return view('project.projectmanagement',['projects'=>$allproject]);
 		
 		}
@@ -137,6 +146,24 @@ class ProjectController extends Controller
 		 
 			//return $userm;
 			return view('adminsettings.organochart',['users'=>$users]);
+		}
+		if($id=="total"){
+			
+			$allproject=$this->project->getallproject();
+			return view('project.projectmanagement',['projects'=>$allproject]);
+		
+		}
+		if($id=="pending"){
+			$allproject=$this->project->getallproject(1);
+			return view('project.projectmanagement',['projects'=>$allproject]);
+		
+		}
+		if($id=="completed"){
+			
+			$allproject=$this->project->getallproject(2);
+			 
+			return view('project.projectmanagement',['projects'=>$allproject]);
+		
 		}
 		
     }

@@ -654,12 +654,17 @@ class GlobalSettingController extends Controller
 
 
 			$results = $reader->fetchAssoc($keys);
-
+				$i=1;
 			foreach ($results as $newjob) {
 
+			if($i==1){
 				
+			}	
+			else{
 		$createjob=$this->settings->uploadjob(['title'=>$newjob['title'],'description'=>$newjob['description'],'jobdep_id'=>$request->jobdepid]);
 			}
+			}
+			$i++;
 		}
 		else{
 			
@@ -673,8 +678,12 @@ class GlobalSettingController extends Controller
 
 			foreach ($results as $newdep) {
 
+				if($i==1){
 				
+			}	
+			else{
 		$createdep=$this->settings->uploaddep(['spec'=>$newdep['department']]);
+			}
 			}
 			
 			

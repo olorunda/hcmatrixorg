@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="<?php echo e(URL::asset('classic/global/css/bootstrap-extend.min.css')); ?>">
   <link rel="stylesheet" href="<?php echo e(URL::asset('classic/base/assets/css/site.min.css')); ?>">
   <link rel="stylesheet" href="<?php echo e(URL::asset('css/style.css')); ?>">
+  <link rel="stylesheet" href="<?php echo e(URL::asset('css/pace.css')); ?>">
   <!-- Plugins -->
   <!--<link rel="stylesheet" href="classic/global/vendor/animsition/animsition.css">-->
   <link rel="stylesheet" href="<?php echo e(URL::asset('classic/global/vendor/asscrollable/asScrollable.css')); ?>">
@@ -88,9 +89,7 @@
 .site-menubar-unfold .site-menu-category {
 	color:#f9f9f9;
 }
-  
-  
-  
+      
   </style>
 </head>
 <body class="animsition dashboard">
@@ -146,24 +145,39 @@
         <!-- End Navbar Toolbar -->
         <!-- Navbar Toolbar Right -->
         <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
-          <li class="nav-item dropdown">
+               <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="javascript:void(0)" data-animation="scale-up"
-            aria-expanded="false" role="button">
-              <span class="flag-icon flag-icon-us"></span>
-            </a>            
+            aria-expanded="false" role="button">	
+			<?php   
+			
+					if(session('locale')=='en'):
+
+						$lang='gb';
+					elseif(session('locale')=='fr'):
+						$lang='fr';
+					elseif(session('locale')=='zu'):
+						$lang='sa';
+					elseif(session('locale')=='yo'||session('locale')=='ig'):
+						$lang='ng';
+					else:
+						$lang='gb';
+					endif
+			?>
+              <span class="flag-icon flag-icon-<?php echo e($lang); ?>"></span>
+            </a>
             <div class="dropdown-menu" role="menu">
-              <a class="dropdown-item" href="javascript:void(0)" role="menuitem">
-                <span class="flag-icon flag-icon-gb"></span> English</a>
-              <a class="dropdown-item" href="javascript:void(0)" role="menuitem">
-                <span class="flag-icon flag-icon-fr"></span> French</a>
-              <a class="dropdown-item" href="javascript:void(0)" role="menuitem">
-                <span class="flag-icon flag-icon-cn"></span> Chinese</a>
-              <a class="dropdown-item" href="javascript:void(0)" role="menuitem">
-                <span class="flag-icon flag-icon-de"></span> German</a>
-              <a class="dropdown-item" href="javascript:void(0)" role="menuitem">
-                <span class="flag-icon flag-icon-nl"></span> Dutch</a>
+              <a class="dropdown-item" href="<?php echo e(url('change/en')); ?>" role="menuitem">
+                <span class="flag-icon flag-icon-gb"></span> <?php echo e(_t('English')); ?></a>
+              <a class="dropdown-item" href="<?php echo e(url('change/fr')); ?>" role="menuitem">
+                <span class="flag-icon flag-icon-fr"></span> <?php echo e(_t('French')); ?></a>
+              <a class="dropdown-item" href="<?php echo e(url('change/zu')); ?>" role="menuitem">
+                <span class="flag-icon flag-icon-sa"></span> <?php echo e(_t('Zulu')); ?></a>
+              <a class="dropdown-item" href="<?php echo e(url('change/yo')); ?>" role="menuitem">
+                <span class="flag-icon flag-icon-ng"></span> <?php echo e(_t('Yoruba')); ?></a>
+              <a class="dropdown-item" href="<?php echo e(url('change/ig')); ?>" role="menuitem">
+                <span class="flag-icon flag-icon-ng"></span> <?php echo e(_t('Igbo')); ?></a>
             </div>
-          </li>          
+          </li>         
           <li class="nav-item dropdown">
             <a class="nav-link navbar-avatar" data-toggle="dropdown" href="#" aria-expanded="false"
             data-animation="scale-up" role="button">

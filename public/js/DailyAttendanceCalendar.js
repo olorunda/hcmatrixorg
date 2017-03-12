@@ -58,7 +58,7 @@
           header: {
             left: null,
             center: 'title',
-            right: null
+            right: 'today prev,next'
           },
           defaultDate: new Date(),
           selectable: true,

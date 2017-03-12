@@ -4,7 +4,15 @@
  
  
 <script>
-
+//print div
+function printData()
+{
+   var divToPrint=document.getElementById("attreport");
+   newWin= window.open("");
+   newWin.document.write(divToPrint.outerHTML);
+   newWin.print();
+   newWin.close();
+}
 //query employee
 
 function query(id,name){
@@ -309,12 +317,16 @@ $('#qtype').change(function(){
                     </span>
                   </div>
                   </div>
+				  
 </p><div class="col-md-12" style="margin-bottom:40px;"></div>
 
                 <div class="example">
-				  <div class="pull-right"><b>{{_t('About :total result(s)',['total'=>$attendances->total()])}}  </b></div>
+				  <div class="pull-right"><b>
+				{{_t('About :total result(s)',['total'=>$attendances->total()])}}  </b> 
+				<button class="pull-right btn btn-pure btn-primary" style="margin-top:-3%;" title="print" onclick="printData()"><i class="wb wb-print"></i></button></div>
 				  <div class="col-md-12" style="margin-top:10px;"></div>
-                  <table class="table table-hover" data-plugin="selectable" data-row-selectable="true">
+				  
+                  <table id="attreport" class="table table-hover" data-plugin="selectable" data-row-selectable="true">
                     <thead>
                       <tr class="bg-blue-grey-100">
 
@@ -334,7 +346,7 @@ $('#qtype').change(function(){
                           {{_t('STATUS')}}
                         </th>
 						<th class="hidden-sm-down">
-                          {{_t('ACTION
+                          {{_t('ACTION')}}
                         </th>
                       </tr>
                     </thead>
@@ -354,7 +366,7 @@ $('#qtype').change(function(){
                         <td class="hidden-sm-down">
 						
                         <span class="text text-danger">
-						<b>@if($attendance->clockout_time=="") Nill @else {{$attendance->clockout_time}} @endif</b>
+						<b>@if($attendance->clockout_time=="") {{_t('Nill')}} @else {{$attendance->clockout_time}} @endif</b>
 					   </span>
                         </td>
 						<td>@if($attendance->status=="")

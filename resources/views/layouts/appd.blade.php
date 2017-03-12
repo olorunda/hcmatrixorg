@@ -7,52 +7,53 @@
   <meta name="description" content="bootstrap admin template">
   <meta name="author" content="">
   <title>HCMatrix</title>
-  <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png">
-  <link rel="shortcut icon" href="../assets/images/favicon.ico">
+  <link rel="apple-touch-icon" href="{{asset('assets/images/apple-touch-icon.png')}}">
+  <link rel="shortcut icon" href="{{asset('assets/images/favicon.ico')}}">
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="../../global/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../global/css/bootstrap-extend.min.css">
-  <link rel="stylesheet" href="../assets/css/site.min.css">
+  <link rel="stylesheet" href="{{asset('global/css/bootstrap.min.css')}}">
+  <link rel="stylesheet" href="{{asset('global/css/bootstrap-extend.min.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/css/site.min.css')}}">
   <!-- Plugins -->
-  <link rel="stylesheet" href="../../global/vendor/animsition/animsition.css">
-  <link rel="stylesheet" href="../../global/vendor/asscrollable/asScrollable.css">
-  <link rel="stylesheet" href="../../global/vendor/switchery/switchery.css">
-  <link rel="stylesheet" href="../../global/vendor/intro-js/introjs.css">
-  <link rel="stylesheet" href="../../global/vendor/slidepanel/slidePanel.css">
-  <link rel="stylesheet" href="../../global/vendor/flag-icon-css/flag-icon.css">
+  <link rel="stylesheet" href="{{asset('global/vendor/animsition/animsition.css')}}">
+  <link rel="stylesheet" href="{{asset('css/pace.css')}}">
+  <link rel="stylesheet" href="{{asset('global/vendor/asscrollable/asScrollable.css')}}">
+  <link rel="stylesheet" href="{{asset('global/vendor/switchery/switchery.css')}}">
+  <link rel="stylesheet" href="{{asset('global/vendor/intro-js/introjs.css')}}">
+  <link rel="stylesheet" href="{{asset('global/vendor/slidepanel/slidePanel.css')}}">
+  <link rel="stylesheet" href="{{asset('global/vendor/flag-icon-css/flag-icon.css')}}">
   <link rel="stylesheet" href="{{asset('assets/css/nprogress.css')}}">
-  <link rel="stylesheet" href="../../../global/vendor/dropify/dropify.css">
-  <link rel="stylesheet" href="../../global/vendor/chartist/chartist.css">
-  <link rel="stylesheet" href="../../global/vendor/jvectormap/jquery-jvectormap.css">
-  <link rel="stylesheet" href="../../global/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css">
-  <link rel="stylesheet" href="../assets/examples/css/dashboard/v1.css">
+  <link rel="stylesheet" href="{{asset('global/vendor/dropify/dropify.css')}}">
+  <link rel="stylesheet" href="{{asset('global/vendor/chartist/chartist.css')}}">
+  <link rel="stylesheet" href="{{asset('global/vendor/jvectormap/jquery-jvectormap.css')}}">
+  <link rel="stylesheet" href="{{asset('global/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css')}}">
+  <link rel="stylesheet" href="assets/examples/css/dashboard/v1.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/sweetalert.css')}}">
  
  <!-- Fonts -->
-  <link rel="stylesheet" href="../../global/fonts/weather-icons/weather-icons.css">
-  <link rel="stylesheet" href="../../global/fonts/web-icons/web-icons.min.css">
-  <link rel="stylesheet" href="../../global/fonts/brand-icons/brand-icons.min.css">
-  <link rel="stylesheet" href="../../../../global/fonts/font-awesome/font-awesome.css">
+  <link rel="stylesheet" href="{{asset('global/fonts/weather-icons/weather-icons.css')}}">
+  <link rel="stylesheet" href="{{asset('global/fonts/web-icons/web-icons.min.css')}}">
+  <link rel="stylesheet" href="{{asset('global/fonts/brand-icons/brand-icons.min.css')}}">
+  <link rel="stylesheet" href="{{asset('global/fonts/font-awesome/font-awesome.css')}}">
   <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
 
   @if(active(session('locale').'/employee/objective'))
   <link rel="stylesheet" href="{{asset('assets/css/documents.css')}}">
-  <link rel="stylesheet" href="../../../global/vendor/ladda/ladda.css">
+  <link rel="stylesheet" href="{{asset('global/vendor/ladda/ladda.css')}}">
   @elseif(active(session('locale').'/lm/objectives_c'))
-  <link rel="stylesheet" href="../../../../global/vendor/tablesaw/tablesaw.css">
-  <link rel="stylesheet" href="../../../assets/examples/css/apps/contacts.css">
+  <link rel="stylesheet" href="{{asset('global/vendor/tablesaw/tablesaw.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/examples/css/apps/contacts.css')}}">
   <link rel="stylesheet" href="{{asset('assets/css/objectives.css')}}">
-  <link rel="stylesheet" href="../../../global/vendor/toastr/toastr.css">
-  <link rel="stylesheet" href="../../assets/examples/css/advanced/toastr.css">
+  <link rel="stylesheet" href="{{asset('global/vendor/toastr/toastr.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/examples/css/advanced/toastr.css')}}">
   @elseif(active(['lm/objectives_a']))
-  <link rel="stylesheet" href="../../../global/vendor/editable-table/editable-table.css">
-  <link rel="stylesheet" href="../../../global/vendor/summernote/summernote.css">
-  <link rel="stylesheet" href="../../../global/vendor/select2/select2.css">
+  <link rel="stylesheet" href="{{asset('global/vendor/editable-table/editable-table.css')}}">
+  <link rel="stylesheet" href="{{asset('global/vendor/summernote/summernote.css')}}">
+  <link rel="stylesheet" href="{{asset('global/vendor/select2/select2.css')}}">
   @elseif(active(session('locale').'/lm/rate'))
-  <link rel="stylesheet" href="../../../global/vendor/select2/select2.css">
+  <link rel="stylesheet" href="{{asset('global/vendor/select2/select2.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/sweetalert.css')}}">
-  <link rel="stylesheet" href="../../../global/vendor/morris/morris.css">
-  <link rel="stylesheet" href="../../assets/examples/css/advanced/rating.css">
+  <link rel="stylesheet" href="{{asset('global/vendor/morris/morris.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/examples/css/advanced/rating.css')}}">
   <style type="text/css">
     textarea {
       resize: none;
@@ -60,14 +61,14 @@
   </style>
   @endif
   <!--[if lt IE 9]>
-    <script src="../../global/vendor/html5shiv/html5shiv.min.js"></script>
+    <script src="{{asset('global/vendor/html5shiv/html5shiv.min.js')}}"></script>
     <![endif]-->
   <!--[if lt IE 10]>
-    <script src="../../global/vendor/media-match/media.match.min.js"></script>
-    <script src="../../global/vendor/respond/respond.min.js"></script>
+    <script src="{{asset('global/vendor/media-match/media.match.min.js"')}}></script>
+    <script src="{{asset('global/vendor/respond/respond.min.js')}}"></script>
     <![endif]-->
     <!-- Scripts -->
-    <script src="../../global/vendor/breakpoints/breakpoints.js"></script>
+    <script src="{{asset('global/vendor/breakpoints/breakpoints.js')}}"></script>
     <script>
       Breakpoints();
     </script>
@@ -122,7 +123,7 @@
           <i class="icon wb-more-horizontal" aria-hidden="true"></i>
         </button>
         <div class="navbar-brand navbar-brand-center site-gridmenu-toggle" data-toggle="gridmenu">
-          <img class="navbar-brand-logo" src="../assets/images/logo.png" title="Remark">
+          <img class="navbar-brand-logo" src="{{asset('assets/images/logo.png')}}" title="Remark">
           <span class="navbar-brand-text hidden-xs-down"> HCMatrix</span>
         </div>
         <button type="button" class="navbar-toggler collapsed" data-target="#site-navbar-search"
@@ -207,7 +208,7 @@
                 <a class="nav-link navbar-avatar" data-toggle="dropdown" href="#" aria-expanded="false"
                 data-animation="scale-up" role="button">
                 <span class="avatar avatar-online">
-                  <img src="../../global/portraits/5.jpg" alt="...">
+                  <img src="{{asset('global/portraits/5.jpg')}}"> alt="...">
                   <i></i>
                 </span>
               </a>
@@ -276,53 +277,53 @@
         </div>
       </footer>
       <!-- Core  -->
-      <script src="../../global/vendor/babel-external-helpers/babel-external-helpers.js"></script>
-      <script src="../../global/vendor/jquery/jquery.js"></script>
-      <script src="../../global/vendor/tether/tether.js"></script>
-      <script src="../../global/vendor/bootstrap/bootstrap.js"></script>
-      <script src="../../global/vendor/animsition/animsition.js"></script>
-      <script src="../../global/vendor/mousewheel/jquery.mousewheel.js"></script>
-      <script src="../../global/vendor/asscrollbar/jquery-asScrollbar.js"></script>
-      <script src="../../global/vendor/asscrollable/jquery-asScrollable.js"></script>
-      <script src="../../global/vendor/ashoverscroll/jquery-asHoverScroll.js"></script>
+      <script src="{{asset('global/vendor/babel-external-helpers/babel-external-helpers.js')}}"></script>
+      <script src="{{asset('global/vendor/jquery/jquery.js')}}"></script>
+      <script src="{{asset('global/vendor/tether/tether.js')}}"></script>
+      <script src="{{asset('global/vendor/bootstrap/bootstrap.js')}}"></script>
+      <script src="{{asset('global/vendor/animsition/animsition.js')}}"></script>
+      <script src="{{asset('global/vendor/mousewheel/jquery.mousewheel.js')}}"></script>
+      <script src="{{asset('global/vendor/asscrollbar/jquery-asScrollbar.js')}}"></script>
+      <script src="{{asset('global/vendor/asscrollable/jquery-asScrollable.js')}}"></script>
+      <script src="{{asset('global/vendor/ashoverscroll/jquery-asHoverScroll.js')}}"></script>
       <!-- Plugins -->
-      <script src="../../global/vendor/switchery/switchery.min.js"></script>
-      <script src="../../global/vendor/intro-js/intro.js"></script>
-      <script src="../../global/vendor/screenfull/screenfull.js"></script>
-      <script src="../../global/vendor/slidepanel/jquery-slidePanel.js"></script>
-      <script src="../../global/vendor/skycons/skycons.js"></script>
+      <script src="{{asset('global/vendor/switchery/switchery.min.js')}}"></script>
+      <script src="{{asset('global/vendor/intro-js/intro.js')}}"></script>
+      <script src="{{asset('global/vendor/screenfull/screenfull.js')}}"></script>
+      <script src="{{asset('global/vendor/slidepanel/jquery-slidePanel.js')}}"></script>
+      <script src="{{asset('global/vendor/skycons/skycons.js')}}"></script>
       <script src="{{asset('assets/js/sweetalert.min.js')}}"></script>
-  <!--<script src="../../global/vendor/chartist/chartist.min.js"></script>
-  <script src="../../global/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.min.js"></script>-->
-  <script src="../../global/vendor/aspieprogress/jquery-asPieProgress.min.js"></script>
-  <script src="../../global/vendor/jvectormap/jquery-jvectormap.min.js"></script>
-  <script src="../../global/vendor/jvectormap/maps/jquery-jvectormap-au-mill-en.js"></script>
-  <script src="../../global/vendor/matchheight/jquery.matchHeight-min.js"></script>
+  <!--<script src="{{asset('global/vendor/chartist/chartist.min.js')}}"></script>
+  <script src="{{asset('global/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.min.js')}}"></script>-->
+  <script src="{{asset('global/vendor/aspieprogress/jquery-asPieProgress.min.js')}}"></script>
+  <script src="{{asset('global/vendor/jvectormap/jquery-jvectormap.min.js')}}"></script>
+  <script src="{{asset('global/vendor/jvectormap/maps/jquery-jvectormap-au-mill-en.js')}}"></script>
+  <script src="{{asset('global/vendor/matchheight/jquery.matchHeight-min.js')}}"></script>
   <!-- Scripts -->
-  <script src="../../global/js/State.js"></script>
-  <script src="../../global/js/Component.js"></script>
-  <script src="../../global/js/Plugin.js"></script>
-  <script src="../../global/js/Base.js"></script>
-  <script src="../../global/js/Config.js"></script>
-  <script src="../assets/js/Section/Menubar.js"></script>
-  <script src="../assets/js/Section/GridMenu.js"></script>
-  <script src="../assets/js/Section/Sidebar.js"></script>
-  <script src="../assets/js/Section/PageAside.js"></script>
-  <script src="../assets/js/Plugin/menu.js"></script>
-  <script src="../../global/js/config/colors.js"></script>
-  <script src="../assets/js/config/tour.js"></script>
+  <script src="{{asset('global/js/State.js')}}"></script>
+  <script src="{{asset('global/js/Component.js')}}"></script>
+  <script src="{{asset('global/js/Plugin.js')}}"></script>
+  <script src="{{asset('global/js/Base.js')}}"></script>
+  <script src="{{asset('global/js/Config.js')}}"></script>
+  <script src="{{asset('assets/js/Section/Menubar.js')}}"></script>
+  <script src="{{asset('assets/js/Section/GridMenu.js')}}"></script>
+  <script src="{{asset('assets/js/Section/Sidebar.js')}}"></script>
+  <script src="{{asset('assets/js/Section/PageAside.js')}}"></script>
+  <script src="{{asset('assets/js/Plugin/menu.js')}}"></script>
+  <script src="{{asset('global/js/config/colors.js')}}"></script>
+  <script src="{{asset('assets/js/config/tour.js')}}"></script>
   <script>
-    Config.set('assets', '../assets');
+    Config.set('assets', 'assets');
   </script>
   <!-- Page -->
-  <script src="../assets/js/Site.js"></script>
-  <script src="../../global/js/Plugin/asscrollable.js"></script>
-  <script src="../../global/js/Plugin/slidepanel.js"></script>
-  <script src="../../global/js/Plugin/switchery.js"></script>
-  <script src="../../global/js/Plugin/matchheight.js"></script>
-  <script src="../../global/js/Plugin/dropify.min.js"></script>
-  <script src="../../global/js/Plugin/jvectormap.js"></script>
-  <script src="../assets/examples/js/dashboard/v1.js"></script>
+  <script src="{{asset('assets/js/Site.js')}}"></script>
+  <script src="{{asset('global/js/Plugin/asscrollable.js')}}"></script>
+  <script src="{{asset('global/js/Plugin/slidepanel.js')}}"></script>
+  <script src="{{asset('global/js/Plugin/switchery.js')}}"></script>
+  <script src="{{asset('global/js/Plugin/matchheight.js')}}"></script>
+  <script src="{{asset('global/js/Plugin/dropify.min.js')}}"></script>
+  <script src="{{asset('global/js/Plugin/jvectormap.js')}}"></script>
+  <script src="{{asset('assets/examples/js/dashboard/v1.js')}}"></script>
   <script>
  function setfy(){
 
@@ -348,62 +349,64 @@
 
   @if(active(session('locale').'/employee/objective'))
   <script type="text/javascript" src="{{asset('assets/js/App/Documents.js')}}"></script>
-  <script src="../../../global/vendor/jquery-appear/jquery.appear.js"></script>
-  <script src="../../../global/js/Plugin/jquery-appear.js"></script>
-  <script src="../../../global/js/Plugin/loading-button.js"></script>
-  <script src="../../../global/js/Plugin/more-button.js"></script>
-  <script src="../../../global/vendor/ladda/spin.min.js"></script>
-  <script src="../../../global/vendor/ladda/ladda.min.js"></script>
-  <script src="../../../global/js/Plugin/ladda.js"></script>
-  <script src="../../../global/js/Plugin/peity.js"></script>
-  <script src="../../assets/examples/js/tables/jqtabledit.js"></script>
+  <script src="{{asset('global/vendor/jquery-appear/jquery.appear.js')}}"></script>
+  <script src="{{asset('global/js/Plugin/jquery-appear.js')}}"></script>
+  <script src="{{asset('global/js/Plugin/loading-button.js')}}"></script>
+  <script src="{{asset('global/js/Plugin/more-button.js')}}"></script>
+  <script src="{{asset('global/vendor/ladda/spin.min.js')}}"></script>
+  <script src="{{asset('global/vendor/ladda/ladda.min.js')}}"></script>
+  <script src="{{asset('global/js/Plugin/ladda.js')}}"></script>
+  <script src="{{asset('global/js/Plugin/peity.js')}}"></script>
+  <script src="{{asset('assets/examples/js/tables/jqtabledit.js')}}"></script>
   @elseif(active(session('locale').'/lm/objectives_c'))
-  <script src="../../../../global/js/Plugin/tablesaw.js"></script>
-  <script src="../../../../global/js/Plugin/sticky-header.js"></script>
-  <script src="../../../../global/js/Plugin/action-btn.js"></script>
-  <script src="../../../../global/js/Plugin/asselectable.js"></script>
-  <script src="../../../../global/js/Plugin/editlist.js"></script>
-  <script src="../../../../global/js/Plugin/aspaginator.js"></script>
-  <script src="../../../../global/js/Plugin/animate-list.js"></script>
-  <script src="../../../../global/js/Plugin/jquery-placeholder.js"></script>
-  <script src="../../../../global/js/Plugin/material.js"></script>
-  <script src="../../../../global/js/Plugin/selectable.js"></script>
-  <script src="../../../../global/js/Plugin/bootbox.js"></script>
-  <script src="../../../assets/js/BaseApp.js"></script>
-  <script src="../../../assets/js/App/Contacts.js"></script>
-  <script src="../../../assets/examples/js/apps/contacts.js"></script>
-  <script src="../../../global/vendor/toastr/toastr.js"></script>
-  <script src="../../../global/js/Plugin/toastr.js"></script>
+  <script src="{{asset('global/js/Plugin/tablesaw.js')}}"></script>
+  <script src="{{asset('global/js/Plugin/sticky-header.js')}}"></script>
+  <script src="{{asset('global/js/Plugin/action-btn.js')}}"></script>
+  <script src="{{asset('global/js/Plugin/asselectable.js')}}"></script>
+  <script src="{{asset('global/js/Plugin/editlist.js')}}"></script>
+  <script src="{{asset('global/js/Plugin/aspaginator.js')}}"></script>
+  <script src="{{asset('global/js/Plugin/animate-list.js')}}"></script>
+  <script src="{{asset('global/js/Plugin/jquery-placeholder.js')}}"></script>
+  <script src="{{asset('global/js/Plugin/material.js')}}"></script>
+  <script src="{{asset('global/js/Plugin/selectable.js')}}"></script>
+  <script src="{{asset('global/js/Plugin/bootbox.js')}}"></script>
+  <script src="{{asset('assets/js/BaseApp.js')}}"></script>
+  <script src="{{asset('assets/js/App/Contacts.js')}}"></script>
+  <script src="{{asset('assets/examples/js/apps/contacts.js')}}"></script>
+  <script src="{{asset('global/vendor/toastr/toastr.js')}}"></script>
+  <script src="{{asset('global/js/Plugin/toastr.js')}}"></script>
   <script src="{{asset('assets/js/lmemps.js')}}"></script>
   @elseif(active(['lm/objectives_a']))
-  <script src="../../../global/vendor/editable-table/mindmup-editabletable.js"></script>
-  <script src="../../../global/vendor/editable-table/numeric-input-example.js"></script>
-  <script src="../../../global/js/Plugin/editable-table.js"></script>
-  <script src="../../assets/examples/js/tables/editable.js"></script>
-  <script src="../../../global/vendor/summernote/summernote.min.js"></script>
-  <script src="../../../global/js/Plugin/summernote.js"></script>
-  <script src="../../assets/examples/js/forms/editor-summernote.js"></script>
-  <script src="../../../global/vendor/select2/select2.full.min.js"></script>
-  <script src="../../../global/js/Plugin/select2.js"></script>
-  <script src="../../../global/vendor/jquery-appear/jquery.appear.js"></script>
-  <script src="../../../global/js/Plugin/jquery-appear.js"></script>
+  <script src="{{asset('global/vendor/editable-table/mindmup-editabletable.js')}}"></script>
+  <script src="{{asset('global/vendor/editable-table/numeric-input-example.js')}}"></script>
+  <script src="{{asset('global/js/Plugin/editable-table.js')}}"></script>
+  <script src="{{asset('assets/examples/js/tables/editable.js')}}"></script>
+  <script src="{{asset('global/vendor/summernote/summernote.min.js')}}"></script>
+  <script src="{{asset('global/js/Plugin/summernote.js')}}"></script>
+  <script src="{{asset('assets/examples/js/forms/editor-summernote.js')}}"></script>
+  <script src="{{asset('global/vendor/select2/select2.full.min.js')}}"></script>
+  <script src="{{asset('global/js/Plugin/select2.js')}}"></script>
+  <script src="{{asset('global/vendor/jquery-appear/jquery.appear.js')}}"></script>
+  <script src="{{asset('global/js/Plugin/jquery-appear.js')}}"></script>
   <style type="text/css">
     .hide {
       display: none;
     }
   </style>
   @elseif(active(session('locale').'/lm/rate'))
-  <script src="../../../global/vendor/select2/select2.full.min.js"></script>
-  <script src="../../../global/js/Plugin/select2.js"></script>
+  <script src="{{asset('global/vendor/select2/select2.full.min.js')}}"></script>
+  <script src="{{asset('global/js/Plugin/select2.js')}}"></script>
    <script src="{{asset('assets/js/nprogress.js')}}"></script>
   <script src="{{asset('assets/js/sweetalert.min.js')}}"></script>
-  <script src="../../../global/vendor/raphael/raphael-min.js"></script>
-  <script src="../../../global/vendor/morris/morris.min.js"></script>
-  <script src="../../assets/examples/js/charts/morris.js"></script>
-  <script src="../../../global/vendor/raty/jquery.raty.js"></script>
-  <!--<script src="../../../global/js/Plugin/raty.js"></script>-->
+  <script src="{{asset('global/vendor/raphael/raphael-min.js')}}"></script>
+  <script src="{{asset('global/vendor/morris/morris.min.js')}}"></script>
+  <script src="{{asset('assets/examples/js/charts/morris.js')}}"></script>
+  <script src="{{asset('global/vendor/raty/jquery.raty.js')}}"></script>
+  <!--<script src="{{asset('global/js/Plugin/raty.js')}}"></script>-->
   <script src="{{asset('assets/js/myrate.js')}}"></script>
-  @endif
+   @endif
+   <script src="{{asset('js/pace.js')}}"></script>
+ 
   	<script>
 	$(function(){
 			
